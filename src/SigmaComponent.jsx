@@ -14,8 +14,13 @@ export default class SigmaComponent extends Component {
 
     return (
       <div>
-        <Sigma renderer="webgl" onClickNode={ e => this.setState({selectedNode: e.data.node.id}) } onClickStage={ e => this.setState({selectedNode: null}) }>
-          <LoadJSON path={"/hansa.json"}>
+        <Sigma
+          renderer="webgl"
+          onClickNode={ e => this.setState({selectedNode: e.data.node.id}) }
+          onClickStage={ e => this.setState({selectedNode: null}) }
+          style={{minHeight: '100%', height: '100%', width: '100%'}}
+        >
+          <LoadJSON path={this.props.appState.selectedNetwork.url}>
             <RandomizeNodePositions>
               <Filter neighborsOf={ this.state.selectedNode } />
               <ForceAtlas2 barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>

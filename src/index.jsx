@@ -5,6 +5,8 @@ import AppState from './AppState';
 import App from './App';
 
 const appState = new AppState();
+appState.createNetwork("/hansa_2016-09.json");
+appState.createNetwork("/hansa_2016-10.json");
 
 render(
   <AppContainer>
