@@ -1,4 +1,4 @@
- ![Screenshot](alx.github.com/parasol/documentation/Parasol_screenshot_20170327.png)
+ ![Screenshot](documentation/Parasol_screenshot_20170327.png)
 
 parasol
 =======
