@@ -5,25 +5,33 @@ import AppState from './AppState';
 import App from './App';
 
 const appState = new AppState();
-appState.createNetwork("/hansa_2016-09.json");
-appState.createNetwork("/hansa_2016-10.json");
 
-render(
-  <AppContainer>
-    <App appState={appState} />
-  </AppContainer>,
-  document.getElementById('root')
-);
+fetch('settings.json').then( response => {
 
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
+  return response.json();
 
-    render(
-      <AppContainer>
-        <NextApp appState={appState} />
-      </AppContainer>,
-      document.getElementById('root')
-    );
-  });
-}
+}).then( json => {
+
+  appState.initSettings(json);
+
+  render(
+    <AppContainer>
+      <App appState={appState} />
+    </AppContainer>,
+    document.getElementById('root')
+  );
+
+  if (module.hot) {
+    module.hot.accept('./App', () => {
+      const NextApp = require('./App').default;
+
+      render(
+        <AppContainer>
+          <NextApp appState={appState} />
+        </AppContainer>,
+        document.getElementById('root')
+      );
+    });
+  }
+
+});

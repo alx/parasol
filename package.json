@@ -1,6 +1,6 @@
 {
   "name": "parasol",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A network graph exploration tool",
   "scripts": {
     "start": "NODE_ENV=local node server.js",
