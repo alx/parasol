@@ -45,13 +45,13 @@ export default class SigmaComponent extends Component {
           onClickStage={ this.hideInfoBox }
           style={styles.sigma}
         >
-          <SigmaLoader graph={mobx.toJS(appState.selectedNetwork.graph)}>
+          <LoadJSON path={appState.selectedNetwork.url}>
             <RandomizeNodePositions>
               <Filter neighborsOf={ appState.graph.isFiltered ? appState.graph.selectedNode : null } />
               <ForceAtlas2 barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>
               <RelativeSize initialSize={15}/>
             </RandomizeNodePositions>
-          </SigmaLoader>
+          </LoadJSON>
         </Sigma>
       </div>
     );
