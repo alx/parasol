@@ -1,3 +1,20 @@
 {
-  "networks": ["/hansa_2016-09.json", "/hansa_2016-10.json"]
+  "networks": [
+    {
+      "url": "json/hansa_2016-09.json",
+      "name": "Hansa 2016/09",
+      "options": {
+        "randomizeNodePosition": true,
+        "startForce": true
+      }
+    },
+    {
+      "url": "json/hansa_2016-10.json",
+      "name": "Hansa 2016/10",
+      "options": {
+        "randomizeNodePosition": true,
+        "startForce": true
+      }
+    }
+  ]
 }

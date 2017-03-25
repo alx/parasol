@@ -15,6 +15,12 @@ class AppState {
     leftDrawer: true,
     rightDrawer: false,
     renderer: 'webgl',
+    filters: {
+      nodeSize: 0,
+      edgeSize: 0,
+      maxNodeSize: 1,
+      maxEdgeSize: 1,
+    },
   };
 
   constructor() {
@@ -43,25 +49,26 @@ class AppState {
                  .forEach( network => network.selected = false );
   }
 
-  createNetwork(network_url, callback) {
+  createNetwork(network, callback) {
 
     this.clearSelectedNetwork();
 
     this.networks.push({
-      url: network_url,
-      name: network_url.split('/').pop(),
+      url: network.url,
+      name: network.name || network.url.split('/').pop(),
       timestamp: moment(),
       selected: true,
-      graph: null
+      graph: null,
+      options: network.options,
     });
 
-    fetch(network_url).then( (response) => {
+    fetch(network.url).then( (response) => {
 
       return response.json()
 
     }).then( (json) => {
 
-      this.networks.find( network => network.url == network_url).graph = json;
+      this.networks.find( n => n.url == network.url).graph = json;
 
       callback(this.networks[this.networks.length - 1]);
 
@@ -71,7 +78,20 @@ class AppState {
 
   selectNetwork(network_index) {
     this.clearSelectedNetwork();
-    this.networks[network_index].selected = true;
+
+    const network = this.networks[network_index];
+    network.selected = true;
+
+    this.ui.filters.nodeSize = 0;
+    this.ui.filters.edgeSize = 0;
+    this.ui.filters.maxNodeSize = 1;
+    this.ui.filters.maxEdgeSize = 1;
+
+    if(network.graph && typeof(network.graph) !== 'undefined') {
+      this.ui.filters.maxNodeSize = Math.max.apply(Array, network.graph.nodes.map( node => node.size ));
+      this.ui.filters.maxEdgeSize = Math.max.apply(Array, network.graph.edges.map( edge => edge.size ));
+    }
+
     this.selectedNetworkIndex = this.networks.map( network => network.selected ).indexOf(true);
   }
 
@@ -102,6 +122,10 @@ class AppState {
 
   hideRightDrawer() {
     this.ui.rightDrawer = false;
+  }
+
+  setFilter(filter, value) {
+    this.ui.filters[filter] = value;
   }
 }
 

@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import moment from 'moment';
+import {debounce} from 'throttle-debounce';
+
+import Legend from './Legend';
 
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
@@ -13,6 +16,7 @@ import Toggle from 'material-ui/Toggle';
 import FlatButton from 'material-ui/FlatButton';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
+import Slider from 'material-ui/Slider';
 
 import ActionAllOut from 'material-ui/svg-icons/action/all-out';
 import ActionAspectRatio from 'material-ui/svg-icons/action/aspect-ratio';
@@ -93,14 +97,21 @@ export default class Controls extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      nodeSize: props.appState.ui.filters.nodeSize,
+      edgeSize: props.appState.ui.filters.nodeSize,
+    };
     this.createNetwork = this.createNetwork.bind(this);
     this.selectNetwork = this.selectNetwork.bind(this);
     this.toggleDrawer = this.toggleDrawer.bind(this);
+    this.callFilter = debounce(500, this.callFilter);
+    this.handleNodeFilterSlider = this.handleNodeFilterSlider.bind(this);
+    this.handleEdgeFilterSlider = this.handleEdgeFilterSlider.bind(this);
   }
 
   createNetwork(e) {
     if (e.keyCode==13){
-      this.props.appState.createNetwork(e.target.value);
+      this.props.appState.createNetwork({url: e.target.value});
       e.target.value = "";
     }
   }
@@ -113,9 +124,32 @@ export default class Controls extends Component {
     this.props.appState.toggleLeftDrawer();
   }
 
+  callFilter = (filter, value) => {
+    this.props.appState.setFilter(filter, value);
+  }
+
+  handleNodeFilterSlider = (event, value) => {
+    this.setState({nodeSize: value});
+    this.callFilter('nodeSize', value);
+  }
+
+  handleEdgeFilterSlider = (event, value) => {
+    this.setState({edgeSize: value});
+    this.callFilter('edgeSize', value);
+  }
+
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      nodeSize: props.appState.ui.filters.nodeSize,
+      edgeSize: props.appState.ui.filters.nodeSize,
+    });
+  }
+
   render() {
 
     const appState = this.props.appState;
+
 
     //<ListItem
     //  primaryText="Settings"
@@ -179,44 +213,40 @@ export default class Controls extends Component {
               })
             }
           </SelectableList>
+
           <Divider/>
-          <List>
-            <ListItem
-              primaryText="Legend"
-              primaryTogglesNestedList={true}
-              initiallyOpen={true}
-              nestedItems={[
-                <ListItem
-                  key={1}
-                  disabled={true}
-                  leftAvatar={
-                    <Avatar
-                      size={30}
-                      backgroundColor={amber500}
-                    >
-                      V
-                    </Avatar>
-                    }
-                  >
-                    Vendors
-                </ListItem>,
-                <ListItem
-                  key={2}
-                  disabled={true}
-                  leftAvatar={
-                    <Avatar
-                      size={30}
-                      backgroundColor={teal500}
-                    >
-                      C
-                    </Avatar>
-                    }
-                  >
-                    Clients
-                </ListItem>
-              ]}
-            />
-          </List>
+
+          <ListItem
+            primaryText="Settings"
+            primaryTogglesNestedList={true}
+            initiallyOpen={true}
+            nestedItems={[
+              <ListItem key='settings-node' primaryText={"Node Filter - " + this.state.nodeSize} />,
+              <ListItem key='settings-node-slider' primaryText={<Slider
+                  min={0}
+                  max={appState.ui.filters.maxNodeSize}
+                  step={1}
+                  defaultValue={0}
+                  value={this.state.nodeSize}
+                  onChange={this.handleNodeFilterSlider}
+                />}
+              />,
+              <ListItem key='settings-edge' primaryText={"Node Filter - " + this.state.edgeSize} />,
+              <ListItem key='settings-edge-slider' primaryText={<Slider
+                  min={0}
+                  max={appState.ui.filters.maxEdgeSize}
+                  step={1}
+                  defaultValue={0}
+                  value={this.state.edgeSize}
+                  onChange={this.handleEdgeFilterSlider}
+                />}
+              />,
+            ]}
+          />
+
+          <Divider/>
+
+          <Legend network={appState.selectedNetwork}/>
         </Drawer>
       </div>
     );
