@@ -1,7 +1,7 @@
 {
   "networks": [
     {
-      "url": "arctic.json",
+      "url": "json/arctic.json",
       "name": "arctic",
       "options": {
         "randomizeNodePosition": false,
@@ -9,7 +9,7 @@
       }
     },
     {
-      "url": "tsne.json",
+      "url": "json/tsne.json",
       "name": "TSNE",
       "options": {
         "randomizeNodePosition": false,
@@ -17,7 +17,7 @@
       }
     },
     {
-      "url": "/hansa_2016-09.json",
+      "url": "json/hansa_2016-09.json",
       "name": "Hansa 2016/09",
       "options": {
         "randomizeNodePosition": true,
@@ -25,7 +25,7 @@
       }
     },
     {
-      "url": "/hansa_2016-10.json",
+      "url": "json/hansa_2016-10.json",
       "name": "Hansa 2016/10",
       "options": {
         "randomizeNodePosition": true,
