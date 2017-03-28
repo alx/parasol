@@ -216,36 +216,6 @@ export default class Controls extends Component {
 
           <Divider/>
 
-          <ListItem
-            primaryText="Settings"
-            primaryTogglesNestedList={true}
-            initiallyOpen={true}
-            nestedItems={[
-              <ListItem key='settings-node' primaryText={"Node Filter - " + this.state.nodeSize} />,
-              <ListItem key='settings-node-slider' primaryText={<Slider
-                  min={0}
-                  max={appState.ui.filters.maxNodeSize}
-                  step={1}
-                  defaultValue={0}
-                  value={this.state.nodeSize}
-                  onChange={this.handleNodeFilterSlider}
-                />}
-              />,
-              <ListItem key='settings-edge' primaryText={"Node Filter - " + this.state.edgeSize} />,
-              <ListItem key='settings-edge-slider' primaryText={<Slider
-                  min={0}
-                  max={appState.ui.filters.maxEdgeSize}
-                  step={1}
-                  defaultValue={0}
-                  value={this.state.edgeSize}
-                  onChange={this.handleEdgeFilterSlider}
-                />}
-              />,
-            ]}
-          />
-
-          <Divider/>
-
           <Legend network={appState.selectedNetwork}/>
         </Drawer>
       </div>
