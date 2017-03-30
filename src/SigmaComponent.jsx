@@ -8,7 +8,6 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 import SigmaLoader from './Sigma/Loader';
-import SigmaPluginsContainer from './Sigma/PluginsContainer';
 
 @observer
 export default class SigmaComponent extends Component {
@@ -84,9 +83,7 @@ export default class SigmaComponent extends Component {
     }
 
     if(network.options.randomizeNodePosition) {
-      sigmaPlugins = <RandomizeNodePositions key={moment(network.timestamp).valueOf()}>{sigmaPlugins}</RandomizeNodePositions>
-    } else {
-      sigmaPlugins = <SigmaPluginsContainer key={moment(network.timestamp).valueOf()}>{sigmaPlugins}</SigmaPluginsContainer>
+      sigmaPlugins = <RandomizeNodePositions>{sigmaPlugins}</RandomizeNodePositions>
     }
 
     return (
@@ -96,6 +93,7 @@ export default class SigmaComponent extends Component {
           onClickNode={ this.displayInfoBox }
           onClickStage={ this.hideInfoBox }
           style={styles.sigma}
+          settings={{clone: false}}
         >
           <SigmaLoader graph={network.graph}>{sigmaPlugins}</SigmaLoader>
         </Sigma>
