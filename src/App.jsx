@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
-import Controls from './Controls';
-import InfoBox from './InfoBox';
+import LeftDrawer from './LeftDrawer';
+import RightDrawer from './RightDrawer';
 import SigmaComponent from './SigmaComponent';
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
@@ -15,9 +15,9 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div>
-          <Controls appState={this.props.appState}/>
+          <LeftDrawer appState={this.props.appState}/>
           <SigmaComponent appState={this.props.appState}/>
-          <InfoBox appState={this.props.appState}/>
+          <RightDrawer appState={this.props.appState}/>
         </div>
       </MuiThemeProvider>
     );

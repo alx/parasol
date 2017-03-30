@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import mobx from 'mobx';
+import moment from 'moment';
 import { Sigma, LoadJSON, Filter, ForceAtlas2, ForceLink, RelativeSize, RandomizeNodePositions } from 'react-sigma';
 
-import moment from 'moment';
-
-import SigmaLoader from './SigmaLoader';
-import SigmaPluginsContainer from './SigmaPluginsContainer';
+import SigmaLoader from './Sigma/Loader';
+import SigmaPluginsContainer from './Sigma/PluginsContainer';
 
 @observer
 export default class SigmaComponent extends Component {

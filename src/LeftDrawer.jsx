@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import moment from 'moment';
 import {debounce} from 'throttle-debounce';
 
-import Legend from './Legend';
+import Legend from './LeftDrawer/Legend';
 
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
@@ -93,7 +93,7 @@ function wrapState(ComposedComponent) {
 SelectableList = wrapState(SelectableList);
 
 @observer
-export default class Controls extends Component {
+export default class LeftDrawer extends Component {
 
   constructor(props) {
     super(props)
