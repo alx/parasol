@@ -1,3 +1,6 @@
+ ![Screenshot](documentation/Parasol_screenshot_20170330.png)
+ ![Screenshot](documentation/Parasol_screenshot_20170331.png)
+ ![Screenshot](documentation/Parasol_screenshot_20170328.png)
  ![Screenshot](documentation/Parasol_screenshot_20170327.png)
 
 parasol
