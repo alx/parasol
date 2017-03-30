@@ -13,6 +13,36 @@ npm start
 open http://localhost:8095
 ```
 
+### settings.json
+
+When opening the project webpage, it loads `settings.json` file that contains
+specific settings for network to pre-load and general user interface.
+
+```
+{
+  "networks": [
+    {
+      "url": "json/tsne.json",
+      "name": "TSNE",
+      "options": {
+        "relativeSize": true
+      }
+    },
+    ...
+  ]
+}
+```
+
+* `networks` array : list of networks to pre-load inside parasol
+* `network` object :
+  * `url` : url of the file containing the network graph
+  * `name` : name of the network to display in parasol UI
+  * `options` object : various plugins to load for this specific network
+    * `relativeSize` : sets nodes sizes corresponding its degree
+    * `randomizeNodePosition` : sets random positions to all nodes
+    * `startForce` : run ForceAtlas2 layout once the graph is loaded, allows to move randomized nodes to its nearest neighbor
+
+
 ### Credits
 
 * [sigma](http://sigmajs.org/) for the visualisation tool

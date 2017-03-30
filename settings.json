@@ -4,10 +4,7 @@
       "url": "json/tsne.json",
       "name": "TSNE",
       "options": {
-        "filters": false,
-        "randomizeNodePosition": false,
-        "relativeSize": true,
-        "startForce": false
+        "relativeSize": true
       }
     },
     {
