@@ -28,6 +28,8 @@ export default class Legend extends React.Component {
         return node.category;
       }).filter( (category, index, self) => {
         return self.indexOf(category) === index;
+      }).filter( category => {
+        return typeof(category) != 'undefined' && category.length > 0;
       }).map( (category, index) => {
         return <ListItem
             key={index}
