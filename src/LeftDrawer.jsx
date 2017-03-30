@@ -37,12 +37,17 @@ injectTapEventPlugin();
 
 const styles = {
   logo: {
+    backgroundColor: cyan500,
+  },
+  logoTitle: {
     fontSize: 24,
     color: typography.textFullWhite,
     fontWeight: typography.fontWeightLight,
-    backgroundColor: cyan500,
+    marginLeft: 50,
   },
   drawerToggle: {
+    position: 'absolute',
+    top: 10,
     width: 40,
     height: 40,
     padding: 5,
@@ -175,7 +180,7 @@ export default class LeftDrawer extends Component {
         <Drawer open={this.props.appState.ui.leftDrawer}>
           <AppBar
             style={styles.logo}
-            titleStyle={styles.logo}
+            titleStyle={styles.logoTitle}
             title="Parasol"
             iconElementLeft={<IconButton
               onTouchTap={this.toggleDrawer}

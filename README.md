@@ -29,7 +29,10 @@ specific settings for network to pre-load and general user interface.
       }
     },
     ...
-  ]
+  ],
+  "ui": {
+    "muiTheme": "dark"
+  }
 }
 ```
 
@@ -41,6 +44,8 @@ specific settings for network to pre-load and general user interface.
     * `relativeSize` : sets nodes sizes corresponding its degree
     * `randomizeNodePosition` : sets random positions to all nodes
     * `startForce` : run ForceAtlas2 layout once the graph is loaded, allows to move randomized nodes to its nearest neighbor
+* `ui` object :
+  * `muiTheme` : general theme setting, can be `light` or `dark`
 
 
 ### Credits

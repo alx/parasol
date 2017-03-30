@@ -15,5 +15,8 @@
         "startForce": true
       }
     }
-  ]
+  ],
+  "ui": {
+    "muiTheme": "light"
+  }
 }

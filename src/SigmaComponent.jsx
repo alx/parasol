@@ -4,6 +4,9 @@ import mobx from 'mobx';
 import moment from 'moment';
 import { Sigma, LoadJSON, Filter, ForceAtlas2, ForceLink, RelativeSize, RandomizeNodePositions } from 'react-sigma';
 
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+
 import SigmaLoader from './Sigma/Loader';
 import SigmaPluginsContainer from './Sigma/PluginsContainer';
 
@@ -38,16 +41,32 @@ export default class SigmaComponent extends Component {
     const appState = this.props.appState;
     const network = appState.selectedNetwork;
 
+    if(!network || !network.url)
+      return null;
+
+    let backgroundColor = lightBaseTheme.palette.canvasColor;
+    if(appState.ui.muiTheme) {
+
+      switch(appState.ui.muiTheme) {
+        case 'light':
+          backgroundColor = lightBaseTheme.palette.canvasColor;
+          break;
+        case 'dark':
+          backgroundColor = darkBaseTheme.palette.canvasColor;
+          break;
+      }
+
+    }
+
     const styles = {
       sigma: {
         minHeight: '100%',
         height: '100%',
         width: '100%',
+        background: backgroundColor,
       }
     };
 
-    if(!network || !network.url)
-      return null;
 
     let sigmaPlugins = [];
 

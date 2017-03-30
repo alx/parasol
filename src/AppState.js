@@ -34,6 +34,10 @@ class AppState {
       });
     }
 
+    if(settings.ui) {
+      this.ui = Object.assign(this.ui, settings.ui);
+    }
+
   }
 
   /*
