@@ -25,12 +25,7 @@ import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 import {spacing, typography} from 'material-ui/styles';
-import {
-  teal500,
-  amber500,
-  cyan700,
-  cyan500,
-} from 'material-ui/styles/colors';
+import { cyan500 } from 'material-ui/styles/colors';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -221,7 +216,7 @@ export default class LeftDrawer extends Component {
 
           <Divider/>
 
-          <Legend network={appState.selectedNetwork}/>
+          <Legend network={appState.selectedNetwork} colors={appState.ui.colors.nodes} />
         </Drawer>
       </div>
     );

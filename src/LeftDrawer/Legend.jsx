@@ -3,14 +3,6 @@ import React from 'react';
 import Avatar from 'material-ui/Avatar';
 import {List, ListItem } from 'material-ui/List';
 
-import {
-  teal500,
-  amber500,
-  cyan500,
-} from 'material-ui/styles/colors';
-
-const COLORS = [teal500, amber500, cyan500];
-
 export default class Legend extends React.Component {
 
   constructor(props) {
@@ -20,6 +12,7 @@ export default class Legend extends React.Component {
   render() {
 
     const network = this.props.network;
+    const colors = this.props.colors;
 
     if(!network || !network.graph)
       return null
@@ -34,7 +27,7 @@ export default class Legend extends React.Component {
         return <ListItem
             key={index}
             disabled={true}
-            leftAvatar={<Avatar size={30} backgroundColor={COLORS[index]}/>}
+            leftAvatar={<Avatar size={30} backgroundColor={colors[index]}/>}
           >{category}</ListItem>;
       });
 

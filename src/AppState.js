@@ -1,6 +1,20 @@
 import { computed, observable } from 'mobx';
 import moment from 'moment';
 
+import {
+  cyan500,
+  deepOrange500,
+  deepPurple500,
+  pink500,
+  green500,
+  amber500,
+  brown500,
+  grey500,
+  grey50,
+  blueGrey100,
+  blueGrey800,
+} from 'material-ui/styles/colors';
+
 class AppState {
 
   @observable networks = [];
@@ -21,6 +35,21 @@ class AppState {
       maxNodeSize: 1,
       maxEdgeSize: 1,
     },
+    muiTheme: 'dark',
+    colors: {
+      nodes: [
+        cyan500,
+        deepOrange500,
+        deepPurple500,
+        pink500,
+        green500,
+        amber500,
+        brown500,
+        grey500,
+      ],
+      selectedNode: grey50,
+      edge: blueGrey100,
+    }
   };
 
   constructor() {
@@ -36,6 +65,12 @@ class AppState {
 
     if(settings.ui) {
       this.ui = Object.assign(this.ui, settings.ui);
+
+      if(this.ui.muiTheme == 'dark' &&
+         (typeof(settings.ui.colors) == 'undefined' ||
+         typeof(settings.ui.colors.edge) == 'undefined')) {
+        this.ui.colors.edge = blueGrey800;
+      }
     }
 
   }
@@ -71,6 +106,32 @@ class AppState {
       return response.json()
 
     }).then( (json) => {
+
+      if(json.nodes) {
+
+        const categories = json.nodes.map( node => {
+          return node.category;
+        }).filter( (category, index, self) => {
+          return self.indexOf(category) === index;
+        }).filter( category => {
+          return typeof(category) != 'undefined' && category.length > 0;
+        });
+
+        json.nodes.forEach( node => {
+          if(node.category) {
+            node.color = this.ui.colors.nodes[categories.indexOf(node.category)];
+          } else {
+            node.color = this.ui.colors.nodes[this.ui.colors.nodes.length - 1];
+          }
+        });
+
+      }
+
+      if(json.edges) {
+
+        json.edges.forEach( edge => edge.color = this.ui.colors.edge );
+
+      }
 
       this.networks.find( n => n.url == network.url).graph = json;
 
