@@ -30,32 +30,6 @@ import { cyan500 } from 'material-ui/styles/colors';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-const styles = {
-  logo: {
-    backgroundColor: cyan500,
-  },
-  logoTitle: {
-    fontSize: 24,
-    color: typography.textFullWhite,
-    fontWeight: typography.fontWeightLight,
-    marginLeft: 50,
-  },
-  drawerToggle: {
-    position: 'absolute',
-    top: 10,
-    width: 40,
-    height: 40,
-    padding: 5,
-    marginTop: 4,
-    background: cyan500,
-  },
-  drawerToggleIcon: {
-    width: 48,
-    height: 48,
-    color: typography.textFullWhite,
-  }
-}
-
 let SelectableList = makeSelectable(List);
 
 function wrapState(ComposedComponent) {
@@ -150,6 +124,30 @@ export default class LeftDrawer extends Component {
 
     const appState = this.props.appState;
 
+    const styles = {
+      logo: {
+      },
+      logoTitle: {
+        fontSize: 24,
+        color: typography.textFullWhite,
+        fontWeight: typography.fontWeightLight,
+        marginLeft: 50,
+      },
+      drawerToggle: {
+        position: 'absolute',
+        top: 10,
+        width: 40,
+        height: 40,
+        padding: 5,
+        marginTop: 4,
+      },
+      drawerToggleIcon: {
+        color: typography.textFullWhite,
+        background:  cyan500,
+      }
+    }
+
+
 
     //<ListItem
     //  primaryText="Settings"
@@ -166,12 +164,15 @@ export default class LeftDrawer extends Component {
 
     return (
       <div>
+
         <IconButton
           onTouchTap={this.toggleDrawer}
           style={styles.drawerToggle}
+          iconStyle={styles.drawerToggleIcon}
         >
-          <ChevronRight style={styles.drawerToggleIcon}/>
+          <ChevronRight/>
         </IconButton>
+
         <Drawer open={this.props.appState.ui.leftDrawer}>
           <AppBar
             style={styles.logo}
