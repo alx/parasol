@@ -3,7 +3,10 @@ import { observer } from 'mobx-react';
 import mobx from 'mobx';
 import { Sigma, LoadJSON, Filter, ForceAtlas2, ForceLink, RelativeSize, RandomizeNodePositions } from 'react-sigma';
 
+import moment from 'moment';
+
 import SigmaLoader from './SigmaLoader';
+import SigmaPluginsContainer from './SigmaPluginsContainer';
 
 @observer
 export default class SigmaComponent extends Component {
@@ -44,21 +47,29 @@ export default class SigmaComponent extends Component {
       }
     };
 
-    if(!network)
+    if(!network || !network.url)
       return null;
 
-    let sigmaPlugins = [
-      <Filter neighborsOf={ appState.graph.isFiltered ? appState.graph.selectedNode : null } nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)} edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)} />,
-      <RelativeSize initialSize={15}/>,
-    ];
+    let sigmaPlugins = [];
+
+    if(network.options.filters) {
+      sigmaPlugins.push(<Filter key='sigma-filter' neighborsOf={ appState.graph.isFiltered ? appState.graph.selectedNode : null } nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)} edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)} />);
+    }
+
+    if(network.options.relativeSize) {
+      sigmaPlugins.push(<RelativeSize initialSize={15} key='sigma-relativesize'/>);
+    }
 
     if(network.options.startForce) {
-      sigmaPlugins.push(<ForceAtlas2 barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>);
+      sigmaPlugins.push(<ForceAtlas2 key='sigma-forceatlas2' barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>);
       //sigmaPlugins.push[<ForceLink background easing="cubicInOut"/>];
     }
 
-    if(network.options.randomizeNodePosition)
-      sigmaPlugins = <RandomizeNodePositions>{sigmaPlugins}</RandomizeNodePositions>
+    if(network.options.randomizeNodePosition) {
+      sigmaPlugins = <RandomizeNodePositions key={moment(network.timestamp).valueOf()}>{sigmaPlugins}</RandomizeNodePositions>
+    } else {
+      sigmaPlugins = <SigmaPluginsContainer key={moment(network.timestamp).valueOf()}>{sigmaPlugins}</SigmaPluginsContainer>
+    }
 
     return (
       <div>
@@ -68,7 +79,7 @@ export default class SigmaComponent extends Component {
           onClickStage={ this.hideInfoBox }
           style={styles.sigma}
         >
-          <LoadJSON path={network.url}>{sigmaPlugins}</LoadJSON>
+          <SigmaLoader graph={network.graph}>{sigmaPlugins}</SigmaLoader>
         </Sigma>
       </div>
     );

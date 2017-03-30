@@ -1,16 +1,18 @@
 {
   "networks": [
     {
-      "url": "json/hansa_2016-09.json",
-      "name": "Hansa 2016/09",
+      "url": "json/tsne.json",
+      "name": "TSNE",
       "options": {
-        "randomizeNodePosition": true,
-        "startForce": true
+        "filters": false,
+        "randomizeNodePosition": false,
+        "relativeSize": true,
+        "startForce": false
       }
     },
     {
-      "url": "json/hansa_2016-10.json",
-      "name": "Hansa 2016/10",
+      "url": "json/hansa_2016-09.json",
+      "name": "Hansa 2016/09",
       "options": {
         "randomizeNodePosition": true,
         "startForce": true
