@@ -23,6 +23,7 @@ class AppState {
   @observable graph = {
     selectedNode: null,
     isFiltered: false,
+    neighborNodes: []
   };
 
   @observable ui = {

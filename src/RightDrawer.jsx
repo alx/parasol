@@ -12,11 +12,6 @@ export default class RightDrawer extends Component {
 
   constructor(props) {
     super(props)
-    this.selectNode = this.selectNode.bind(this);
-  }
-
-  selectNode(node_id) {
-    this.props.appState.selectGraphNode(node_id);
   }
 
   render() {
@@ -27,10 +22,7 @@ export default class RightDrawer extends Component {
       <Drawer openSecondary={true} open={appState.ui.rightDrawer} >
         <SelectedNode node={appState.graph.selectedNode} />
         <Divider/>
-        <NeighborNodes
-          nodes={appState.graph.neighborNodes}
-          onSelect={this.selectNode}
-        />
+        <NeighborNodes appState={appState}/>
       </Drawer>
     );
   }
