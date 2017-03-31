@@ -1,14 +1,17 @@
- ![Screenshot](documentation/Parasol_screenshot_20170330.png)
- ![Screenshot](documentation/Parasol_screenshot_20170331.png)
- ![Screenshot](documentation/Parasol_screenshot_20170328.png)
- ![Screenshot](documentation/Parasol_screenshot_20170327.png)
 
 parasol
 =======
 
 A network graph exploration tool
 
-### Run
+## Screenshots
+
+ ![Screenshot](documentation/Parasol_screenshot_20170330.png)
+ ![Screenshot](documentation/Parasol_screenshot_20170331.png)
+ ![Screenshot](documentation/Parasol_screenshot_20170328.png)
+ ![Screenshot](documentation/Parasol_screenshot_20170327.png)
+
+## Run
 
 ```
 npm install
@@ -16,7 +19,7 @@ npm start
 open http://localhost:8095
 ```
 
-### settings.json
+## settings.json
 
 When opening the project webpage, it loads `settings.json` file that contains
 specific settings for network to pre-load and general user interface.
@@ -51,7 +54,7 @@ specific settings for network to pre-load and general user interface.
   * `muiTheme` : general theme setting, can be `light` or `dark`
 
 
-### Credits
+## Credits
 
 * [sigma](http://sigmajs.org/) for the visualisation tool
 * [react-sigma](https://dunnock.github.io/react-sigma/) for connecting sigma to react
