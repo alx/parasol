@@ -4,7 +4,7 @@ import Avatar from 'material-ui/Avatar';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 
-export default class SigmaComponent extends Component {
+export default class SelectedNode extends Component {
 
   constructor(props) {
     super(props)

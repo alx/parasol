@@ -14,16 +14,16 @@ export default class SigmaComponent extends Component {
 
   constructor(props) {
     super(props)
-    this.hideInfoBox = this.hideInfoBox.bind(this);
-    this.displayInfoBox = this.displayInfoBox.bind(this);
+    this.selectStage = this.selectStage.bind(this);
+    this.selectNode = this.selectNode.bind(this);
     this.filterEdges = this.filterEdges.bind(this);
   }
 
-  displayInfoBox(e) {
-    this.props.appState.selectGraphNode(e.data.node);
+  selectNode(e) {
+    this.props.appState.selectGraphNode(e.data.node.id);
   }
 
-  hideInfoBox() {
+  selectStage() {
     this.props.appState.hideRightDrawer();
   }
 
@@ -90,12 +90,16 @@ export default class SigmaComponent extends Component {
       <div>
         <Sigma
           renderer={ appState.ui.renderer }
-          onClickNode={ this.displayInfoBox }
-          onClickStage={ this.hideInfoBox }
+          onClickNode={ this.selectNode }
+          onClickStage={ this.selectStage }
           style={styles.sigma}
           settings={{clone: false}}
         >
-          <SigmaLoader graph={network.graph}>{sigmaPlugins}</SigmaLoader>
+          <SigmaLoader
+            graph={network.graph}
+          >
+            {sigmaPlugins}
+          </SigmaLoader>
         </Sigma>
       </div>
     );

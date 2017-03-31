@@ -164,9 +164,27 @@ class AppState {
   * Graph
   */
 
-  selectGraphNode(node) {
+  selectGraphNode(node_id) {
+
+    const selectedGraph = this.networks[this.selectedNetworkIndex].graph;
+
+    this.graph.selectedNode = selectedGraph.nodes.find( node => node.id == node_id );
+
+    const neighborNodeIds = selectedGraph.edges
+      .filter( edge => edge.source == node_id || edge.target == node_id )
+      .map( edge => {
+        if(edge.source == node_id) {
+          return edge.target;
+        } else {
+          return edge.source;
+        }
+      });
+
+    this.graph.neighborNodes = selectedGraph.nodes.filter( node => {
+      return neighborNodeIds.indexOf(node.id) != -1;
+    });
+
     this.ui.rightDrawer = true;
-    this.graph.selectedNode = node;
   }
 
   toggleGraphFilter() {
