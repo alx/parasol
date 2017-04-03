@@ -1,22 +1,19 @@
 {
   "networks": [
     {
-      "url": "json/tsne.json",
-      "name": "TSNE",
-      "options": {
-        "relativeSize": true
-      }
-    },
-    {
-      "url": "json/hansa_2016-09.json",
-      "name": "Hansa 2016/09",
+      "url": "json/hansa_2016-10.json",
+      "name": "Hansa 2016/10",
       "options": {
         "randomizeNodePosition": true,
-        "startForce": true
+        "layout": "forcelink"
       }
     }
   ],
   "ui": {
     "muiTheme": "dark"
+  },
+  "layout": {
+    "forcelink": {
+    }
   }
 }

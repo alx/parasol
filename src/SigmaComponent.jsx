@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import mobx from 'mobx';
 import moment from 'moment';
-import { Sigma, LoadJSON, Filter, ForceAtlas2, ForceLink, RelativeSize, RandomizeNodePositions } from 'react-sigma';
+import { Sigma, LoadJSON, Filter, ForceAtlas2, RelativeSize, RandomizeNodePositions } from 'react-sigma';
+import ForceLink from 'react-sigma/lib/ForceLink'
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -77,9 +78,15 @@ export default class SigmaComponent extends Component {
       sigmaPlugins.push(<RelativeSize initialSize={15} key='sigma-relativesize'/>);
     }
 
-    if(network.options.startForce) {
-      sigmaPlugins.push(<ForceAtlas2 key='sigma-forceatlas2' barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>);
-      //sigmaPlugins.push[<ForceLink background easing="cubicInOut"/>];
+    console.log(network.options.layout);
+
+    switch(network.options.layout) {
+      case 'forceatlas2':
+        sigmaPlugins.push(<ForceAtlas2 key='sigma-forceatlas2' barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>);
+        break;
+      case 'forcelink':
+        sigmaPlugins.push(<ForceLink key='sigma-forcelink' {...appState.layout.forcelink}/>);
+        break;
     }
 
     if(network.options.randomizeNodePosition) {
@@ -93,7 +100,7 @@ export default class SigmaComponent extends Component {
           onClickNode={ this.selectNode }
           onClickStage={ this.selectStage }
           style={styles.sigma}
-          settings={{clone: false}}
+          settings={{hideEdgesOnMove:false, animationsTime:3000, clone: false}}
         >
           <SigmaLoader
             graph={network.graph}

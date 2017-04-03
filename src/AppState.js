@@ -53,6 +53,30 @@ class AppState {
     }
   };
 
+  @observable layout = {
+    forcelink: {
+      running: false,
+      barnesHutTheta: 0.5,
+      adjustSizes: false,
+      iterationsPerRender: 1,
+      linLogMode: true,
+      outboundAttractionDistribution: false,
+      edgeWeightInfluence: 0,
+      scalingRatio: 1,
+      strongGravityMode: false,
+      gravity: 1,
+      alignNodeSiblings: false,
+      nodeSiblingsScale: 1,
+      nodeSiblingsAngleMin: 0,
+      worker: true,
+      background: true,
+      easing: 'cubicInOut',
+      randomize: 'locally',
+      slowDown: 1,
+      timeout: 1000
+    }
+  };
+
   constructor() {
   }
 
@@ -72,6 +96,10 @@ class AppState {
          typeof(settings.ui.colors.edge) == 'undefined')) {
         this.ui.colors.edge = blueGrey800;
       }
+    }
+
+    if(settings.layout) {
+      this.layout = Object.assign(this.layout, settings.layout);
     }
 
   }

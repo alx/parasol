@@ -12,8 +12,7 @@
       "url": "json/tsne.json",
       "name": "TSNE",
       "options": {
-        "randomizeNodePosition": false,
-        "startForce": false
+        "relativeSize": true
       }
     },
     {
