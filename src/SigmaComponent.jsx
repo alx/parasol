@@ -3,12 +3,12 @@ import { observer } from 'mobx-react';
 import mobx from 'mobx';
 import moment from 'moment';
 import { Sigma, LoadJSON, Filter, ForceAtlas2, RelativeSize, RandomizeNodePositions } from 'react-sigma';
-import ForceLink from 'react-sigma/lib/ForceLink'
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 import SigmaLoader from './Sigma/Loader';
+import ForceLink from './Sigma/ForceLink'
 
 @observer
 export default class SigmaComponent extends Component {
@@ -78,14 +78,12 @@ export default class SigmaComponent extends Component {
       sigmaPlugins.push(<RelativeSize initialSize={15} key='sigma-relativesize'/>);
     }
 
-    console.log(network.options.layout);
-
     switch(network.options.layout) {
       case 'forceatlas2':
         sigmaPlugins.push(<ForceAtlas2 key='sigma-forceatlas2' barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>);
         break;
       case 'forcelink':
-        sigmaPlugins.push(<ForceLink key='sigma-forcelink' {...appState.layout.forcelink}/>);
+        sigmaPlugins.push(<ForceLink key='sigma-forcelink' appState={appState} />);
         break;
     }
 

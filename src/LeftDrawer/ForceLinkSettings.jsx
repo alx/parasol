@@ -1,119 +1,83 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 
-import RaisedButton from 'material-ui/RaisedButton';
 import { List, ListItem } from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 import Subheader from 'material-ui/Subheader';
 
+@observer
 export default class ForceLinkSettings extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = {
-      forcelink: {}
-    };
+    this.state = {};
 
-    this.startForceLink = this.startForceLink.bind(this);
-    this.stopForceLink = this.stopForceLink.bind(this);
-    this.updateForceLink = this.updateForceLink.bind(this);
-  }
-
-  startForceLink = () => {
-    this.props.appState.startForceLink();
-  }
-
-  stopForceLink = () => {
-    this.props.appState.stopForceLink();
-  }
-
-  updateForceLink = () => {
-    this.props.appState.updateForceLink(this.state.forcelink);
+    this._toggleForceLink = this._toggleForceLink.bind(this);
+    this._changeParam = this._changeParam.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({forcelink: nextProps.appState.layout.forcelink});
+    this.setState(nextProps.appState.layout);
+  }
+
+  _toggleForceLink() {
+    if (this.props.appState.layout.running) {
+      this.props.appState.stopLayout();
+    } else {
+      this.props.appState.startLayout();
+    }
+  }
+
+  _changeParam(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({ params: Object.assign(this.state.params, { [name]: value }) });
+    this.props.appState.updateLayout(this.state.params);
+  }
+
+  _renderParam(key, value) {
+    return typeof(value) == 'boolean' ?
+      <Toggle
+        key={`params-${key}`}
+        name={key}
+        label={key}
+        labelPosition="right"
+        toggled={value}
+        onToggle={this._changeParam}
+      />
+    :
+      <TextField
+        key={`params-${key}`}
+        name={key}
+        floatingLabelText={key}
+        value={value}
+        onChange={this._changeParam}
+      />;
   }
 
   render() {
 
-    return <List>
-      <Subheader>ForceLink</Subheader>
-      <ListItem key='forcelink-controls'>
-        <RaisedButton
-          label="Start"
-          primary={true}
-          disabled={this.state.forcelink.running}
-          onTouchTap={this.startForceLink}
-        />
-        <RaisedButton
-          label="Stop"
-          secondary={true}
-          disabled={!this.state.forcelink.running}
-          onTouchTap={this.stopForceLink}
-        />
-      </ListItem>
-      <ListItem key='forcelink-forceatlas2'>
-        <Toggle
-          label="linLogMode"
-          labelPosition="right"
-          onTouchTap={this.updateForceLink}
-        /><br />
-        <Toggle
-          label="outboundAttractionDistribution"
-          labelPosition="right"
-          onTouchTap={this.updateForceLink}
-        /><br />
-        <Toggle
-          label="adjustSizes"
-          labelPosition="right"
-          onTouchTap={this.updateForceLink}
-        /><br />
-        <TextField
-          defaultValue="0"
-          floatingLabelText="edgeWeightInfluence"
-          onChange={this.updateForceLink}
-        /><br />
-        <TextField
-          defaultValue="1"
-          floatingLabelText="scalingRatio"
-          onChange={this.updateForceLink}
-        /><br />
-        <Toggle
-          label="strongGravityMode"
-          labelPosition="right"
-          onTouchTap={this.updateForceLink}
-        /><br />
-        <TextField
-          defaultValue="1"
-          floatingLabelText="gravity"
-          onChange={this.updateForceLink}
-        /><br />
-        <Toggle
-          label="barnesHutOptimize"
-          labelPosition="right"
-          onTouchTap={this.updateForceLink}
-        /><br />
-        <TextField
-          defaultValue="0.5"
-          floatingLabelText="barnesHutTheta"
-          onChange={this.updateForceLink}
-        /><br />
-        <TextField
-          defaultValue="1"
-          floatingLabelText="slowDown"
-          onChange={this.updateForceLink}
-        /><br />
-        <TextField
-          defaultValue="locally"
-          floatingLabelText="randomize"
-          onChange={this.updateForceLink}
-        /><br />
-      </ListItem>
-    </List>
+    if (typeof(this.state.running) == 'undefined') return null;
 
+    return (<List>
+      <Toggle
+        label="ForceLink"
+        toggled={this.props.appState.layout.running}
+        onToggle={this._toggleForceLink}
+      />
+      <ListItem key="forcelink-forceatlas2">
+        {Object.keys(this.state.params).map(key => this._renderParam(key, this.state.params[key]))}
+      </ListItem>
+    </List>);
 
   }
 
 }
+
+ForceLinkSettings.propTypes = {
+  appState: require('react').PropTypes.any.isRequired
+};

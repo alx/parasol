@@ -54,8 +54,11 @@ class AppState {
   };
 
   @observable layout = {
-    forcelink: {
-      running: false,
+    running: false,
+    shouldStart: false,
+    shouldStop: false,
+    params: {
+      barnesHutOptimize: true,
       barnesHutTheta: 0.5,
       adjustSizes: false,
       iterationsPerRender: 1,
@@ -73,34 +76,31 @@ class AppState {
       easing: 'cubicInOut',
       randomize: 'locally',
       slowDown: 1,
-      timeout: 1000
+      timeout: 1000,
     }
   };
 
-  constructor() {
-  }
-
   initSettings(settings) {
 
-    if(settings.networks) {
-      settings.networks.forEach( network => {
+    if (settings.networks) {
+      settings.networks.forEach(network => {
         this.createNetwork(network, () => { this.selectNetwork(0); });
       });
     }
 
-    if(settings.ui) {
+    if (settings.ui) {
       this.ui = Object.assign(this.ui, settings.ui);
 
-      if(this.ui.muiTheme == 'dark' &&
+      if (this.ui.muiTheme == 'dark' &&
          (typeof(settings.ui.colors) == 'undefined' ||
          typeof(settings.ui.colors.edge) == 'undefined')) {
         this.ui.colors.edge = blueGrey800;
       }
     }
 
-    if(settings.layout) {
-      this.layout = Object.assign(this.layout, settings.layout);
-    }
+    //if (settings.layout) {
+    //  this.layout = Object.assign(this.layout, settings.layout);
+    //}
 
   }
 
@@ -109,12 +109,14 @@ class AppState {
   */
 
   @computed get selectedNetwork() {
-    return this.networks.find( network => network.selected );
+    return this.networks.find(network => network.selected);
   }
 
   clearSelectedNetwork() {
-    this.networks.filter( network => network.selected )
-                 .forEach( network => network.selected = false );
+    this.networks.filter(network => network.selected)
+                 .forEach(network => {
+                   network.selected = false;
+                 });
   }
 
   createNetwork(network, callback) {
@@ -130,24 +132,16 @@ class AppState {
       options: network.options,
     });
 
-    fetch(network.url).then( (response) => {
+    fetch(network.url).then(response => response.json()).then((json) => {
 
-      return response.json()
+      if (json.nodes) {
 
-    }).then( (json) => {
+        const categories = json.nodes.map(node => node.category)
+          .filter((category, index, self) => self.indexOf(category) === index)
+          .filter(category => typeof(category) != 'undefined' && category.length > 0);
 
-      if(json.nodes) {
-
-        const categories = json.nodes.map( node => {
-          return node.category;
-        }).filter( (category, index, self) => {
-          return self.indexOf(category) === index;
-        }).filter( category => {
-          return typeof(category) != 'undefined' && category.length > 0;
-        });
-
-        json.nodes.forEach( node => {
-          if(node.category) {
+        json.nodes.forEach(node => {
+          if (node.category) {
             node.color = this.ui.colors.nodes[categories.indexOf(node.category)];
           } else {
             node.color = this.ui.colors.nodes[this.ui.colors.nodes.length - 1];
@@ -156,13 +150,15 @@ class AppState {
 
       }
 
-      if(json.edges) {
+      if (json.edges) {
 
-        json.edges.forEach( edge => edge.color = this.ui.colors.edge );
+        json.edges.forEach(edge => {
+          edge.color = this.ui.colors.edge;
+        });
 
       }
 
-      this.networks.find( n => n.url == network.url).graph = json;
+      this.networks.find(n => n.url == network.url).graph = json;
 
       callback(this.networks[this.networks.length - 1]);
 
@@ -181,12 +177,18 @@ class AppState {
     this.ui.filters.maxNodeSize = 1;
     this.ui.filters.maxEdgeSize = 1;
 
-    if(network.graph && typeof(network.graph) !== 'undefined') {
-      this.ui.filters.maxNodeSize = Math.max.apply(Array, network.graph.nodes.map( node => node.size ));
-      this.ui.filters.maxEdgeSize = Math.max.apply(Array, network.graph.edges.map( edge => edge.size ));
+    if (network.graph && typeof(network.graph) !== 'undefined') {
+      this.ui.filters.maxNodeSize = Math.max.apply(Array, network.graph.nodes.map(node => node.size));
+      this.ui.filters.maxEdgeSize = Math.max.apply(Array, network.graph.edges.map(edge => edge.size));
     }
 
-    this.selectedNetworkIndex = this.networks.map( network => network.selected ).indexOf(true);
+    this.selectedNetworkIndex = this.networks.map(network => network.selected).indexOf(true);
+
+    // FIXME
+    // const networkLayout = this.networks[this.selectedNetworkIndex].layout || 'forcelink';
+    // console.log(networkLayout);
+    // console.log(mobx.toJS( this.layout[networkLayout]));
+    // this.layout.params = this.layout[networkLayout];
   }
 
   /*
@@ -197,21 +199,13 @@ class AppState {
 
     const selectedGraph = this.networks[this.selectedNetworkIndex].graph;
 
-    this.graph.selectedNode = selectedGraph.nodes.find( node => node.id == node_id );
+    this.graph.selectedNode = selectedGraph.nodes.find(node => node.id == node_id);
 
     const neighborNodeIds = selectedGraph.edges
-      .filter( edge => edge.source == node_id || edge.target == node_id )
-      .map( edge => {
-        if(edge.source == node_id) {
-          return edge.target;
-        } else {
-          return edge.source;
-        }
-      });
+      .filter(edge => edge.source == node_id || edge.target == node_id)
+      .map(edge => edge.source == node_id ? edge.target : edge.source);
 
-    this.graph.neighborNodes = selectedGraph.nodes.filter( node => {
-      return neighborNodeIds.indexOf(node.id) != -1;
-    });
+    this.graph.neighborNodes = selectedGraph.nodes.filter(node => neighborNodeIds.indexOf(node.id) != -1);
 
     this.ui.rightDrawer = true;
   }
@@ -238,6 +232,38 @@ class AppState {
 
   setFilter(filter, value) {
     this.ui.filters[filter] = value;
+  }
+
+  /*
+  * Layout
+  */
+
+  startLayout = () => {
+    this.layout.shouldStart = true;
+    this.layout.shouldStop = false;
+    this.layout.running = true;
+  }
+
+  stopLayout = () => {
+    this.layout.shouldStart = false;
+    this.layout.shouldStop = true;
+    this.layout.running = false;
+  }
+
+  layoutRunning = () => {
+    this.layout.shouldStart = false;
+    this.layout.shouldStop = false;
+    this.layout.running = true;
+  }
+
+  layoutStopped = () => {
+    this.layout.shouldStart = false;
+    this.layout.shouldStop = false;
+    this.layout.running = false;
+  }
+
+  updateLayout = (params) => {
+    this.layout.params = params;
   }
 }
 
