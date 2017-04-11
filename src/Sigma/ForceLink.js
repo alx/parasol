@@ -78,22 +78,8 @@ class ForceLink extends React.Component {
     this._refreshGraph();
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(`componentWillReceiveProps`);
-    console.log(nextProps);
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    console.log(`componentWillUpdate`);
-    console.log(nextProps);
-    console.log(nextState);
-  }
-
   // Change sigma status only after react rendering complete
   componentDidUpdate(prevProps, prevState) {
-    console.log(`componentDidUpdate`)
-    console.log(prevProps);
-    console.log(prevState);
     const s = this.props.sigma;
     if (this.props.shouldStop) {
       this._stopForceLink();
@@ -171,6 +157,8 @@ ForceLink.propTypes = {
   randomize: require('react').PropTypes.oneOf(['globally', 'locally', 'no']),
   timeout: require('react').PropTypes.number,
   sigma: require('react').PropTypes.any,
-  appState: require('react').PropTypes.any
+  appState: require('react').PropTypes.any,
+  shouldStart: require('react').PropTypes.bool,
+  shouldStop: require('react').PropTypes.bool
 };
 export default ForceLink;

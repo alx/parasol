@@ -98,9 +98,9 @@ class AppState {
       }
     }
 
-    //if (settings.layout) {
-    //  this.layout = Object.assign(this.layout, settings.layout);
-    //}
+    // if (settings.layout) {
+    //   this.layout = Object.assign(this.layout, settings.layout);
+    // }
 
   }
 
