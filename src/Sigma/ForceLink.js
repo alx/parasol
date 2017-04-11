@@ -2,6 +2,7 @@
 
 import React from 'react';
 import mobx from 'mobx';
+import { observer } from 'mobx-react';
 import './layout.forceLink';
 
 /**
@@ -50,6 +51,7 @@ import ForceLink from 'react-sigma/lib/ForceLink'
 
  **/
 
+@observer
 class ForceLink extends React.Component {
 
   static _propsChanged(prev, next) {
@@ -76,16 +78,30 @@ class ForceLink extends React.Component {
     this._refreshGraph();
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    console.log(`componentWillReceiveProps`);
+    console.log(nextProps);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log(`componentWillUpdate`);
+    console.log(nextProps);
+    console.log(nextState);
   }
 
   // Change sigma status only after react rendering complete
   componentDidUpdate(prevProps, prevState) {
+    console.log(`componentDidUpdate`)
+    console.log(prevProps);
+    console.log(prevState);
     const s = this.props.sigma;
-    if (prevState.running && !this.state.running && s) {
+    if (this.props.shouldStop) {
       this._stopForceLink();
       s.refresh();
-    } else if (ForceLink._propsChanged(prevProps, this.props)) {
+    } else if (prevState.running && !this.state.running && s) {
+      this._stopForceLink();
+      s.refresh();
+    } else if (ForceLink._propsChanged(prevProps, this.props) && this.props.shouldStart) {
       this._stopForceLink();
       this._refreshGraph();
     }

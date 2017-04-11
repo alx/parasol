@@ -83,7 +83,7 @@ export default class SigmaComponent extends Component {
         sigmaPlugins.push(<ForceAtlas2 key='sigma-forceatlas2' barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>);
         break;
       case 'forcelink':
-        sigmaPlugins.push(<ForceLink key='sigma-forcelink' appState={appState} />);
+        sigmaPlugins.push(<ForceLink key='sigma-forcelink' appState={appState} shouldStart={appState.layout.shouldStart} shouldStrop={appState.layout.shouldStop}/>);
         break;
     }
 

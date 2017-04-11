@@ -5,6 +5,11 @@ import { List, ListItem } from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 import Subheader from 'material-ui/Subheader';
+import FlatButton from 'material-ui/FlatButton';
+
+import AvPlayCircleOutline from 'material-ui/svg-icons/av/play-circle-outline';
+
+import Spinner from 'react-spinner-material';
 
 @observer
 export default class ForceLinkSettings extends React.Component {
@@ -14,7 +19,7 @@ export default class ForceLinkSettings extends React.Component {
 
     this.state = {};
 
-    this._toggleForceLink = this._toggleForceLink.bind(this);
+    this._startForceLink = this._startForceLink.bind(this);
     this._changeParam = this._changeParam.bind(this);
   }
 
@@ -22,12 +27,8 @@ export default class ForceLinkSettings extends React.Component {
     this.setState(nextProps.appState.layout);
   }
 
-  _toggleForceLink() {
-    if (this.props.appState.layout.running) {
-      this.props.appState.stopLayout();
-    } else {
-      this.props.appState.startLayout();
-    }
+  _startForceLink() {
+    this.props.appState.startLayout();
   }
 
   _changeParam(event) {
@@ -63,14 +64,34 @@ export default class ForceLinkSettings extends React.Component {
 
     if (typeof(this.state.running) == 'undefined') return null;
 
+    let titleIcon = <AvPlayCircleOutline onTouchTap={this._startForceLink}/>;
+    if(this.props.appState.layout.running) {
+      const iconStyle = {
+        position: 'absolute',
+        top: 0,
+        right: 4
+      };
+      titleIcon = (<div style={iconStyle}>
+        <Spinner width={24} height={24} spinnerWidth={2} show={true}/>
+      </div>);
+    }
+
     return (<List>
-      <Toggle
-        label="ForceLink"
-        toggled={this.props.appState.layout.running}
-        onToggle={this._toggleForceLink}
-      />
-      <ListItem key="forcelink-forceatlas2">
-        {Object.keys(this.state.params).map(key => this._renderParam(key, this.state.params[key]))}
+      <ListItem key="forcelink-title"
+        primaryText='ForceLink'
+        rightIcon={titleIcon}>
+      </ListItem>
+      <ListItem key="forcelink-settings"
+        primaryText="Settings"
+        initiallyOpen={false}
+        primaryTogglesNestedList={true}
+        nestedItems={
+          Object.keys(this.state.params).map(key => {
+            return (<ListItem key={`forcelink-setting-${key}`}
+              primaryText={this._renderParam(key, this.state.params[key])}
+            />);
+          })
+        }>
       </ListItem>
     </List>);
 

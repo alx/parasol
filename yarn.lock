@@ -4644,6 +4644,10 @@ react-simple-di@^1.2.0:
     babel-runtime "6.x.x"
     hoist-non-react-statics "1.x.x"
 
+react-spinner-material@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/react-spinner-material/-/react-spinner-material-1.0.11.tgz#f14eab084dc2854c7df2752eea6d114d452ac149"
+
 react-stubber@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-stubber/-/react-stubber-1.0.0.tgz#41ee2cac72d4d4fd70a63896da98e13739b84628"
