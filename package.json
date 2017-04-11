@@ -55,13 +55,17 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "css-loader": "^0.28.0",
+    "deepdetect-js": "^0.1.4",
     "jss": "^6.3.0",
-    "material-ui": "^0.17.0",
+    "material-ui": "^0.17.3",
+    "material-ui-upload": "^1.0.0",
     "mobx": "^3.1.0",
     "mobx-react": "^4.1.0",
     "mobx-react-form": "^1.20.2",
     "moment": "^2.17.1",
     "react": "^15.1.0",
+    "react-addons-shallow-compare": "^15.5.2",
     "react-dom": "^15.1.0",
     "react-sigma": "^1.2.17",
     "react-spinner-material": "^1.0.11",

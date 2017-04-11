@@ -46,7 +46,7 @@ if (constants.PRODUCTION || constants.STAGE) {
 
 if (constants.LOCAL) {
   plugins.push(new webpack.HotModuleReplacementPlugin());
-  
+
   entries.push('react-hot-loader/patch');
   entries.push('webpack-dev-server/client?http://localhost:8095');
   entries.push('webpack/hot/only-dev-server');
@@ -76,6 +76,10 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
       }
     ],
   }
