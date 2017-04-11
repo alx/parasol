@@ -11,9 +11,5 @@
   ],
   "ui": {
     "muiTheme": "dark"
-  },
-  "layout": {
-    "forcelink": {
-    }
   }
 }
