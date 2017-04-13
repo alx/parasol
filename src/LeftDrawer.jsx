@@ -26,50 +26,52 @@ export default class LeftDrawer extends Component {
   constructor(props) {
     super(props)
 
-    this._push = this._push.bind(this);
   }
 
   _push() {
-    const deepdetect = new DeepDetect('http://localhost:8080/');
-    deepdetect.services.create({
-      name: 'test',
-      data: {
-        mllib:"caffe",
-        description:"example classification service",
-        type:"supervised",
-        parameters:{
-          input:{
-            connector:"csv"
-          },
-          mllib:{
-            template:"mlp",
-            nclasses:9,
-            layers:[512,512,512],
-            activation:"prelu"
-          }
-        },
-        model:{
-          repository:"/home/me/models/example"
-        }
-      }
-    }).then(function (response) {
 
-      deepdetect.train.launch({
-        service:"test",
-        async:false,
+    const deepdetect = new DeepDetect('http://91.224.148.180:18083');
+
+    const service_name = 'parasol-test';
+
+    const service_params = {
+      name: service_name,
+      data: {
+        mllib:"tsne",
+        description:"clustering",
+        type:"unsupervised",
         parameters:{
-          input:{
-            id:"",
-            separator:",",
-            label:"label"
-          },
-          mllib:{
-            iterations:500
-          },
+          input:{connector:"csv"},
+          mllib:{},
           output:{}
         },
-        data:["/home/beniz/projects/deepdetect/datasets/mnist_csv/mnist_test.csv"]
-      }).then(function (response) {
+        model:{
+          repository:"/tmp"
+        }
+      }
+    };
+
+    const train_params = {
+      'async':true,
+      parameters:{
+        input:{
+          id:"",
+          separator:",",
+          label:"label"
+        },
+        mllib:{
+          iterations:500
+        },
+        output:{}
+      },
+      data:["http://deepdetect.com/dd/datasets/mnist_csv/mnist_test.csv"]
+    };
+
+    deepdetect.services.create(service_params).then(function (response) {
+
+      deepdetect.train.launch(service_name, train_params).then(function (response) {
+
+        deepdetect.services.delete(service_params);
       });
 
     });
@@ -87,13 +89,6 @@ export default class LeftDrawer extends Component {
         <Drawer open={appState.ui.leftDrawer}>
 
           <ParasolAppBar appState={appState} />
-
-          <Upload onFileLoad={this.onFileLoad}/>
-
-      <FlatButton
-        label="push"
-        onTouchTap={this._push}
-      />
 
           <NetworkInput appState={appState} />
           <NetworkList appState={appState} />

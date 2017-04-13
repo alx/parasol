@@ -80,6 +80,11 @@ class AppState {
     }
   };
 
+  @observable network_loader = {
+    path: '',
+    methods: []
+  }
+
   initSettings(settings) {
 
     if (settings.networks) {
@@ -102,6 +107,10 @@ class AppState {
     //   this.layout = Object.assign(this.layout, settings.layout);
     // }
 
+    if (settings.network_loader) {
+      this.network_loader = Object.assign(this.network_loader, settings.network_loader);
+    }
+
   }
 
   /*
@@ -117,6 +126,26 @@ class AppState {
                  .forEach(network => {
                    network.selected = false;
                  });
+  }
+
+  loadNetwork(network) {
+
+    this.clearSelectedNetwork();
+
+    this.networks.push({
+      url: network.url,
+      name: network.name || network.url.split('/').pop(),
+      timestamp: moment(),
+      selected: true,
+      graph: null,
+      options: network.options,
+    });
+
+    switch(network.loader) {
+      case 'graph_json':
+
+    }
+
   }
 
   createNetwork(network, callback) {

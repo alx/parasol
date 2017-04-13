@@ -1,0 +1,36 @@
+[
+  {
+    "url": "data/mnist_test.csv",
+    "name": "DD TSNE",
+    "loader": "dd_tsne",
+    "options": {
+      "relativeSize": true
+    }
+  },
+  {
+    "url": "data/arctic.json",
+    "name": "arctic",
+    "loader": "graph_json",
+    "options": {
+      "randomizeNodePosition": false,
+      "startForce": false
+    }
+  },
+  {
+    "url": "data/tsne.json",
+    "name": "TSNE",
+    "loader": "graph_json",
+    "options": {
+      "relativeSize": true
+    }
+  },
+  {
+    "url": "data/hansa_2016-09.json",
+    "name": "Hansa 2016/09",
+    "loader": "graph_json",
+    "options": {
+      "randomizeNodePosition": true,
+      "startForce": true
+    }
+  }
+]

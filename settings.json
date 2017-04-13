@@ -1,7 +1,7 @@
 {
   "networks": [
     {
-      "url": "json/hansa_2016-10.json",
+      "url": "data/hansa_2016-10.json",
       "name": "Hansa 2016/10",
       "options": {
         "randomizeNodePosition": true,
@@ -9,6 +9,9 @@
       }
     }
   ],
+  "network_loader": {
+    "path": "networks.json"
+  },
   "ui": {
     "muiTheme": "dark"
   }

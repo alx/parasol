@@ -6,11 +6,20 @@ import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 
+import Avatar from 'material-ui/Avatar';
+import List from 'material-ui/List/List';
+import ListItem from 'material-ui/List/ListItem';
+
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import Toggle from 'material-ui/Toggle';
+
+import ActionInfo from 'material-ui/svg-icons/action/info';
 import AddIcon from 'material-ui/svg-icons/content/add';
 import RoundIcon from 'material-ui/svg-icons/image/brightness-1';
 
-import Upload from 'material-ui-upload/Upload';
+import axios from 'axios';
 
 export default class NetworkInput extends React.Component {
 
@@ -21,17 +30,20 @@ export default class NetworkInput extends React.Component {
 
     this.state = {
       dialogOpen: false,
-      selectedInputIndex: 0
+      networks: []
     }
 
     this.createNetwork = this.createNetwork.bind(this);
     this._openInputDialog = this._openInputDialog.bind(this);
     this._closeInputDialog = this._closeInputDialog.bind(this);
-    this._selectInputIndex = this._selectInputIndex.bind(this);
+    this._addSelectedNetworks = this._addSelectedNetworks.bind(this);
   }
 
-  _selectInputIndex(index) {
-    this.setState({selectedInputIndex: index});
+  _addSelectedNetworks() {
+    this.state.networks.filter(network => network.selected).forEach(network => {
+      this.props.appState.loadNetwork(network);
+    });
+    this.setState({dialogOpen: false});
   }
 
   createNetwork(e) {
@@ -42,7 +54,14 @@ export default class NetworkInput extends React.Component {
   }
 
   _openInputDialog() {
-    this.setState({dialogOpen: true});
+
+    const self = this;
+
+    axios.get(this.props.appState.network_loader.path)
+      .then(function (response) {
+        self.setState({networks: response.data, dialogOpen: true});
+      });
+
   }
 
   _closeInputDialog() {
@@ -51,23 +70,8 @@ export default class NetworkInput extends React.Component {
 
   render() {
 
-    let inputForm = (<div>
-      <TextField
-        hintText="JSON url"
-        floatingLabelText="Add network"
-        floatingLabelFixed={true}
-        onKeyDown={this.createNetwork}
-      />
-      <RaisedButton primary={true} label="Add JSON url"/>
-    </div>)
-
-    if(this.state.selectedInputIndex == 1) {
-
-      inputForm = (<div>
-        <Upload onFileLoad={this.onFileLoad}/>
-      </div>);
-
-    }
+    if(this.props.appState.network_loader.path.length == 0)
+      return null;
 
     return (<div>
       <FlatButton
@@ -83,22 +87,39 @@ export default class NetworkInput extends React.Component {
         open={this.state.dialogOpen}
         onRequestClose={this._closeInputDialog}
       >
-
-        { inputForm }
-
-        <BottomNavigation selectedIndex={this.state.selectedInputIndex}>
-          <BottomNavigationItem
-            label="JSON Url"
-            icon={<RoundIcon />}
-            onTouchTap={() => this._selectInputIndex(0)}
-          />
-          <BottomNavigationItem
-            label="DeepDetect T-SNE"
-            icon={<RoundIcon />}
-            onTouchTap={() => this._selectInputIndex(1)}
-          />
-        </BottomNavigation>
-
+        <Table
+          height={'300px'}
+          selectable={true}
+          multiSelectable={true}
+        >
+          <TableHeader
+            displaySelectAll={true}
+            adjustForCheckbox={true}
+            enableSelectAll={true}
+          >
+            <TableRow>
+              <TableHeaderColumn tooltip="Graph name">Name</TableHeaderColumn>
+              <TableHeaderColumn tooltip="File URL">Url</TableHeaderColumn>
+              <TableHeaderColumn tooltip="Loading method">Loader</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody
+            displayRowCheckbox={true}
+            showRowHover={true}
+            stripedRows={false}
+          >
+          {this.state.networks.map( (network, index) => {
+            return (<TableRow key={index} selected={network.selected}>
+              <TableRowColumn>{network.name}</TableRowColumn>
+              <TableRowColumn>{network.url}</TableRowColumn>
+              <TableRowColumn>{network.loader}</TableRowColumn>
+            </TableRow>);
+          })}
+          </TableBody>
+        </Table>
+        <FloatingActionButton onTouchTap={this._addSelectedNetworks}>
+          <AddIcon />
+        </FloatingActionButton>
       </Dialog>
     </div>)
 

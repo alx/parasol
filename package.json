@@ -55,8 +55,9 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "css-loader": "^0.28.0",
-    "deepdetect-js": "^0.1.4",
+    "deepdetect-js": "file:/home/alx/code/deepdetect/clients/js/dist/",
     "jss": "^6.3.0",
     "material-ui": "^0.17.3",
     "material-ui-upload": "^1.0.0",
