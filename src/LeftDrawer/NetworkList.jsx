@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { observer } from 'mobx-react';
 
 import {List, ListItem, makeSelectable} from 'material-ui/List';
 
@@ -38,6 +39,7 @@ function wrapState(ComposedComponent) {
 
 SelectableList = wrapState(SelectableList);
 
+@observer
 export default class NetworkList extends React.Component {
 
   constructor(props) {

@@ -30,27 +30,57 @@ export default class NetworkInput extends React.Component {
 
     this.state = {
       dialogOpen: false,
+      loadingStatus: false,
       networks: []
     }
 
-    this.createNetwork = this.createNetwork.bind(this);
     this._openInputDialog = this._openInputDialog.bind(this);
     this._closeInputDialog = this._closeInputDialog.bind(this);
     this._addSelectedNetworks = this._addSelectedNetworks.bind(this);
+    this._onRowSelection = this._onRowSelection.bind(this);
   }
 
   _addSelectedNetworks() {
+
+    const self = this;
+
+    this.setState({loadingStatus: true});
+
+    console.log(this.state.networks);
+
     this.state.networks.filter(network => network.selected).forEach(network => {
-      this.props.appState.loadNetwork(network);
+      this.props.appState.initNetwork(network, () => {
+        self.setState({dialogOpen: false, loadingStatus: false});
+      });
     });
-    this.setState({dialogOpen: false});
+
   }
 
-  createNetwork(e) {
-    if (e.keyCode==13){
-      this.props.appState.createNetwork({url: e.target.value});
-      e.target.value = "";
+  _onRowSelection(rowIndexes) {
+
+    switch(rowIndexes) {
+      case 'all':
+        this.setState({
+          networks: this.state.networks.map( network => {
+            return Object.assign(network, {selected: true});
+          })
+        })
+        break;
+      case 'none':
+        this.setState({
+          networks: this.state.networks.map( network => {
+            return Object.assign(network, {selected: false});
+          })
+        })
+        break;
+      default:
+        this.setState({
+          networks: this.state.networks.map( (network, index) => {
+            return Object.assign(network, {selected: (rowIndexes.indexOf(index) != -1)});
+          })
+        });
     }
+
   }
 
   _openInputDialog() {
@@ -91,6 +121,7 @@ export default class NetworkInput extends React.Component {
           height={'300px'}
           selectable={true}
           multiSelectable={true}
+          onRowSelection={this._onRowSelection}
         >
           <TableHeader
             displaySelectAll={true}

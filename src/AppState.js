@@ -1,5 +1,6 @@
 import { computed, observable } from 'mobx';
 import moment from 'moment';
+import { DeepDetect } from 'deepdetect-js';
 
 import {
   cyan500,
@@ -89,7 +90,7 @@ class AppState {
 
     if (settings.networks) {
       settings.networks.forEach(network => {
-        this.createNetwork(network, () => { this.selectNetwork(0); });
+        this.initNetwork(network, () => { this.selectNetwork(0); });
       });
     }
 
@@ -130,8 +131,6 @@ class AppState {
 
   loadNetwork(network) {
 
-    this.clearSelectedNetwork();
-
     this.networks.push({
       url: network.url,
       name: network.name || network.url.split('/').pop(),
@@ -140,26 +139,10 @@ class AppState {
       graph: null,
       options: network.options,
     });
-
-    switch(network.loader) {
-      case 'graph_json':
-
-    }
 
   }
 
-  createNetwork(network, callback) {
-
-    this.clearSelectedNetwork();
-
-    this.networks.push({
-      url: network.url,
-      name: network.name || network.url.split('/').pop(),
-      timestamp: moment(),
-      selected: true,
-      graph: null,
-      options: network.options,
-    });
+  loadJsonNetwork(network, callback) {
 
     fetch(network.url).then(response => response.json()).then((json) => {
 
@@ -193,6 +176,159 @@ class AppState {
 
     });
 
+  }
+
+  loadTsneNetwork(network, callback) {
+
+    const deepdetect = new DeepDetect('http://91.224.148.180:18083');
+
+    const service_name = 'parasol-test';
+
+    const service_params = {
+      name: service_name,
+      data: {
+        mllib:"tsne",
+        description:"clustering",
+        type:"unsupervised",
+        parameters:{
+          input:{connector:"csv"},
+          mllib:{},
+          output:{}
+        },
+        model:{
+          repository:"/tmp"
+        }
+      }
+    };
+
+    const train_params = {
+      'async':true,
+      parameters:{
+        input:{
+          id:"",
+          separator:",",
+          label:"label"
+        },
+        mllib:{
+          iterations:500
+        },
+        output:{}
+      },
+      data:["http://deepdetect.com/dd/datasets/mnist_csv/mnist_test.csv"]
+    };
+
+    deepdetect.services.create(service_name, service_params).then(function (response) {
+
+      deepdetect.train.launch(service_name, train_params).then(function (response) {
+
+        deepdetect.services.delete(service_params);
+
+        const json = {
+          "nodes": [
+            {
+              "id": "n0",
+              "label": "A node",
+              "x": 0,
+              "y": 0,
+              "size": 3
+            },
+            {
+              "id": "n1",
+              "label": "Another node",
+              "x": 3,
+              "y": 1,
+              "size": 2
+            },
+            {
+              "id": "n2",
+              "label": "And a last one",
+              "x": 1,
+              "y": 3,
+              "size": 1
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "n0",
+              "target": "n1"
+            },
+            {
+              "id": "e1",
+              "source": "n1",
+              "target": "n2"
+            },
+            {
+              "id": "e2",
+              "source": "n2",
+              "target": "n0"
+            }
+          ]
+        }
+
+        this.networks.find(n => n.url == network.url).graph = json;
+
+        callback(this.networks[this.networks.length - 1]);
+
+      });
+
+    });
+
+    /*
+    fetch(network.url).then(response => response.json()).then((json) => {
+
+      if (json.nodes) {
+
+        const categories = json.nodes.map(node => node.category)
+          .filter((category, index, self) => self.indexOf(category) === index)
+          .filter(category => typeof(category) != 'undefined' && category.length > 0);
+
+        json.nodes.forEach(node => {
+          if (node.category) {
+            node.color = this.ui.colors.nodes[categories.indexOf(node.category)];
+          } else {
+            node.color = this.ui.colors.nodes[this.ui.colors.nodes.length - 1];
+          }
+        });
+
+      }
+
+      if (json.edges) {
+
+        json.edges.forEach(edge => {
+          edge.color = this.ui.colors.edge;
+        });
+
+      }
+
+      this.networks.find(n => n.url == network.url).graph = json;
+
+      callback(this.networks[this.networks.length - 1]);
+
+    });
+    */
+
+  }
+
+  initNetwork(network, callback) {
+
+    this.networks.push({
+      url: network.url,
+      name: network.name || network.url.split('/').pop(),
+      timestamp: moment(),
+      selected: true,
+      graph: null,
+      options: network.options,
+    });
+
+    switch(network.loader) {
+      case 'dd_tsne':
+        this.loadTsneNetwork(network, callback)
+        break;
+      case 'graph_json':
+      default:
+        this.loadJsonNetwork(network, callback)
+    }
   }
 
   selectNetwork(network_index) {
