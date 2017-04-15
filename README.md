@@ -50,9 +50,59 @@ specific settings for network to pre-load and general user interface.
 * `ui` object :
   * `muiTheme` : general theme setting, can be `light` or `dark`
 
+## Deploy on a webserver
+
+### Build and deploy
+
+```
+yarn install
+yarn build
+scp -r build/* webserver:/var/www/parasol/
+```
+
+Don't forget to set your default settings in `build/settings.json`, move your data in `build/data/` folder, and set available networks inside `build/networks.json`.
+
+### nginx configuration
+
+You need an `api` location to use deepdetect loader.
+
+Configuration example for http://parasol.deepdetect.com :
+
+```
+server {
+  listen 80;
+  listen [::]:80;
+
+  root /var/www/parasol;
+  index index.html index.htm;
+
+  server_name parasol.deepdetect.com;
+
+  location / {
+    try_files $uri $uri/ =404;
+    autoindex on;
+  }
+
+  location /api {
+    rewrite ^/api(.*)$  $1  break;
+    # DeepDetect server
+    proxy_pass         http://server_ip:server_port;
+    proxy_set_header   Host                   $http_host;
+    # If you have http basic auth in place on your deepdetect server
+    # Get base_64_from terminal: echo -n 'login:pass' | base64
+    # proxy_set_header Authorization "Basic base_64_string";
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_redirect off;
+  }
+}
+```
+
 
 ## Credits
 
 * [sigma](http://sigmajs.org/) for the visualisation tool
 * [react-sigma](https://dunnock.github.io/react-sigma/) for connecting sigma to react
 * [mobx-react-boilerplate](https://github.com/il-tmfv/mobx-react-boilerplate) for providing a boilerplate
+* [deepdetect](https://deepdetect.com) for machine learning integration
+* [deepdetect-js](https://github.com/alx/deepdetect/tree/client-js-242/clients/js) client library to connect to deepdetect server
