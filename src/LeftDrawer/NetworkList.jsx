@@ -2,6 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
 
 import {List, ListItem, makeSelectable} from 'material-ui/List';
+import Avatar from 'material-ui/Avatar';
+import IconButton from 'material-ui/IconButton';
+import IconRefresh from 'material-ui/svg-icons/navigation/refresh';
+import IconDownload from 'material-ui/svg-icons/file/file-download';
+
 
 let SelectableList = makeSelectable(List);
 
@@ -44,19 +49,47 @@ export default class NetworkList extends React.Component {
 
   constructor(props) {
     super(props)
-    this.selectNetwork = this.selectNetwork.bind(this);
+    this._selectNetwork = this._selectNetwork.bind(this);
+    this._refreshSelectedNetwork = this._refreshSelectedNetwork.bind(this);
+    this._downloadSelectedNetwork = this._downloadSelectedNetwork.bind(this);
   }
 
-  selectNetwork(network_index) {
+  _selectNetwork(network_index) {
     this.props.appState.selectNetwork(network_index);
+  }
+
+  _refreshSelectedNetwork() {
+    this.props.appState.refreshSelectedNetwork();
+  }
+
+  _downloadSelectedNetwork() {
+    return null;
   }
 
   render() {
 
     const appState = this.props.appState;
 
+    const iconStyle = {
+      margin: 2,
+      position: 'relative',
+      width: 20,
+      height: 20,
+      color: '#999',
+    }
+
+    // const selectedNetworkIcons = (<div style={{top: 0}}>
+    //   <IconRefresh
+    //     style={iconStyle}
+    //     onTouchTap={this._refreshSelectedNetwork}/>
+    //   <IconDownload
+    //     style={iconStyle}
+    //     onTouchTap={this._downloadSelectedNetwork}/>
+    // </div>);
+    const selectedNetworkIcons = null;
+
     return <SelectableList defaultValue={appState.selectedNetworkIndex}>
-      { appState.networks.map( (network, network_index) => {
+      { appState.networks.map( (network, index) => {
 
         let secondaryText = '';
         if(network.graph) {
@@ -66,11 +99,14 @@ export default class NetworkList extends React.Component {
         }
 
         return <ListItem
-          key={network_index}
-          value={network_index}
+          key={index}
+          value={index}
           primaryText={network.name}
           secondaryText={secondaryText}
-          onTouchTap={this.selectNetwork.bind(this, network_index)}
+          rightIcon={index == appState.selectedNetworkIndex ?
+            selectedNetworkIcons
+            : ''}
+          onTouchTap={this._selectNetwork.bind(this, index)}
         />
         })
       }

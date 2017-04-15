@@ -180,29 +180,27 @@ class AppState {
 
   loadTsneNetwork(network, callback) {
 
-    const deepdetect = new DeepDetect('http://91.224.148.180:18083');
+    const deepdetect = new DeepDetect('/api');
 
-    const service_name = 'parasol-test';
+    const service_name = 'parasoltest';
 
     const service_params = {
-      name: service_name,
-      data: {
-        mllib:"tsne",
-        description:"clustering",
-        type:"unsupervised",
-        parameters:{
-          input:{connector:"csv"},
-          mllib:{},
-          output:{}
-        },
-        model:{
-          repository:"/tmp"
-        }
+      mllib:"tsne",
+      description:"clustering",
+      type:"unsupervised",
+      parameters:{
+        input:{connector:"csv"},
+        mllib:{},
+        output:{}
+      },
+      model:{
+        repository:"/tmp"
       }
     };
 
     const train_params = {
-      'async':true,
+      service: service_name,
+      'async':false,
       parameters:{
         input:{
           id:"",
@@ -214,14 +212,14 @@ class AppState {
         },
         output:{}
       },
-      data:["http://deepdetect.com/dd/datasets/mnist_csv/mnist_test.csv"]
+      data:["https://deepdetect.com/dd/datasets/mnist_csv/mnist_test.csv"]
     };
 
     deepdetect.services.create(service_name, service_params).then(function (response) {
 
-      deepdetect.train.launch(service_name, train_params).then(function (response) {
+      deepdetect.train.launch(train_params).then(function (response) {
 
-        deepdetect.services.delete(service_params);
+        deepdetect.services.delete(service_name);
 
         const json = {
           "nodes": [
@@ -271,7 +269,6 @@ class AppState {
         callback(this.networks[this.networks.length - 1]);
 
       });
-
     });
 
     /*
@@ -310,7 +307,27 @@ class AppState {
 
   }
 
+  loadNetwork(network, callback) {
+
+    switch(network.loader) {
+      case 'dd_tsne':
+        this.loadTsneNetwork(network, callback)
+        break;
+      case 'graph_json':
+      default:
+        this.loadJsonNetwork(network, callback)
+    }
+
+  }
+
+  refreshSelectedNetwork() {
+    this.loadNetwork(this.networks[this.selectedNetworkIndex], () => {});
+  }
+
   initNetwork(network, callback) {
+
+    if(typeof(this.networks.find(n => n.url == network.url)) != 'undefined')
+      return false;
 
     this.networks.push({
       url: network.url,
@@ -321,14 +338,8 @@ class AppState {
       options: network.options,
     });
 
-    switch(network.loader) {
-      case 'dd_tsne':
-        this.loadTsneNetwork(network, callback)
-        break;
-      case 'graph_json':
-      default:
-        this.loadJsonNetwork(network, callback)
-    }
+    this.loadNetwork(network, callback);
+
   }
 
   selectNetwork(network_index) {

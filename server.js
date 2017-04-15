@@ -15,6 +15,11 @@ new WebpackDevServer(webpack(config), {
     chunkModules: false,
     colors: true,
   },
+  proxy: {
+    '/api/*': {
+      target: 'http://localhost/',
+    }
+  },
 }).listen(8095, 'localhost', function (err, result) {
   if (err) {
     console.log(err);

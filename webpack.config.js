@@ -82,12 +82,5 @@ module.exports = {
         use: [ 'style-loader', 'css-loader' ]
       }
     ],
-  },
-  devServer: {
-    proxy: {
-      '/api/*': {
-        target: 'http://localhost/',
-      }
-    }
   }
 };
