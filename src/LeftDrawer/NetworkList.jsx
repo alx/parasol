@@ -96,6 +96,8 @@ export default class NetworkList extends React.Component {
           secondaryText = "nodes: " + network.graph.nodes.length
                           + " - " +
                           "edges: " + network.graph.edges.length;
+        } else if(network.status && network.status != 'complete') {
+          secondaryText = network.status;
         }
 
         return <ListItem
@@ -105,7 +107,7 @@ export default class NetworkList extends React.Component {
           secondaryText={secondaryText}
           rightIcon={index == appState.selectedNetworkIndex ?
             selectedNetworkIcons
-            : ''}
+              : (<div/>)}
           onTouchTap={this._selectNetwork.bind(this, index)}
         />
         })

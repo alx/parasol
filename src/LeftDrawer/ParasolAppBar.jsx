@@ -3,6 +3,8 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
+import Subheader from 'material-ui/Subheader';
+
 import { typography } from 'material-ui/styles';
 import { cyan500 } from 'material-ui/styles/colors';
 
@@ -21,10 +23,20 @@ export default class ToggleIcon extends React.Component {
 
     const styles = {
       logoTitle: {
+        marginLeft: 50,
+      },
+      title: {
         fontSize: 24,
         color: typography.textFullWhite,
         fontWeight: typography.fontWeightLight,
-        marginLeft: 50,
+      },
+      subtitle: {
+        WebkitMarginBefore: '0.67em',
+        color: '#e9e9e9',
+      },
+      githubLink: {
+        color: '#e9e9e9',
+        textDecoration: 'none'
       },
       drawerToggle: {
         position: 'absolute',
@@ -40,9 +52,11 @@ export default class ToggleIcon extends React.Component {
       }
     }
 
+    const githubText = __COMMIT_HASH__ || 'github';
+    const githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
+
     return <AppBar
       titleStyle={styles.logoTitle}
-      title="Parasol"
       iconElementLeft={<IconButton
         onTouchTap={this.toggleDrawer}
         style={styles.drawerToggle}
@@ -52,7 +66,12 @@ export default class ToggleIcon extends React.Component {
           style={styles.drawerToggleIcon}
         />
       </IconButton>}
-    />
+    >
+      <h1 style={styles.title}>Parasol</h1>
+      <Subheader style={styles.subtitle}>
+        - <a style={styles.githubLink} href={githubLink} target='_blank' rel='noopener noreferrer'>{githubText}</a>
+      </Subheader>
+    </AppBar>
 
   }
 

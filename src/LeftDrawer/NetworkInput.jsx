@@ -44,9 +44,7 @@ export default class NetworkInput extends React.Component {
 
     const self = this;
 
-    this.setState({loadingStatus: true});
-
-    console.log(this.state.networks);
+    this.setState({loadingStatus: true, dialogOpen: false});
 
     this.state.networks.filter(network => network.selected).forEach(network => {
       this.props.appState.initNetwork(network, () => {

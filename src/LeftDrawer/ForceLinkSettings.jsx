@@ -17,7 +17,7 @@ export default class ForceLinkSettings extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = props.appState.layout;
 
     this._startForceLink = this._startForceLink.bind(this);
     this._changeParam = this._changeParam.bind(this);

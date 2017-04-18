@@ -178,7 +178,10 @@ class AppState {
 
   }
 
-  loadTsneNetwork(network, callback) {
+  loadTsneNetwork(_network, callback) {
+
+    const network = this.networks.find(n => n.url == _network.url);
+    network.options.layout = 'none';
 
     const deepdetect = new DeepDetect('/api');
 
@@ -212,61 +215,33 @@ class AppState {
         },
         output:{}
       },
-      data:["https://deepdetect.com/dd/datasets/mnist_csv/mnist_test.csv"]
+      data:[network.url]
     };
 
+    network.status = 'loading...';
+
+    console.log('deepdetect');
     deepdetect.services.create(service_name, service_params).then(function (response) {
+
+    network.status = 'training...';
 
       deepdetect.train.launch(train_params).then(function (response) {
 
+        network.status = 'complete';
+
         deepdetect.services.delete(service_name);
 
-        const json = {
-          "nodes": [
-            {
-              "id": "n0",
-              "label": "A node",
-              "x": 0,
-              "y": 0,
-              "size": 3
-            },
-            {
-              "id": "n1",
-              "label": "Another node",
-              "x": 3,
-              "y": 1,
-              "size": 2
-            },
-            {
-              "id": "n2",
-              "label": "And a last one",
-              "x": 1,
-              "y": 3,
-              "size": 1
-            }
-          ],
-          "edges": [
-            {
-              "id": "e0",
-              "source": "n0",
-              "target": "n1"
-            },
-            {
-              "id": "e1",
-              "source": "n1",
-              "target": "n2"
-            },
-            {
-              "id": "e2",
-              "source": "n2",
-              "target": "n0"
-            }
-          ]
-        }
-
-        this.networks.find(n => n.url == network.url).graph = json;
-
-        callback(this.networks[this.networks.length - 1]);
+        network.graph = {
+          nodes: response.body.predictions.map( prediction => {
+            return {
+              id: prediction.uri,
+              x: prediction.vals[0],
+              y: prediction.vals[1],
+              color: '#9e9e9e',
+            };
+          }),
+          edges: []
+        };
 
       });
     });
@@ -336,6 +311,7 @@ class AppState {
       selected: true,
       graph: null,
       options: network.options,
+      status: 'initializing...',
     });
 
     this.loadNetwork(network, callback);

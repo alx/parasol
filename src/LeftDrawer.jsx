@@ -8,8 +8,8 @@ import ToggleIcon from './LeftDrawer/ToggleIcon';
 import ParasolAppBar from './LeftDrawer/ParasolAppBar';
 import NetworkInput from './LeftDrawer/NetworkInput';
 import NetworkList from './LeftDrawer/NetworkList';
-import ForceLinkSettings from './LeftDrawer/ForceLinkSettings';
 import FilterSettings from './LeftDrawer/FilterSettings';
+import Layout from './LeftDrawer/Layout';
 import Legend from './LeftDrawer/Legend';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -40,7 +40,7 @@ export default class LeftDrawer extends Component {
 
           <Divider/>
 
-          <ForceLinkSettings appState={appState} />
+          <Layout appState={appState} />
 
           <Divider/>
 

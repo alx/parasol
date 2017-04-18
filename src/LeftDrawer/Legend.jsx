@@ -34,14 +34,14 @@ export default class Legend extends React.Component {
     if(legendItems.length == 0)
       return null;
 
-    return <List>
+    return (<List>
       <ListItem
         primaryText="Legend"
         primaryTogglesNestedList={true}
         initiallyOpen={true}
         nestedItems={legendItems}
       />
-    </List>
+    </List>);
 
   }
 }
