@@ -5,7 +5,10 @@
       "name": "Hansa 2016/10",
       "options": {
         "randomizeNodePosition": true,
-        "layout": "forcelink"
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
       }
     }
   ],

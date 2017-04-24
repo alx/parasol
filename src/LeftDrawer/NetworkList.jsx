@@ -92,18 +92,18 @@ export default class NetworkList extends React.Component {
       { appState.networks.map( (network, index) => {
 
         let secondaryText = '';
-        if(network.graph) {
-          secondaryText = "nodes: " + network.graph.nodes.length
+        if(network.has('graph')) {
+          secondaryText = "nodes: " + network.get('graph').nodes.length
                           + " - " +
-                          "edges: " + network.graph.edges.length;
-        } else if(network.status && network.status != 'complete') {
-          secondaryText = network.status;
+                          "edges: " + network.get('graph').edges.length;
+        } else if(network.has('status') && network.get('status') != 'complete') {
+          secondaryText = network.get('status');
         }
 
         return <ListItem
           key={index}
           value={index}
-          primaryText={network.name}
+          primaryText={network.get('name')}
           secondaryText={secondaryText}
           rightIcon={index == appState.selectedNetworkIndex ?
             selectedNetworkIcons

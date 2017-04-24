@@ -1,10 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import ForceLinkSettings from './ForceLinkSettings';
+import ForceLinkSettings from './Layouts/ForceLinkSettings';
 
 @observer
-export default class Legend extends React.Component {
+export default class Layout extends React.Component {
 
   constructor(props) {
     super(props)
@@ -20,7 +20,7 @@ export default class Legend extends React.Component {
 
     let layoutController = null;
 
-    switch(selectedNetwork.options.layout) {
+    switch(selectedNetwork.get('options').layout) {
       case 'none':
         break;
       case 'forcelink':

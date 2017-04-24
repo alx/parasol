@@ -40,9 +40,12 @@ export default class SigmaComponent extends Component {
 
     const appState = this.props.appState;
     const network = appState.selectedNetwork;
+    console.log('Sigma render');
 
-    if(!network || !network.url)
+    if(!network || !network.get('url'))
       return null;
+
+    console.log('post render');
 
     let backgroundColor = lightBaseTheme.palette.canvasColor;
     if(appState.ui.muiTheme) {
@@ -70,15 +73,17 @@ export default class SigmaComponent extends Component {
 
     let sigmaPlugins = [];
 
-    if(network.options.filters) {
+    const options = network.get('options');
+
+    if(options.filters) {
       sigmaPlugins.push(<Filter key='sigma-filter' neighborsOf={ appState.graph.isFiltered ? appState.graph.selectedNode : null } nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)} edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)} />);
     }
 
-    if(network.options.relativeSize) {
+    if(options.relativeSize) {
       sigmaPlugins.push(<RelativeSize initialSize={15} key='sigma-relativesize'/>);
     }
 
-    switch(network.options.layout) {
+    switch(options.layout) {
       case 'forceatlas2':
         sigmaPlugins.push(<ForceAtlas2 key='sigma-forceatlas2' barnesHutOptimize barnesHutTheta={0.8} iterationsPerRender={2}/>);
         break;
@@ -87,7 +92,7 @@ export default class SigmaComponent extends Component {
         break;
     }
 
-    if(network.options.randomizeNodePosition) {
+    if(options.randomizeNodePosition) {
       sigmaPlugins = <RandomizeNodePositions>{sigmaPlugins}</RandomizeNodePositions>
     }
 
@@ -101,7 +106,7 @@ export default class SigmaComponent extends Component {
           settings={{hideEdgesOnMove:false, animationsTime:3000, clone: false}}
         >
           <SigmaLoader
-            graph={network.graph}
+            graph={network.get('graph')}
           >
             {sigmaPlugins}
           </SigmaLoader>

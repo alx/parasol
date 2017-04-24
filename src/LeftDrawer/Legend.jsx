@@ -12,10 +12,11 @@ export default class Legend extends React.Component {
   render() {
 
     const network = this.props.network;
-    const colors = this.props.colors;
 
     if(!network || !network.graph)
       return null
+
+    const colors = network.colors;
 
     const legendItems = network.graph.nodes.map( node => {
         return node.category;

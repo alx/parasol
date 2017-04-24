@@ -1,20 +1,13 @@
 import { computed, observable } from 'mobx';
 import moment from 'moment';
-import { DeepDetect } from 'deepdetect-js';
 
-import {
-  cyan500,
-  deepOrange500,
-  deepPurple500,
-  pink500,
-  green500,
-  amber500,
-  brown500,
-  grey500,
-  grey50,
-  blueGrey100,
-  blueGrey800,
-} from 'material-ui/styles/colors';
+import LoaderTsne from './Loaders/Tsne';
+import LoaderJson from './Loaders/Json';
+
+const LOADERS = {
+  'dd_tsne': LoaderTsne,
+  'json': LoaderJson,
+};
 
 class AppState {
 
@@ -38,20 +31,6 @@ class AppState {
       maxEdgeSize: 1,
     },
     muiTheme: 'dark',
-    colors: {
-      nodes: [
-        cyan500,
-        deepOrange500,
-        deepPurple500,
-        pink500,
-        green500,
-        amber500,
-        brown500,
-        grey500,
-      ],
-      selectedNode: grey50,
-      edge: blueGrey100,
-    }
   };
 
   @observable layout = {
@@ -96,12 +75,6 @@ class AppState {
 
     if (settings.ui) {
       this.ui = Object.assign(this.ui, settings.ui);
-
-      if (this.ui.muiTheme == 'dark' &&
-         (typeof(settings.ui.colors) == 'undefined' ||
-         typeof(settings.ui.colors.edge) == 'undefined')) {
-        this.ui.colors.edge = blueGrey800;
-      }
     }
 
     // if (settings.layout) {
@@ -119,201 +92,41 @@ class AppState {
   */
 
   @computed get selectedNetwork() {
-    return this.networks.find(network => network.selected);
+    return this.networks.find(network => network.get('selected'));
   }
 
   clearSelectedNetwork() {
-    this.networks.filter(network => network.selected)
+    this.networks.filter(network => network.get('selected'))
                  .forEach(network => {
-                   network.selected = false;
+                   network.set('selected', false);
                  });
-  }
-
-  loadNetwork(network) {
-
-    this.networks.push({
-      url: network.url,
-      name: network.name || network.url.split('/').pop(),
-      timestamp: moment(),
-      selected: true,
-      graph: null,
-      options: network.options,
-    });
-
-  }
-
-  loadJsonNetwork(network, callback) {
-
-    fetch(network.url).then(response => response.json()).then((json) => {
-
-      if (json.nodes) {
-
-        const categories = json.nodes.map(node => node.category)
-          .filter((category, index, self) => self.indexOf(category) === index)
-          .filter(category => typeof(category) != 'undefined' && category.length > 0);
-
-        json.nodes.forEach(node => {
-          if (node.category) {
-            node.color = this.ui.colors.nodes[categories.indexOf(node.category)];
-          } else {
-            node.color = this.ui.colors.nodes[this.ui.colors.nodes.length - 1];
-          }
-        });
-
-      }
-
-      if (json.edges) {
-
-        json.edges.forEach(edge => {
-          edge.color = this.ui.colors.edge;
-        });
-
-      }
-
-      this.networks.find(n => n.url == network.url).graph = json;
-
-      callback(this.networks[this.networks.length - 1]);
-
-    });
-
-  }
-
-  loadTsneNetwork(_network, callback) {
-
-    const network = this.networks.find(n => n.url == _network.url);
-    network.options.layout = 'none';
-
-    const deepdetect = new DeepDetect('/api');
-
-    const service_name = 'parasoltest';
-
-    const service_params = {
-      mllib:"tsne",
-      description:"clustering",
-      type:"unsupervised",
-      parameters:{
-        input:{connector:"csv"},
-        mllib:{},
-        output:{}
-      },
-      model:{
-        repository:"/tmp"
-      }
-    };
-
-    const train_params = {
-      service: service_name,
-      'async':false,
-      parameters:{
-        input:{
-          id:"",
-          separator:",",
-          label:"label"
-        },
-        mllib:{
-          iterations:500
-        },
-        output:{}
-      },
-      data:[network.url]
-    };
-
-    network.status = 'loading...';
-
-    console.log('deepdetect');
-    deepdetect.services.create(service_name, service_params).then(function (response) {
-
-    network.status = 'training...';
-
-      deepdetect.train.launch(train_params).then(function (response) {
-
-        network.status = 'complete';
-
-        deepdetect.services.delete(service_name);
-
-        network.graph = {
-          nodes: response.body.predictions.map( prediction => {
-            return {
-              id: prediction.uri,
-              x: prediction.vals[0],
-              y: prediction.vals[1],
-              color: '#9e9e9e',
-            };
-          }),
-          edges: []
-        };
-
-      });
-    });
-
-    /*
-    fetch(network.url).then(response => response.json()).then((json) => {
-
-      if (json.nodes) {
-
-        const categories = json.nodes.map(node => node.category)
-          .filter((category, index, self) => self.indexOf(category) === index)
-          .filter(category => typeof(category) != 'undefined' && category.length > 0);
-
-        json.nodes.forEach(node => {
-          if (node.category) {
-            node.color = this.ui.colors.nodes[categories.indexOf(node.category)];
-          } else {
-            node.color = this.ui.colors.nodes[this.ui.colors.nodes.length - 1];
-          }
-        });
-
-      }
-
-      if (json.edges) {
-
-        json.edges.forEach(edge => {
-          edge.color = this.ui.colors.edge;
-        });
-
-      }
-
-      this.networks.find(n => n.url == network.url).graph = json;
-
-      callback(this.networks[this.networks.length - 1]);
-
-    });
-    */
-
   }
 
   loadNetwork(network, callback) {
 
-    switch(network.loader) {
-      case 'dd_tsne':
-        this.loadTsneNetwork(network, callback)
-        break;
-      case 'graph_json':
-      default:
-        this.loadJsonNetwork(network, callback)
-    }
+    const networkLoader = network.get('options').loader;
+
+    const loader = new LOADERS[networkLoader.name](network);
+
+    loader.run(callback);
 
   }
 
-  refreshSelectedNetwork() {
-    this.loadNetwork(this.networks[this.selectedNetworkIndex], () => {});
-  }
+  initNetwork(_network, callback) {
 
-  initNetwork(network, callback) {
-
-    if(typeof(this.networks.find(n => n.url == network.url)) != 'undefined')
-      return false;
-
-    this.networks.push({
-      url: network.url,
-      name: network.name || network.url.split('/').pop(),
+    const network = observable.map({
+      url: _network.url,
+      name: _network.name || _network.url.split('/').pop(),
       timestamp: moment(),
       selected: true,
-      graph: null,
-      options: network.options,
+      options: _network.options,
       status: 'initializing...',
     });
 
+    if(typeof(this.networks.find(n => n.get('url') == network.get('url'))) != 'undefined')
+      return false;
+
+    this.networks.push(network);
     this.loadNetwork(network, callback);
 
   }
@@ -322,19 +135,20 @@ class AppState {
     this.clearSelectedNetwork();
 
     const network = this.networks[network_index];
-    network.selected = true;
+    network.set('selected', true);
 
     this.ui.filters.nodeSize = 0;
     this.ui.filters.edgeSize = 0;
     this.ui.filters.maxNodeSize = 1;
     this.ui.filters.maxEdgeSize = 1;
 
-    if (network.graph && typeof(network.graph) !== 'undefined') {
-      this.ui.filters.maxNodeSize = Math.max.apply(Array, network.graph.nodes.map(node => node.size));
-      this.ui.filters.maxEdgeSize = Math.max.apply(Array, network.graph.edges.map(edge => edge.size));
+    if (network.has('graph')) {
+      const graph = network.get('graph');
+      this.ui.filters.maxNodeSize = Math.max.apply(Array, graph.nodes.map(node => node.size));
+      this.ui.filters.maxEdgeSize = Math.max.apply(Array, graph.edges.map(edge => edge.size));
     }
 
-    this.selectedNetworkIndex = this.networks.map(network => network.selected).indexOf(true);
+    this.selectedNetworkIndex = this.networks.map(network => network.get('selected')).indexOf(true);
 
     // FIXME
     // const networkLayout = this.networks[this.selectedNetworkIndex].layout || 'forcelink';
@@ -349,7 +163,7 @@ class AppState {
 
   selectGraphNode(node_id) {
 
-    const selectedGraph = this.networks[this.selectedNetworkIndex].graph;
+    const selectedGraph = this.networks[this.selectedNetworkIndex].get('graph');
 
     this.graph.selectedNode = selectedGraph.nodes.find(node => node.id == node_id);
 

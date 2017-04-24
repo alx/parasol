@@ -47,9 +47,11 @@ export default class NetworkInput extends React.Component {
     this.setState({loadingStatus: true, dialogOpen: false});
 
     this.state.networks.filter(network => network.selected).forEach(network => {
+
       this.props.appState.initNetwork(network, () => {
         self.setState({dialogOpen: false, loadingStatus: false});
       });
+
     });
 
   }
@@ -141,7 +143,7 @@ export default class NetworkInput extends React.Component {
             return (<TableRow key={index} selected={network.selected}>
               <TableRowColumn>{network.name}</TableRowColumn>
               <TableRowColumn>{network.url}</TableRowColumn>
-              <TableRowColumn>{network.loader}</TableRowColumn>
+              <TableRowColumn>{network.options.loader.name}</TableRowColumn>
             </TableRow>);
           })}
           </TableBody>

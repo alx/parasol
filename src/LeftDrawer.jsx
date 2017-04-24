@@ -44,7 +44,7 @@ export default class LeftDrawer extends Component {
 
           <Divider/>
 
-          <Legend network={appState.selectedNetwork} colors={appState.ui.colors.nodes} />
+          <Legend network={appState.selectedNetwork} />
 
         </Drawer>
       </div>
