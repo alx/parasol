@@ -16,6 +16,6 @@
     "path": "networks.json"
   },
   "ui": {
-    "muiTheme": "dark"
+    "muiTheme": "light"
   }
 }

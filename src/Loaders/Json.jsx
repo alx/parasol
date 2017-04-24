@@ -1,14 +1,15 @@
 import {
-  cyan500,
+  green500,
   deepOrange500,
   deepPurple500,
   pink500,
-  green500,
   amber500,
+  cyan500,
   brown500,
   grey500,
   grey50,
   blueGrey100,
+  blueGrey500,
   blueGrey800,
 } from 'material-ui/styles/colors';
 
@@ -18,12 +19,12 @@ const COLORS = {
     deepOrange500,
     deepPurple500,
     pink500,
-    green500,
     amber500,
+    green500,
     brown500,
     grey500,
   ],
-  edge: blueGrey800
+  edge: blueGrey100
 };
 
 class Json {

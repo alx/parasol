@@ -1,8 +1,10 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 
 import Avatar from 'material-ui/Avatar';
 import {List, ListItem } from 'material-ui/List';
 
+@observer
 export default class Legend extends React.Component {
 
   constructor(props) {
@@ -11,14 +13,14 @@ export default class Legend extends React.Component {
 
   render() {
 
-    const network = this.props.network;
+    const network = this.props.appState.selectedNetwork;
 
-    if(!network || !network.graph)
+    if(!network || !network.has('graph') || !network.has('colors'))
       return null
 
-    const colors = network.colors;
+    const colors = network.get('colors');
 
-    const legendItems = network.graph.nodes.map( node => {
+    const legendItems = network.get('graph').nodes.map( node => {
         return node.category;
       }).filter( (category, index, self) => {
         return self.indexOf(category) === index;
@@ -28,7 +30,7 @@ export default class Legend extends React.Component {
         return <ListItem
             key={index}
             disabled={true}
-            leftAvatar={<Avatar size={30} backgroundColor={colors[index]}/>}
+            leftAvatar={<Avatar size={30} backgroundColor={colors.nodes[index]}/>}
           >{category}</ListItem>;
       });
 
