@@ -29,8 +29,9 @@ export default class NeighborNodes extends Component {
       <List>
         <Subheader>Neighbor Nodes</Subheader>
         {
-          nodes.map( node => {
+          nodes.map( (node, index) => {
             return <ListItem
+              key={index}
               primaryText={node.id}
               leftAvatar={<Avatar backgroundColor={node.color} />}
               rightIcon={<ArrowForward />}

@@ -78,26 +78,30 @@ export default class NetworkList extends React.Component {
       color: '#999',
     }
 
-    // const selectedNetworkIcons = (<div style={{top: 0}}>
-    //   <IconRefresh
-    //     style={iconStyle}
-    //     onTouchTap={this._refreshSelectedNetwork}/>
-    //   <IconDownload
-    //     style={iconStyle}
-    //     onTouchTap={this._downloadSelectedNetwork}/>
-    // </div>);
-    const selectedNetworkIcons = null;
+    const selectedNetworkIcons = (<div style={{top: 0}}>
+      <IconRefresh
+        style={iconStyle}
+        onTouchTap={this._refreshSelectedNetwork}/>
+      <IconDownload
+        style={iconStyle}
+        onTouchTap={this._downloadSelectedNetwork}/>
+    </div>);
+    //const selectedNetworkIcons = null;
 
     return <SelectableList defaultValue={appState.selectedNetworkIndex}>
       { appState.networks.map( (network, index) => {
 
+        const selectedItem = index == appState.selectedNetworkIndex;
+
         let secondaryText = '';
-        if(network.has('graph')) {
-          secondaryText = "nodes: " + network.get('graph').nodes.length
-                          + " - " +
-                          "edges: " + network.get('graph').edges.length;
-        } else if(network.has('status') && network.get('status') != 'complete') {
-          secondaryText = network.get('status');
+        if(selectedItem) {
+          if(network.has('graph')) {
+            secondaryText = "nodes: " + network.get('graph').nodes.length
+                            + " - " +
+                            "edges: " + network.get('graph').edges.length;
+          } else if(network.has('status') && network.get('status') != 'complete') {
+            secondaryText = network.get('status');
+          }
         }
 
         return <ListItem
@@ -105,9 +109,7 @@ export default class NetworkList extends React.Component {
           value={index}
           primaryText={network.get('name')}
           secondaryText={secondaryText}
-          rightIcon={index == appState.selectedNetworkIndex ?
-            selectedNetworkIcons
-              : (<div/>)}
+          rightIcon={ selectedItem ? selectedNetworkIcons : (<div/>)}
           onTouchTap={this._selectNetwork.bind(this, index)}
         />
         })

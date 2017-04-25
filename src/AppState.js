@@ -5,8 +5,8 @@ import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
 
 const LOADERS = {
-  'dd_tsne': LoaderTsne,
-  'json': LoaderJson,
+  dd_tsne: LoaderTsne,
+  json: LoaderJson,
 };
 
 class AppState {
@@ -68,8 +68,13 @@ class AppState {
   initSettings(settings) {
 
     if (settings.networks) {
-      settings.networks.forEach(network => {
-        this.initNetwork(network, () => { this.selectNetwork(0); });
+      settings.networks.forEach((network, index) => {
+        if (index == (settings.networks.length - 1)) {
+          // select first imported network when done
+          this.initNetwork(network, () => { this.selectNetwork(0); });
+        } else {
+          this.initNetwork(network, () => {});
+        }
       });
     }
 
@@ -106,9 +111,12 @@ class AppState {
 
     const networkLoader = network.get('options').loader;
 
-    const loader = new LOADERS[networkLoader.name](network);
-
-    loader.run(callback);
+    try {
+      const loader = new LOADERS[networkLoader.name](network);
+      loader.run(callback);
+    } catch (e) {
+      network.set('status', 'Error with network loader');
+    }
 
   }
 
@@ -123,15 +131,22 @@ class AppState {
       status: 'initializing...',
     });
 
-    if(typeof(this.networks.find(n => n.get('url') == network.get('url'))) != 'undefined')
+    if (typeof(this.networks.find(n => n.get('url') == network.get('url'))) != 'undefined') {
       return false;
+    }
 
     this.networks.push(network);
     this.loadNetwork(network, callback);
 
+    return null;
+
   }
 
   selectNetwork(network_index) {
+
+    if(this.selectedNetworkIndex == network_index)
+      return null;
+
     this.clearSelectedNetwork();
 
     const network = this.networks[network_index];

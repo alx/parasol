@@ -55,6 +55,7 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "async": "^2.3.0",
     "axios": "^0.16.1",
     "css-loader": "^0.28.0",
     "deepdetect-js": "^0.1.5",

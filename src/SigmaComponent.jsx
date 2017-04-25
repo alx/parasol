@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import ReactDOM from 'react-dom';
+import { observer, toJS } from 'mobx-react';
 import mobx from 'mobx';
 import moment from 'moment';
 import { Sigma, LoadJSON, Filter, ForceAtlas2, RelativeSize, RandomizeNodePositions } from 'react-sigma';
@@ -40,12 +41,11 @@ export default class SigmaComponent extends Component {
 
     const appState = this.props.appState;
     const network = appState.selectedNetwork;
-    console.log('Sigma render');
 
-    if(!network || !network.get('url'))
+    if(!network || !network.has('graph'))
       return null;
 
-    console.log('post render');
+    const graph = mobx.toJS(network.get('graph'));
 
     let backgroundColor = lightBaseTheme.palette.canvasColor;
     if(appState.ui.muiTheme) {
@@ -70,10 +70,9 @@ export default class SigmaComponent extends Component {
       }
     };
 
-
     let sigmaPlugins = [];
 
-    const options = network.get('options');
+    const options = mobx.toJS(network.get('options'));
 
     if(options.filters) {
       sigmaPlugins.push(<Filter key='sigma-filter' neighborsOf={ appState.graph.isFiltered ? appState.graph.selectedNode : null } nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)} edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)} />);
@@ -93,25 +92,25 @@ export default class SigmaComponent extends Component {
     }
 
     if(options.randomizeNodePosition) {
-      sigmaPlugins = <RandomizeNodePositions>{sigmaPlugins}</RandomizeNodePositions>
+      sigmaPlugins = <RandomizeNodePositions key='sigma-random'>{sigmaPlugins}</RandomizeNodePositions>
     }
 
-    return (
-      <div>
-        <Sigma
-          renderer={ appState.ui.renderer }
-          onClickNode={ this.selectNode }
-          onClickStage={ this.selectStage }
-          style={styles.sigma}
-          settings={{hideEdgesOnMove:false, animationsTime:3000, clone: false}}
-        >
-          <SigmaLoader
-            graph={network.get('graph')}
-          >
-            {sigmaPlugins}
-          </SigmaLoader>
-        </Sigma>
-      </div>
-    );
+    return (<div>
+      <Sigma
+        renderer={ appState.ui.renderer }
+        onClickNode={ this.selectNode }
+        onClickStage={ this.selectStage }
+        style={styles.sigma}
+        settings={{
+          hideEdgesOnMove:false,
+          animationsTime:3000,
+          clone: false
+        }}
+      >
+        <SigmaLoader graph={graph}>
+          {sigmaPlugins}
+        </SigmaLoader>
+      </Sigma>
+    </div>);
   }
 };

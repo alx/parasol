@@ -1,8 +1,162 @@
 {
   "networks": [
     {
-      "url": "data/hansa_2016-10.json",
-      "name": "Hansa 2016/10",
+      "url": "data/hansa/2015-10.json",
+      "name": "2015/10",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2015-11.json",
+      "name": "2015/11",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2015-12.json",
+      "name": "2015/12",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-01.json",
+      "name": "2016/01",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-02.json",
+      "name": "2016/02",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-03.json",
+      "name": "2016/03",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-04.json",
+      "name": "2016/04",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-05.json",
+      "name": "2016/05",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-06.json",
+      "name": "2016/06",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-07.json",
+      "name": "2016/07",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-08.json",
+      "name": "2016/08",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-09.json",
+      "name": "2016/09",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-10.json",
+      "name": "2016/10",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-11.json",
+      "name": "2016/11",
+      "options": {
+        "randomizeNodePosition": true,
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-12.json",
+      "name": "2016/12",
       "options": {
         "randomizeNodePosition": true,
         "layout": "forcelink",
@@ -12,9 +166,6 @@
       }
     }
   ],
-  "network_loader": {
-    "path": "networks.json"
-  },
   "ui": {
     "muiTheme": "light"
   }

@@ -52,6 +52,7 @@ if (constants.PRODUCTION || constants.STAGE) {
 
 if (constants.LOCAL) {
   plugins.push(new webpack.HotModuleReplacementPlugin());
+  plugins.push(new webpack.NamedModulesPlugin());
 
   entries.push('react-hot-loader/patch');
   entries.push('webpack-dev-server/client?http://localhost:8095');

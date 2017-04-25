@@ -36,7 +36,8 @@ export default class ToggleIcon extends React.Component {
       },
       githubLink: {
         color: '#e9e9e9',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        fontSize: 12,
       },
       drawerToggle: {
         position: 'absolute',
