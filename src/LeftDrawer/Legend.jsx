@@ -21,7 +21,7 @@ export default class Legend extends React.Component {
     const colors = network.get('colors');
 
     const legendItems = network.get('graph').nodes.map( node => {
-        return node.category;
+        return node.metadata.category;
       }).filter( (category, index, self) => {
         return self.indexOf(category) === index;
       }).filter( category => {

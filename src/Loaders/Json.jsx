@@ -43,13 +43,13 @@ class Json {
 
       if (json.nodes) {
 
-        const categories = json.nodes.map(node => node.category)
+        const categories = json.nodes.map(node => node.metadata ? node.metadata.category : null)
           .filter((category, index, self) => self.indexOf(category) === index)
-          .filter(category => typeof(category) != 'undefined' && category.length > 0);
+          .filter(category => typeof(category) != 'undefined' && category && category.length > 0);
 
         json.nodes.forEach(node => {
-          if (node.category) {
-            node.color = COLORS.nodes[categories.indexOf(node.category)];
+          if (node.metadata && node.metadata.category) {
+            node.color = COLORS.nodes[categories.indexOf(node.metadata.category)];
           } else {
             node.color = COLORS.nodes[COLORS.nodes.length - 1];
           }

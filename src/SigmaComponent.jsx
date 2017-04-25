@@ -45,8 +45,6 @@ export default class SigmaComponent extends Component {
     if(!network || !network.has('graph'))
       return null;
 
-    const graph = mobx.toJS(network.get('graph'));
-
     let backgroundColor = lightBaseTheme.palette.canvasColor;
     if(appState.ui.muiTheme) {
 
@@ -91,10 +89,6 @@ export default class SigmaComponent extends Component {
         break;
     }
 
-    if(options.randomizeNodePosition) {
-      sigmaPlugins = <RandomizeNodePositions key='sigma-random'>{sigmaPlugins}</RandomizeNodePositions>
-    }
-
     return (<div>
       <Sigma
         renderer={ appState.ui.renderer }
@@ -107,7 +101,7 @@ export default class SigmaComponent extends Component {
           clone: false
         }}
       >
-        <SigmaLoader graph={graph}>
+        <SigmaLoader graph={mobx.toJS(network.get('graph'))}>
           {sigmaPlugins}
         </SigmaLoader>
       </Sigma>

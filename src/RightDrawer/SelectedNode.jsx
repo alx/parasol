@@ -26,6 +26,10 @@ export default class SelectedNode extends Component {
       nestedListItem: {
          margin: 0,
          padding: '10 8 8',
+      },
+      nestedNestedListItem: {
+         margin: 0,
+         padding: '10 8 16',
       }
     }
 
@@ -33,7 +37,7 @@ export default class SelectedNode extends Component {
       <List>
         <Subheader>Selected Node</Subheader>
         <ListItem
-          primaryText={node.id}
+          primaryText={node.label || node.id}
           leftAvatar={<Avatar backgroundColor={node.color} />}
           primaryTogglesNestedList={true}
           initiallyOpen={true}
@@ -50,12 +54,35 @@ export default class SelectedNode extends Component {
                 primaryText = primaryText ? 'true' : 'false';
               }
 
-              return <ListItem
-                key={index}
-                primaryText={primaryText}
-                secondaryText={key}
-                innerDivStyle={styles.nestedListItem}
-              />;
+              if(key == 'metadata') {
+                return <ListItem
+                  key={index}
+                  primaryText='Metadata'
+                  secondaryText={key}
+                  nestedItems= { Object.keys(node.metadata).map( (nestedKey, nestedIndex) => {
+
+                    let nestedText = node.metadata[nestedKey];
+
+                    if(typeof(nestedText) == 'boolean') {
+                      nestedText = nestedText ? 'true' : 'false';
+                    }
+
+                    return <ListItem
+                      key={`metadata-${nestedIndex}`}
+                      primaryText={nestedText}
+                      secondaryText={nestedKey}
+                      innerDivStyle={styles.nestedNestedListItem}
+                    />;
+                  })}
+                />;
+              } else {
+                return <ListItem
+                  key={index}
+                  primaryText={primaryText}
+                  secondaryText={key}
+                  innerDivStyle={styles.nestedListItem}
+                />;
+              }
             })
           }
         />

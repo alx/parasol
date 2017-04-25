@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
+import SigmaComponent from './SigmaComponent';
 import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
-import SigmaComponent from './SigmaComponent';
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';

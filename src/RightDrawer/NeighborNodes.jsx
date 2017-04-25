@@ -32,7 +32,7 @@ export default class NeighborNodes extends Component {
           nodes.map( (node, index) => {
             return <ListItem
               key={index}
-              primaryText={node.id}
+              primaryText={node.label || node.id}
               leftAvatar={<Avatar backgroundColor={node.color} />}
               rightIcon={<ArrowForward />}
               onTouchTap={this.selectNode.bind(this, node.id)}
