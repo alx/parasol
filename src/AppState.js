@@ -17,6 +17,7 @@ class AppState {
   @observable graph = {
     selectedNode: null,
     isFiltered: false,
+    filterMode: 'singlenode',
     neighborNodes: []
   };
 
@@ -170,11 +171,26 @@ class AppState {
     // console.log(networkLayout);
     // console.log(mobx.toJS( this.layout[networkLayout]));
     // this.layout.params = this.layout[networkLayout];
+
+    this.unselectGraphNode();
+    this.filterGraphNode(false);
   }
 
   /*
   * Graph
   */
+
+  filterGraphNode(isFiltered, filterMode) {
+    this.graph.isFiltered = isFiltered;
+
+    if(isFiltered) {
+      this.graph.filterMode = filterMode || 'singlenode';
+    } else {
+      const graph = this.networks[this.selectedNetworkIndex].get('graph');
+      graph.nodes.forEach( node => node.hidden = false);
+      graph.edges.forEach( edge => edge.hidden = false);
+    }
+  }
 
   selectGraphNode(node_id) {
 

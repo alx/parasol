@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import AutoComplete from 'material-ui/AutoComplete';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
+import RaisedButton from 'material-ui/RaisedButton';
 
 @observer
 export default class SearchInput extends Component {
@@ -14,7 +15,7 @@ export default class SearchInput extends Component {
 
   setupDatasource = (network) => {
 
-    return network.get('graph').nodes.map( node => {
+    let datasource = network.get('graph').nodes.map( node => {
 
       const category = node.metadata ? node.metadata.category : '';
 
@@ -37,6 +38,18 @@ export default class SearchInput extends Component {
 
     });
 
+    datasource.push({
+      text: 'filter_action',
+      action: 'display_filtered',
+      value: (
+        <MenuItem
+          primaryText={<RaisedButton label="Show only these nodes" fullWidth={true} />}
+        />
+      )
+    });
+
+    return datasource;
+
   }
 
   handleUpdateInput = (value) => {
@@ -50,6 +63,12 @@ export default class SearchInput extends Component {
       searchText: '',
     });
     this.props.appState.selectGraphNode(value.node_id);
+  };
+
+  filter = (searchText, key) => {
+    return searchText.length > 1 &&
+      (key == 'filter_action' ||
+      key.toLowerCase().indexOf(searchText.toLowerCase()) !== -1);
   };
 
   render() {
@@ -68,7 +87,7 @@ export default class SearchInput extends Component {
           hintText="Search"
           searchText={this.state.searchText}
           dataSource={datasource}
-          filter={AutoComplete.caseInsensitiveFilter}
+          filter={this.filter}
           onUpdateInput={this.handleUpdateInput}
           onNewRequest={this.handleNewRequest}
         />

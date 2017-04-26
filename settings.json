@@ -1,8 +1,8 @@
 {
   "networks": [
     {
-      "url": "data/hansa/2015-12.json",
-      "name": "hansa 12/2015",
+      "url": "data/hansa/2016-03.json",
+      "name": "hansa 03/2016",
       "options": {
         "layout": "forcelink",
         "loader": {

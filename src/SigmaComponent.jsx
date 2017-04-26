@@ -9,6 +9,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 import SigmaLoader from './Sigma/Loader';
+import SigmaFilter from './Sigma/Filter';
 import ForceLink from './Sigma/ForceLink'
 
 @observer
@@ -26,7 +27,8 @@ export default class SigmaComponent extends Component {
   }
 
   selectStage() {
-    this.props.appState.unselectGraphNode();
+    if(!this.props.appState.graph.isFiltered)
+      this.props.appState.unselectGraphNode();
   }
 
   filterNodes(size, node) {
@@ -72,8 +74,20 @@ export default class SigmaComponent extends Component {
 
     const options = mobx.toJS(network.get('options'));
 
-    if(options.filters) {
-      sigmaPlugins.push(<Filter key='sigma-filter' neighborsOf={ appState.graph.isFiltered ? appState.graph.selectedNode : null } nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)} edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)} />);
+    if(appState.graph.isFiltered && appState.graph.selectedNode) {
+      //nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)}
+      //edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)}
+      sigmaPlugins.push(
+        <SigmaFilter
+          key='sigma-filter'
+          filtermode={ appState.graph.filtermode }
+          neighborsOf={ appState.graph.selectedNode.id }
+        />
+      );
+    } else {
+      const graph = network.get('graph');
+      graph.nodes.forEach( node => node.hidden = false);
+      graph.edges.forEach( edge => edge.hidden = false);
     }
 
     if(options.relativeSize) {

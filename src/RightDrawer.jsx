@@ -25,7 +25,7 @@ export default class RightDrawer extends Component {
       <Drawer openSecondary={true} open={appState.ui.rightDrawer} >
         <SearchInput appState={appState}/>
         <Divider/>
-        <SelectedNode node={appState.graph.selectedNode} />
+        <SelectedNode appState={appState} />
         <Divider/>
         <NeighborNodes appState={appState}/>
       </Drawer>

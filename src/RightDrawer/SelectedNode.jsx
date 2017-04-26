@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
 import Avatar from 'material-ui/Avatar';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
+import Toggle from 'material-ui/Toggle';
 
+@observer
 export default class SelectedNode extends Component {
 
   constructor(props) {
     super(props)
   }
 
+  pinNode = (event, isInputChecked) => {
+    this.props.appState.filterGraphNode(isInputChecked);
+  }
+
   render() {
 
-    const node = this.props.node;
+    const appState = this.props.appState;
+    const node = appState.graph.selectedNode;
 
     if(!node)
       return null;
@@ -33,10 +41,19 @@ export default class SelectedNode extends Component {
       }
     }
 
-    return (
+    return (<div>
+      <Subheader>
+        Selected Node
+      </Subheader>
+      <Toggle
+        label="Only show this node"
+        style={styles.toggle}
+        toggled={appState.graph.isFiltered}
+        onToggle={this.pinNode}
+      />
       <List>
-        <Subheader>Selected Node</Subheader>
         <ListItem
+          key='selectednode'
           primaryText={node.label || node.id}
           leftAvatar={<Avatar backgroundColor={node.color} />}
           primaryTogglesNestedList={true}
@@ -57,7 +74,6 @@ export default class SelectedNode extends Component {
               if(key == 'metadata') {
 
                 const metadataItems = Object.keys(node.metadata).map( (nestedKey, nestedIndex) => {
-
                     let nestedText = node.metadata[nestedKey];
 
                     if(typeof(nestedText) == 'boolean') {
@@ -72,11 +88,11 @@ export default class SelectedNode extends Component {
                     />;
                 });
 
-                return <div>{metadataItems}</div>;
+                return <List key='nested-metadata'>{metadataItems}</List>;
 
               } else {
                 return <ListItem
-                  key={index}
+                  key={'selectednode-' + index}
                   primaryText={primaryText}
                   secondaryText={key}
                   innerDivStyle={styles.nestedListItem}
@@ -86,6 +102,6 @@ export default class SelectedNode extends Component {
           }
         />
       </List>
-    );
+    </div>);
   }
 };
