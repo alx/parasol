@@ -55,11 +55,8 @@ export default class SelectedNode extends Component {
               }
 
               if(key == 'metadata') {
-                return <ListItem
-                  key={index}
-                  primaryText='Metadata'
-                  secondaryText={key}
-                  nestedItems= { Object.keys(node.metadata).map( (nestedKey, nestedIndex) => {
+
+                const metadataItems = Object.keys(node.metadata).map( (nestedKey, nestedIndex) => {
 
                     let nestedText = node.metadata[nestedKey];
 
@@ -70,11 +67,13 @@ export default class SelectedNode extends Component {
                     return <ListItem
                       key={`metadata-${nestedIndex}`}
                       primaryText={nestedText}
-                      secondaryText={nestedKey}
-                      innerDivStyle={styles.nestedNestedListItem}
+                      secondaryText={'metadata - ' + nestedKey}
+                      innerDivStyle={styles.nestedListItem}
                     />;
-                  })}
-                />;
+                });
+
+                return <div>{metadataItems}</div>;
+
               } else {
                 return <ListItem
                   key={index}

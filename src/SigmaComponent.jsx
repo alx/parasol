@@ -26,7 +26,7 @@ export default class SigmaComponent extends Component {
   }
 
   selectStage() {
-    this.props.appState.hideRightDrawer();
+    this.props.appState.unselectGraphNode();
   }
 
   filterNodes(size, node) {
@@ -101,7 +101,7 @@ export default class SigmaComponent extends Component {
           clone: false
         }}
       >
-        <SigmaLoader graph={mobx.toJS(network.get('graph'))}>
+        <SigmaLoader graph={network.get('graph')}>
           {sigmaPlugins}
         </SigmaLoader>
       </Sigma>

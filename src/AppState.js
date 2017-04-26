@@ -22,7 +22,7 @@ class AppState {
 
   @observable ui = {
     leftDrawer: true,
-    rightDrawer: false,
+    rightDrawer: true,
     renderer: 'webgl',
     filters: {
       nodeSize: 0,
@@ -187,8 +187,11 @@ class AppState {
       .map(edge => edge.source == node_id ? edge.target : edge.source);
 
     this.graph.neighborNodes = selectedGraph.nodes.filter(node => neighborNodeIds.indexOf(node.id) != -1);
+  }
 
-    this.ui.rightDrawer = true;
+  unselectGraphNode() {
+    this.graph.selectedNode = null;
+    this.graph.neighborNodes = [];
   }
 
   toggleGraphFilter() {
@@ -201,6 +204,10 @@ class AppState {
 
   toggleLeftDrawer() {
     this.ui.leftDrawer = !this.ui.leftDrawer;
+  }
+
+  toggleRightDrawer() {
+    this.ui.rightDrawer = !this.ui.rightDrawer;
   }
 
   showRightDrawer() {
