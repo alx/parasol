@@ -5,7 +5,7 @@ import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 
 import SearchInput from './RightDrawer/SearchInput';
-//import Filters from './RightDrawer/Filters';
+import Filters from './RightDrawer/Filters';
 
 import SelectedNode from './RightDrawer/SelectedNode';
 import NeighborNodes from './RightDrawer/NeighborNodes';
@@ -24,6 +24,7 @@ export default class RightDrawer extends Component {
     return (
       <Drawer openSecondary={true} open={appState.ui.rightDrawer} >
         <SearchInput appState={appState}/>
+        <Filters appState={appState}/>
         <Divider/>
         <SelectedNode appState={appState} />
         <Divider/>

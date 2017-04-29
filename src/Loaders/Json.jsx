@@ -24,15 +24,20 @@ const COLORS = {
     brown500,
     grey500,
   ],
-  edge: blueGrey100
+  edge: {
+    dark: blueGrey800,
+    light: blueGrey100,
+  },
 };
 
 class Json {
 
   network = null;
 
-  constructor(network) {
+  constructor(network, muiTheme) {
     this.network = network;
+    this.muiTheme = muiTheme;
+    console.log('---' + this.muiTheme);
   }
 
   run(callback) {
@@ -58,9 +63,10 @@ class Json {
       }
 
       if (json.edges) {
+        console.log(this.muiTheme);
 
         json.edges.forEach(edge => {
-          edge.color = COLORS.edge;
+          edge.color = COLORS.edge[this.muiTheme];
         });
 
       }
@@ -68,7 +74,8 @@ class Json {
       network.set('graph', json);
       network.set('colors', COLORS);
 
-      callback(network);
+      if(typeof(callback) != 'undefined')
+        callback(network);
 
     });
 

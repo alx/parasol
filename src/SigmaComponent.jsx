@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { observer, toJS } from 'mobx-react';
 import mobx from 'mobx';
 import moment from 'moment';
-import { Sigma, LoadJSON, Filter, ForceAtlas2, RelativeSize, RandomizeNodePositions } from 'react-sigma';
+import { Sigma, LoadJSON, Filter, ForceAtlas2, RelativeSize, NodeShapes, EdgeShapes } from 'react-sigma';
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 import SigmaLoader from './Sigma/Loader';
 import SigmaFilter from './Sigma/Filter';
-import ForceLink from './Sigma/ForceLink'
+import ForceLink from './Sigma/ForceLink';
 
 @observer
 export default class SigmaComponent extends Component {
@@ -70,18 +69,24 @@ export default class SigmaComponent extends Component {
       }
     };
 
-    let sigmaPlugins = [];
+    let sigmaPlugins = [
+    ];
+
+    if(appState.ui.renderer == 'canvas') {
+      sigmaPlugins.push(<NodeShapes key='sigma-nodeshapes' />);
+      sigmaPlugins.push(<EdgeShapes key='sigma-edgeshapes' default="curve" />);
+    }
 
     const options = mobx.toJS(network.get('options'));
 
-    if(appState.graph.isFiltered && appState.graph.selectedNode) {
+    if(appState.graph.isFiltered && appState.graph.selectedNodes.length > 0) {
       //nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)}
       //edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)}
       sigmaPlugins.push(
         <SigmaFilter
           key='sigma-filter'
           filtermode={ appState.graph.filtermode }
-          neighborsOf={ appState.graph.selectedNode.id }
+          neighborsOf={ appState.graph.selectedNodes[0].id }
         />
       );
     } else {
@@ -112,7 +117,13 @@ export default class SigmaComponent extends Component {
         settings={{
           hideEdgesOnMove:false,
           animationsTime:3000,
-          clone: false
+          clone: false,
+          labelThreshold: appState.ui.labels.labelThreshold,
+          labelSize: appState.ui.labels.labelSize,
+          labelSizeRatio: appState.ui.labels.labelSizeRatio,
+          fontStyle: appState.ui.labels.fontStyle,
+          font: appState.ui.labels.font,
+          labelColor:appState.ui.labels.labelColor,
         }}
       >
         <SigmaLoader graph={network.get('graph')}>

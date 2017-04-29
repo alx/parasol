@@ -63,7 +63,7 @@ export default class NetworkList extends React.Component {
   }
 
   _downloadSelectedNetwork() {
-    return null;
+    this.props.appState.downloadSelectedNetwork();
   }
 
   render() {

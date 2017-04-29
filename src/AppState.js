@@ -15,7 +15,7 @@ class AppState {
   @observable selectedNetworkIndex = 0;
 
   @observable graph = {
-    selectedNode: null,
+    selectedNodes: [],
     isFiltered: false,
     filterMode: 'singlenode',
     neighborNodes: []
@@ -24,7 +24,7 @@ class AppState {
   @observable ui = {
     leftDrawer: true,
     rightDrawer: true,
-    renderer: 'webgl',
+    renderer: 'canvas',
     filters: {
       nodeSize: 0,
       edgeSize: 0,
@@ -32,6 +32,14 @@ class AppState {
       maxEdgeSize: 1,
     },
     muiTheme: 'dark',
+    labels: {
+      labelThreshold: 1.5,
+      labelSize: 'ratio',
+      labelSizeRatio: 2,
+      fontStyle: '500',
+      font: 'Roboto',
+      labelColor: 'node',
+    }
   };
 
   @observable layout = {
@@ -68,6 +76,10 @@ class AppState {
 
   initSettings(settings) {
 
+    if (settings.ui) {
+      this.ui = Object.assign(this.ui, settings.ui);
+    }
+
     if (settings.networks) {
       settings.networks.forEach((network, index) => {
         if (index == (settings.networks.length - 1)) {
@@ -77,10 +89,6 @@ class AppState {
           this.initNetwork(network, () => {});
         }
       });
-    }
-
-    if (settings.ui) {
-      this.ui = Object.assign(this.ui, settings.ui);
     }
 
     // if (settings.layout) {
@@ -108,12 +116,28 @@ class AppState {
                  });
   }
 
+  refreshSelectedNetwork() {
+    const self = this;
+    this.networks.filter(network => network.get('selected'))
+                 .forEach(network => self.loadNetwork(network));
+  }
+
+  downloadSelectedNetwork() {
+    const network = this.selectedNetwork();
+
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.network.get('graph')));
+    var dlAnchorElem = document.getElementById('downloadAnchorElem');
+    dlAnchorElem.setAttribute("href",     dataStr     );
+    dlAnchorElem.setAttribute("download", network.title + ".json");
+    dlAnchorElem.click();
+  }
+
   loadNetwork(network, callback) {
 
     const networkLoader = network.get('options').loader;
 
     try {
-      const loader = new LOADERS[networkLoader.name](network);
+      const loader = new LOADERS[networkLoader.name](network, this.ui.muiTheme);
       loader.run(callback);
     } catch (e) {
       network.set('status', 'Error with network loader');
@@ -196,7 +220,7 @@ class AppState {
 
     const selectedGraph = this.networks[this.selectedNetworkIndex].get('graph');
 
-    this.graph.selectedNode = selectedGraph.nodes.find(node => node.id == node_id);
+    this.graph.selectedNodes.push(selectedGraph.nodes.find(node => node.id == node_id));
 
     const neighborNodeIds = selectedGraph.edges
       .filter(edge => edge.source == node_id || edge.target == node_id)
@@ -206,7 +230,7 @@ class AppState {
   }
 
   unselectGraphNode() {
-    this.graph.selectedNode = null;
+    this.graph.selectedNodes.clear();
     this.graph.neighborNodes = [];
   }
 

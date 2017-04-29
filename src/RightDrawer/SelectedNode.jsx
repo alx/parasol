@@ -20,10 +20,12 @@ export default class SelectedNode extends Component {
   render() {
 
     const appState = this.props.appState;
-    const node = appState.graph.selectedNode;
 
-    if(!node)
+    if(appState.graph.selectedNodes.length == 0)
       return null;
+
+    const selectedNodes = appState.graph.selectedNodes;
+    const node = selectedNodes[selectedNodes.length - 1];
 
     const styles = {
       nestedList: {
@@ -59,7 +61,7 @@ export default class SelectedNode extends Component {
           primaryTogglesNestedList={true}
           initiallyOpen={true}
           nestedListStyle={styles.nestedList}
-          nestedItems= { Object.keys(node).filter( key => {
+          nestedItems= { [].concat.apply([], Object.keys(node).filter( key => {
 
               return key.indexOf('cam0:') == -1;
 
@@ -73,23 +75,22 @@ export default class SelectedNode extends Component {
 
               if(key == 'metadata') {
 
-                const metadataItems = Object.keys(node.metadata).map( (nestedKey, nestedIndex) => {
-                    let nestedText = node.metadata[nestedKey];
+                return Object.keys(node.metadata).map( (nestedKey, nestedIndex) => {
+                    primaryText = node.metadata[nestedKey];
 
-                    if(typeof(nestedText) == 'boolean') {
-                      nestedText = nestedText ? 'true' : 'false';
+                    if(typeof(primaryText) == 'boolean') {
+                      primaryText = primaryText ? 'true' : 'false';
                     }
 
                     return <ListItem
-                      key={`metadata-${nestedIndex}`}
-                      primaryText={nestedText}
+                      key={'selectednode-metadata-' + nestedIndex}
+                      primaryText={primaryText}
                       secondaryText={'metadata - ' + nestedKey}
                       innerDivStyle={styles.nestedListItem}
                     />;
                 });
 
                 return <List key='nested-metadata'>{metadataItems}</List>;
-
               } else {
                 return <ListItem
                   key={'selectednode-' + index}
@@ -99,7 +100,7 @@ export default class SelectedNode extends Component {
                 />;
               }
             })
-          }
+          )}
         />
       </List>
     </div>);
