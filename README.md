@@ -52,8 +52,6 @@ specific settings for network to pre-load and general user interface.
 
 ## networks.json - list of available networks
 
-If you want to have pre-defined networks available, you can fill the file `networks.json`.
-
 This file will be fetched, and its networks will be available in the **Add Network** modal.
 
 This feature can help you if you don't want to load in the left drawer this list of secondary networks.
