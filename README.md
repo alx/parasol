@@ -16,7 +16,7 @@ npm start
 open http://localhost:8095
 ```
 
-## settings.json
+## settings.json - global app config
 
 When opening the project webpage, it loads `settings.json` file that contains
 specific settings for network to pre-load and general user interface.
@@ -49,6 +49,14 @@ specific settings for network to pre-load and general user interface.
     * `startForce` : run ForceAtlas2 layout once the graph is loaded, allows to move randomized nodes to its nearest neighbor
 * `ui` object :
   * `muiTheme` : general theme setting, can be `light` or `dark`
+
+## networks.json - list of available networks
+
+If you want to have pre-defined networks available, you can fill the file `networks.json`.
+
+This file will be fetched, and its networks will be available in the **Add Network** modal.
+
+This feature can help you if you don't want to load in the left drawer this list of secondary networks.
 
 ## Deploy on a webserver
 
