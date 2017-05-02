@@ -38,6 +38,7 @@ export default class SearchInput extends Component {
 
     });
 
+    /*
     datasource.push({
       text: 'filter_action',
       action: 'display_filtered',
@@ -47,6 +48,7 @@ export default class SearchInput extends Component {
         />
       )
     });
+    */
 
     return datasource;
 

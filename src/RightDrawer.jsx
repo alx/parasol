@@ -24,7 +24,7 @@ export default class RightDrawer extends Component {
     return (
       <Drawer openSecondary={true} open={appState.ui.rightDrawer} >
         <SearchInput appState={appState}/>
-        <Filters appState={appState}/>
+        <Filters appState={appState} filters={appState.ui.filters}/>
         <Divider/>
         <SelectedNode appState={appState} />
         <Divider/>

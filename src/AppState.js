@@ -1,4 +1,4 @@
-import { computed, observable } from 'mobx';
+import { computed, observable, toJS } from 'mobx';
 import moment from 'moment';
 
 import LoaderTsne from './Loaders/Tsne';
@@ -32,6 +32,7 @@ class AppState {
       maxNodeSize: 1,
       minEdgeWeight: 0,
       maxEdgeWeight: 1,
+      hideOrphans: true,
     },
     muiTheme: 'dark',
     labels: {
@@ -176,12 +177,9 @@ class AppState {
     this.clearSelectedNetwork();
 
     const network = this.networks[network_index];
-    network.set('selected', true);
 
     this.ui.filters.nodeSize = 0;
     this.ui.filters.edgeWeight = 0;
-    this.ui.filters.maxNodeSize = 1;
-    this.ui.filters.maxEdgeWeight = 1;
 
     if (network.has('graph')) {
       const graph = network.get('graph');
@@ -189,6 +187,10 @@ class AppState {
       this.graph.maxEdgeWeight = Math.ceil(Math.max.apply(Array, graph.edges.map(edge => edge.weight)));
     }
 
+    this.ui.filters.maxNodeSize = this.graph.maxNodeSize;
+    this.ui.filters.maxEdgeWeight = this.graph.maxEdgeWeight;
+
+    network.set('selected', true);
     this.selectedNetworkIndex = this.networks.map(network => network.get('selected')).indexOf(true);
 
     // FIXME
@@ -235,8 +237,53 @@ class AppState {
     this.graph.neighborNodes = [];
   }
 
+  filterReset() {
+    const selectedNetwork = this.networks[this.selectedNetworkIndex];
+    network.set('graph', network.get('source_graph'));
+  }
+
+  filterGraph() {
+    const selectedNetwork = this.networks[this.selectedNetworkIndex];
+
+    const graph = toJS(selectedNetwork.get('source_graph'))
+
+    graph.nodes = graph.nodes.filter( node => {
+      if(node.size < this.ui.filters.minNodeSize ||
+         node.size >= this.ui.filters.maxNodeSize) {
+        graph.edges = graph.edges.filter( edge => {
+          return edge.source != node.id && edge.target != node.id
+        });
+        return false;
+      } else {
+        return true;
+      }
+    });
+
+    graph.edges = graph.edges.filter( edge => {
+      return edge.weight >= this.ui.filters.minEdgeWeight &&
+             edge.weight < this.ui.filters.maxEdgeWeight;
+    });
+
+    if(this.ui.filters.hideOrphans) {
+      const edgyNodes = [].concat.apply([], graph.edges.map( edge => {
+        return [edge.source, edge.target];
+      }));
+      graph.nodes = graph.nodes.filter( node => edgyNodes.indexOf(node.id) != -1 );
+    }
+
+    selectedNetwork.set('graph', graph);
+  }
+
   toggleGraphFilter() {
     this.graph.isFiltered = !this.graph.isFiltered;
+  }
+
+  setFilter(filters, value) {
+    Object.keys(filters).forEach( key => {
+      this.ui.filters[key] = filters[key];
+    });
+    this.graph.isFiltered = true;
+    this.filterGraph();
   }
 
   /*
@@ -257,10 +304,6 @@ class AppState {
 
   hideRightDrawer() {
     this.ui.rightDrawer = false;
-  }
-
-  setFilter(filter, value) {
-    this.ui.filters[filter] = value;
   }
 
   /*

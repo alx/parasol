@@ -71,6 +71,7 @@ class Json {
       }
 
       network.set('graph', json);
+      network.set('source_graph', json);
       network.set('colors', COLORS);
 
       if(typeof(callback) != 'undefined')
