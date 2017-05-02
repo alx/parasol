@@ -28,11 +28,15 @@ specific settings for network to pre-load and general user interface.
       "url": "json/tsne.json",
       "name": "TSNE",
       "options": {
-        "relativeSize": true
+        "layout": "none",
+        "loader": {
+          "name": "json"
+        }
       }
     },
     ...
   ],
+  "network_loader": {"path": "/networks.json"},
   "ui": {
     "muiTheme": "dark"
   }
@@ -44,9 +48,10 @@ specific settings for network to pre-load and general user interface.
   * `url` : url of the file containing the network graph
   * `name` : name of the network to display in parasol UI
   * `options` object : various plugins to load for this specific network
-    * `relativeSize` : sets nodes sizes corresponding its degree
-    * `randomizeNodePosition` : sets random positions to all nodes
-    * `startForce` : run ForceAtlas2 layout once the graph is loaded, allows to move randomized nodes to its nearest neighbor
+    * `layout` : layout used to modify this graph, can be `forceatlas2`, `forcelink` or `none`
+    * `relativeSize`: `true` or `false depending if you need to use [relativeSize](https://github.com/jacomyal/sigma.js/tree/master/plugins/sigma.plugins.relativeSize) sigmajs plugin
+* `network_loader` object :
+  * `path` : path to the `networks.json` file that contains additional network to be loaded in this instance of parasol
 * `ui` object :
   * `muiTheme` : general theme setting, can be `light` or `dark`
 
