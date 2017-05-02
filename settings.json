@@ -1,8 +1,8 @@
 {
   "networks": [
     {
-      "url": "data/hansa/2015-11.json",
-      "name": "hansa 11/2015",
+      "url": "data/transparence-sante-31000.json",
+      "name": "Transparence Santé",
       "options": {
         "layout": "forcelink",
         "loader": {

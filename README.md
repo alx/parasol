@@ -49,7 +49,7 @@ specific settings for network to pre-load and general user interface.
   * `name` : name of the network to display in parasol UI
   * `options` object : various plugins to load for this specific network
     * `layout` : layout used to modify this graph, can be `forceatlas2`, `forcelink` or `none`
-    * `relativeSize`: `true` or `false depending if you need to use [relativeSize](https://github.com/jacomyal/sigma.js/tree/master/plugins/sigma.plugins.relativeSize) sigmajs plugin
+    * `relativeSize`: `true` or `false` depending if you need to use [relativeSize](https://github.com/jacomyal/sigma.js/tree/master/plugins/sigma.plugins.relativeSize) sigmajs plugin
 * `network_loader` object :
   * `path` : path to the `networks.json` file that contains additional network to be loaded in this instance of parasol
 * `ui` object :
