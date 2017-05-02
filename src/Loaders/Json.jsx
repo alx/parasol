@@ -16,13 +16,13 @@ import {
 const COLORS = {
   nodes: [
     cyan500,
-    deepOrange500,
-    deepPurple500,
-    pink500,
+    grey500,
     amber500,
+    deepOrange500,
+    pink500,
+    deepPurple500,
     green500,
     brown500,
-    grey500,
   ],
   edge: {
     dark: blueGrey800,
@@ -37,7 +37,6 @@ class Json {
   constructor(network, muiTheme) {
     this.network = network;
     this.muiTheme = muiTheme;
-    console.log('---' + this.muiTheme);
   }
 
   run(callback) {
@@ -53,18 +52,18 @@ class Json {
           .filter(category => typeof(category) != 'undefined' && category && category.length > 0);
 
         json.nodes.forEach(node => {
-          if (node.metadata && node.metadata.category) {
-            node.color = COLORS.nodes[categories.indexOf(node.metadata.category)];
-          } else {
-            node.color = COLORS.nodes[COLORS.nodes.length - 1];
+          if(node.metadata && !node.metadata.forceColor) {
+            if (node.metadata.category) {
+              node.color = COLORS.nodes[categories.indexOf(node.metadata.category)];
+            } else {
+              node.color = COLORS.nodes[COLORS.nodes.length - 1];
+            }
           }
         });
 
       }
 
       if (json.edges) {
-        console.log(this.muiTheme);
-
         json.edges.forEach(edge => {
           edge.color = COLORS.edge[this.muiTheme];
         });

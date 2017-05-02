@@ -18,7 +18,9 @@ class AppState {
     selectedNodes: [],
     isFiltered: false,
     filterMode: 'singlenode',
-    neighborNodes: []
+    neighborNodes: [],
+    maxNodeSize: 1,
+    maxEdgeWeight: 1,
   };
 
   @observable ui = {
@@ -26,16 +28,16 @@ class AppState {
     rightDrawer: true,
     renderer: 'canvas',
     filters: {
-      nodeSize: 0,
-      edgeSize: 0,
+      minNodeSize: 0,
       maxNodeSize: 1,
-      maxEdgeSize: 1,
+      minEdgeWeight: 0,
+      maxEdgeWeight: 1,
     },
     muiTheme: 'dark',
     labels: {
-      labelThreshold: 1.5,
+      labelThreshold: 2.5,
       labelSize: 'ratio',
-      labelSizeRatio: 2,
+      labelSizeRatio: 4,
       fontStyle: '500',
       font: 'Roboto',
       labelColor: 'node',
@@ -81,10 +83,13 @@ class AppState {
     }
 
     if (settings.networks) {
+      const self = this;
       settings.networks.forEach((network, index) => {
         if (index == (settings.networks.length - 1)) {
           // select first imported network when done
-          this.initNetwork(network, () => { this.selectNetwork(0); });
+          this.initNetwork(network, () => {
+            self.selectNetwork(0);
+          });
         } else {
           this.initNetwork(network, () => {});
         }
@@ -164,13 +169,9 @@ class AppState {
     this.loadNetwork(network, callback);
 
     return null;
-
   }
 
   selectNetwork(network_index) {
-
-    if(this.selectedNetworkIndex == network_index)
-      return null;
 
     this.clearSelectedNetwork();
 
@@ -178,14 +179,14 @@ class AppState {
     network.set('selected', true);
 
     this.ui.filters.nodeSize = 0;
-    this.ui.filters.edgeSize = 0;
+    this.ui.filters.edgeWeight = 0;
     this.ui.filters.maxNodeSize = 1;
-    this.ui.filters.maxEdgeSize = 1;
+    this.ui.filters.maxEdgeWeight = 1;
 
     if (network.has('graph')) {
       const graph = network.get('graph');
-      this.ui.filters.maxNodeSize = Math.max.apply(Array, graph.nodes.map(node => node.size));
-      this.ui.filters.maxEdgeSize = Math.max.apply(Array, graph.edges.map(edge => edge.size));
+      this.graph.maxNodeSize = Math.ceil(Math.max.apply(Array, graph.nodes.map(node => node.size)));
+      this.graph.maxEdgeWeight = Math.ceil(Math.max.apply(Array, graph.edges.map(edge => edge.weight)));
     }
 
     this.selectedNetworkIndex = this.networks.map(network => network.get('selected')).indexOf(true);

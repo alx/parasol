@@ -76,7 +76,7 @@ export default class SearchInput extends Component {
     const appState = this.props.appState
     const network = appState.selectedNetwork;
 
-    if(!network.has('graph'))
+    if(!network || !network.has('graph'))
       return null;
 
     const datasource = this.setupDatasource(network);

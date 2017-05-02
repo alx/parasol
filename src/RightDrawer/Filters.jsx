@@ -2,40 +2,33 @@ import React, {Component} from 'react';
 import { observer } from 'mobx-react';
 import {debounce} from 'throttle-debounce';
 
-import Slider from 'material-ui/Slider';
+require('rc-slider/assets/index.css');
+require('rc-tooltip/assets/bootstrap.css');
+
+const Slider = require('rc-slider');
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const Range = createSliderWithTooltip(Slider.Range);
 
 @observer
 export default class Filters extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      nodeSize: props.appState.ui.filters.nodeSize,
-      edgeSize: props.appState.ui.filters.edgeSize,
-    };
-    this.callFilter = debounce(500, this.callFilter);
     this.handleNodeFilterSlider = this.handleNodeFilterSlider.bind(this);
     this.handleEdgeFilterSlider = this.handleEdgeFilterSlider.bind(this);
   }
 
-  callFilter = (filter, value) => {
-    this.props.appState.setFilter(filter, value);
+  handleNodeFilterSlider = (range) => {
+    this.props.appState.setFilter({
+      minNodeSize: range[0],
+      maxNodeSize: range[1],
+    });
   }
 
-  handleNodeFilterSlider = (event, value) => {
-    this.setState({nodeSize: value});
-    this.callFilter('nodeSize', value);
-  }
-
-  handleEdgeFilterSlider = (event, value) => {
-    this.setState({edgeSize: value});
-    this.callFilter('edgeSize', value);
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({
-      nodeSize: props.appState.ui.filters.nodeSize,
-      edgeSize: props.appState.ui.filters.edgeSize,
+  handleEdgeFilterSlider = (range) => {
+    this.props.appState.setFilter({
+      minEdgeWeight: range[0],
+      maxEdgeWeight: range[1],
     });
   }
 
@@ -43,18 +36,20 @@ export default class Filters extends Component {
 
     const appState = this.props.appState;
 
-    return (<div>
-      <p><span>Node Size: {this.state.nodeSize}</span></p>
-      <Slider
-        step={1}
-        value={this.state.nodeSize}
-        max={appState.ui.filters.maxNodeSize}
+    return (<div style={{padding: 10}}>
+      <p><span>Node Size</span></p>
+      <Range
+        defaultValue={[0, appState.graph.maxNodeSize]}
+        min={0}
+        max={appState.graph.maxNodeSize}
+        onAfterChange={this.handleNodeFilterSlider}
       />
-      <p><span>Edge Size: {this.state.edgeSize}</span></p>
-      <Slider
-        step={1}
-        value={this.state.edgeSize}
-        max={appState.ui.filters.maxEdgeSize}
+      <p><span>Edge Size</span></p>
+      <Range
+        defaultValue={[0, appState.graph.maxEdgeWeight]}
+        min={0}
+        max={appState.graph.maxEdgeWeight}
+        onAfterChange={this.handleEdgeFilterSlider}
       />
     </div>);
 

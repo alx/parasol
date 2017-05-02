@@ -2,7 +2,27 @@
   "networks": [
     {
       "url": "data/hansa/2015-11.json",
-      "name": "hansa 01/2016",
+      "name": "hansa 11/2015",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-03.json",
+      "name": "hansa 03/2016",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/hansa/2016-04.json",
+      "name": "hansa 04/2016",
       "options": {
         "layout": "forcelink",
         "loader": {

@@ -20,7 +20,10 @@ export default class Legend extends React.Component {
 
     const colors = network.get('colors');
 
-    const legendItems = network.get('graph').nodes.map( node => {
+    const graph = network.get('graph');
+    const nodes = graph.nodes;
+
+    const legendItems = nodes.map( node => {
         return node.metadata ? node.metadata.category : null;
       }).filter(n => {
         return n != undefined;
@@ -29,11 +32,14 @@ export default class Legend extends React.Component {
       }).filter( category => {
         return typeof(category) != 'undefined' && category.length > 0;
       }).map( (category, index) => {
+
+        const count = nodes.filter(node => node.metadata && node.metadata.category == category).length;
+
         return <ListItem
             key={index}
             disabled={true}
             leftAvatar={<Avatar size={30} backgroundColor={colors.nodes[index]}/>}
-          >{category}</ListItem>;
+          >{category} ({count})</ListItem>;
       });
 
     if(legendItems.length == 0)
