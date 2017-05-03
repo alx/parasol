@@ -44,10 +44,10 @@ const plugins = [
 ];
 
 if (constants.PRODUCTION || constants.STAGE) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin());
-  plugins.push(new webpack.LoaderOptionsPlugin({
-    minimize: true
-  }));
+  //plugins.push(new webpack.optimize.UglifyJsPlugin());
+  //plugins.push(new webpack.LoaderOptionsPlugin({
+  //  minimize: true
+  //}));
 }
 
 if (constants.LOCAL) {
