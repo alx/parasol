@@ -36,9 +36,9 @@ class AppState {
     },
     muiTheme: 'dark',
     labels: {
-      labelThreshold: 2.5,
+      //labelThreshold: 1.5,
       labelSize: 'ratio',
-      labelSizeRatio: 4,
+      labelSizeRatio: 2,
       fontStyle: '500',
       font: 'Roboto',
       labelColor: 'node',
