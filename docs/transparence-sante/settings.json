@@ -1,0 +1,17 @@
+{
+  "networks": [
+    {
+      "url": "transparence-sante-31000.json",
+      "name": "Transparence Santé",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    }
+  ],
+  "ui": {
+    "muiTheme": "dark"
+  }
+}
