@@ -6,7 +6,7 @@ A network graph exploration tool
 
 ## Screenshots
 
- ![Screenshot](documentation/Parasol_screenshot_20170411.png)
+ ![Screenshot](docs/screenshots/Parasol_screenshot_20170501_transparence-sante.png)
 
 ## Run
 
