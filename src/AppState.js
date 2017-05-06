@@ -3,10 +3,12 @@ import moment from 'moment';
 
 import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
+import LoaderJson3d from './Loaders/Json3d';
 
 const LOADERS = {
   dd_tsne: LoaderTsne,
   json: LoaderJson,
+  json3d: LoaderJson3d,
 };
 
 class AppState {

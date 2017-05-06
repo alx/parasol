@@ -1,0 +1,16 @@
+var jsonfile = require('jsonfile')
+var arctic = 'arctic.json'
+var webvr = 'webvr.json'
+
+jsonfile.readFile(file, function(err, obj) {
+
+    obj.nodes.forEach(function(node) => {
+      node.z = Math.random();
+    });
+
+    jsonfile.writeFile(webvr, obj, function (err) {
+        console.error(err)
+    })
+})
+
+fs.writeFile('webvr.json', JSON.stringify(arctic, null, 4));

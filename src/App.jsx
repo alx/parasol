@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
+import AframeComponent from './AframeComponent';
 import SigmaComponent from './SigmaComponent';
 import LeftDrawer from './LeftDrawer';
 import RightDrawer from './RightDrawer';
@@ -25,6 +26,11 @@ class App extends Component {
   render() {
 
     const appState = this.props.appState;
+    const network = appState.selectedNetwork;
+
+    if(!network || !network.has('graph'))
+      return null
+
 
     let muiTheme = lightBaseTheme;
     if(appState.ui.muiTheme) {
@@ -40,10 +46,21 @@ class App extends Component {
 
     }
 
+    let mainComponent;
+    switch(network.loader) {
+      case 'json3d':
+        mainComponent = (<AframeComponent appState={appState}/>);
+        break;
+      case 'json':
+      default:
+        mainComponent = (<AframeComponent appState={appState}/>);
+      //mainComponent = (<SigmaComponent appState={appState}/>);
+    };
+
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
         <div>
-          <SigmaComponent appState={appState}/>
+          {mainComponent}
           <LeftDrawer appState={appState}/>
           <RightDrawer appState={appState}/>
         </div>
