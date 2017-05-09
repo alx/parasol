@@ -17,10 +17,10 @@ new WebpackDevServer(webpack(config), {
   },
   proxy: {
     '/api/*': {
-      target: 'http://localhost/',
+      target: 'http://0.0.0.0/',
     }
   },
-}).listen(8095, 'localhost', function (err, result) {
+}).listen(8095, '0.0.0.0', function (err, result) {
   if (err) {
     console.log(err);
   }
