@@ -86,7 +86,7 @@ export default class SigmaComponent extends Component {
         <SigmaFilter
           key='sigma-filter'
           filtermode={ appState.graph.filtermode }
-          neighborsOf={ appState.graph.selectedNodes[0].id }
+          neighborsOf={ appState.graph.selectedNodes[appState.graph.selectedNodes.length].id }
         />
       );
     } else {
