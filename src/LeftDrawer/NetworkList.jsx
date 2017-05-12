@@ -6,7 +6,11 @@ import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
 import IconRefresh from 'material-ui/svg-icons/navigation/refresh';
 import IconDownload from 'material-ui/svg-icons/file/file-download';
+import IconSave from 'material-ui/svg-icons/content/save';
 
+let Slider = require('rc-slider');
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+Slider = createSliderWithTooltip(Slider);
 
 let SelectableList = makeSelectable(List);
 
@@ -51,7 +55,9 @@ export default class NetworkList extends React.Component {
     super(props)
     this._selectNetwork = this._selectNetwork.bind(this);
     this._refreshSelectedNetwork = this._refreshSelectedNetwork.bind(this);
+    this._saveSelectedNetwork = this._saveSelectedNetwork.bind(this);
     this._downloadSelectedNetwork = this._downloadSelectedNetwork.bind(this);
+    this._filterOnStep = this._filterOnStep.bind(this);
   }
 
   _selectNetwork(network_index) {
@@ -62,8 +68,16 @@ export default class NetworkList extends React.Component {
     this.props.appState.refreshSelectedNetwork();
   }
 
+  _saveSelectedNetwork() {
+    this.props.appState.saveSelectedNetwork();
+  }
+
   _downloadSelectedNetwork() {
     this.props.appState.downloadSelectedNetwork();
+  }
+
+  _filterOnStep(step) {
+    this.props.appState.filterOnStep(step);
   }
 
   render() {
@@ -82,6 +96,9 @@ export default class NetworkList extends React.Component {
       <IconRefresh
         style={iconStyle}
         onTouchTap={this._refreshSelectedNetwork}/>
+      <IconSave
+        style={iconStyle}
+        onTouchTap={this._saveSelectedNetwork}/>
       <IconDownload
         style={iconStyle}
         onTouchTap={this._downloadSelectedNetwork}/>
@@ -104,6 +121,22 @@ export default class NetworkList extends React.Component {
           }
         }
 
+        const nested = [];
+
+        if(network.has('graph')) {
+          const graph = network.get('graph');
+          if(graph.steps && graph.steps.length > 1) {
+            nested.push(<ListItem
+              key='nested-steps'
+              primaryText={<Slider
+                defaultValue={graph.steps.length}
+                max={graph.steps.length}
+                onChange={this._filterOnStep}
+              />}
+            />);
+          }
+        }
+
         return <ListItem
           key={index}
           value={index}
@@ -111,6 +144,7 @@ export default class NetworkList extends React.Component {
           secondaryText={secondaryText}
           rightIcon={ selectedItem ? selectedNetworkIcons : (<div/>)}
           onTouchTap={this._selectNetwork.bind(this, index)}
+          nestedItems={nested}
         />
         })
       }

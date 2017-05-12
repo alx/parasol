@@ -75,7 +75,9 @@ export default class SelectedNode extends Component {
 
               if(key == 'metadata') {
 
-                return Object.keys(node.metadata).map( (nestedKey, nestedIndex) => {
+                return Object.keys(node.metadata)
+                  .filter(nestedKey => nestedKey != 'transactions')
+                  .map( (nestedKey, nestedIndex) => {
                     primaryText = node.metadata[nestedKey];
 
                     if(typeof(primaryText) == 'boolean') {

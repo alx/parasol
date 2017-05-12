@@ -86,7 +86,7 @@ export default class SigmaComponent extends Component {
         <SigmaFilter
           key='sigma-filter'
           filtermode={ appState.graph.filtermode }
-          neighborsOf={ appState.graph.selectedNodes[appState.graph.selectedNodes.length].id }
+          neighborsOf={ appState.graph.selectedNodes[appState.graph.selectedNodes.length - 1].id }
         />
       );
     } else {
@@ -108,6 +108,8 @@ export default class SigmaComponent extends Component {
         break;
     }
 
+    console.log('SigmaComponent: ' + network.get('name') + ' ' + network.get('graph').nodes.filter(node => !node.hidden).length);
+
     return (<div>
       <Sigma
         renderer={ appState.ui.renderer }
@@ -115,6 +117,7 @@ export default class SigmaComponent extends Component {
         onClickStage={ this.selectStage }
         style={styles.sigma}
         settings={{
+          drawEdges: true,
           hideEdgesOnMove:false,
           animationsTime:3000,
           clone: false,

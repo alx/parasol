@@ -1,1 +1,3242 @@
-{"nodes":[{"id":"vendor-0","label":"vendor-0","color":"#C03E3F","type":"square","size":0.1486,"metadata":{"notes":[2],"category":"vendor","nb_transactions":1,"mean_note":2,"score":1},"x":0.8631346563373914,"y":0.502999088693127},{"id":"/listing/1868/","label":"10g Cream Hash- AAA+ Quality","color":"#33a02c","type":"diamond","size":0.1486,"metadata":{"category":"product","product_id":"/listing/1868/","price_usd":"USD 115.62","price_btc":"0.1486","delivery":"Germany","product_type":"Drugs/Cannabis/Hash","vendor":"CypressHill","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.5837588351401555,"y":0.5822395701059149},{"id":"vendor-1","label":"vendor-1","color":"#C03E3F","type":"square","size":0.32139999999999996,"metadata":{"notes":[2,2,2,2],"category":"vendor","nb_transactions":4,"mean_note":2,"score":1},"x":0.3196683747642728,"y":0.026388176550647957},{"id":"/listing/1873/","label":"1 Gram DMT + .5 Gram Syrian Rue","color":"#1f78b4","type":"diamond","size":0.1093,"metadata":{"category":"product","product_id":"/listing/1873/","price_usd":"USD 85.00","price_btc":"0.1093","delivery":"United States","product_type":"Drugs/Psychedelics/DMT","vendor":"Hood","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.3996992484786923,"y":0.2826558229749965},{"id":"vendor-2","label":"vendor-2","color":"#C03E3F","type":"square","size":0.1758,"metadata":{"notes":[1,2,2,2],"category":"vendor","nb_transactions":4,"mean_note":1.75,"score":0.875},"x":0.033321368115640126,"y":0.885204658022698},{"id":"/listing/1920/","label":"Amnesia Haze Rest Weed Cannabis 10gram AAA+ HIGH QUALITY","color":"#33a02c","type":"diamond","size":0.1623,"metadata":{"category":"product","product_id":"/listing/1920/","price_usd":"USD 42.05","price_btc":"0.0541","delivery":"Belgium","product_type":"Drugs/Cannabis/Weed","vendor":"dutchcandyshop","notes":[2,2,2],"nb_transactions":3,"mean_note":2,"score":1,"forceColor":true},"x":0.5248029020934708,"y":0.44853273883724265},{"id":"/listing/1925/","label":"1 PRE-ROLLED Hash hashish JOINT from our coffeeshop HIGH QUALITY","color":"#33a02c","type":"diamond","size":0.0135,"metadata":{"category":"product","product_id":"/listing/1925/","price_usd":"USD 10.51","price_btc":"0.0135","delivery":"Belgium","product_type":"Drugs/Cannabis/Hash","vendor":"dutchcandyshop","notes":[1],"nb_transactions":1,"mean_note":1,"score":0.5,"forceColor":true},"x":0.9570363657706504,"y":0.3597155972025232},{"id":"vendor-3","label":"vendor-3","color":"#C03E3F","type":"square","size":0.131,"metadata":{"notes":[2,2,2],"category":"vendor","nb_transactions":3,"mean_note":2,"score":1},"x":0.3996623776238639,"y":0.9666304652316631},{"id":"/listing/2086/","label":"Northen Lights 5 Grams","color":"#33a02c","type":"diamond","size":0.0578,"metadata":{"category":"product","product_id":"/listing/2086/","price_usd":"USD 45.00","price_btc":"0.0578","delivery":"United States","product_type":"Drugs/Cannabis/Weed","vendor":"IDontKnowDidYouTryRebootingIt","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.5987929162377903,"y":0.08589942074959134},{"id":"vendor-4","label":"vendor-4","color":"#C03E3F","type":"square","size":0.5947,"metadata":{"notes":[1,2,1,2,2,2],"category":"vendor","nb_transactions":6,"mean_note":1.6666666666666667,"score":0.8333333333333334},"x":0.08494576488219097,"y":0.2385078955517248},{"id":"/listing/2282/","label":"1 Gr HQ Fishscale Cocaine","color":"#fb9a99","type":"diamond","size":0.4055,"metadata":{"category":"product","product_id":"/listing/2282/","price_usd":"USD 63.07","price_btc":"0.0811","delivery":"Netherlands","product_type":"Drugs/Stimulants/Cocaine","vendor":"Princip","notes":[1,2,1,2,2],"nb_transactions":5,"mean_note":1.6,"score":0.8,"forceColor":true},"x":0.7040396656417691,"y":0.2632593760028721},{"id":"/listing/2284/","label":"2.5 Gr HQ Fishscale Cocaine","color":"#fb9a99","type":"diamond","size":0.1892,"metadata":{"category":"product","product_id":"/listing/2284/","price_usd":"USD 147.16","price_btc":"0.1892","delivery":"Netherlands","product_type":"Drugs/Stimulants/Cocaine","vendor":"Princip","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.6276868558156588,"y":0.4607520368854967},{"id":"/listing/2286/","label":".5 Gram DMT + .5 Gram Syrian Rue","color":"#1f78b4","type":"diamond","size":0.2121,"metadata":{"category":"product","product_id":"/listing/2286/","price_usd":"USD 55.00","price_btc":"0.0707","delivery":"United States","product_type":"Drugs/Psychedelics/DMT","vendor":"Hood","notes":[2,2,2],"nb_transactions":3,"mean_note":2,"score":1,"forceColor":true},"x":0.5090253899228143,"y":0.20771144780539696},{"id":"vendor-5","label":"vendor-5","color":"#C03E3F","type":"square","size":4.126500000000004,"metadata":{"notes":[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],"category":"vendor","nb_transactions":37,"mean_note":2,"score":1},"x":0.9970584293205733,"y":0.9990573876663897},{"id":"/listing/2293/","label":"1 OZ of Purple Pineberry","color":"#33a02c","type":"diamond","size":0.5142,"metadata":{"category":"product","product_id":"/listing/2293/","price_usd":"USD 200.00","price_btc":"0.2571","delivery":"United States","product_type":"Drugs/Cannabis/Weed","vendor":"cosmicbites","notes":[2,2],"nb_transactions":2,"mean_note":2,"score":1,"forceColor":true},"x":0.7814451730023166,"y":0.08310737525917933},{"id":"/listing/2294/","label":"1 OZ of Organically grown OG KUSH","color":"#33a02c","type":"diamond","size":1.2264,"metadata":{"category":"product","product_id":"/listing/2294/","price_usd":"USD 159.00","price_btc":"0.2044","delivery":"United States","product_type":"Drugs/Cannabis/Weed","vendor":"cosmicbites","notes":[2,2,2,2,2,2],"nb_transactions":6,"mean_note":2,"score":1,"forceColor":true},"x":0.23294400411125094,"y":0.1630780655846935},{"id":"/listing/2295/","label":"Strong Peanut Butter Cups","color":"#33a02c","type":"diamond","size":0.038400000000000004,"metadata":{"category":"product","product_id":"/listing/2295/","price_usd":"USD 5.00","price_btc":"0.0064","delivery":"United States","product_type":"Drugs/Cannabis/Edibles","vendor":"cosmicbites","notes":[2,2,2,2,2,2],"nb_transactions":6,"mean_note":2,"score":1,"forceColor":true},"x":0.8954311477625689,"y":0.8073206644960786},{"id":"/listing/2339/","label":"CosmicBites Cheesecake Brownie Cupcakes","color":"#33a02c","type":"diamond","size":0.072,"metadata":{"category":"product","product_id":"/listing/2339/","price_usd":"USD 7.00","price_btc":"0.0090","delivery":"United States","product_type":"Drugs/Cannabis/Edibles","vendor":"cosmicbites","notes":[2,2,2,2,2,2,2,2],"nb_transactions":8,"mean_note":2,"score":1,"forceColor":true},"x":0.947644717739468,"y":0.23394953815802366},{"id":"/listing/2415/","label":"1 OZ Root Beer Cosmic Drops","color":"#33a02c","type":"diamond","size":0.0386,"metadata":{"category":"product","product_id":"/listing/2415/","price_usd":"USD 30.00","price_btc":"0.0386","delivery":"United States","product_type":"Drugs/Cannabis/Edibles","vendor":"cosmicbites","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.7017524927646188,"y":0.7309008003046096},{"id":"/listing/2452/","label":"2 Grams of well reviewed old school hash","color":"#33a02c","type":"diamond","size":0.0386,"metadata":{"category":"product","product_id":"/listing/2452/","price_usd":"USD 30.00","price_btc":"0.0386","delivery":"United States","product_type":"Drugs/Cannabis/Hash","vendor":"cosmicbites","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.7068235652264725,"y":0.6681605380752575},{"id":"/listing/2453/","label":"5  1 gram  Joints with Filter Tip","color":"#33a02c","type":"diamond","size":0.1286,"metadata":{"category":"product","product_id":"/listing/2453/","price_usd":"USD 50.00","price_btc":"0.0643","delivery":"United States","product_type":"Drugs/Cannabis/Weed","vendor":"cosmicbites","notes":[2,2],"nb_transactions":2,"mean_note":2,"score":1,"forceColor":true},"x":0.7520097289557457,"y":0.8368432225496685},{"id":"/listing/2539/","label":"1 QP of Organically grown OG KUSH (Huge Buds amazing crop)","color":"#33a02c","type":"diamond","size":0.7713,"metadata":{"category":"product","product_id":"/listing/2539/","price_usd":"USD 600.00","price_btc":"0.7713","delivery":"United States","product_type":"Drugs/Cannabis/Weed","vendor":"cosmicbites","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.5098562730334375,"y":0.40750196339174316},{"id":"/listing/2546/","label":"7.5 Grams (Purple PineBerry)","color":"#33a02c","type":"diamond","size":1.0413000000000001,"metadata":{"category":"product","product_id":"/listing/2546/","price_usd":"USD 90.00","price_btc":"0.1157","delivery":"United States","product_type":"Drugs/Cannabis/Weed","vendor":"cosmicbites","notes":[2,2,2,2,2,2,2,2,2],"nb_transactions":9,"mean_note":2,"score":1,"forceColor":true},"x":0.07228850117934882,"y":0.6230886015774753},{"id":"/listing/2547/","label":"Northen Lights 3.5 Grams","color":"#33a02c","type":"diamond","size":0.0732,"metadata":{"category":"product","product_id":"/listing/2547/","price_usd":"USD 28.50","price_btc":"0.0366","delivery":"United States","product_type":"Drugs/Cannabis/Weed","vendor":"IDontKnowDidYouTryRebootingIt","notes":[2,2],"nb_transactions":2,"mean_note":2,"score":1,"forceColor":true},"x":0.07165655198859189,"y":0.35116588078381716},{"id":"vendor-6","label":"vendor-6","color":"#C03E3F","type":"square","size":0.8227,"metadata":{"notes":[2,2],"category":"vendor","nb_transactions":2,"mean_note":2,"score":1},"x":0.08555116718987876,"y":0.39359952942415366},{"id":"/listing/2573/","label":"1 oz High grade BC kush! A++++","color":"#33a02c","type":"diamond","size":0.3085,"metadata":{"category":"product","product_id":"/listing/2573/","price_usd":"USD 240.00","price_btc":"0.3085","delivery":"Canada","product_type":"Drugs/Cannabis/Weed","vendor":"chronosaurus","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.9790073115420979,"y":0.6439748959873786},{"id":"/listing/2621/","label":"custom jk98yd","color":"#33a02c","type":"diamond","size":0.5142,"metadata":{"category":"product","product_id":"/listing/2621/","price_usd":"USD 400.00","price_btc":"0.5142","delivery":"Worldwide","product_type":"Drugs/Cannabis/Weed","vendor":"chronosaurus","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.044075057444334265,"y":0.7400950955776142},{"id":"vendor-7","label":"vendor-7","color":"#C03E3F","type":"square","size":0.4027,"metadata":{"notes":[2],"category":"vendor","nb_transactions":1,"mean_note":2,"score":1},"x":0.7685155152031931,"y":0.7774883811996034},{"id":"/listing/2741/","label":"custom","color":"#33a02c","type":"diamond","size":0.4027,"metadata":{"category":"product","product_id":"/listing/2741/","price_usd":"USD 313.23","price_btc":"0.4027","delivery":"United Kingdom","product_type":"Drugs/Cannabis/Hash","vendor":"1TEAMGB","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.15042694352653752,"y":0.4123462808801386},{"id":"vendor-8","label":"vendor-8","color":"#C03E3F","type":"square","size":0.0135,"metadata":{"notes":[1],"category":"vendor","nb_transactions":1,"mean_note":1,"score":0.5},"x":0.5971383522014628,"y":0.28212202935125186},{"id":"/listing/2748/","label":"Durban Poison 1g","color":"#33a02c","type":"diamond","size":0.0135,"metadata":{"category":"product","product_id":"/listing/2748/","price_usd":"USD 10.51","price_btc":"0.0135","delivery":"Europe (EU)","product_type":"Drugs/Cannabis/Weed","vendor":"carlos_lopez","notes":[1],"nb_transactions":1,"mean_note":1,"score":0.5,"forceColor":true},"x":0.7730324821212269,"y":0.86353966238423},{"id":"vendor-9","label":"vendor-9","color":"#C03E3F","type":"square","size":0.0321,"metadata":{"notes":[2],"category":"vendor","nb_transactions":1,"mean_note":2,"score":1},"x":0.8335284284230602,"y":0.5823047209285106},{"id":"/listing/2780/","label":"Suboxone 8 mg/2 mg Sublingual Film (Buprenorphine and Naloxone)","color":"#b2df8a","type":"diamond","size":0.0321,"metadata":{"category":"product","product_id":"/listing/2780/","price_usd":"USD 25.00","price_btc":"0.0321","delivery":"United States","product_type":"Drugs/Opioids/Heroin","vendor":"dmvnationsupply","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.45650681193648457,"y":0.7287357019575931},{"id":"vendor-10","label":"vendor-10","color":"#C03E3F","type":"square","size":0.0568,"metadata":{"notes":[2],"category":"vendor","nb_transactions":1,"mean_note":2,"score":1},"x":0.47218850808166457,"y":0.6996927344368602},{"id":"/listing/2806/","label":"Ritalin 20mg 10 pills (methylphenidate) - EU product","color":"#a6cee3","type":"diamond","size":0.0568,"metadata":{"category":"product","product_id":"/listing/2806/","price_usd":"USD 44.15","price_btc":"0.0568","delivery":"Europe (EU)","product_type":"Drugs/Prescription/Stimulants","vendor":"Flyfelix","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.010826571910355298,"y":0.787512247910312},{"id":"/listing/2907/","label":"1 OZ of OG Kush","color":"#33a02c","type":"diamond","size":0.2571,"metadata":{"category":"product","product_id":"/listing/2907/","price_usd":"USD 200.00","price_btc":"0.2571","delivery":"United States","product_type":"Drugs/Cannabis/Weed","vendor":"cosmicbites","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.7933044433216292,"y":0.13525770775807677},{"id":"vendor-11","label":"vendor-11","color":"#C03E3F","type":"square","size":0.0321,"metadata":{"notes":[2],"category":"vendor","nb_transactions":1,"mean_note":2,"score":1},"x":0.1530643936599947,"y":0.1277222741765911},{"id":"/listing/3044/","label":"10x100 Sildenafil Citrate (Viagra)","color":"#a6cee3","type":"diamond","size":0.0321,"metadata":{"category":"product","product_id":"/listing/3044/","price_usd":"USD 25.00","price_btc":"0.0321","delivery":"United States","product_type":"Drugs/Prescription/Sildenafil Citrate","vendor":"GrandWizardsLair","notes":[2],"nb_transactions":1,"mean_note":2,"score":1,"forceColor":true},"x":0.048164629063175646,"y":0.8166782149622955},{"id":"Q***O","label":"Q***O","size":0.1486,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.9568470917792782,"y":0.5609817963225401},{"id":"r***y","label":"r***y","size":0.1093,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.44974777518365805,"y":0.26502878909894956},{"id":"a***0","label":"a***0","size":0.0135,"color":"#808080","metadata":{"category":"client","nb_transactions":1,"notes":[1],"mean_note":1,"score":0.5,"forceColor":true},"x":0.03156450562408675,"y":0.7646096933076811},{"id":"h***s","label":"h***s","size":0.0707,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.30668157934872564,"y":0.13251905590493873},{"id":"c***3","label":"c***3","size":0.1864,"color":"#000000","metadata":{"category":"client","nb_transactions":2,"notes":[2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.5840855814948069,"y":0.28566249061622306},{"id":"b***s","label":"b***s","size":0.1864,"color":"#000000","metadata":{"category":"client","nb_transactions":2,"notes":[2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.48811003785861296,"y":0.9766401340459498},{"id":"T***p","label":"T***p","size":0.0811,"color":"#808080","metadata":{"category":"client","nb_transactions":1,"notes":[1],"mean_note":1,"score":0.5,"forceColor":true},"x":0.8849272299952968,"y":0.15948894612372144},{"id":"s***t","label":"s***t","size":0.1622,"color":"#000000","metadata":{"category":"client","nb_transactions":2,"notes":[2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.36751795644733276,"y":0.08120070314626449},{"id":"s***i","label":"s***i","size":0.0811,"color":"#808080","metadata":{"category":"client","nb_transactions":1,"notes":[1],"mean_note":1,"score":0.5,"forceColor":true},"x":0.6695678759154138,"y":0.419249470453825},{"id":"c***r","label":"c***r","size":0.0811,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.7368089108505351,"y":0.8453124237349168},{"id":"D***0","label":"D***0","size":0.1892,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.8434807324638756,"y":0.6594312375787794},{"id":"g***k","label":"g***k","size":0.2571,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.5557174387609132,"y":0.5641662289787346},{"id":"g***r","label":"g***r","size":0.5142,"color":"#000000","metadata":{"category":"client","nb_transactions":2,"notes":[2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.25117239310544615,"y":0.7960834375751444},{"id":"d***f","label":"d***f","size":0.24939999999999998,"color":"#000000","metadata":{"category":"client","nb_transactions":3,"notes":[2,2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.1078265383545054,"y":0.6127295431227264},{"id":"a***y","label":"a***y","size":0.16069999999999998,"color":"#000000","metadata":{"category":"client","nb_transactions":3,"notes":[2,2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.6104638773028763,"y":0.2409386334128667},{"id":"a***k","label":"a***k","size":0.0386,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.24556915575676275,"y":0.07315217967886323},{"id":"c***z","label":"c***z","size":0.7713,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.7769546424087734,"y":0.5209725756656511},{"id":"l***1","label":"l***1","size":0.1157,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.5322240943823389,"y":0.16670631214454956},{"id":"h***n","label":"h***n","size":0.1157,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.12056535319713002,"y":0.49819295934062},{"id":"a***3","label":"a***3","size":0.1157,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.6397337594752639,"y":0.07775617352785757},{"id":"j***r","label":"j***r","size":0.1157,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.20234093190630742,"y":0.5573063421089364},{"id":"m***e","label":"m***e","size":0.2494,"color":"#000000","metadata":{"category":"client","nb_transactions":4,"notes":[2,2,2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.9745690837993548,"y":0.2522951451602711},{"id":"m***t","label":"m***t","size":0.1157,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.2508748800463436,"y":0.6158351774158961},{"id":"B***t","label":"B***t","size":0.3085,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.9119396862189386,"y":0.13312827694639218},{"id":"s***r","label":"s***r","size":0.5142,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.12859366419265061,"y":0.4852336065732499},{"id":"i***s","label":"i***s","size":0.4162,"color":"#404040","metadata":{"category":"client","nb_transactions":2,"notes":[2,1],"mean_note":1.5,"score":0.75,"forceColor":true},"x":0.745704844584935,"y":0.8080634377105596},{"id":"p***5","label":"p***5","size":0.0568,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.8203227215159401,"y":0.29194238348827994},{"id":"m***4","label":"m***4","size":0.0366,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.8776835232209816,"y":0.07393423027025725},{"id":"b***9","label":"b***9","size":0.0366,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.9237361122734304,"y":0.27275833791148085},{"id":"J***9","label":"J***9","size":0.2044,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.7150567338872846,"y":0.2354864809997741},{"id":"t***s","label":"t***s","size":0.4088,"color":"#000000","metadata":{"category":"client","nb_transactions":2,"notes":[2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.15038208591349544,"y":0.00010461928459637448},{"id":"t***z","label":"t***z","size":0.2044,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.16609474530099,"y":0.49335042819975006},{"id":"g***u","label":"g***u","size":0.2044,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.9969010769318474,"y":0.1731585696400353},{"id":"C***y","label":"C***y","size":0.0541,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.26109362878792886,"y":0.6201452596932566},{"id":"z***t","label":"z***t","size":0.0541,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.8018656176406915,"y":0.4331630761489691},{"id":"r***s","label":"r***s","size":0.0541,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.19574533961270246,"y":0.9088034279907515},{"id":"R***3","label":"R***3","size":0.0064,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.49195054548808037,"y":0.7504982703674914},{"id":"e***e","label":"e***e","size":0.0064,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.5231068440381952,"y":0.5050049114507735},{"id":"M***n","label":"M***n","size":0.0154,"color":"#000000","metadata":{"category":"client","nb_transactions":2,"notes":[2,2],"mean_note":2,"score":1,"forceColor":true},"x":0.2702060581106367,"y":0.985119012922947},{"id":"W***0","label":"W***0","size":0.0578,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.6310001724171121,"y":0.10799366358737861},{"id":"I***n","label":"I***n","size":0.009,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.23801991338351947,"y":0.06849683211619029},{"id":"B***i","label":"B***i","size":0.009,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.568609032917156,"y":0.7270593382672506},{"id":"S***e","label":"S***e","size":0.009,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.0329694900137425,"y":0.9340387149554397},{"id":"m***s","label":"m***s","size":0.009,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.8665862131189708,"y":0.2969830498238515},{"id":"m***3","label":"m***3","size":0.0321,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.47478542597317386,"y":0.017443912504576886},{"id":"I***y","label":"I***y","size":0.0064,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.8559433020084204,"y":0.25832469090623755},{"id":"f***n","label":"f***n","size":0.0064,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.01878695204419345,"y":0.265743914765606},{"id":"j***8","label":"j***8","size":0.009,"color":"#000000","metadata":{"category":"client","nb_transactions":1,"notes":[2],"mean_note":2,"score":1,"forceColor":true},"x":0.514447007446005,"y":0.7554813011093777}],"edges":[{"id":1,"source":"vendor-0","target":"/listing/1868/","weight":1},{"id":2,"source":"vendor-1","target":"/listing/1873/","weight":1},{"id":3,"source":"vendor-2","target":"/listing/1920/","weight":1},{"id":4,"source":"vendor-2","target":"/listing/1925/","weight":1},{"id":5,"source":"vendor-3","target":"/listing/2086/","weight":1},{"id":6,"source":"vendor-4","target":"/listing/2282/","weight":1},{"id":7,"source":"vendor-4","target":"/listing/2284/","weight":1},{"id":8,"source":"vendor-1","target":"/listing/2286/","weight":1},{"id":9,"source":"vendor-5","target":"/listing/2293/","weight":1},{"id":10,"source":"vendor-5","target":"/listing/2294/","weight":1},{"id":11,"source":"vendor-5","target":"/listing/2295/","weight":1},{"id":12,"source":"vendor-5","target":"/listing/2339/","weight":1},{"id":13,"source":"vendor-5","target":"/listing/2415/","weight":1},{"id":14,"source":"vendor-5","target":"/listing/2452/","weight":1},{"id":15,"source":"vendor-5","target":"/listing/2453/","weight":1},{"id":16,"source":"vendor-5","target":"/listing/2539/","weight":1},{"id":17,"source":"vendor-5","target":"/listing/2546/","weight":1},{"id":18,"source":"vendor-3","target":"/listing/2547/","weight":1},{"id":19,"source":"vendor-6","target":"/listing/2573/","weight":1},{"id":20,"source":"vendor-6","target":"/listing/2621/","weight":1},{"id":21,"source":"vendor-7","target":"/listing/2741/","weight":1},{"id":22,"source":"vendor-8","target":"/listing/2748/","weight":1},{"id":23,"source":"vendor-9","target":"/listing/2780/","weight":1},{"id":24,"source":"vendor-10","target":"/listing/2806/","weight":1},{"id":25,"source":"vendor-5","target":"/listing/2907/","weight":1},{"id":26,"source":"vendor-11","target":"/listing/3044/","weight":1},{"id":27,"source":"Q***O","target":"/listing/1868/","weight":1},{"id":28,"source":"r***y","target":"/listing/1873/","weight":1},{"id":29,"source":"a***0","target":"/listing/1925/","weight":1},{"id":30,"source":"h***s","target":"/listing/2286/","weight":1},{"id":31,"source":"c***3","target":"/listing/2286/","weight":1},{"id":32,"source":"b***s","target":"/listing/2286/","weight":1},{"id":33,"source":"T***p","target":"/listing/2282/","weight":1},{"id":34,"source":"s***t","target":"/listing/2282/","weight":2},{"id":35,"source":"s***i","target":"/listing/2282/","weight":1},{"id":36,"source":"c***r","target":"/listing/2282/","weight":1},{"id":37,"source":"D***0","target":"/listing/2284/","weight":1},{"id":38,"source":"g***k","target":"/listing/2293/","weight":1},{"id":39,"source":"g***r","target":"/listing/2293/","weight":1},{"id":40,"source":"d***f","target":"/listing/2415/","weight":1},{"id":41,"source":"a***y","target":"/listing/2453/","weight":2},{"id":42,"source":"a***k","target":"/listing/2452/","weight":1},{"id":43,"source":"c***z","target":"/listing/2539/","weight":1},{"id":44,"source":"l***1","target":"/listing/2546/","weight":1},{"id":45,"source":"c***3","target":"/listing/2546/","weight":1},{"id":46,"source":"h***n","target":"/listing/2546/","weight":1},{"id":47,"source":"a***3","target":"/listing/2546/","weight":1},{"id":48,"source":"j***r","target":"/listing/2546/","weight":1},{"id":49,"source":"b***s","target":"/listing/2546/","weight":1},{"id":50,"source":"m***e","target":"/listing/2546/","weight":2},{"id":51,"source":"m***t","target":"/listing/2546/","weight":1},{"id":52,"source":"B***t","target":"/listing/2573/","weight":1},{"id":53,"source":"s***r","target":"/listing/2621/","weight":1},{"id":54,"source":"i***s","target":"/listing/2741/","weight":1},{"id":55,"source":"i***s","target":"/listing/2748/","weight":1},{"id":56,"source":"a***y","target":"/listing/2780/","weight":1},{"id":57,"source":"p***5","target":"/listing/2806/","weight":1},{"id":58,"source":"g***r","target":"/listing/2907/","weight":1},{"id":59,"source":"m***4","target":"/listing/2547/","weight":1},{"id":60,"source":"b***9","target":"/listing/2547/","weight":1},{"id":61,"source":"J***9","target":"/listing/2294/","weight":1},{"id":62,"source":"t***s","target":"/listing/2294/","weight":2},{"id":63,"source":"t***z","target":"/listing/2294/","weight":1},{"id":64,"source":"g***u","target":"/listing/2294/","weight":1},{"id":65,"source":"d***f","target":"/listing/2294/","weight":1},{"id":66,"source":"C***y","target":"/listing/1920/","weight":1},{"id":67,"source":"z***t","target":"/listing/1920/","weight":1},{"id":68,"source":"r***s","target":"/listing/1920/","weight":1},{"id":69,"source":"R***3","target":"/listing/2295/","weight":1},{"id":70,"source":"e***e","target":"/listing/2295/","weight":1},{"id":71,"source":"M***n","target":"/listing/2295/","weight":1},{"id":72,"source":"W***0","target":"/listing/2086/","weight":1},{"id":73,"source":"I***n","target":"/listing/2339/","weight":1},{"id":74,"source":"m***e","target":"/listing/2339/","weight":2},{"id":75,"source":"B***i","target":"/listing/2339/","weight":1},{"id":76,"source":"S***e","target":"/listing/2339/","weight":1},{"id":77,"source":"m***s","target":"/listing/2339/","weight":1},{"id":78,"source":"m***3","target":"/listing/3044/","weight":1},{"id":79,"source":"I***y","target":"/listing/2295/","weight":1},{"id":80,"source":"d***f","target":"/listing/2295/","weight":1},{"id":81,"source":"f***n","target":"/listing/2295/","weight":1},{"id":82,"source":"M***n","target":"/listing/2339/","weight":1},{"id":83,"source":"j***8","target":"/listing/2339/","weight":1}]}
+{
+    "edges": [
+        {
+            "id": 1,
+            "source": "vendor-0",
+            "target": "/listing/1868/",
+            "weight": 1
+        },
+        {
+            "id": 2,
+            "source": "vendor-1",
+            "target": "/listing/1873/",
+            "weight": 1
+        },
+        {
+            "id": 3,
+            "source": "vendor-2",
+            "target": "/listing/1920/",
+            "weight": 1
+        },
+        {
+            "id": 4,
+            "source": "vendor-2",
+            "target": "/listing/1925/",
+            "weight": 1
+        },
+        {
+            "id": 5,
+            "source": "vendor-3",
+            "target": "/listing/2086/",
+            "weight": 1
+        },
+        {
+            "id": 6,
+            "source": "vendor-4",
+            "target": "/listing/2282/",
+            "weight": 1
+        },
+        {
+            "id": 7,
+            "source": "vendor-4",
+            "target": "/listing/2284/",
+            "weight": 1
+        },
+        {
+            "id": 8,
+            "source": "vendor-1",
+            "target": "/listing/2286/",
+            "weight": 1
+        },
+        {
+            "id": 9,
+            "source": "vendor-5",
+            "target": "/listing/2293/",
+            "weight": 1
+        },
+        {
+            "id": 10,
+            "source": "vendor-5",
+            "target": "/listing/2294/",
+            "weight": 1
+        },
+        {
+            "id": 11,
+            "source": "vendor-5",
+            "target": "/listing/2295/",
+            "weight": 1
+        },
+        {
+            "id": 12,
+            "source": "vendor-5",
+            "target": "/listing/2339/",
+            "weight": 1
+        },
+        {
+            "id": 13,
+            "source": "vendor-5",
+            "target": "/listing/2415/",
+            "weight": 1
+        },
+        {
+            "id": 14,
+            "source": "vendor-5",
+            "target": "/listing/2452/",
+            "weight": 1
+        },
+        {
+            "id": 15,
+            "source": "vendor-5",
+            "target": "/listing/2453/",
+            "weight": 1
+        },
+        {
+            "id": 16,
+            "source": "vendor-5",
+            "target": "/listing/2539/",
+            "weight": 1
+        },
+        {
+            "id": 17,
+            "source": "vendor-5",
+            "target": "/listing/2546/",
+            "weight": 1
+        },
+        {
+            "id": 18,
+            "source": "vendor-3",
+            "target": "/listing/2547/",
+            "weight": 1
+        },
+        {
+            "id": 19,
+            "source": "vendor-6",
+            "target": "/listing/2573/",
+            "weight": 1
+        },
+        {
+            "id": 20,
+            "source": "vendor-6",
+            "target": "/listing/2621/",
+            "weight": 1
+        },
+        {
+            "id": 21,
+            "source": "vendor-7",
+            "target": "/listing/2741/",
+            "weight": 1
+        },
+        {
+            "id": 22,
+            "source": "vendor-8",
+            "target": "/listing/2748/",
+            "weight": 1
+        },
+        {
+            "id": 23,
+            "source": "vendor-9",
+            "target": "/listing/2780/",
+            "weight": 1
+        },
+        {
+            "id": 24,
+            "source": "vendor-10",
+            "target": "/listing/2806/",
+            "weight": 1
+        },
+        {
+            "id": 25,
+            "source": "vendor-5",
+            "target": "/listing/2907/",
+            "weight": 1
+        },
+        {
+            "id": 26,
+            "source": "vendor-11",
+            "target": "/listing/3044/",
+            "weight": 1
+        },
+        {
+            "id": 27,
+            "source": "Q***O",
+            "target": "/listing/1868/",
+            "weight": 1
+        },
+        {
+            "id": 28,
+            "source": "r***y",
+            "target": "/listing/1873/",
+            "weight": 1
+        },
+        {
+            "id": 29,
+            "source": "a***0",
+            "target": "/listing/1925/",
+            "weight": 1
+        },
+        {
+            "id": 30,
+            "source": "h***s",
+            "target": "/listing/2286/",
+            "weight": 1
+        },
+        {
+            "id": 31,
+            "source": "c***3",
+            "target": "/listing/2286/",
+            "weight": 1
+        },
+        {
+            "id": 32,
+            "source": "b***s",
+            "target": "/listing/2286/",
+            "weight": 1
+        },
+        {
+            "id": 33,
+            "source": "T***p",
+            "target": "/listing/2282/",
+            "weight": 1
+        },
+        {
+            "id": 34,
+            "source": "s***t",
+            "target": "/listing/2282/",
+            "weight": 2
+        },
+        {
+            "id": 35,
+            "source": "s***i",
+            "target": "/listing/2282/",
+            "weight": 1
+        },
+        {
+            "id": 36,
+            "source": "c***r",
+            "target": "/listing/2282/",
+            "weight": 1
+        },
+        {
+            "id": 37,
+            "source": "D***0",
+            "target": "/listing/2284/",
+            "weight": 1
+        },
+        {
+            "id": 38,
+            "source": "g***k",
+            "target": "/listing/2293/",
+            "weight": 1
+        },
+        {
+            "id": 39,
+            "source": "g***r",
+            "target": "/listing/2293/",
+            "weight": 1
+        },
+        {
+            "id": 40,
+            "source": "d***f",
+            "target": "/listing/2415/",
+            "weight": 1
+        },
+        {
+            "id": 41,
+            "source": "a***y",
+            "target": "/listing/2453/",
+            "weight": 2
+        },
+        {
+            "id": 42,
+            "source": "a***k",
+            "target": "/listing/2452/",
+            "weight": 1
+        },
+        {
+            "id": 43,
+            "source": "c***z",
+            "target": "/listing/2539/",
+            "weight": 1
+        },
+        {
+            "id": 44,
+            "source": "l***1",
+            "target": "/listing/2546/",
+            "weight": 1
+        },
+        {
+            "id": 45,
+            "source": "c***3",
+            "target": "/listing/2546/",
+            "weight": 1
+        },
+        {
+            "id": 46,
+            "source": "h***n",
+            "target": "/listing/2546/",
+            "weight": 1
+        },
+        {
+            "id": 47,
+            "source": "a***3",
+            "target": "/listing/2546/",
+            "weight": 1
+        },
+        {
+            "id": 48,
+            "source": "j***r",
+            "target": "/listing/2546/",
+            "weight": 1
+        },
+        {
+            "id": 49,
+            "source": "b***s",
+            "target": "/listing/2546/",
+            "weight": 1
+        },
+        {
+            "id": 50,
+            "source": "m***e",
+            "target": "/listing/2546/",
+            "weight": 2
+        },
+        {
+            "id": 51,
+            "source": "m***t",
+            "target": "/listing/2546/",
+            "weight": 1
+        },
+        {
+            "id": 52,
+            "source": "B***t",
+            "target": "/listing/2573/",
+            "weight": 1
+        },
+        {
+            "id": 53,
+            "source": "s***r",
+            "target": "/listing/2621/",
+            "weight": 1
+        },
+        {
+            "id": 54,
+            "source": "i***s",
+            "target": "/listing/2741/",
+            "weight": 1
+        },
+        {
+            "id": 55,
+            "source": "i***s",
+            "target": "/listing/2748/",
+            "weight": 1
+        },
+        {
+            "id": 56,
+            "source": "a***y",
+            "target": "/listing/2780/",
+            "weight": 1
+        },
+        {
+            "id": 57,
+            "source": "p***5",
+            "target": "/listing/2806/",
+            "weight": 1
+        },
+        {
+            "id": 58,
+            "source": "g***r",
+            "target": "/listing/2907/",
+            "weight": 1
+        },
+        {
+            "id": 59,
+            "source": "m***4",
+            "target": "/listing/2547/",
+            "weight": 1
+        },
+        {
+            "id": 60,
+            "source": "b***9",
+            "target": "/listing/2547/",
+            "weight": 1
+        },
+        {
+            "id": 61,
+            "source": "J***9",
+            "target": "/listing/2294/",
+            "weight": 1
+        },
+        {
+            "id": 62,
+            "source": "t***s",
+            "target": "/listing/2294/",
+            "weight": 2
+        },
+        {
+            "id": 63,
+            "source": "t***z",
+            "target": "/listing/2294/",
+            "weight": 1
+        },
+        {
+            "id": 64,
+            "source": "g***u",
+            "target": "/listing/2294/",
+            "weight": 1
+        },
+        {
+            "id": 65,
+            "source": "d***f",
+            "target": "/listing/2294/",
+            "weight": 1
+        },
+        {
+            "id": 66,
+            "source": "C***y",
+            "target": "/listing/1920/",
+            "weight": 1
+        },
+        {
+            "id": 67,
+            "source": "z***t",
+            "target": "/listing/1920/",
+            "weight": 1
+        },
+        {
+            "id": 68,
+            "source": "r***s",
+            "target": "/listing/1920/",
+            "weight": 1
+        },
+        {
+            "id": 69,
+            "source": "R***3",
+            "target": "/listing/2295/",
+            "weight": 1
+        },
+        {
+            "id": 70,
+            "source": "e***e",
+            "target": "/listing/2295/",
+            "weight": 1
+        },
+        {
+            "id": 71,
+            "source": "M***n",
+            "target": "/listing/2295/",
+            "weight": 1
+        },
+        {
+            "id": 72,
+            "source": "W***0",
+            "target": "/listing/2086/",
+            "weight": 1
+        },
+        {
+            "id": 73,
+            "source": "I***n",
+            "target": "/listing/2339/",
+            "weight": 1
+        },
+        {
+            "id": 74,
+            "source": "m***e",
+            "target": "/listing/2339/",
+            "weight": 2
+        },
+        {
+            "id": 75,
+            "source": "B***i",
+            "target": "/listing/2339/",
+            "weight": 1
+        },
+        {
+            "id": 76,
+            "source": "S***e",
+            "target": "/listing/2339/",
+            "weight": 1
+        },
+        {
+            "id": 77,
+            "source": "m***s",
+            "target": "/listing/2339/",
+            "weight": 1
+        },
+        {
+            "id": 78,
+            "source": "m***3",
+            "target": "/listing/3044/",
+            "weight": 1
+        },
+        {
+            "id": 79,
+            "source": "I***y",
+            "target": "/listing/2295/",
+            "weight": 1
+        },
+        {
+            "id": 80,
+            "source": "d***f",
+            "target": "/listing/2295/",
+            "weight": 1
+        },
+        {
+            "id": 81,
+            "source": "f***n",
+            "target": "/listing/2295/",
+            "weight": 1
+        },
+        {
+            "id": 82,
+            "source": "M***n",
+            "target": "/listing/2339/",
+            "weight": 1
+        },
+        {
+            "id": 83,
+            "source": "j***8",
+            "target": "/listing/2339/",
+            "weight": 1
+        }
+    ],
+    "nodes": [
+        {
+            "color": "#C03E3F",
+            "id": "vendor-0",
+            "label": "vendor-0",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-10T00:06:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/1868/",
+                        "text": "All OK! Quality as promised."
+                    }
+                ]
+            },
+            "size": 0.1486,
+            "type": "square",
+            "x": 0.3940457059945641,
+            "y": 0.9446888610971214
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/1868/",
+            "label": "10g Cream Hash- AAA+ Quality",
+            "metadata": {
+                "category": "product",
+                "delivery": "Germany",
+                "price_btc": "0.1486",
+                "price_usd": "USD 115.62",
+                "product_id": "/listing/1868/",
+                "product_type": "Drugs/Cannabis/Hash",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-10T00:06:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/1868/",
+                        "text": "All OK! Quality as promised."
+                    }
+                ],
+                "vendor": "CypressHill"
+            },
+            "size": 0.1486,
+            "type": "diamond",
+            "x": 0.7834168389039597,
+            "y": 0.3314767500312519
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-1",
+            "label": "vendor-1",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T10:05:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/1873/",
+                        "text": "First review so I'll make it detailed for Hood:\n\nProduct was not the same consistency as the stuff I tried and the smell was much more mellow. This stuff is crystally, rolls around easily on paper/etc. \n\nTried 50mg on a dabber wow hit me HARD -- strong fractals, very strong trip zero complaints. \n\nHood had EXCELLENT communication through the whole transaction and weight was a couple mg over and the bonus was included as promised on the listing. Really no issues here, will do business again THANKS HOOD"
+                    },
+                    {
+                        "date": "2015-11-21T17:23:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "5/5 Excellent! Perfect order with Fast delivery. You can feel good about hood!"
+                    },
+                    {
+                        "date": "2015-11-21T19:24:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "Great vendor and great product will be using again"
+                    },
+                    {
+                        "date": "2015-11-21T20:27:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "Responsible Human Being"
+                    }
+                ]
+            },
+            "size": 0.32139999999999996,
+            "type": "square",
+            "x": 0.13545664400610447,
+            "y": 0.1333906517964849
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/1873/",
+            "label": "1 Gram DMT + .5 Gram Syrian Rue",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.1093",
+                "price_usd": "USD 85.00",
+                "product_id": "/listing/1873/",
+                "product_type": "Drugs/Psychedelics/DMT",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T10:05:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/1873/",
+                        "text": "First review so I'll make it detailed for Hood:\n\nProduct was not the same consistency as the stuff I tried and the smell was much more mellow. This stuff is crystally, rolls around easily on paper/etc. \n\nTried 50mg on a dabber wow hit me HARD -- strong fractals, very strong trip zero complaints. \n\nHood had EXCELLENT communication through the whole transaction and weight was a couple mg over and the bonus was included as promised on the listing. Really no issues here, will do business again THANKS HOOD"
+                    }
+                ],
+                "vendor": "Hood"
+            },
+            "size": 0.1093,
+            "type": "diamond",
+            "x": 0.9258034598890941,
+            "y": 0.12234977694005367
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-2",
+            "label": "vendor-2",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-09T15:17:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "A lot of leaf, but that was to be expected. Still does the job. Thanks m8"
+                    },
+                    {
+                        "date": "2015-11-11T14:30:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "0",
+                        "prod_id": "/listing/1925/",
+                        "text": "Ok Shipment but the hash it's a normal hash"
+                    },
+                    {
+                        "date": "2015-11-17T11:02:00+01:00",
+                        "delivery_time": "6 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-18T15:39:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.1758,
+            "type": "square",
+            "x": 0.28383960359084126,
+            "y": 0.39933899309710497
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/1920/",
+            "label": "Amnesia Haze Rest Weed Cannabis 10gram AAA+ HIGH QUALITY",
+            "metadata": {
+                "category": "product",
+                "delivery": "Belgium",
+                "price_btc": "0.0541",
+                "price_usd": "USD 42.05",
+                "product_id": "/listing/1920/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-09T15:17:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "A lot of leaf, but that was to be expected. Still does the job. Thanks m8"
+                    },
+                    {
+                        "date": "2015-11-17T11:02:00+01:00",
+                        "delivery_time": "6 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-18T15:39:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "---"
+                    }
+                ],
+                "vendor": "dutchcandyshop"
+            },
+            "size": 0.1623,
+            "type": "diamond",
+            "x": 0.823995135522213,
+            "y": 0.6829257895402892
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/1925/",
+            "label": "1 PRE-ROLLED Hash hashish JOINT from our coffeeshop HIGH QUALITY",
+            "metadata": {
+                "category": "product",
+                "delivery": "Belgium",
+                "price_btc": "0.0135",
+                "price_usd": "USD 10.51",
+                "product_id": "/listing/1925/",
+                "product_type": "Drugs/Cannabis/Hash",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-11T14:30:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "0",
+                        "prod_id": "/listing/1925/",
+                        "text": "Ok Shipment but the hash it's a normal hash"
+                    }
+                ],
+                "vendor": "dutchcandyshop"
+            },
+            "size": 0.0135,
+            "type": "diamond",
+            "x": 0.25067490613040455,
+            "y": 0.8052333925035304
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-3",
+            "label": "vendor-3",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T00:53:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2547/",
+                        "text": "Fast, stealthy shipping. Would order again"
+                    },
+                    {
+                        "date": "2015-11-24T03:08:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2086/",
+                        "text": "Excellent buds! Very Stoney. Fantastic Stealth! I will be back Very soon! Thanks again!!"
+                    },
+                    {
+                        "date": "2015-11-30T21:32:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2547/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.131,
+            "type": "square",
+            "x": 0.845410255282375,
+            "y": 0.6543989911031154
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2086/",
+            "label": "Northen Lights 5 Grams",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0578",
+                "price_usd": "USD 45.00",
+                "product_id": "/listing/2086/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-24T03:08:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2086/",
+                        "text": "Excellent buds! Very Stoney. Fantastic Stealth! I will be back Very soon! Thanks again!!"
+                    }
+                ],
+                "vendor": "IDontKnowDidYouTryRebootingIt"
+            },
+            "size": 0.0578,
+            "type": "diamond",
+            "x": 0.993991826571998,
+            "y": 0.7676721275067524
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-4",
+            "label": "vendor-4",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-16T10:19:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "A+++"
+                    },
+                    {
+                        "date": "2015-11-16T20:16:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "Very fast delivery!! everthing Perfect! Top Vendor!!"
+                    },
+                    {
+                        "date": "2015-11-19T17:30:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "0",
+                        "prod_id": "/listing/2282/",
+                        "text": "Coke is okay, delivery time okay, stealth was not very good, bag was loose only between 3-4 sheets of paper"
+                    },
+                    {
+                        "date": "2015-11-22T21:17:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "Recommended"
+                    },
+                    {
+                        "date": "2015-11-26T17:41:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2284/",
+                        "text": "Fast and good! Thank you!"
+                    },
+                    {
+                        "date": "2015-11-26T21:47:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "0",
+                        "prod_id": "/listing/2282/",
+                        "text": "Average coke (certainly not what is claimed) and the stealth was poor"
+                    }
+                ]
+            },
+            "size": 0.5947,
+            "type": "square",
+            "x": 0.6172128138590491,
+            "y": 0.9291916093725103
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2282/",
+            "label": "1 Gr HQ Fishscale Cocaine",
+            "metadata": {
+                "category": "product",
+                "delivery": "Netherlands",
+                "price_btc": "0.0811",
+                "price_usd": "USD 63.07",
+                "product_id": "/listing/2282/",
+                "product_type": "Drugs/Stimulants/Cocaine",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-16T10:19:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "A+++"
+                    },
+                    {
+                        "date": "2015-11-16T20:16:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "Very fast delivery!! everthing Perfect! Top Vendor!!"
+                    },
+                    {
+                        "date": "2015-11-19T17:30:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "0",
+                        "prod_id": "/listing/2282/",
+                        "text": "Coke is okay, delivery time okay, stealth was not very good, bag was loose only between 3-4 sheets of paper"
+                    },
+                    {
+                        "date": "2015-11-22T21:17:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "Recommended"
+                    },
+                    {
+                        "date": "2015-11-26T21:47:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "0",
+                        "prod_id": "/listing/2282/",
+                        "text": "Average coke (certainly not what is claimed) and the stealth was poor"
+                    }
+                ],
+                "vendor": "Princip"
+            },
+            "size": 0.4055,
+            "type": "diamond",
+            "x": 0.5026940933063977,
+            "y": 0.6659099956540735
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2284/",
+            "label": "2.5 Gr HQ Fishscale Cocaine",
+            "metadata": {
+                "category": "product",
+                "delivery": "Netherlands",
+                "price_btc": "0.1892",
+                "price_usd": "USD 147.16",
+                "product_id": "/listing/2284/",
+                "product_type": "Drugs/Stimulants/Cocaine",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-26T17:41:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2284/",
+                        "text": "Fast and good! Thank you!"
+                    }
+                ],
+                "vendor": "Princip"
+            },
+            "size": 0.1892,
+            "type": "diamond",
+            "x": 0.8035267659794572,
+            "y": 0.6963415537457815
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2286/",
+            "label": ".5 Gram DMT + .5 Gram Syrian Rue",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0707",
+                "price_usd": "USD 55.00",
+                "product_id": "/listing/2286/",
+                "product_type": "Drugs/Psychedelics/DMT",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T17:23:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "5/5 Excellent! Perfect order with Fast delivery. You can feel good about hood!"
+                    },
+                    {
+                        "date": "2015-11-21T19:24:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "Great vendor and great product will be using again"
+                    },
+                    {
+                        "date": "2015-11-21T20:27:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "Responsible Human Being"
+                    }
+                ],
+                "vendor": "Hood"
+            },
+            "size": 0.2121,
+            "type": "diamond",
+            "x": 0.3044955926734667,
+            "y": 0.5895315417355964
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-5",
+            "label": "vendor-5",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-11T01:20:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "CosmicBites is the Bomb!"
+                    },
+                    {
+                        "date": "2015-11-12T19:17:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Great product, great vendor. Buy with confidence!"
+                    },
+                    {
+                        "date": "2015-11-12T19:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2415/",
+                        "text": "CB is awesome. You won't be disappointed."
+                    },
+                    {
+                        "date": "2015-11-12T19:19:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Definitely grown without chemicals. I know, I used to grow. CB rocks!"
+                    },
+                    {
+                        "date": "2015-11-12T19:38:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "Excellent vendor!\nProduct was very high quality and exactly as promised!\nDelivery was fast and secure and arrived when expected!\nI would (and will) recommend this vendor to anyone!"
+                    },
+                    {
+                        "date": "2015-11-12T21:41:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2453/",
+                        "text": "order arrived right before the finalization timer would've allowed me to release funds. first order of joints (on Abraxas) was rolled exquisitely, the second order (this one) was rolled satisfactorily. plenty of extras too, both times. thanks, Cosmicbites!"
+                    },
+                    {
+                        "date": "2015-11-12T21:54:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2293/",
+                        "text": "Awesome vendor\nAwesome dank!\n5 stars\nBuy his stuff!\nEven got a free sample!"
+                    },
+                    {
+                        "date": "2015-11-12T22:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-12T22:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-12T22:19:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-13T13:44:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Very speedy delivery. Great product. Vendor even threw in extra goodies. Will definitely order again."
+                    },
+                    {
+                        "date": "2015-11-13T18:50:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2539/",
+                        "text": "USPS holiday made it 3 days but it otherwise would have been spot on."
+                    },
+                    {
+                        "date": "2015-11-13T20:48:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "Quick delivery time and good communication from vendor. Solid product with some extras aswell which is always nice. Would use again. Thanks cosmicbites."
+                    },
+                    {
+                        "date": "2015-11-18T17:59:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "cosmic bites always treats me right. thank you cosmic!\non weight! nice crystals"
+                    },
+                    {
+                        "date": "2015-11-18T20:28:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "great communication. fast response. good product. even got a bonus :)"
+                    },
+                    {
+                        "date": "2015-11-18T20:38:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "A+ Stealth, came with a goodie as well, I'll be back for more"
+                    },
+                    {
+                        "date": "2015-11-18T23:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-20T08:02:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Fast Shipping! Edibles were at a good strength! This vender is solid!"
+                    },
+                    {
+                        "date": "2015-11-20T08:03:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2293/",
+                        "text": "So fucking fast and professional. This stuff is dank and looks really healthy! Also threw in a freebie pot cake pop that was very strong! A+. I'll be back."
+                    },
+                    {
+                        "date": "2015-11-21T04:49:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Great & Extras as always"
+                    },
+                    {
+                        "date": "2015-11-21T04:50:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Great & Extras as always"
+                    },
+                    {
+                        "date": "2015-11-21T07:31:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2452/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-21T17:25:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "So happy with this vendor. The edibles taste amazing and are potent, my wife and I smoke about an ounce a week of medical club herb and these surprised us in a great way. Vendor threw in extra's, peanut butter cup was divine as well. Will DEFINITELY be ordering from cosmic again. AAA+++"
+                    },
+                    {
+                        "date": "2015-11-21T19:34:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Quick & polite response to my questions, prompt shipping time, and a fantastic product. Will be buying from CB again. A+"
+                    },
+                    {
+                        "date": "2015-11-23T02:42:00+01:00",
+                        "delivery_time": "6 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Great vendor! High quality and potent products! Thanks for the extra goodies!"
+                    },
+                    {
+                        "date": "2015-11-24T04:12:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Good, frosty nug with extra!! Will be back soon"
+                    },
+                    {
+                        "date": "2015-11-25T00:19:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Cosmic bites is very reliable. In several orders, he has come through every single time. The edibles are potent, and yes, he does include a few extra goodies for free."
+                    },
+                    {
+                        "date": "2015-11-26T07:35:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "world's finest darknet bakery"
+                    },
+                    {
+                        "date": "2015-11-27T19:58:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Prompt delivery as promised, no complaints, solid transaction.  Will do business with again."
+                    },
+                    {
+                        "date": "2015-11-27T23:34:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "This vendor already has an excellent reputation, so there's not much more I can add. Everything was exceptionally executed! Packaging, shipping....just super!  I SINCERELY APPRECIATE the bonus. It was unexpected, and gives me a nice beginning to the holiday season. Thanks!!!"
+                    },
+                    {
+                        "date": "2015-11-28T00:38:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2453/",
+                        "text": "FLAWLESS VICTORY"
+                    },
+                    {
+                        "date": "2015-11-28T01:56:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2907/",
+                        "text": "Was a little late for the holidays but that's understandable!  :)"
+                    },
+                    {
+                        "date": "2015-11-28T03:35:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Quick service again."
+                    },
+                    {
+                        "date": "2015-11-28T06:06:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "great vendor, will buy again"
+                    },
+                    {
+                        "date": "2015-11-28T18:00:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "looks incredible, freebie included, just took a little extra time shipping due to the holiday, A+++ vendor"
+                    },
+                    {
+                        "date": "2015-11-29T02:48:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-29T20:38:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 4.126500000000004,
+            "type": "square",
+            "x": 0.8053205647049093,
+            "y": 0.6462810579493641
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2293/",
+            "label": "1 OZ of Purple Pineberry",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.2571",
+                "price_usd": "USD 200.00",
+                "product_id": "/listing/2293/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T21:54:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2293/",
+                        "text": "Awesome vendor\nAwesome dank!\n5 stars\nBuy his stuff!\nEven got a free sample!"
+                    },
+                    {
+                        "date": "2015-11-20T08:03:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2293/",
+                        "text": "So fucking fast and professional. This stuff is dank and looks really healthy! Also threw in a freebie pot cake pop that was very strong! A+. I'll be back."
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 0.5142,
+            "type": "diamond",
+            "x": 0.3679624251486777,
+            "y": 0.5276269224742312
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2294/",
+            "label": "1 OZ of Organically grown OG KUSH",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.2044",
+                "price_usd": "USD 159.00",
+                "product_id": "/listing/2294/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T19:19:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Definitely grown without chemicals. I know, I used to grow. CB rocks!"
+                    },
+                    {
+                        "date": "2015-11-18T17:59:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "cosmic bites always treats me right. thank you cosmic!\non weight! nice crystals"
+                    },
+                    {
+                        "date": "2015-11-24T04:12:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Good, frosty nug with extra!! Will be back soon"
+                    },
+                    {
+                        "date": "2015-11-27T19:58:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Prompt delivery as promised, no complaints, solid transaction.  Will do business with again."
+                    },
+                    {
+                        "date": "2015-11-28T03:35:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Quick service again."
+                    },
+                    {
+                        "date": "2015-11-28T18:00:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "looks incredible, freebie included, just took a little extra time shipping due to the holiday, A+++ vendor"
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 1.2264,
+            "type": "diamond",
+            "x": 0.21395074410070558,
+            "y": 0.3905064990961469
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2295/",
+            "label": "Strong Peanut Butter Cups",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0064",
+                "price_usd": "USD 5.00",
+                "product_id": "/listing/2295/",
+                "product_type": "Drugs/Cannabis/Edibles",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-11T01:20:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "CosmicBites is the Bomb!"
+                    },
+                    {
+                        "date": "2015-11-12T19:17:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Great product, great vendor. Buy with confidence!"
+                    },
+                    {
+                        "date": "2015-11-20T08:02:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Fast Shipping! Edibles were at a good strength! This vender is solid!"
+                    },
+                    {
+                        "date": "2015-11-21T04:49:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Great & Extras as always"
+                    },
+                    {
+                        "date": "2015-11-21T19:34:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Quick & polite response to my questions, prompt shipping time, and a fantastic product. Will be buying from CB again. A+"
+                    },
+                    {
+                        "date": "2015-11-28T06:06:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "great vendor, will buy again"
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 0.038400000000000004,
+            "type": "diamond",
+            "x": 0.5626255087231493,
+            "y": 0.1031442779642624
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2339/",
+            "label": "CosmicBites Cheesecake Brownie Cupcakes",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0090",
+                "price_usd": "USD 7.00",
+                "product_id": "/listing/2339/",
+                "product_type": "Drugs/Cannabis/Edibles",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T22:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-13T13:44:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Very speedy delivery. Great product. Vendor even threw in extra goodies. Will definitely order again."
+                    },
+                    {
+                        "date": "2015-11-21T04:50:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Great & Extras as always"
+                    },
+                    {
+                        "date": "2015-11-21T17:25:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "So happy with this vendor. The edibles taste amazing and are potent, my wife and I smoke about an ounce a week of medical club herb and these surprised us in a great way. Vendor threw in extra's, peanut butter cup was divine as well. Will DEFINITELY be ordering from cosmic again. AAA+++"
+                    },
+                    {
+                        "date": "2015-11-23T02:42:00+01:00",
+                        "delivery_time": "6 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Great vendor! High quality and potent products! Thanks for the extra goodies!"
+                    },
+                    {
+                        "date": "2015-11-25T00:19:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Cosmic bites is very reliable. In several orders, he has come through every single time. The edibles are potent, and yes, he does include a few extra goodies for free."
+                    },
+                    {
+                        "date": "2015-11-26T07:35:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "world's finest darknet bakery"
+                    },
+                    {
+                        "date": "2015-11-27T23:34:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "This vendor already has an excellent reputation, so there's not much more I can add. Everything was exceptionally executed! Packaging, shipping....just super!  I SINCERELY APPRECIATE the bonus. It was unexpected, and gives me a nice beginning to the holiday season. Thanks!!!"
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 0.072,
+            "type": "diamond",
+            "x": 0.7512373369934058,
+            "y": 0.567943997201231
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2415/",
+            "label": "1 OZ Root Beer Cosmic Drops",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0386",
+                "price_usd": "USD 30.00",
+                "product_id": "/listing/2415/",
+                "product_type": "Drugs/Cannabis/Edibles",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T19:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2415/",
+                        "text": "CB is awesome. You won't be disappointed."
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 0.0386,
+            "type": "diamond",
+            "x": 0.8004395971416864,
+            "y": 0.9569510102082537
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2452/",
+            "label": "2 Grams of well reviewed old school hash",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0386",
+                "price_usd": "USD 30.00",
+                "product_id": "/listing/2452/",
+                "product_type": "Drugs/Cannabis/Hash",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T07:31:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2452/",
+                        "text": "---"
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 0.0386,
+            "type": "diamond",
+            "x": 0.11197304321263202,
+            "y": 0.5450625846515629
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2453/",
+            "label": "5  1 gram  Joints with Filter Tip",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0643",
+                "price_usd": "USD 50.00",
+                "product_id": "/listing/2453/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T21:41:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2453/",
+                        "text": "order arrived right before the finalization timer would've allowed me to release funds. first order of joints (on Abraxas) was rolled exquisitely, the second order (this one) was rolled satisfactorily. plenty of extras too, both times. thanks, Cosmicbites!"
+                    },
+                    {
+                        "date": "2015-11-28T00:38:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2453/",
+                        "text": "FLAWLESS VICTORY"
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 0.1286,
+            "type": "diamond",
+            "x": 0.01631385428747434,
+            "y": 0.16793302219909378
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2539/",
+            "label": "1 QP of Organically grown OG KUSH (Huge Buds amazing crop)",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.7713",
+                "price_usd": "USD 600.00",
+                "product_id": "/listing/2539/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-13T18:50:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2539/",
+                        "text": "USPS holiday made it 3 days but it otherwise would have been spot on."
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 0.7713,
+            "type": "diamond",
+            "x": 0.7393723973043129,
+            "y": 0.5289033317773366
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2546/",
+            "label": "7.5 Grams (Purple PineBerry)",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.1157",
+                "price_usd": "USD 90.00",
+                "product_id": "/listing/2546/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T19:38:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "Excellent vendor!\nProduct was very high quality and exactly as promised!\nDelivery was fast and secure and arrived when expected!\nI would (and will) recommend this vendor to anyone!"
+                    },
+                    {
+                        "date": "2015-11-12T22:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-12T22:19:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-13T20:48:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "Quick delivery time and good communication from vendor. Solid product with some extras aswell which is always nice. Would use again. Thanks cosmicbites."
+                    },
+                    {
+                        "date": "2015-11-18T20:28:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "great communication. fast response. good product. even got a bonus :)"
+                    },
+                    {
+                        "date": "2015-11-18T20:38:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "A+ Stealth, came with a goodie as well, I'll be back for more"
+                    },
+                    {
+                        "date": "2015-11-18T23:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-29T02:48:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-29T20:38:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 1.0413000000000001,
+            "type": "diamond",
+            "x": 0.11455663361957757,
+            "y": 0.6769305053684476
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2547/",
+            "label": "Northen Lights 3.5 Grams",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0366",
+                "price_usd": "USD 28.50",
+                "product_id": "/listing/2547/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T00:53:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2547/",
+                        "text": "Fast, stealthy shipping. Would order again"
+                    },
+                    {
+                        "date": "2015-11-30T21:32:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2547/",
+                        "text": "---"
+                    }
+                ],
+                "vendor": "IDontKnowDidYouTryRebootingIt"
+            },
+            "size": 0.0732,
+            "type": "diamond",
+            "x": 0.45333797671038334,
+            "y": 0.18504099837525478
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-6",
+            "label": "vendor-6",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-22T17:52:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2621/",
+                        "text": "Accommodated me in my time of need. Made a special listing for me here and even adjusted the price after I bumbled around a couple of days. Fast shipping, good stealth and communication, and most of all GREAT quality for the price! A+++++++"
+                    },
+                    {
+                        "date": "2015-11-29T02:08:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2573/",
+                        "text": "Excellent"
+                    }
+                ]
+            },
+            "size": 0.8227,
+            "type": "square",
+            "x": 0.8028186899072149,
+            "y": 0.48725299450934445
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2573/",
+            "label": "1 oz High grade BC kush! A++++",
+            "metadata": {
+                "category": "product",
+                "delivery": "Canada",
+                "price_btc": "0.3085",
+                "price_usd": "USD 240.00",
+                "product_id": "/listing/2573/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-29T02:08:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2573/",
+                        "text": "Excellent"
+                    }
+                ],
+                "vendor": "chronosaurus"
+            },
+            "size": 0.3085,
+            "type": "diamond",
+            "x": 0.8510479734742666,
+            "y": 0.448100950072841
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2621/",
+            "label": "custom jk98yd",
+            "metadata": {
+                "category": "product",
+                "delivery": "Worldwide",
+                "price_btc": "0.5142",
+                "price_usd": "USD 400.00",
+                "product_id": "/listing/2621/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-22T17:52:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2621/",
+                        "text": "Accommodated me in my time of need. Made a special listing for me here and even adjusted the price after I bumbled around a couple of days. Fast shipping, good stealth and communication, and most of all GREAT quality for the price! A+++++++"
+                    }
+                ],
+                "vendor": "chronosaurus"
+            },
+            "size": 0.5142,
+            "type": "diamond",
+            "x": 0.35961106317954283,
+            "y": 0.4362632657662102
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-7",
+            "label": "vendor-7",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-19T22:28:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2741/",
+                        "text": "LOTTO"
+                    }
+                ]
+            },
+            "size": 0.4027,
+            "type": "square",
+            "x": 0.45645315867813485,
+            "y": 0.8217765421445977
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2741/",
+            "label": "custom",
+            "metadata": {
+                "category": "product",
+                "delivery": "United Kingdom",
+                "price_btc": "0.4027",
+                "price_usd": "USD 313.23",
+                "product_id": "/listing/2741/",
+                "product_type": "Drugs/Cannabis/Hash",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-19T22:28:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2741/",
+                        "text": "LOTTO"
+                    }
+                ],
+                "vendor": "1TEAMGB"
+            },
+            "size": 0.4027,
+            "type": "diamond",
+            "x": 0.9321427819832206,
+            "y": 0.3029517154624244
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-8",
+            "label": "vendor-8",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-28T15:34:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "0",
+                        "prod_id": "/listing/2748/",
+                        "text": "Doesn't look that, good, very fresh (or brixed, but for me looks like fresh). Gonna let it dry a week and gonna check it again"
+                    }
+                ]
+            },
+            "size": 0.0135,
+            "type": "square",
+            "x": 0.22967622036351343,
+            "y": 0.8458983827876565
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2748/",
+            "label": "Durban Poison 1g",
+            "metadata": {
+                "category": "product",
+                "delivery": "Europe (EU)",
+                "price_btc": "0.0135",
+                "price_usd": "USD 10.51",
+                "product_id": "/listing/2748/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-28T15:34:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "0",
+                        "prod_id": "/listing/2748/",
+                        "text": "Doesn't look that, good, very fresh (or brixed, but for me looks like fresh). Gonna let it dry a week and gonna check it again"
+                    }
+                ],
+                "vendor": "carlos_lopez"
+            },
+            "size": 0.0135,
+            "type": "diamond",
+            "x": 0.5855422286297389,
+            "y": 0.8026360048531551
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-9",
+            "label": "vendor-9",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-22T19:36:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2780/",
+                        "text": "Excellent service and stealth. Would certainly buy again from this reliable vendor. Product was as advertised, and shipping time was minimal."
+                    }
+                ]
+            },
+            "size": 0.0321,
+            "type": "square",
+            "x": 0.8947982901724054,
+            "y": 0.5539382075446626
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2780/",
+            "label": "Suboxone 8 mg/2 mg Sublingual Film (Buprenorphine and Naloxone)",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0321",
+                "price_usd": "USD 25.00",
+                "product_id": "/listing/2780/",
+                "product_type": "Drugs/Opioids/Heroin",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-22T19:36:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2780/",
+                        "text": "Excellent service and stealth. Would certainly buy again from this reliable vendor. Product was as advertised, and shipping time was minimal."
+                    }
+                ],
+                "vendor": "dmvnationsupply"
+            },
+            "size": 0.0321,
+            "type": "diamond",
+            "x": 0.7000672880719627,
+            "y": 0.17790392360746954
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-10",
+            "label": "vendor-10",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-22T10:47:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2806/",
+                        "text": "Excellent vendor, very good stealth and literally the quickest delivery time i've experienced on any market. Many thanks Flyfelix will be making an order with you asap. Also very good customer service, he (supposing it is a he) replied back almost instantly to any messages i had. Thank you :)"
+                    }
+                ]
+            },
+            "size": 0.0568,
+            "type": "square",
+            "x": 0.27486277678474935,
+            "y": 0.2266817254395601
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2806/",
+            "label": "Ritalin 20mg 10 pills (methylphenidate) - EU product",
+            "metadata": {
+                "category": "product",
+                "delivery": "Europe (EU)",
+                "price_btc": "0.0568",
+                "price_usd": "USD 44.15",
+                "product_id": "/listing/2806/",
+                "product_type": "Drugs/Prescription/Stimulants",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-22T10:47:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2806/",
+                        "text": "Excellent vendor, very good stealth and literally the quickest delivery time i've experienced on any market. Many thanks Flyfelix will be making an order with you asap. Also very good customer service, he (supposing it is a he) replied back almost instantly to any messages i had. Thank you :)"
+                    }
+                ],
+                "vendor": "Flyfelix"
+            },
+            "size": 0.0568,
+            "type": "diamond",
+            "x": 0.13653604047108914,
+            "y": 0.7131154466802418
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/2907/",
+            "label": "1 OZ of OG Kush",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.2571",
+                "price_usd": "USD 200.00",
+                "product_id": "/listing/2907/",
+                "product_type": "Drugs/Cannabis/Weed",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-28T01:56:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2907/",
+                        "text": "Was a little late for the holidays but that's understandable!  :)"
+                    }
+                ],
+                "vendor": "cosmicbites"
+            },
+            "size": 0.2571,
+            "type": "diamond",
+            "x": 0.8932047256528794,
+            "y": 0.8359312625106683
+        },
+        {
+            "color": "#C03E3F",
+            "id": "vendor-11",
+            "label": "vendor-11",
+            "metadata": {
+                "category": "vendor",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-30T19:48:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/3044/",
+                        "text": "Right product right on time.  Thx for the quick service."
+                    }
+                ]
+            },
+            "size": 0.0321,
+            "type": "square",
+            "x": 0.07123951662042227,
+            "y": 0.659615002433728
+        },
+        {
+            "color": "#D0B554",
+            "id": "/listing/3044/",
+            "label": "10x100 Sildenafil Citrate (Viagra)",
+            "metadata": {
+                "category": "product",
+                "delivery": "United States",
+                "price_btc": "0.0321",
+                "price_usd": "USD 25.00",
+                "product_id": "/listing/3044/",
+                "product_type": "Drugs/Prescription/Sildenafil Citrate",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-30T19:48:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/3044/",
+                        "text": "Right product right on time.  Thx for the quick service."
+                    }
+                ],
+                "vendor": "GrandWizardsLair"
+            },
+            "size": 0.0321,
+            "type": "diamond",
+            "x": 0.31696018227428335,
+            "y": 0.6915602799740634
+        },
+        {
+            "id": "Q***O",
+            "label": "Q***O",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-10T00:06:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/1868/",
+                        "text": "All OK! Quality as promised."
+                    }
+                ]
+            },
+            "size": 0.1486,
+            "x": 0.3560222383637721,
+            "y": 0.2030169309583303
+        },
+        {
+            "id": "r***y",
+            "label": "r***y",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T10:05:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/1873/",
+                        "text": "First review so I'll make it detailed for Hood:\n\nProduct was not the same consistency as the stuff I tried and the smell was much more mellow. This stuff is crystally, rolls around easily on paper/etc. \n\nTried 50mg on a dabber wow hit me HARD -- strong fractals, very strong trip zero complaints. \n\nHood had EXCELLENT communication through the whole transaction and weight was a couple mg over and the bonus was included as promised on the listing. Really no issues here, will do business again THANKS HOOD"
+                    }
+                ]
+            },
+            "size": 0.1093,
+            "x": 0.5659455919819061,
+            "y": 0.7306365220380084
+        },
+        {
+            "id": "a***0",
+            "label": "a***0",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-11T14:30:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "0",
+                        "prod_id": "/listing/1925/",
+                        "text": "Ok Shipment but the hash it's a normal hash"
+                    }
+                ]
+            },
+            "size": 0.0135,
+            "x": 0.3644076968747769,
+            "y": 0.8991815152336058
+        },
+        {
+            "id": "h***s",
+            "label": "h***s",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T20:27:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "Responsible Human Being"
+                    }
+                ]
+            },
+            "size": 0.0707,
+            "x": 0.6138485564032139,
+            "y": 0.9125872449754073
+        },
+        {
+            "id": "c***3",
+            "label": "c***3",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T19:24:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "Great vendor and great product will be using again"
+                    },
+                    {
+                        "date": "2015-11-29T02:48:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.1864,
+            "x": 0.39353453763384105,
+            "y": 0.4694963513167434
+        },
+        {
+            "id": "b***s",
+            "label": "b***s",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-13T20:48:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "Quick delivery time and good communication from vendor. Solid product with some extras aswell which is always nice. Would use again. Thanks cosmicbites."
+                    },
+                    {
+                        "date": "2015-11-21T17:23:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2286/",
+                        "text": "5/5 Excellent! Perfect order with Fast delivery. You can feel good about hood!"
+                    }
+                ]
+            },
+            "size": 0.1864,
+            "x": 0.7643112160527827,
+            "y": 0.027534098634039328
+        },
+        {
+            "id": "T***p",
+            "label": "T***p",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-26T21:47:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "0",
+                        "prod_id": "/listing/2282/",
+                        "text": "Average coke (certainly not what is claimed) and the stealth was poor"
+                    }
+                ]
+            },
+            "size": 0.0811,
+            "x": 0.4265992257641875,
+            "y": 0.6265902286565874
+        },
+        {
+            "id": "s***t",
+            "label": "s***t",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-16T10:19:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "A+++"
+                    },
+                    {
+                        "date": "2015-11-22T21:17:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "Recommended"
+                    }
+                ]
+            },
+            "size": 0.1622,
+            "x": 0.765299759545041,
+            "y": 0.3319694169430909
+        },
+        {
+            "id": "s***i",
+            "label": "s***i",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-19T17:30:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "0",
+                        "prod_id": "/listing/2282/",
+                        "text": "Coke is okay, delivery time okay, stealth was not very good, bag was loose only between 3-4 sheets of paper"
+                    }
+                ]
+            },
+            "size": 0.0811,
+            "x": 0.8360237189426871,
+            "y": 0.9357767514117503
+        },
+        {
+            "id": "c***r",
+            "label": "c***r",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-16T20:16:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2282/",
+                        "text": "Very fast delivery!! everthing Perfect! Top Vendor!!"
+                    }
+                ]
+            },
+            "size": 0.0811,
+            "x": 0.8705649082884719,
+            "y": 0.451155245844735
+        },
+        {
+            "id": "D***0",
+            "label": "D***0",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-26T17:41:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2284/",
+                        "text": "Fast and good! Thank you!"
+                    }
+                ]
+            },
+            "size": 0.1892,
+            "x": 0.095979749397064,
+            "y": 0.1813710358915117
+        },
+        {
+            "id": "g***k",
+            "label": "g***k",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-20T08:03:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2293/",
+                        "text": "So fucking fast and professional. This stuff is dank and looks really healthy! Also threw in a freebie pot cake pop that was very strong! A+. I'll be back."
+                    }
+                ]
+            },
+            "size": 0.2571,
+            "x": 0.4182134439043661,
+            "y": 0.19551027205692217
+        },
+        {
+            "id": "g***r",
+            "label": "g***r",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T21:54:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2293/",
+                        "text": "Awesome vendor\nAwesome dank!\n5 stars\nBuy his stuff!\nEven got a free sample!"
+                    },
+                    {
+                        "date": "2015-11-28T01:56:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2907/",
+                        "text": "Was a little late for the holidays but that's understandable!  :)"
+                    }
+                ]
+            },
+            "size": 0.5142,
+            "x": 0.7431138886642006,
+            "y": 0.47554636738566947
+        },
+        {
+            "id": "d***f",
+            "label": "d***f",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T19:17:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Great product, great vendor. Buy with confidence!"
+                    },
+                    {
+                        "date": "2015-11-12T19:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2415/",
+                        "text": "CB is awesome. You won't be disappointed."
+                    },
+                    {
+                        "date": "2015-11-12T19:19:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Definitely grown without chemicals. I know, I used to grow. CB rocks!"
+                    }
+                ]
+            },
+            "size": 0.24939999999999998,
+            "x": 0.3906913273829631,
+            "y": 0.4494917934381266
+        },
+        {
+            "id": "a***y",
+            "label": "a***y",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T21:41:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2453/",
+                        "text": "order arrived right before the finalization timer would've allowed me to release funds. first order of joints (on Abraxas) was rolled exquisitely, the second order (this one) was rolled satisfactorily. plenty of extras too, both times. thanks, Cosmicbites!"
+                    },
+                    {
+                        "date": "2015-11-22T19:36:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2780/",
+                        "text": "Excellent service and stealth. Would certainly buy again from this reliable vendor. Product was as advertised, and shipping time was minimal."
+                    },
+                    {
+                        "date": "2015-11-28T00:38:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2453/",
+                        "text": "FLAWLESS VICTORY"
+                    }
+                ]
+            },
+            "size": 0.16069999999999998,
+            "x": 0.7315923688203967,
+            "y": 0.04214170607474754
+        },
+        {
+            "id": "a***k",
+            "label": "a***k",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T07:31:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2452/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.0386,
+            "x": 0.10154226523599319,
+            "y": 0.2035483237499296
+        },
+        {
+            "id": "c***z",
+            "label": "c***z",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-13T18:50:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2539/",
+                        "text": "USPS holiday made it 3 days but it otherwise would have been spot on."
+                    }
+                ]
+            },
+            "size": 0.7713,
+            "x": 0.3233341130688856,
+            "y": 0.9281301272383302
+        },
+        {
+            "id": "l***1",
+            "label": "l***1",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-29T20:38:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.1157,
+            "x": 0.8322766786190434,
+            "y": 0.5277603442159784
+        },
+        {
+            "id": "h***n",
+            "label": "h***n",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-18T23:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.1157,
+            "x": 0.23347179068796753,
+            "y": 0.524397815058673
+        },
+        {
+            "id": "a***3",
+            "label": "a***3",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-18T20:38:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "A+ Stealth, came with a goodie as well, I'll be back for more"
+                    }
+                ]
+            },
+            "size": 0.1157,
+            "x": 0.4627489829068936,
+            "y": 0.724872921020457
+        },
+        {
+            "id": "j***r",
+            "label": "j***r",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-18T20:28:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "great communication. fast response. good product. even got a bonus :)"
+                    }
+                ]
+            },
+            "size": 0.1157,
+            "x": 0.9425779220130195,
+            "y": 0.2712600297351251
+        },
+        {
+            "id": "m***e",
+            "label": "m***e",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T22:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-12T22:18:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-12T22:19:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "---"
+                    },
+                    {
+                        "date": "2015-11-26T07:35:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "world's finest darknet bakery"
+                    }
+                ]
+            },
+            "size": 0.2494,
+            "x": 0.8616048734025485,
+            "y": 0.06763285400665997
+        },
+        {
+            "id": "m***t",
+            "label": "m***t",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-12T19:38:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2546/",
+                        "text": "Excellent vendor!\nProduct was very high quality and exactly as promised!\nDelivery was fast and secure and arrived when expected!\nI would (and will) recommend this vendor to anyone!"
+                    }
+                ]
+            },
+            "size": 0.1157,
+            "x": 0.80922932378599,
+            "y": 0.7676994746142363
+        },
+        {
+            "id": "B***t",
+            "label": "B***t",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-29T02:08:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2573/",
+                        "text": "Excellent"
+                    }
+                ]
+            },
+            "size": 0.3085,
+            "x": 0.504306426535881,
+            "y": 0.3490577331740128
+        },
+        {
+            "id": "s***r",
+            "label": "s***r",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-22T17:52:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2621/",
+                        "text": "Accommodated me in my time of need. Made a special listing for me here and even adjusted the price after I bumbled around a couple of days. Fast shipping, good stealth and communication, and most of all GREAT quality for the price! A+++++++"
+                    }
+                ]
+            },
+            "size": 0.5142,
+            "x": 0.9225020416835963,
+            "y": 0.04709440251970598
+        },
+        {
+            "id": "i***s",
+            "label": "i***s",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-19T22:28:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2741/",
+                        "text": "LOTTO"
+                    },
+                    {
+                        "date": "2015-11-28T15:34:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "0",
+                        "prod_id": "/listing/2748/",
+                        "text": "Doesn't look that, good, very fresh (or brixed, but for me looks like fresh). Gonna let it dry a week and gonna check it again"
+                    }
+                ]
+            },
+            "size": 0.4162,
+            "x": 0.1339764601091893,
+            "y": 0.32322988270806774
+        },
+        {
+            "id": "p***5",
+            "label": "p***5",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-22T10:47:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2806/",
+                        "text": "Excellent vendor, very good stealth and literally the quickest delivery time i've experienced on any market. Many thanks Flyfelix will be making an order with you asap. Also very good customer service, he (supposing it is a he) replied back almost instantly to any messages i had. Thank you :)"
+                    }
+                ]
+            },
+            "size": 0.0568,
+            "x": 0.8456302551329009,
+            "y": 0.7446593477179853
+        },
+        {
+            "id": "m***4",
+            "label": "m***4",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-30T21:32:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2547/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.0366,
+            "x": 0.3043517593346752,
+            "y": 0.35349193807827306
+        },
+        {
+            "id": "b***9",
+            "label": "b***9",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T00:53:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2547/",
+                        "text": "Fast, stealthy shipping. Would order again"
+                    }
+                ]
+            },
+            "size": 0.0366,
+            "x": 0.6308127806785848,
+            "y": 0.4946892534059866
+        },
+        {
+            "id": "J***9",
+            "label": "J***9",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-28T18:00:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "looks incredible, freebie included, just took a little extra time shipping due to the holiday, A+++ vendor"
+                    }
+                ]
+            },
+            "size": 0.2044,
+            "x": 0.4178370764725783,
+            "y": 0.7103162775760896
+        },
+        {
+            "id": "t***s",
+            "label": "t***s",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-18T17:59:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "cosmic bites always treats me right. thank you cosmic!\non weight! nice crystals"
+                    },
+                    {
+                        "date": "2015-11-28T03:35:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Quick service again."
+                    }
+                ]
+            },
+            "size": 0.4088,
+            "x": 0.6670022166608032,
+            "y": 0.04817675387864062
+        },
+        {
+            "id": "t***z",
+            "label": "t***z",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-27T19:58:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Prompt delivery as promised, no complaints, solid transaction.  Will do business with again."
+                    }
+                ]
+            },
+            "size": 0.2044,
+            "x": 0.523871386953678,
+            "y": 0.844684704139335
+        },
+        {
+            "id": "g***u",
+            "label": "g***u",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-24T04:12:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2294/",
+                        "text": "Good, frosty nug with extra!! Will be back soon"
+                    }
+                ]
+            },
+            "size": 0.2044,
+            "x": 0.56063392871659,
+            "y": 0.5659890358370185
+        },
+        {
+            "id": "C***y",
+            "label": "C***y",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-18T15:39:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.0541,
+            "x": 0.9486038901133689,
+            "y": 0.512904183000219
+        },
+        {
+            "id": "z***t",
+            "label": "z***t",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-17T11:02:00+01:00",
+                        "delivery_time": "6 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "---"
+                    }
+                ]
+            },
+            "size": 0.0541,
+            "x": 0.4287880836975395,
+            "y": 0.9339797513014358
+        },
+        {
+            "id": "r***s",
+            "label": "r***s",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-09T15:17:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/1920/",
+                        "text": "A lot of leaf, but that was to be expected. Still does the job. Thanks m8"
+                    }
+                ]
+            },
+            "size": 0.0541,
+            "x": 0.033655444896850906,
+            "y": 0.22089864370162315
+        },
+        {
+            "id": "R***3",
+            "label": "R***3",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-28T06:06:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "great vendor, will buy again"
+                    }
+                ]
+            },
+            "size": 0.0064,
+            "x": 0.08329154114616144,
+            "y": 0.96242378431783
+        },
+        {
+            "id": "e***e",
+            "label": "e***e",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T19:34:00+01:00",
+                        "delivery_time": "4 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Quick & polite response to my questions, prompt shipping time, and a fantastic product. Will be buying from CB again. A+"
+                    }
+                ]
+            },
+            "size": 0.0064,
+            "x": 0.4927620440882079,
+            "y": 0.2601259107107896
+        },
+        {
+            "id": "M***n",
+            "label": "M***n",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T04:49:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Great & Extras as always"
+                    },
+                    {
+                        "date": "2015-11-21T04:50:00+01:00",
+                        "delivery_time": "Not specified",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Great & Extras as always"
+                    }
+                ]
+            },
+            "size": 0.0154,
+            "x": 0.4510440602461585,
+            "y": 0.9611016928269198
+        },
+        {
+            "id": "W***0",
+            "label": "W***0",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-24T03:08:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2086/",
+                        "text": "Excellent buds! Very Stoney. Fantastic Stealth! I will be back Very soon! Thanks again!!"
+                    }
+                ]
+            },
+            "size": 0.0578,
+            "x": 0.7478531419473224,
+            "y": 0.09418585014697389
+        },
+        {
+            "id": "I***n",
+            "label": "I***n",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-27T23:34:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "This vendor already has an excellent reputation, so there's not much more I can add. Everything was exceptionally executed! Packaging, shipping....just super!  I SINCERELY APPRECIATE the bonus. It was unexpected, and gives me a nice beginning to the holiday season. Thanks!!!"
+                    }
+                ]
+            },
+            "size": 0.009,
+            "x": 0.5904360706928362,
+            "y": 0.0255299244090208
+        },
+        {
+            "id": "B***i",
+            "label": "B***i",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-25T00:19:00+01:00",
+                        "delivery_time": "5 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Cosmic bites is very reliable. In several orders, he has come through every single time. The edibles are potent, and yes, he does include a few extra goodies for free."
+                    }
+                ]
+            },
+            "size": 0.009,
+            "x": 0.14330927461134668,
+            "y": 0.9480056989209136
+        },
+        {
+            "id": "S***e",
+            "label": "S***e",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-23T02:42:00+01:00",
+                        "delivery_time": "6 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Great vendor! High quality and potent products! Thanks for the extra goodies!"
+                    }
+                ]
+            },
+            "size": 0.009,
+            "x": 0.42805571854397995,
+            "y": 0.09638185696807455
+        },
+        {
+            "id": "m***s",
+            "label": "m***s",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-21T17:25:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "So happy with this vendor. The edibles taste amazing and are potent, my wife and I smoke about an ounce a week of medical club herb and these surprised us in a great way. Vendor threw in extra's, peanut butter cup was divine as well. Will DEFINITELY be ordering from cosmic again. AAA+++"
+                    }
+                ]
+            },
+            "size": 0.009,
+            "x": 0.00015302774439196476,
+            "y": 0.4808223780004408
+        },
+        {
+            "id": "m***3",
+            "label": "m***3",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-30T19:48:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/3044/",
+                        "text": "Right product right on time.  Thx for the quick service."
+                    }
+                ]
+            },
+            "size": 0.0321,
+            "x": 0.06973524233719419,
+            "y": 0.719644888564213
+        },
+        {
+            "id": "I***y",
+            "label": "I***y",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-20T08:02:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "Fast Shipping! Edibles were at a good strength! This vender is solid!"
+                    }
+                ]
+            },
+            "size": 0.0064,
+            "x": 0.2892267541487965,
+            "y": 0.3083304432324152
+        },
+        {
+            "id": "f***n",
+            "label": "f***n",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-11T01:20:00+01:00",
+                        "delivery_time": "2 days",
+                        "note": "1",
+                        "prod_id": "/listing/2295/",
+                        "text": "CosmicBites is the Bomb!"
+                    }
+                ]
+            },
+            "size": 0.0064,
+            "x": 0.6257052564184142,
+            "y": 0.6941730213057249
+        },
+        {
+            "id": "j***8",
+            "label": "j***8",
+            "metadata": {
+                "category": "client",
+                "score": null,
+                "transactions": [
+                    {
+                        "date": "2015-11-13T13:44:00+01:00",
+                        "delivery_time": "3 days",
+                        "note": "1",
+                        "prod_id": "/listing/2339/",
+                        "text": "Very speedy delivery. Great product. Vendor even threw in extra goodies. Will definitely order again."
+                    }
+                ]
+            },
+            "size": 0.009,
+            "x": 0.7865240204897062,
+            "y": 0.6969916696185394
+        }
+    ],
+    "steps": [
+        [
+            "vendor-0",
+            "vendor-1",
+            "vendor-2",
+            "vendor-3",
+            "vendor-4",
+            "vendor-5",
+            "vendor-6",
+            "vendor-7",
+            "vendor-8",
+            "vendor-9",
+            "vendor-10",
+            "vendor-11"
+        ],
+        "/listing/1920/",
+        "r***s",
+        "/listing/1868/",
+        "Q***O",
+        "/listing/2295/",
+        "f***n",
+        "/listing/1925/",
+        "a***0",
+        "d***f",
+        "/listing/2546/",
+        "m***t",
+        "/listing/2453/",
+        "a***y",
+        "/listing/2293/",
+        "g***r",
+        "m***e",
+        "/listing/2339/",
+        "j***8",
+        "/listing/2539/",
+        "c***z",
+        "b***s",
+        "/listing/2282/",
+        "s***t",
+        "c***r",
+        "z***t",
+        "C***y",
+        "/listing/2294/",
+        "t***s",
+        "j***r",
+        "a***3",
+        "h***n",
+        "s***i",
+        "/listing/2741/",
+        "i***s",
+        "I***y",
+        "g***k",
+        "/listing/2547/",
+        "b***9",
+        "M***n",
+        "/listing/2452/",
+        "a***k",
+        "/listing/1873/",
+        "r***y",
+        "m***s",
+        "/listing/2286/",
+        "c***3",
+        "e***e",
+        "h***s",
+        "/listing/2806/",
+        "p***5",
+        "/listing/2621/",
+        "s***r",
+        "S***e",
+        "/listing/2086/",
+        "W***0",
+        "g***u",
+        "B***i",
+        "/listing/2284/",
+        "D***0",
+        "T***p",
+        "t***z",
+        "I***n",
+        "R***3",
+        "J***9",
+        "/listing/2573/",
+        "B***t",
+        "l***1",
+        "/listing/3044/",
+        "m***3",
+        "m***4"
+    ]
+}

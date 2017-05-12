@@ -112,7 +112,7 @@ class AppState {
   */
 
   @computed get selectedNetwork() {
-    return this.networks.find(network => network.get('selected'));
+    return this.networks[this.selectedNetworkIndex];
   }
 
   clearSelectedNetwork() {
@@ -126,6 +126,12 @@ class AppState {
     const self = this;
     this.networks.filter(network => network.get('selected'))
                  .forEach(network => self.loadNetwork(network));
+  }
+
+  saveSelectedNetwork() {
+    const selectedNetwork = this.networks[this.selectedNetworkIndex];
+    const graph = toJS(selectedNetwork.get('graph'))
+    selectedNetwork.set('source_graph', graph);
   }
 
   downloadSelectedNetwork() {
@@ -239,13 +245,14 @@ class AppState {
 
   filterReset() {
     const selectedNetwork = this.networks[this.selectedNetworkIndex];
-    network.set('graph', network.get('source_graph'));
+    let graph = network.get('source_graph');
+    network.set('graph', graph);
   }
 
   filterGraph() {
     const selectedNetwork = this.networks[this.selectedNetworkIndex];
 
-    const graph = toJS(selectedNetwork.get('source_graph'))
+    let graph = toJS(selectedNetwork.get('source_graph'))
 
     graph.nodes = graph.nodes.filter( node => {
       if(node.size < this.ui.filters.minNodeSize ||
@@ -284,6 +291,29 @@ class AppState {
     });
     this.graph.isFiltered = true;
     this.filterGraph();
+  }
+
+  filterOnStep(step) {
+    let selectedNetwork = this.networks[this.selectedNetworkIndex];
+    const graph = toJS(selectedNetwork.get('source_graph'));
+    const nodes = graph.nodes;
+    const edges = graph.edges;
+    const steps = graph.steps;
+
+    const hiddenNodes = step == steps.length ? [] : steps.slice(step);
+
+    graph.nodes = nodes.filter(node => !hiddenNodes.includes(node.id));
+
+    graph.edges = edges.filter(edge => {
+      if(hiddenNodes.includes(edge.target) || hiddenNodes.includes(edge.source)) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    console.log(graph.edges);
+
+    selectedNetwork.set('graph', graph);
   }
 
   /*

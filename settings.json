@@ -1,28 +1,8 @@
 {
   "networks": [
     {
-      "url": "data/transparence-sante-31000.json",
-      "name": "Transparence Santé",
-      "options": {
-        "layout": "forcelink",
-        "loader": {
-          "name": "json"
-        }
-      }
-    },
-    {
-      "url": "data/hansa/2016-03.json",
-      "name": "hansa 03/2016",
-      "options": {
-        "layout": "forcelink",
-        "loader": {
-          "name": "json"
-        }
-      }
-    },
-    {
-      "url": "data/hansa/2016-04.json",
-      "name": "hansa 04/2016",
+      "url": "data/hansa/2015-11.json",
+      "name": "hansa 2015-11",
       "options": {
         "layout": "forcelink",
         "loader": {
