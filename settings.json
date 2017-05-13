@@ -1,12 +1,12 @@
 {
   "networks": [
     {
-      "url": "data/hansa/2016-10.json",
+      "url": "data/hansa/general_negative.json",
       "name": "hansa",
       "options": {
         "layout": "forcelink",
         "loader": {
-          "name": "json"
+          "name": "hansa"
         }
       }
     },
