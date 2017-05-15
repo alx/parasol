@@ -11,6 +11,8 @@ import SigmaLoader from './Sigma/Loader';
 import SigmaFilter from './Sigma/Filter';
 import ForceLink from './Sigma/ForceLink';
 
+import ClusterLayer from './Sigma/ClusterLayer';
+
 @observer
 export default class SigmaComponent extends Component {
 
@@ -127,6 +129,7 @@ export default class SigmaComponent extends Component {
         }}
       >
         <SigmaLoader graph={network.get('graph')}>
+          <ClusterLayer />
           {sigmaPlugins}
         </SigmaLoader>
       </Sigma>
