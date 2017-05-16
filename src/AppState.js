@@ -5,6 +5,8 @@ import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
 import LoaderHansa from './Loaders/Hansa';
 
+import FileSaver from 'file-saver';
+
 const LOADERS = {
   dd_tsne: LoaderTsne,
   json: LoaderJson,
@@ -125,9 +127,8 @@ class AppState {
   }
 
   refreshSelectedNetwork() {
-    const self = this;
-    this.networks.filter(network => network.get('selected'))
-                 .forEach(network => self.loadNetwork(network));
+    const selectedNetwork = this.networks[this.selectedNetworkIndex];
+    this.loadNetwork(selectedNetwork);
   }
 
   saveSelectedNetwork() {
@@ -137,13 +138,10 @@ class AppState {
   }
 
   downloadSelectedNetwork() {
-    const network = this.selectedNetwork();
-
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.network.get('graph')));
-    var dlAnchorElem = document.getElementById('downloadAnchorElem');
-    dlAnchorElem.setAttribute("href",     dataStr     );
-    dlAnchorElem.setAttribute("download", network.title + ".json");
-    dlAnchorElem.click();
+    const selectedNetwork = this.networks[this.selectedNetworkIndex];
+    const blob = new Blob([JSON.stringify(selectedNetwork.get('graph'))],
+                          {type: "text/json;charset=utf-8"});
+    FileSaver.saveAs(blob, `${selectedNetwork.get('name')}.json`);
   }
 
   loadNetwork(network, callback) {
