@@ -84,23 +84,29 @@ export default class NetworkList extends React.Component {
 
     const appState = this.props.appState;
 
-    const iconStyle = {
-      margin: 2,
-      position: 'relative',
-      width: 20,
-      height: 20,
-      color: '#999',
+    const styles = {
+      container: {
+        top: 0,
+        width: 'auto',
+      },
+      icon: {
+        margin: 2,
+        position: 'relative',
+        width: 20,
+        height: 20,
+        color: '#999',
+      }
     }
 
-    const selectedNetworkIcons = (<div style={{top: 0}}>
+    const selectedNetworkIcons = (<div style={styles.container}>
       <IconRefresh
-        style={iconStyle}
+        style={styles.icon}
         onTouchTap={this._refreshSelectedNetwork}/>
       <IconSave
-        style={iconStyle}
+        style={styles.icon}
         onTouchTap={this._saveSelectedNetwork}/>
       <IconDownload
-        style={iconStyle}
+        style={styles.icon}
         onTouchTap={this._downloadSelectedNetwork}/>
     </div>);
     //const selectedNetworkIcons = null;
@@ -123,7 +129,7 @@ export default class NetworkList extends React.Component {
 
         const nested = [];
 
-        if(network.has('graph')) {
+        if(false && network.has('graph')) {
           const graph = network.get('graph');
           if(graph.steps && graph.steps.length > 1) {
             nested.push(<ListItem

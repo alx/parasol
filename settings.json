@@ -1,7 +1,7 @@
 {
   "networks": [
     {
-      "url": "data/hansa/general_negative.json",
+      "url": "data/hansa/2015-12.json",
       "name": "hansa",
       "options": {
         "layout": "forcelink",

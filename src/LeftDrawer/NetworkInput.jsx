@@ -23,8 +23,6 @@ import axios from 'axios';
 
 export default class NetworkInput extends React.Component {
 
-  onFileLoad = (e) => console.log(e.target.result);
-
   constructor(props) {
     super(props)
 

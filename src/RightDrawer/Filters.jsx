@@ -60,17 +60,19 @@ export default class Filters extends Component {
 
     const appState = this.props.appState;
 
-    return (<div key={this.state.key} style={{padding: 10}}>
+    return (<div key={'filterSliders'} style={{padding: 10}}>
       <p><span>Node Size</span></p>
       <Range
-        defaultValue={[this.state.node.min,this.state.node.max]}
+        key={'nodeSize-' + appState.graph.maxNodeSize}
+        defaultValue={[0, appState.graph.maxNodeSize]}
         min={0}
         max={appState.graph.maxNodeSize}
         onAfterChange={this.handleNodeFilterSlider}
       />
       <p><span>Edge Weight</span></p>
       <Range
-        defaultValue={[this.state.edge.min,this.state.edge.max]}
+        key={'edgeWeight-' + appState.graph.maxEdgeWeight}
+        defaultValue={[0, appState.graph.maxEdgeWeight]}
         min={0}
         max={appState.graph.maxEdgeWeight}
         onAfterChange={this.handleEdgeFilterSlider}

@@ -257,7 +257,7 @@ class AppState {
     let graph = toJS(selectedNetwork.get('source_graph'))
 
     graph.nodes = graph.nodes.filter( node => {
-      if(node.size < this.ui.filters.minNodeSize ||
+      if(node.size <= this.ui.filters.minNodeSize ||
          node.size >= this.ui.filters.maxNodeSize) {
         graph.edges = graph.edges.filter( edge => {
           return edge.source != node.id && edge.target != node.id
@@ -270,7 +270,7 @@ class AppState {
 
     graph.edges = graph.edges.filter( edge => {
       return edge.weight >= this.ui.filters.minEdgeWeight &&
-             edge.weight < this.ui.filters.maxEdgeWeight;
+             edge.weight <= this.ui.filters.maxEdgeWeight;
     });
 
     if(this.ui.filters.hideOrphans) {
