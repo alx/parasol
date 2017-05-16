@@ -108,8 +108,6 @@ export default class SigmaComponent extends Component {
         break;
     }
 
-    console.log('SigmaComponent: ' + network.get('name') + ' ' + network.get('graph').nodes.filter(node => !node.hidden).length);
-
     return (<div>
       <Sigma
         renderer={ appState.ui.renderer }

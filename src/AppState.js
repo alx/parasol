@@ -313,7 +313,6 @@ class AppState {
         return true;
       }
     });
-    console.log(graph.edges);
 
     selectedNetwork.set('graph', graph);
   }
