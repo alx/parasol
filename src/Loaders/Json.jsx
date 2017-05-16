@@ -42,12 +42,13 @@ class Json {
   run(callback) {
 
     const network = this.network;
+    let categories = [];
 
     fetch(network.get('url')).then(response => response.json()).then((json) => {
 
       if (json.nodes) {
 
-        const categories = json.nodes.map(node => node.metadata ? node.metadata.category : null)
+        categories = json.nodes.map(node => node.metadata ? node.metadata.category : null)
           .filter((category, index, self) => self.indexOf(category) === index)
           .filter(category => typeof(category) != 'undefined' && category && category.length > 0);
 
@@ -73,6 +74,9 @@ class Json {
       network.set('graph', json);
       network.set('source_graph', json);
       network.set('colors', COLORS);
+      network.set('categories', categories.map((category, index) => {
+        return {name: category, color: COLORS.nodes[index]};
+      }));
 
       if(typeof(callback) != 'undefined')
         callback(network);

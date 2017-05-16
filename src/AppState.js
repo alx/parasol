@@ -3,14 +3,12 @@ import moment from 'moment';
 
 import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
-import LoaderHansa from './Loaders/Hansa';
 
 import FileSaver from 'file-saver';
 
 const LOADERS = {
   dd_tsne: LoaderTsne,
   json: LoaderJson,
-  hansa: LoaderHansa,
 };
 
 class AppState {
@@ -37,6 +35,7 @@ class AppState {
       minEdgeWeight: 0,
       maxEdgeWeight: 1,
       hideOrphans: true,
+      categories: [],
     },
     muiTheme: 'dark',
     labels: {
@@ -186,6 +185,7 @@ class AppState {
 
     this.ui.filters.nodeSize = 0;
     this.ui.filters.edgeWeight = 0;
+    this.ui.filters.categories = [];
 
     if (network.has('graph')) {
       const graph = network.get('graph');
@@ -256,7 +256,13 @@ class AppState {
 
     graph.nodes = graph.nodes.filter( node => {
       if(node.size <= this.ui.filters.minNodeSize ||
-         node.size >= this.ui.filters.maxNodeSize) {
+         node.size >= this.ui.filters.maxNodeSize ||
+         (
+          node.metadata &&
+          node.metadata.category &&
+          this.ui.filters.categories.includes(node.metadata.category)
+         )
+        ) {
         graph.edges = graph.edges.filter( edge => {
           return edge.source != node.id && edge.target != node.id
         });

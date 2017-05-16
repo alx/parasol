@@ -1,45 +1,88 @@
 import React from 'react';
+import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
 
 import Avatar from 'material-ui/Avatar';
 import {List, ListItem } from 'material-ui/List';
+
+import RadioButtonChecked from 'material-ui/svg-icons/toggle/radio-button-checked';
+import RadioButtonUnchecked from 'material-ui/svg-icons/toggle/radio-button-unchecked';
 
 @observer
 export default class Legend extends React.Component {
 
   constructor(props) {
     super(props)
+
+    this._filterCategory = this._filterCategory.bind(this);
+    this._unfilterCategory = this._unfilterCategory.bind(this);
+  }
+
+  _filterCategory = (category) => {
+    const appState = this.props.appState;
+    let filteredCategories = toJS(appState.ui.filters.categories);
+    if(!filteredCategories.includes(category)) {
+      filteredCategories.push(category);
+    }
+    appState.setFilter({categories: filteredCategories});
+  }
+
+  _unfilterCategory = (category) => {
+    const appState = this.props.appState;
+    let filteredCategories = toJS(appState.ui.filters.categories);
+    if(filteredCategories.includes(category)) {
+      filteredCategories.splice(filteredCategories.indexOf(category), 1);
+    }
+    appState.setFilter({categories: filteredCategories});
   }
 
   render() {
 
-    const network = this.props.appState.selectedNetwork;
+    const appState = this.props.appState;
+    const network = appState.selectedNetwork;
+    console.log(network);
 
-    if(!network || !network.has('graph') || !network.has('colors'))
+    if(!network || !network.has('graph') || !network.has('categories'))
       return null
 
-    const colors = network.get('colors');
 
+    const categories = network.get('categories');
     const graph = network.get('graph');
     const nodes = graph.nodes;
 
-    const legendItems = nodes.map( node => {
-        return node.metadata ? node.metadata.category : null;
-      }).filter(n => {
-        return n != undefined;
-      }).filter( (category, index, self) => {
-        return self.indexOf(category) === index;
-      }).filter( category => {
-        return typeof(category) != 'undefined' && category.length > 0;
-      }).map( (category, index) => {
+    const legendItems = categories.map( (category, index) => {
 
-        const count = nodes.filter(node => node.metadata && node.metadata.category == category).length;
+        const count = nodes.filter(node => node.metadata && node.metadata.category == category.name).length;
+
+        const styles = {
+          toggle: {
+            fontSize: 30,
+            height: 40,
+            width: 40,
+            cursor: 'pointer',
+          }
+        };
+
+        let categoryToggle = (<RadioButtonChecked
+          style={styles.toggle}
+          color={category.color}
+          onTouchTap={this._filterCategory.bind(this, category.name)}
+        />);
+
+        if(appState.ui.filters.categories.includes(category.name)) {
+          console.log('use unchecked');
+          categoryToggle = (<RadioButtonUnchecked
+            style={styles.toggle}
+            color={category.color}
+            onTouchTap={this._unfilterCategory.bind(this, category.name)}
+          />);
+        }
 
         return <ListItem
             key={index}
             disabled={true}
-            leftAvatar={<Avatar size={30} backgroundColor={colors.nodes[index]}/>}
-          >{category} ({count})</ListItem>;
+            leftAvatar={categoryToggle}
+          >{category.name} ({count})</ListItem>;
       });
 
     if(legendItems.length == 0)

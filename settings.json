@@ -6,7 +6,7 @@
       "options": {
         "layout": "forcelink",
         "loader": {
-          "name": "hansa"
+          "name": "json"
         }
       }
     },
