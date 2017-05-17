@@ -1,0 +1,27 @@
+{
+  "networks": [
+    {
+      "url": "./data/2015-12.json",
+      "name": "2015-12",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "./data/general_negative.json",
+      "name": "All negative feedbacks",
+      "options": {
+        "layout": "none",
+        "loader": {
+          "name": "json"
+        }
+      }
+    }
+  ],
+  "ui": {
+    "muiTheme": "dark"
+  }
+}
