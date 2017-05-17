@@ -14,7 +14,7 @@
       "url": "./data/general_negative.json",
       "name": "All negative feedbacks",
       "options": {
-        "layout": "none",
+        "layout": "forcelink",
         "loader": {
           "name": "json"
         }
