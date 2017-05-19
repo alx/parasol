@@ -98,19 +98,21 @@ export default class NetworkInput extends React.Component {
 
   render() {
 
-    if(this.props.appState.network_loader.path.length == 0)
+    const loader = this.props.appState.network_loader;
+
+    if(loader.path.length == 0)
       return null;
 
     return (<div>
       <FlatButton
-        label="Add Network"
+        label={loader.name}
         primary={true}
         icon={<AddIcon />}
         fullWidth={true}
         onTouchTap={this._openInputDialog}
       />
       <Dialog
-        title="Add new network"
+        title={loader.name}
         modal={false}
         open={this.state.dialogOpen}
         onRequestClose={this._closeInputDialog}

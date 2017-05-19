@@ -96406,7 +96406,6 @@ var Legend = (0, _mobxReact.observer)(_class = function (_React$Component) {
 
       var appState = this.props.appState;
       var network = appState.selectedNetwork;
-      console.log(network);
 
       if (!network || !network.has('graph') || !network.has('categories')) return null;
 
@@ -96649,13 +96648,15 @@ var NetworkInput = function (_React$Component) {
     key: 'render',
     value: function render() {
 
-      if (this.props.appState.network_loader.path.length == 0) return null;
+      var loader = this.props.appState.network_loader;
+
+      if (loader.path.length == 0) return null;
 
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(_FlatButton2.default, {
-          label: 'Add Network',
+          label: loader.name,
           primary: true,
           icon: _react2.default.createElement(_add2.default, null),
           fullWidth: true,
@@ -96664,7 +96665,7 @@ var NetworkInput = function (_React$Component) {
         _react2.default.createElement(
           _Dialog2.default,
           {
-            title: 'Add new network',
+            title: loader.name,
             modal: false,
             open: this.state.dialogOpen,
             onRequestClose: this._closeInputDialog
@@ -97088,7 +97089,7 @@ var ToggleIcon = function (_React$Component) {
         }
       };
 
-      var githubText = "1163e9a\n" || 'github';
+      var githubText = "df93c31\n" || 'github';
       var githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
 
       return _react2.default.createElement(

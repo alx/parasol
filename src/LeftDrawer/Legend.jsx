@@ -40,7 +40,6 @@ export default class Legend extends React.Component {
 
     const appState = this.props.appState;
     const network = appState.selectedNetwork;
-    console.log(network);
 
     if(!network || !network.has('graph') || !network.has('categories'))
       return null

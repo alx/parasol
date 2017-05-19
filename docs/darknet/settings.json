@@ -19,8 +19,22 @@
           "name": "json"
         }
       }
+    },
+    {
+      "url": "./data/lsd.json",
+      "name": "Psychedelics - LSD",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
     }
   ],
+  "network_loader": {
+    "name": "Products",
+    "path": "./products.json"
+  },
   "ui": {
     "muiTheme": "dark"
   }
