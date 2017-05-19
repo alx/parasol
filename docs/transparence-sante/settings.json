@@ -4,7 +4,7 @@
       "url": "transparence-sante-31000.json",
       "name": "Transparence Santé",
       "options": {
-        "layout": "forcelink",
+        "layout": "none",
         "loader": {
           "name": "json"
         }
