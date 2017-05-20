@@ -97094,7 +97094,7 @@ var ToggleIcon = function (_React$Component) {
         }
       };
 
-      var githubText = "64b95cd\n" || 'github';
+      var githubText = "9aec012\n" || 'github';
       var githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
 
       return _react2.default.createElement(
@@ -97374,7 +97374,7 @@ var Lombardi = function () {
         return response.json();
       }).then(function (json) {
 
-        if (node.type) {
+        if (json.nodes[0].type) {
 
           json.nodes.forEach(function (node) {
 

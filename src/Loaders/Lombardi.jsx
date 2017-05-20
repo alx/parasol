@@ -45,7 +45,7 @@ class Lombardi {
 
     fetch(network.get('url')).then(response => response.json()).then((json) => {
 
-      if(node.type) {
+      if(json.nodes[0].type) {
 
         json.nodes.forEach(node => {
 
