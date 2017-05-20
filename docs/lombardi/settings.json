@@ -1,0 +1,17 @@
+{
+  "networks": [
+    {
+      "url": "./data/1027.json",
+      "name": "Arochem, Bayoil and Bay Industries",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    }
+  ],
+  "ui": {
+    "muiTheme": "dark"
+  }
+}

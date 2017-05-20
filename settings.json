@@ -1,6 +1,6 @@
 {
   "networks": [
-    {"url": "docs/darknet/data/lsd.json","name": "hansa","options": {"layout": "forcelink","loader": {"name": "json"}}}
+    {"url": "data/HarkenBush5th.json","name": "lombardi","options": {"layout": "forcelink","loader": {"name": "lombardi"}}}
   ],
   "ui": {
     "muiTheme": "dark"

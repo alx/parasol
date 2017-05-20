@@ -3,12 +3,14 @@ import moment from 'moment';
 
 import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
+import LoaderLombardi from './Loaders/Lombardi';
 
 import FileSaver from 'file-saver';
 
 const LOADERS = {
   dd_tsne: LoaderTsne,
   json: LoaderJson,
+  lombardi: LoaderLombardi,
 };
 
 class AppState {
