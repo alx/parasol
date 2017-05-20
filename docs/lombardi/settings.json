@@ -1,12 +1,12 @@
 {
   "networks": [
     {
-      "url": "./data/1027.json",
-      "name": "Arochem, Bayoil and Bay Industries",
+      "url": "./data/HarkenBush5th.json",
+      "name": "George W. Bush, Harken Energy, Jackson Stephens. c. 1979-1990. 5th Version",
       "options": {
         "layout": "forcelink",
         "loader": {
-          "name": "json"
+          "name": "lombardi"
         }
       }
     }
