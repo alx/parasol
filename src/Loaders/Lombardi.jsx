@@ -55,12 +55,20 @@ class Lombardi {
             categories.push(type)
           }
 
-          node.x = Math.random();
-          node.y = Math.random();
+          node.x = node.x || Math.random();
+          node.y = node.y || Math.random();
           node.size = 1;
 
           node.metadata = {category: type};
           node.color = COLORS.types[type];
+
+          if(type == 'Year') {
+            node.mass = 1;
+            //node.x = parseInt(node.name.split('/').shift()) + parseInt(node.name.split('/').pop()) * 0.1;
+            //node.y = 1;
+          } else {
+            node.mass = 100;
+          }
 
           delete node.type;
         });
@@ -80,7 +88,7 @@ class Lombardi {
       network.set('source_graph', json);
       network.set('colors', COLORS);
       network.set('categories', categories.map((category, index) => {
-        return {name: category, color: COLORS.type[category]};
+        return {name: category, color: COLORS.types[category]};
       }));
 
       if(typeof(callback) != 'undefined')
