@@ -1,7 +1,7 @@
 {
   "networks": [
     {
-      "url": "data/feed.json",
+      "url": "feed.json",
       "name": "alxcast",
       "options": {
         "layout": "forcelink",

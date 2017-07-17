@@ -46,6 +46,8 @@ export default class SigmaComponent extends Component {
     if(!network || !network.has('graph'))
       return null;
 
+    let graph = network.get('graph');
+
     let backgroundColor = lightBaseTheme.palette.canvasColor;
     if(appState.ui.muiTheme) {
 
@@ -74,7 +76,7 @@ export default class SigmaComponent extends Component {
 
     if(appState.ui.renderer == 'canvas') {
       sigmaPlugins.push(<NodeShapes key='sigma-nodeshapes' />);
-      sigmaPlugins.push(<EdgeShapes key='sigma-edgeshapes' default="curve" />);
+      sigmaPlugins.push(<EdgeShapes key='sigma-edgeshapes' default={appState.ui.edges.shape} />);
     }
 
     const options = mobx.toJS(network.get('options'));
@@ -82,11 +84,12 @@ export default class SigmaComponent extends Component {
     if(appState.graph.isFiltered && appState.graph.selectedNodes.length > 0) {
       //nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)}
       //edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)}
+      const selectedNode = appState.graph.selectedNodes[appState.graph.selectedNodes.length - 1];
       sigmaPlugins.push(
         <SigmaFilter
           key='sigma-filter'
           filtermode={ appState.graph.filtermode }
-          neighborsOf={ appState.graph.selectedNodes[appState.graph.selectedNodes.length - 1].id }
+          neighborsOf={ selectedNode.id }
         />
       );
     } else {
@@ -127,7 +130,7 @@ export default class SigmaComponent extends Component {
           labelColor:appState.ui.labels.labelColor,
         }}
       >
-        <SigmaLoader graph={network.get('graph')}>
+        <SigmaLoader graph={graph}>
           {sigmaPlugins}
         </SigmaLoader>
       </Sigma>

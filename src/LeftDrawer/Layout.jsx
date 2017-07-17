@@ -26,8 +26,6 @@ export default class Layout extends React.Component {
       case 'forcelink':
       case 'forceatlas':
       case 'forceatlas2':
-        layoutController = (<ForceLinkSettings appState={appState} />);
-        break;
       default:
         layoutController = (<ForceLinkSettings appState={appState} />);
     }

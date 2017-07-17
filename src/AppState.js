@@ -4,6 +4,7 @@ import moment from 'moment';
 import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
 import LoaderLombardi from './Loaders/Lombardi';
+import LoaderJsonFeed from './Loaders/JsonFeed';
 
 import FileSaver from 'file-saver';
 
@@ -11,6 +12,7 @@ const LOADERS = {
   dd_tsne: LoaderTsne,
   json: LoaderJson,
   lombardi: LoaderLombardi,
+  jsonfeed: LoaderJsonFeed,
 };
 
 class AppState {
@@ -47,6 +49,9 @@ class AppState {
       fontStyle: '500',
       font: 'Roboto',
       labelColor: 'node',
+    },
+    edges: {
+      shape: "curve",
     }
   };
 
@@ -231,7 +236,10 @@ class AppState {
 
     const selectedGraph = this.networks[this.selectedNetworkIndex].get('graph');
 
-    this.graph.selectedNodes.push(selectedGraph.nodes.find(node => node.id == node_id));
+    let selectedNode = selectedGraph.nodes.find(node => node.id == node_id)
+    selectedNode.color = '#FFF';
+
+    this.graph.selectedNodes.push(selectedNode);
 
     const neighborNodeIds = selectedGraph.edges
       .filter(edge => edge.source == node_id || edge.target == node_id)
