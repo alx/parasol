@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 734);
+/******/ 	return __webpack_require__(__webpack_require__.s = 735);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1895,7 +1895,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if (!locales[name] && typeof module !== 'undefined' && module && module.exports) {
             try {
                 oldLocale = globalLocale._abbr;
-                __webpack_require__(731)("./" + name);
+                __webpack_require__(732)("./" + name);
                 // because defineLocale currently also sets the global locale, we
                 // want to undo that for lazy loaded locales
                 getSetGlobalLocale(oldLocale);
@@ -6684,432 +6684,6 @@ module.exports = warning;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _react = __webpack_require__(0);
-
-var horizontal = _react.PropTypes.oneOf(['left', 'middle', 'right']);
-var vertical = _react.PropTypes.oneOf(['top', 'center', 'bottom']);
-
-exports.default = {
-
-  corners: _react.PropTypes.oneOf(['bottom-left', 'bottom-right', 'top-left', 'top-right']),
-
-  horizontal: horizontal,
-
-  vertical: vertical,
-
-  origin: _react.PropTypes.shape({
-    horizontal: horizontal,
-    vertical: vertical
-  }),
-
-  cornersAndCenter: _react.PropTypes.oneOf(['bottom-center', 'bottom-left', 'bottom-right', 'top-center', 'top-left', 'top-right']),
-
-  stringOrNumber: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
-
-  zDepth: _react.PropTypes.oneOf([0, 1, 2, 3, 4, 5])
-
-};
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var _prodInvariant = __webpack_require__(12),
-    _assign = __webpack_require__(13);
-
-var CallbackQueue = __webpack_require__(325);
-var PooledClass = __webpack_require__(43);
-var ReactFeatureFlags = __webpack_require__(330);
-var ReactReconciler = __webpack_require__(62);
-var Transaction = __webpack_require__(97);
-
-var invariant = __webpack_require__(8);
-
-var dirtyComponents = [];
-var updateBatchNumber = 0;
-var asapCallbackQueue = CallbackQueue.getPooled();
-var asapEnqueued = false;
-
-var batchingStrategy = null;
-
-function ensureInjected() {
-  !(ReactUpdates.ReactReconcileTransaction && batchingStrategy) ?  false ? invariant(false, 'ReactUpdates: must inject a reconcile transaction class and batching strategy') : _prodInvariant('123') : void 0;
-}
-
-var NESTED_UPDATES = {
-  initialize: function initialize() {
-    this.dirtyComponentsLength = dirtyComponents.length;
-  },
-  close: function close() {
-    if (this.dirtyComponentsLength !== dirtyComponents.length) {
-      // Additional updates were enqueued by componentDidUpdate handlers or
-      // similar; before our own UPDATE_QUEUEING wrapper closes, we want to run
-      // these new updates so that if A's componentDidUpdate calls setState on
-      // B, B will update before the callback A's updater provided when calling
-      // setState.
-      dirtyComponents.splice(0, this.dirtyComponentsLength);
-      flushBatchedUpdates();
-    } else {
-      dirtyComponents.length = 0;
-    }
-  }
-};
-
-var UPDATE_QUEUEING = {
-  initialize: function initialize() {
-    this.callbackQueue.reset();
-  },
-  close: function close() {
-    this.callbackQueue.notifyAll();
-  }
-};
-
-var TRANSACTION_WRAPPERS = [NESTED_UPDATES, UPDATE_QUEUEING];
-
-function ReactUpdatesFlushTransaction() {
-  this.reinitializeTransaction();
-  this.dirtyComponentsLength = null;
-  this.callbackQueue = CallbackQueue.getPooled();
-  this.reconcileTransaction = ReactUpdates.ReactReconcileTransaction.getPooled(
-  /* useCreateElement */true);
-}
-
-_assign(ReactUpdatesFlushTransaction.prototype, Transaction, {
-  getTransactionWrappers: function getTransactionWrappers() {
-    return TRANSACTION_WRAPPERS;
-  },
-
-  destructor: function destructor() {
-    this.dirtyComponentsLength = null;
-    CallbackQueue.release(this.callbackQueue);
-    this.callbackQueue = null;
-    ReactUpdates.ReactReconcileTransaction.release(this.reconcileTransaction);
-    this.reconcileTransaction = null;
-  },
-
-  perform: function perform(method, scope, a) {
-    // Essentially calls `this.reconcileTransaction.perform(method, scope, a)`
-    // with this transaction's wrappers around it.
-    return Transaction.perform.call(this, this.reconcileTransaction.perform, this.reconcileTransaction, method, scope, a);
-  }
-});
-
-PooledClass.addPoolingTo(ReactUpdatesFlushTransaction);
-
-function batchedUpdates(callback, a, b, c, d, e) {
-  ensureInjected();
-  return batchingStrategy.batchedUpdates(callback, a, b, c, d, e);
-}
-
-/**
- * Array comparator for ReactComponents by mount ordering.
- *
- * @param {ReactComponent} c1 first component you're comparing
- * @param {ReactComponent} c2 second component you're comparing
- * @return {number} Return value usable by Array.prototype.sort().
- */
-function mountOrderComparator(c1, c2) {
-  return c1._mountOrder - c2._mountOrder;
-}
-
-function runBatchedUpdates(transaction) {
-  var len = transaction.dirtyComponentsLength;
-  !(len === dirtyComponents.length) ?  false ? invariant(false, 'Expected flush transaction\'s stored dirty-components length (%s) to match dirty-components array length (%s).', len, dirtyComponents.length) : _prodInvariant('124', len, dirtyComponents.length) : void 0;
-
-  // Since reconciling a component higher in the owner hierarchy usually (not
-  // always -- see shouldComponentUpdate()) will reconcile children, reconcile
-  // them before their children by sorting the array.
-  dirtyComponents.sort(mountOrderComparator);
-
-  // Any updates enqueued while reconciling must be performed after this entire
-  // batch. Otherwise, if dirtyComponents is [A, B] where A has children B and
-  // C, B could update twice in a single batch if C's render enqueues an update
-  // to B (since B would have already updated, we should skip it, and the only
-  // way we can know to do so is by checking the batch counter).
-  updateBatchNumber++;
-
-  for (var i = 0; i < len; i++) {
-    // If a component is unmounted before pending changes apply, it will still
-    // be here, but we assume that it has cleared its _pendingCallbacks and
-    // that performUpdateIfNecessary is a noop.
-    var component = dirtyComponents[i];
-
-    // If performUpdateIfNecessary happens to enqueue any new updates, we
-    // shouldn't execute the callbacks until the next render happens, so
-    // stash the callbacks first
-    var callbacks = component._pendingCallbacks;
-    component._pendingCallbacks = null;
-
-    var markerName;
-    if (ReactFeatureFlags.logTopLevelRenders) {
-      var namedComponent = component;
-      // Duck type TopLevelWrapper. This is probably always true.
-      if (component._currentElement.type.isReactTopLevelWrapper) {
-        namedComponent = component._renderedComponent;
-      }
-      markerName = 'React update: ' + namedComponent.getName();
-      console.time(markerName);
-    }
-
-    ReactReconciler.performUpdateIfNecessary(component, transaction.reconcileTransaction, updateBatchNumber);
-
-    if (markerName) {
-      console.timeEnd(markerName);
-    }
-
-    if (callbacks) {
-      for (var j = 0; j < callbacks.length; j++) {
-        transaction.callbackQueue.enqueue(callbacks[j], component.getPublicInstance());
-      }
-    }
-  }
-}
-
-var flushBatchedUpdates = function flushBatchedUpdates() {
-  // ReactUpdatesFlushTransaction's wrappers will clear the dirtyComponents
-  // array and perform any updates enqueued by mount-ready handlers (i.e.,
-  // componentDidUpdate) but we need to check here too in order to catch
-  // updates enqueued by setState callbacks and asap calls.
-  while (dirtyComponents.length || asapEnqueued) {
-    if (dirtyComponents.length) {
-      var transaction = ReactUpdatesFlushTransaction.getPooled();
-      transaction.perform(runBatchedUpdates, null, transaction);
-      ReactUpdatesFlushTransaction.release(transaction);
-    }
-
-    if (asapEnqueued) {
-      asapEnqueued = false;
-      var queue = asapCallbackQueue;
-      asapCallbackQueue = CallbackQueue.getPooled();
-      queue.notifyAll();
-      CallbackQueue.release(queue);
-    }
-  }
-};
-
-/**
- * Mark a component as needing a rerender, adding an optional callback to a
- * list of functions which will be executed once the rerender occurs.
- */
-function enqueueUpdate(component) {
-  ensureInjected();
-
-  // Various parts of our code (such as ReactCompositeComponent's
-  // _renderValidatedComponent) assume that calls to render aren't nested;
-  // verify that that's the case. (This is called by each top-level update
-  // function, like setState, forceUpdate, etc.; creation and
-  // destruction of top-level components is guarded in ReactMount.)
-
-  if (!batchingStrategy.isBatchingUpdates) {
-    batchingStrategy.batchedUpdates(enqueueUpdate, component);
-    return;
-  }
-
-  dirtyComponents.push(component);
-  if (component._updateBatchNumber == null) {
-    component._updateBatchNumber = updateBatchNumber + 1;
-  }
-}
-
-/**
- * Enqueue a callback to be run at the end of the current batching cycle. Throws
- * if no updates are currently being performed.
- */
-function asap(callback, context) {
-  !batchingStrategy.isBatchingUpdates ?  false ? invariant(false, 'ReactUpdates.asap: Can\'t enqueue an asap callback in a context whereupdates are not being batched.') : _prodInvariant('125') : void 0;
-  asapCallbackQueue.enqueue(callback, context);
-  asapEnqueued = true;
-}
-
-var ReactUpdatesInjection = {
-  injectReconcileTransaction: function injectReconcileTransaction(ReconcileTransaction) {
-    !ReconcileTransaction ?  false ? invariant(false, 'ReactUpdates: must provide a reconcile transaction class') : _prodInvariant('126') : void 0;
-    ReactUpdates.ReactReconcileTransaction = ReconcileTransaction;
-  },
-
-  injectBatchingStrategy: function injectBatchingStrategy(_batchingStrategy) {
-    !_batchingStrategy ?  false ? invariant(false, 'ReactUpdates: must provide a batching strategy') : _prodInvariant('127') : void 0;
-    !(typeof _batchingStrategy.batchedUpdates === 'function') ?  false ? invariant(false, 'ReactUpdates: must provide a batchedUpdates() function') : _prodInvariant('128') : void 0;
-    !(typeof _batchingStrategy.isBatchingUpdates === 'boolean') ?  false ? invariant(false, 'ReactUpdates: must provide an isBatchingUpdates boolean attribute') : _prodInvariant('129') : void 0;
-    batchingStrategy = _batchingStrategy;
-  }
-};
-
-var ReactUpdates = {
-  /**
-   * React references `ReactReconcileTransaction` using this property in order
-   * to allow dependency injection.
-   *
-   * @internal
-   */
-  ReactReconcileTransaction: null,
-
-  batchedUpdates: batchedUpdates,
-  enqueueUpdate: enqueueUpdate,
-  flushBatchedUpdates: flushBatchedUpdates,
-  injection: ReactUpdatesInjection,
-  asap: asap
-};
-
-module.exports = ReactUpdates;
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var isObject = __webpack_require__(50);
-module.exports = function (it) {
-  if (!isObject(it)) throw TypeError(it + ' is not an object!');
-  return it;
-};
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var global = __webpack_require__(25),
-    core = __webpack_require__(19),
-    ctx = __webpack_require__(48),
-    hide = __webpack_require__(41),
-    PROTOTYPE = 'prototype';
-
-var $export = function $export(type, name, source) {
-  var IS_FORCED = type & $export.F,
-      IS_GLOBAL = type & $export.G,
-      IS_STATIC = type & $export.S,
-      IS_PROTO = type & $export.P,
-      IS_BIND = type & $export.B,
-      IS_WRAP = type & $export.W,
-      exports = IS_GLOBAL ? core : core[name] || (core[name] = {}),
-      expProto = exports[PROTOTYPE],
-      target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE],
-      key,
-      own,
-      out;
-  if (IS_GLOBAL) source = name;
-  for (key in source) {
-    // contains in native
-    own = !IS_FORCED && target && target[key] !== undefined;
-    if (own && key in exports) continue;
-    // export native or passed
-    out = own ? target[key] : source[key];
-    // prevent global pollution for namespaces
-    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
-    : IS_BIND && own ? ctx(out, global)
-    // wrap global constructors for prevent change them in library
-    : IS_WRAP && target[key] == out ? function (C) {
-      var F = function F(a, b, c) {
-        if (this instanceof C) {
-          switch (arguments.length) {
-            case 0:
-              return new C();
-            case 1:
-              return new C(a);
-            case 2:
-              return new C(a, b);
-          }return new C(a, b, c);
-        }return C.apply(this, arguments);
-      };
-      F[PROTOTYPE] = C[PROTOTYPE];
-      return F;
-      // make static versions for prototype methods
-    }(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
-    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
-    if (IS_PROTO) {
-      (exports.virtual || (exports.virtual = {}))[key] = out;
-      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
-      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
-    }
-  }
-};
-// type bitmap
-$export.F = 1; // forced
-$export.G = 2; // global
-$export.S = 4; // static
-$export.P = 8; // proto
-$export.B = 16; // bind
-$export.W = 32; // wrap
-$export.U = 64; // safe
-$export.R = 128; // real proto method for `library` 
-module.exports = $export;
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var anObject = __webpack_require__(30),
-    IE8_DOM_DEFINE = __webpack_require__(166),
-    toPrimitive = __webpack_require__(114),
-    dP = Object.defineProperty;
-
-exports.f = __webpack_require__(37) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
-  anObject(O);
-  P = toPrimitive(P, true);
-  anObject(Attributes);
-  if (IE8_DOM_DEFINE) try {
-    return dP(O, P, Attributes);
-  } catch (e) {/* empty */}
-  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
-  if ('value' in Attributes) O[P] = Attributes.value;
-  return O;
-};
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _Paper = __webpack_require__(506);
-
-var _Paper2 = _interopRequireDefault(_Paper);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-exports.default = _Paper2.default;
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 var red50 = exports.red50 = '#ffebee';
 var red100 = exports.red100 = '#ffcdd2';
 var red200 = exports.red200 = '#ef9a9a';
@@ -7395,6 +6969,432 @@ var faintBlack = exports.faintBlack = 'rgba(0, 0, 0, 0.12)';
 var fullWhite = exports.fullWhite = 'rgba(255, 255, 255, 1)';
 var darkWhite = exports.darkWhite = 'rgba(255, 255, 255, 0.87)';
 var lightWhite = exports.lightWhite = 'rgba(255, 255, 255, 0.54)';
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var horizontal = _react.PropTypes.oneOf(['left', 'middle', 'right']);
+var vertical = _react.PropTypes.oneOf(['top', 'center', 'bottom']);
+
+exports.default = {
+
+  corners: _react.PropTypes.oneOf(['bottom-left', 'bottom-right', 'top-left', 'top-right']),
+
+  horizontal: horizontal,
+
+  vertical: vertical,
+
+  origin: _react.PropTypes.shape({
+    horizontal: horizontal,
+    vertical: vertical
+  }),
+
+  cornersAndCenter: _react.PropTypes.oneOf(['bottom-center', 'bottom-left', 'bottom-right', 'top-center', 'top-left', 'top-right']),
+
+  stringOrNumber: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
+
+  zDepth: _react.PropTypes.oneOf([0, 1, 2, 3, 4, 5])
+
+};
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var _prodInvariant = __webpack_require__(12),
+    _assign = __webpack_require__(13);
+
+var CallbackQueue = __webpack_require__(325);
+var PooledClass = __webpack_require__(43);
+var ReactFeatureFlags = __webpack_require__(330);
+var ReactReconciler = __webpack_require__(62);
+var Transaction = __webpack_require__(97);
+
+var invariant = __webpack_require__(8);
+
+var dirtyComponents = [];
+var updateBatchNumber = 0;
+var asapCallbackQueue = CallbackQueue.getPooled();
+var asapEnqueued = false;
+
+var batchingStrategy = null;
+
+function ensureInjected() {
+  !(ReactUpdates.ReactReconcileTransaction && batchingStrategy) ?  false ? invariant(false, 'ReactUpdates: must inject a reconcile transaction class and batching strategy') : _prodInvariant('123') : void 0;
+}
+
+var NESTED_UPDATES = {
+  initialize: function initialize() {
+    this.dirtyComponentsLength = dirtyComponents.length;
+  },
+  close: function close() {
+    if (this.dirtyComponentsLength !== dirtyComponents.length) {
+      // Additional updates were enqueued by componentDidUpdate handlers or
+      // similar; before our own UPDATE_QUEUEING wrapper closes, we want to run
+      // these new updates so that if A's componentDidUpdate calls setState on
+      // B, B will update before the callback A's updater provided when calling
+      // setState.
+      dirtyComponents.splice(0, this.dirtyComponentsLength);
+      flushBatchedUpdates();
+    } else {
+      dirtyComponents.length = 0;
+    }
+  }
+};
+
+var UPDATE_QUEUEING = {
+  initialize: function initialize() {
+    this.callbackQueue.reset();
+  },
+  close: function close() {
+    this.callbackQueue.notifyAll();
+  }
+};
+
+var TRANSACTION_WRAPPERS = [NESTED_UPDATES, UPDATE_QUEUEING];
+
+function ReactUpdatesFlushTransaction() {
+  this.reinitializeTransaction();
+  this.dirtyComponentsLength = null;
+  this.callbackQueue = CallbackQueue.getPooled();
+  this.reconcileTransaction = ReactUpdates.ReactReconcileTransaction.getPooled(
+  /* useCreateElement */true);
+}
+
+_assign(ReactUpdatesFlushTransaction.prototype, Transaction, {
+  getTransactionWrappers: function getTransactionWrappers() {
+    return TRANSACTION_WRAPPERS;
+  },
+
+  destructor: function destructor() {
+    this.dirtyComponentsLength = null;
+    CallbackQueue.release(this.callbackQueue);
+    this.callbackQueue = null;
+    ReactUpdates.ReactReconcileTransaction.release(this.reconcileTransaction);
+    this.reconcileTransaction = null;
+  },
+
+  perform: function perform(method, scope, a) {
+    // Essentially calls `this.reconcileTransaction.perform(method, scope, a)`
+    // with this transaction's wrappers around it.
+    return Transaction.perform.call(this, this.reconcileTransaction.perform, this.reconcileTransaction, method, scope, a);
+  }
+});
+
+PooledClass.addPoolingTo(ReactUpdatesFlushTransaction);
+
+function batchedUpdates(callback, a, b, c, d, e) {
+  ensureInjected();
+  return batchingStrategy.batchedUpdates(callback, a, b, c, d, e);
+}
+
+/**
+ * Array comparator for ReactComponents by mount ordering.
+ *
+ * @param {ReactComponent} c1 first component you're comparing
+ * @param {ReactComponent} c2 second component you're comparing
+ * @return {number} Return value usable by Array.prototype.sort().
+ */
+function mountOrderComparator(c1, c2) {
+  return c1._mountOrder - c2._mountOrder;
+}
+
+function runBatchedUpdates(transaction) {
+  var len = transaction.dirtyComponentsLength;
+  !(len === dirtyComponents.length) ?  false ? invariant(false, 'Expected flush transaction\'s stored dirty-components length (%s) to match dirty-components array length (%s).', len, dirtyComponents.length) : _prodInvariant('124', len, dirtyComponents.length) : void 0;
+
+  // Since reconciling a component higher in the owner hierarchy usually (not
+  // always -- see shouldComponentUpdate()) will reconcile children, reconcile
+  // them before their children by sorting the array.
+  dirtyComponents.sort(mountOrderComparator);
+
+  // Any updates enqueued while reconciling must be performed after this entire
+  // batch. Otherwise, if dirtyComponents is [A, B] where A has children B and
+  // C, B could update twice in a single batch if C's render enqueues an update
+  // to B (since B would have already updated, we should skip it, and the only
+  // way we can know to do so is by checking the batch counter).
+  updateBatchNumber++;
+
+  for (var i = 0; i < len; i++) {
+    // If a component is unmounted before pending changes apply, it will still
+    // be here, but we assume that it has cleared its _pendingCallbacks and
+    // that performUpdateIfNecessary is a noop.
+    var component = dirtyComponents[i];
+
+    // If performUpdateIfNecessary happens to enqueue any new updates, we
+    // shouldn't execute the callbacks until the next render happens, so
+    // stash the callbacks first
+    var callbacks = component._pendingCallbacks;
+    component._pendingCallbacks = null;
+
+    var markerName;
+    if (ReactFeatureFlags.logTopLevelRenders) {
+      var namedComponent = component;
+      // Duck type TopLevelWrapper. This is probably always true.
+      if (component._currentElement.type.isReactTopLevelWrapper) {
+        namedComponent = component._renderedComponent;
+      }
+      markerName = 'React update: ' + namedComponent.getName();
+      console.time(markerName);
+    }
+
+    ReactReconciler.performUpdateIfNecessary(component, transaction.reconcileTransaction, updateBatchNumber);
+
+    if (markerName) {
+      console.timeEnd(markerName);
+    }
+
+    if (callbacks) {
+      for (var j = 0; j < callbacks.length; j++) {
+        transaction.callbackQueue.enqueue(callbacks[j], component.getPublicInstance());
+      }
+    }
+  }
+}
+
+var flushBatchedUpdates = function flushBatchedUpdates() {
+  // ReactUpdatesFlushTransaction's wrappers will clear the dirtyComponents
+  // array and perform any updates enqueued by mount-ready handlers (i.e.,
+  // componentDidUpdate) but we need to check here too in order to catch
+  // updates enqueued by setState callbacks and asap calls.
+  while (dirtyComponents.length || asapEnqueued) {
+    if (dirtyComponents.length) {
+      var transaction = ReactUpdatesFlushTransaction.getPooled();
+      transaction.perform(runBatchedUpdates, null, transaction);
+      ReactUpdatesFlushTransaction.release(transaction);
+    }
+
+    if (asapEnqueued) {
+      asapEnqueued = false;
+      var queue = asapCallbackQueue;
+      asapCallbackQueue = CallbackQueue.getPooled();
+      queue.notifyAll();
+      CallbackQueue.release(queue);
+    }
+  }
+};
+
+/**
+ * Mark a component as needing a rerender, adding an optional callback to a
+ * list of functions which will be executed once the rerender occurs.
+ */
+function enqueueUpdate(component) {
+  ensureInjected();
+
+  // Various parts of our code (such as ReactCompositeComponent's
+  // _renderValidatedComponent) assume that calls to render aren't nested;
+  // verify that that's the case. (This is called by each top-level update
+  // function, like setState, forceUpdate, etc.; creation and
+  // destruction of top-level components is guarded in ReactMount.)
+
+  if (!batchingStrategy.isBatchingUpdates) {
+    batchingStrategy.batchedUpdates(enqueueUpdate, component);
+    return;
+  }
+
+  dirtyComponents.push(component);
+  if (component._updateBatchNumber == null) {
+    component._updateBatchNumber = updateBatchNumber + 1;
+  }
+}
+
+/**
+ * Enqueue a callback to be run at the end of the current batching cycle. Throws
+ * if no updates are currently being performed.
+ */
+function asap(callback, context) {
+  !batchingStrategy.isBatchingUpdates ?  false ? invariant(false, 'ReactUpdates.asap: Can\'t enqueue an asap callback in a context whereupdates are not being batched.') : _prodInvariant('125') : void 0;
+  asapCallbackQueue.enqueue(callback, context);
+  asapEnqueued = true;
+}
+
+var ReactUpdatesInjection = {
+  injectReconcileTransaction: function injectReconcileTransaction(ReconcileTransaction) {
+    !ReconcileTransaction ?  false ? invariant(false, 'ReactUpdates: must provide a reconcile transaction class') : _prodInvariant('126') : void 0;
+    ReactUpdates.ReactReconcileTransaction = ReconcileTransaction;
+  },
+
+  injectBatchingStrategy: function injectBatchingStrategy(_batchingStrategy) {
+    !_batchingStrategy ?  false ? invariant(false, 'ReactUpdates: must provide a batching strategy') : _prodInvariant('127') : void 0;
+    !(typeof _batchingStrategy.batchedUpdates === 'function') ?  false ? invariant(false, 'ReactUpdates: must provide a batchedUpdates() function') : _prodInvariant('128') : void 0;
+    !(typeof _batchingStrategy.isBatchingUpdates === 'boolean') ?  false ? invariant(false, 'ReactUpdates: must provide an isBatchingUpdates boolean attribute') : _prodInvariant('129') : void 0;
+    batchingStrategy = _batchingStrategy;
+  }
+};
+
+var ReactUpdates = {
+  /**
+   * React references `ReactReconcileTransaction` using this property in order
+   * to allow dependency injection.
+   *
+   * @internal
+   */
+  ReactReconcileTransaction: null,
+
+  batchedUpdates: batchedUpdates,
+  enqueueUpdate: enqueueUpdate,
+  flushBatchedUpdates: flushBatchedUpdates,
+  injection: ReactUpdatesInjection,
+  asap: asap
+};
+
+module.exports = ReactUpdates;
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isObject = __webpack_require__(50);
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var global = __webpack_require__(25),
+    core = __webpack_require__(19),
+    ctx = __webpack_require__(48),
+    hide = __webpack_require__(41),
+    PROTOTYPE = 'prototype';
+
+var $export = function $export(type, name, source) {
+  var IS_FORCED = type & $export.F,
+      IS_GLOBAL = type & $export.G,
+      IS_STATIC = type & $export.S,
+      IS_PROTO = type & $export.P,
+      IS_BIND = type & $export.B,
+      IS_WRAP = type & $export.W,
+      exports = IS_GLOBAL ? core : core[name] || (core[name] = {}),
+      expProto = exports[PROTOTYPE],
+      target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE],
+      key,
+      own,
+      out;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if (own && key in exports) continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? function (C) {
+      var F = function F(a, b, c) {
+        if (this instanceof C) {
+          switch (arguments.length) {
+            case 0:
+              return new C();
+            case 1:
+              return new C(a);
+            case 2:
+              return new C(a, b);
+          }return new C(a, b, c);
+        }return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+      // make static versions for prototype methods
+    }(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if (IS_PROTO) {
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1; // forced
+$export.G = 2; // global
+$export.S = 4; // static
+$export.P = 8; // proto
+$export.B = 16; // bind
+$export.W = 32; // wrap
+$export.U = 64; // safe
+$export.R = 128; // real proto method for `library` 
+module.exports = $export;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var anObject = __webpack_require__(31),
+    IE8_DOM_DEFINE = __webpack_require__(166),
+    toPrimitive = __webpack_require__(114),
+    dP = Object.defineProperty;
+
+exports.f = __webpack_require__(37) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) {/* empty */}
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _Paper = __webpack_require__(506);
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+exports.default = _Paper2.default;
 
 /***/ }),
 /* 35 */
@@ -8023,7 +8023,7 @@ module.exports = function (it, key) {
 "use strict";
 
 
-var dP = __webpack_require__(32),
+var dP = __webpack_require__(33),
     createDesc = __webpack_require__(69);
 module.exports = __webpack_require__(37) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
@@ -14432,7 +14432,7 @@ exports.f = {}.propertyIsEnumerable;
 "use strict";
 
 
-var def = __webpack_require__(32).f,
+var def = __webpack_require__(33).f,
     has = __webpack_require__(40),
     TAG = __webpack_require__(22)('toStringTag');
 
@@ -14639,7 +14639,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _colors = __webpack_require__(34);
+var _colors = __webpack_require__(28);
 
 var _colorManipulator = __webpack_require__(38);
 
@@ -14732,7 +14732,7 @@ var _typography = __webpack_require__(206);
 
 var _typography2 = _interopRequireDefault(_typography);
 
-var _colors = __webpack_require__(34);
+var _colors = __webpack_require__(28);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -16573,7 +16573,7 @@ module.exports = 'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,
 
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-var anObject = __webpack_require__(30),
+var anObject = __webpack_require__(31),
     dPs = __webpack_require__(412),
     enumBugKeys = __webpack_require__(107),
     IE_PROTO = __webpack_require__(110)('IE_PROTO'),
@@ -16710,7 +16710,7 @@ var global = __webpack_require__(25),
     core = __webpack_require__(19),
     LIBRARY = __webpack_require__(82),
     wksExt = __webpack_require__(116),
-    defineProperty = __webpack_require__(32).f;
+    defineProperty = __webpack_require__(33).f;
 module.exports = function (name) {
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
   if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
@@ -17734,7 +17734,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _colors = __webpack_require__(34);
+var _colors = __webpack_require__(28);
 
 var _colorManipulator = __webpack_require__(38);
 
@@ -18902,7 +18902,7 @@ var _prodInvariant = __webpack_require__(12);
 var ReactCurrentOwner = __webpack_require__(36);
 var ReactInstanceMap = __webpack_require__(78);
 var ReactInstrumentation = __webpack_require__(26);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 
 var invariant = __webpack_require__(8);
 var warning = __webpack_require__(11);
@@ -30521,7 +30521,7 @@ module.exports = function (it) {
 
 
 // call something on iterator step with safe closing on error
-var anObject = __webpack_require__(30);
+var anObject = __webpack_require__(31);
 module.exports = function (iterator, fn, value, entries) {
   try {
     return entries ? fn(anObject(value)[0], value[1]) : fn(value);
@@ -30541,7 +30541,7 @@ module.exports = function (iterator, fn, value, entries) {
 
 
 var LIBRARY = __webpack_require__(82),
-    $export = __webpack_require__(31),
+    $export = __webpack_require__(32),
     redefine = __webpack_require__(177),
     hide = __webpack_require__(41),
     has = __webpack_require__(40),
@@ -30757,7 +30757,7 @@ module.exports = function (object, names) {
 
 
 // most Object methods by ES6 should accept primitives
-var $export = __webpack_require__(31),
+var $export = __webpack_require__(32),
     core = __webpack_require__(19),
     fails = __webpack_require__(49);
 module.exports = function (KEY, exec) {
@@ -31425,7 +31425,7 @@ var _keycode = __webpack_require__(54);
 
 var _keycode2 = _interopRequireDefault(_keycode);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -32098,11 +32098,11 @@ var _RenderToLayer = __webpack_require__(201);
 
 var _RenderToLayer2 = _interopRequireDefault(_RenderToLayer);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -32967,7 +32967,7 @@ var _TouchRipple = __webpack_require__(203);
 
 var _TouchRipple2 = _interopRequireDefault(_TouchRipple);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -34463,7 +34463,7 @@ var _MuiThemeProvider2 = __webpack_require__(204);
 
 var _MuiThemeProvider3 = _interopRequireDefault(_MuiThemeProvider2);
 
-var _colors2 = __webpack_require__(34);
+var _colors2 = __webpack_require__(28);
 
 var _colors = _interopRequireWildcard(_colors2);
 
@@ -34543,7 +34543,7 @@ var _classCallCheck2 = __webpack_require__(2);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _colors = __webpack_require__(34);
+var _colors = __webpack_require__(28);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -46492,7 +46492,7 @@ var _assign = __webpack_require__(13);
 
 var LinkedValueUtils = __webpack_require__(135);
 var ReactDOMComponentTree = __webpack_require__(16);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 
 var warning = __webpack_require__(11);
 
@@ -46973,7 +46973,7 @@ var ReactInstrumentation = __webpack_require__(26);
 var ReactMarkupChecksum = __webpack_require__(611);
 var ReactReconciler = __webpack_require__(62);
 var ReactUpdateQueue = __webpack_require__(138);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 
 var emptyObject = __webpack_require__(52);
 var instantiateReactComponent = __webpack_require__(339);
@@ -51521,7 +51521,7 @@ module.exports = function (IS_INCLUDES) {
 "use strict";
 
 
-var $defineProperty = __webpack_require__(32),
+var $defineProperty = __webpack_require__(33),
     createDesc = __webpack_require__(69);
 
 module.exports = function (object, index, value) {
@@ -51563,7 +51563,7 @@ module.exports = function (it) {
 var ctx = __webpack_require__(48),
     call = __webpack_require__(169),
     isArrayIter = __webpack_require__(168),
-    anObject = __webpack_require__(30),
+    anObject = __webpack_require__(31),
     toLength = __webpack_require__(113),
     getIterFn = __webpack_require__(117),
     BREAK = {},
@@ -51693,7 +51693,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var META = __webpack_require__(85)('meta'),
     isObject = __webpack_require__(50),
     has = __webpack_require__(40),
-    setDesc = __webpack_require__(32).f,
+    setDesc = __webpack_require__(33).f,
     id = 0;
 var isExtensible = Object.isExtensible || function () {
   return true;
@@ -51871,8 +51871,8 @@ module.exports = !$assign || __webpack_require__(49)(function () {
 "use strict";
 
 
-var dP = __webpack_require__(32),
-    anObject = __webpack_require__(30),
+var dP = __webpack_require__(33),
+    anObject = __webpack_require__(31),
     getKeys = __webpack_require__(51);
 
 module.exports = __webpack_require__(37) ? Object.defineProperties : function defineProperties(O, Properties) {
@@ -51938,7 +51938,7 @@ module.exports = function (target, src, safe) {
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
 var isObject = __webpack_require__(50),
-    anObject = __webpack_require__(30);
+    anObject = __webpack_require__(31);
 var check = function check(O, proto) {
   anObject(O);
   if (!isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
@@ -51971,7 +51971,7 @@ module.exports = {
 
 var global = __webpack_require__(25),
     core = __webpack_require__(19),
-    dP = __webpack_require__(32),
+    dP = __webpack_require__(33),
     DESCRIPTORS = __webpack_require__(37),
     SPECIES = __webpack_require__(22)('species');
 
@@ -51993,7 +51993,7 @@ module.exports = function (KEY) {
 
 
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
-var anObject = __webpack_require__(30),
+var anObject = __webpack_require__(31),
     aFunction = __webpack_require__(104),
     SPECIES = __webpack_require__(22)('species');
 module.exports = function (O, D) {
@@ -52048,7 +52048,7 @@ module.exports = function (index, length) {
 "use strict";
 
 
-var anObject = __webpack_require__(30),
+var anObject = __webpack_require__(31),
     get = __webpack_require__(117);
 module.exports = __webpack_require__(19).getIterator = function (it) {
   var iterFn = get(it);
@@ -52064,7 +52064,7 @@ module.exports = __webpack_require__(19).getIterator = function (it) {
 
 
 var ctx = __webpack_require__(48),
-    $export = __webpack_require__(31),
+    $export = __webpack_require__(32),
     toObject = __webpack_require__(70),
     call = __webpack_require__(169),
     isArrayIter = __webpack_require__(168),
@@ -52154,7 +52154,7 @@ addToUnscopables('entries');
 
 
 // 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__(31);
+var $export = __webpack_require__(32);
 
 $export($export.S + $export.F, 'Object', { assign: __webpack_require__(411) });
 
@@ -52165,7 +52165,7 @@ $export($export.S + $export.F, 'Object', { assign: __webpack_require__(411) });
 "use strict";
 
 
-var $export = __webpack_require__(31);
+var $export = __webpack_require__(32);
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 $export($export.S, 'Object', { create: __webpack_require__(108) });
 
@@ -52176,9 +52176,9 @@ $export($export.S, 'Object', { create: __webpack_require__(108) });
 "use strict";
 
 
-var $export = __webpack_require__(31);
+var $export = __webpack_require__(32);
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-$export($export.S + $export.F * !__webpack_require__(37), 'Object', { defineProperty: __webpack_require__(32).f });
+$export($export.S + $export.F * !__webpack_require__(37), 'Object', { defineProperty: __webpack_require__(33).f });
 
 /***/ }),
 /* 426 */
@@ -52222,7 +52222,7 @@ __webpack_require__(176)('keys', function () {
 
 
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = __webpack_require__(31);
+var $export = __webpack_require__(32);
 $export($export.S, 'Object', { setPrototypeOf: __webpack_require__(415).set });
 
 /***/ }),
@@ -52236,7 +52236,7 @@ var LIBRARY = __webpack_require__(82),
     global = __webpack_require__(25),
     ctx = __webpack_require__(48),
     classof = __webpack_require__(164),
-    $export = __webpack_require__(31),
+    $export = __webpack_require__(32),
     isObject = __webpack_require__(50),
     aFunction = __webpack_require__(104),
     anInstance = __webpack_require__(399),
@@ -52550,7 +52550,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var global = __webpack_require__(25),
     has = __webpack_require__(40),
     DESCRIPTORS = __webpack_require__(37),
-    $export = __webpack_require__(31),
+    $export = __webpack_require__(32),
     redefine = __webpack_require__(177),
     META = __webpack_require__(409).KEY,
     $fails = __webpack_require__(49),
@@ -52563,14 +52563,14 @@ var global = __webpack_require__(25),
     keyOf = __webpack_require__(408),
     enumKeys = __webpack_require__(402),
     isArray = __webpack_require__(405),
-    anObject = __webpack_require__(30),
+    anObject = __webpack_require__(31),
     toIObject = __webpack_require__(42),
     toPrimitive = __webpack_require__(114),
     createDesc = __webpack_require__(69),
     _create = __webpack_require__(108),
     gOPNExt = __webpack_require__(413),
     $GOPD = __webpack_require__(172),
-    $DP = __webpack_require__(32),
+    $DP = __webpack_require__(33),
     $keys = __webpack_require__(51),
     gOPD = $GOPD.f,
     dP = $DP.f,
@@ -57340,11 +57340,11 @@ var _menu = __webpack_require__(541);
 
 var _menu2 = _interopRequireDefault(_menu);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -57748,7 +57748,7 @@ var _Popover = __webpack_require__(194);
 
 var _Popover2 = _interopRequireDefault(_Popover);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -59123,7 +59123,7 @@ var _RenderToLayer = __webpack_require__(201);
 
 var _RenderToLayer2 = _interopRequireDefault(_RenderToLayer);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -59768,11 +59768,11 @@ var _Overlay = __webpack_require__(200);
 
 var _Overlay2 = _interopRequireDefault(_Overlay);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -60685,7 +60685,7 @@ var _FontIcon = __webpack_require__(192);
 
 var _FontIcon2 = _interopRequireDefault(_FontIcon);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -60695,7 +60695,7 @@ var _warning = __webpack_require__(27);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -61241,7 +61241,7 @@ var _transitions = __webpack_require__(14);
 
 var _transitions2 = _interopRequireDefault(_transitions);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -61935,7 +61935,7 @@ var _Menu = __webpack_require__(193);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -62289,7 +62289,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -62435,11 +62435,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(28);
+var _propTypes = __webpack_require__(29);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -62615,7 +62615,7 @@ var _EnhancedButton = __webpack_require__(56);
 
 var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -66058,7 +66058,7 @@ var _transitions = __webpack_require__(14);
 
 var _transitions2 = _interopRequireDefault(_transitions);
 
-var _Paper = __webpack_require__(33);
+var _Paper = __webpack_require__(34);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -74914,7 +74914,7 @@ var EventPluginHub = __webpack_require__(60);
 var EventPropagators = __webpack_require__(61);
 var ExecutionEnvironment = __webpack_require__(21);
 var ReactDOMComponentTree = __webpack_require__(16);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 var SyntheticEvent = __webpack_require__(35);
 
 var getEventTarget = __webpack_require__(143);
@@ -76950,7 +76950,7 @@ var ReactDOMComponentTree = __webpack_require__(16);
 var ReactDefaultInjection = __webpack_require__(606);
 var ReactMount = __webpack_require__(333);
 var ReactReconciler = __webpack_require__(62);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 var ReactVersion = __webpack_require__(619);
 
 var findDOMNode = __webpack_require__(635);
@@ -78240,7 +78240,7 @@ var _prodInvariant = __webpack_require__(12),
 var DOMPropertyOperations = __webpack_require__(326);
 var LinkedValueUtils = __webpack_require__(135);
 var ReactDOMComponentTree = __webpack_require__(16);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 
 var invariant = __webpack_require__(8);
 var warning = __webpack_require__(11);
@@ -79036,7 +79036,7 @@ var _prodInvariant = __webpack_require__(12),
 
 var LinkedValueUtils = __webpack_require__(135);
 var ReactDOMComponentTree = __webpack_require__(16);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 
 var invariant = __webpack_require__(8);
 var warning = __webpack_require__(11);
@@ -79339,7 +79339,7 @@ module.exports = {
 
 var _assign = __webpack_require__(13);
 
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 var Transaction = __webpack_require__(97);
 
 var emptyFunction = __webpack_require__(20);
@@ -79570,7 +79570,7 @@ var EventListener = __webpack_require__(183);
 var ExecutionEnvironment = __webpack_require__(21);
 var PooledClass = __webpack_require__(43);
 var ReactDOMComponentTree = __webpack_require__(16);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 
 var getEventTarget = __webpack_require__(143);
 var getUnboundedScrollPosition = __webpack_require__(451);
@@ -79731,7 +79731,7 @@ var ReactComponentEnvironment = __webpack_require__(136);
 var ReactEmptyComponent = __webpack_require__(329);
 var ReactBrowserEventEmitter = __webpack_require__(95);
 var ReactHostComponent = __webpack_require__(331);
-var ReactUpdates = __webpack_require__(29);
+var ReactUpdates = __webpack_require__(30);
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -95269,7 +95269,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(23);
 
-var _SigmaComponent = __webpack_require__(728);
+var _SigmaComponent = __webpack_require__(729);
 
 var _SigmaComponent2 = _interopRequireDefault(_SigmaComponent);
 
@@ -95277,7 +95277,7 @@ var _LeftDrawer = __webpack_require__(706);
 
 var _LeftDrawer2 = _interopRequireDefault(_LeftDrawer);
 
-var _RightDrawer = __webpack_require__(718);
+var _RightDrawer = __webpack_require__(719);
 
 var _RightDrawer2 = _interopRequireDefault(_RightDrawer);
 
@@ -95383,7 +95383,7 @@ var _moment = __webpack_require__(1);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _Tsne = __webpack_require__(717);
+var _Tsne = __webpack_require__(718);
 
 var _Tsne2 = _interopRequireDefault(_Tsne);
 
@@ -95391,9 +95391,13 @@ var _Json = __webpack_require__(715);
 
 var _Json2 = _interopRequireDefault(_Json);
 
-var _Lombardi = __webpack_require__(716);
+var _Lombardi = __webpack_require__(717);
 
 var _Lombardi2 = _interopRequireDefault(_Lombardi);
+
+var _JsonFeed = __webpack_require__(716);
+
+var _JsonFeed2 = _interopRequireDefault(_JsonFeed);
 
 var _fileSaver = __webpack_require__(458);
 
@@ -95449,7 +95453,8 @@ function _initializerWarningHelper(descriptor, context) {
 var LOADERS = {
   dd_tsne: _Tsne2.default,
   json: _Json2.default,
-  lombardi: _Lombardi2.default
+  lombardi: _Lombardi2.default,
+  jsonfeed: _JsonFeed2.default
 };
 
 var AppState = (_class = function () {
@@ -95668,9 +95673,12 @@ var AppState = (_class = function () {
 
       var selectedGraph = this.networks[this.selectedNetworkIndex].get('graph');
 
-      this.graph.selectedNodes.push(selectedGraph.nodes.find(function (node) {
+      var selectedNode = selectedGraph.nodes.find(function (node) {
         return node.id == node_id;
-      }));
+      });
+      selectedNode.color = '#FFF';
+
+      this.graph.selectedNodes.push(selectedNode);
 
       var neighborNodeIds = selectedGraph.edges.filter(function (edge) {
         return edge.source == node_id || edge.target == node_id;
@@ -95854,6 +95862,9 @@ var AppState = (_class = function () {
         fontStyle: '500',
         font: 'Roboto',
         labelColor: 'node'
+      },
+      edges: {
+        shape: "curve"
       }
     };
   }
@@ -96151,8 +96162,6 @@ var Layout = (0, _mobxReact.observer)(_class = function (_React$Component) {
         case 'forcelink':
         case 'forceatlas':
         case 'forceatlas2':
-          layoutController = _react2.default.createElement(_ForceLinkSettings2.default, { appState: appState });
-          break;
         default:
           layoutController = _react2.default.createElement(_ForceLinkSettings2.default, { appState: appState });
       }
@@ -97031,7 +97040,7 @@ var _Subheader2 = _interopRequireDefault(_Subheader);
 
 var _styles = __webpack_require__(205);
 
-var _colors = __webpack_require__(34);
+var _colors = __webpack_require__(28);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -97094,7 +97103,7 @@ var ToggleIcon = function (_React$Component) {
         }
       };
 
-      var githubText = "9aec012\n" || 'github';
+      var githubText = "5b86206\n" || 'github';
       var githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
 
       return _react2.default.createElement(
@@ -97165,7 +97174,7 @@ var _chevronRight2 = _interopRequireDefault(_chevronRight);
 
 var _styles = __webpack_require__(205);
 
-var _colors = __webpack_require__(34);
+var _colors = __webpack_require__(28);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -97241,7 +97250,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _colors = __webpack_require__(34);
+var _colors = __webpack_require__(28);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -97332,7 +97341,122 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _colors = __webpack_require__(34);
+var _colors = __webpack_require__(28);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var COLORS = {
+  nodes: [_colors.cyan500, _colors.grey500, _colors.amber500, _colors.deepOrange500, _colors.pink500, _colors.deepPurple500, _colors.green500, _colors.brown500],
+  edge: {
+    dark: _colors.blueGrey800,
+    light: _colors.blueGrey100
+  }
+};
+
+var JsonFeed = function () {
+  function JsonFeed(network, muiTheme) {
+    _classCallCheck(this, JsonFeed);
+
+    this.network = null;
+
+    this.network = network;
+    this.muiTheme = muiTheme;
+  }
+
+  _createClass(JsonFeed, [{
+    key: 'run',
+    value: function run(callback) {
+
+      var network = this.network;
+      var graph = { nodes: [], edges: [] };
+      var existing_tags = [];
+
+      var edge_index = 0;
+      var node_index = 0;
+      var tag_index = 0;
+
+      fetch(network.get('url')).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+
+        if (json.items) {
+
+          json.items.forEach(function (item) {
+            graph.nodes.push({
+              id: 'n' + node_index,
+              x: Math.random(),
+              y: Math.random(),
+              size: item.tags.length,
+              label: 'node',
+              color: '#00F'
+            });
+            var source_node_index = node_index;
+            node_index += 1;
+
+            item.tags.filter(function (tag) {
+              return tag != 'submitted';
+            }).forEach(function (tag) {
+
+              var tag_index = -1;
+
+              if (existing_tags.indexOf(tag) === -1) {
+                existing_tags.push(tag);
+                graph.nodes.push({
+                  id: 'n' + node_index,
+                  x: Math.random(),
+                  y: Math.random(),
+                  label: tag,
+                  color: '#0F0',
+                  size: 1
+                });
+                tag_index = node_index;
+                node_index += 1;
+              } else {
+                tag_index = existing_tags.findIndex(function (n) {
+                  return n === tag;
+                });
+              }
+
+              graph.edges.push({
+                id: 'e' + edge_index,
+                source: 'n' + source_node_index,
+                target: 'n' + tag_index
+              });
+              edge_index += 1;
+            });
+          });
+
+          debugger;
+
+          network.set('graph', graph);
+          network.set('source_graph', graph);
+          network.set('colors', '#F00');
+
+          if (typeof callback != 'undefined') callback(network);
+        }
+      });
+    }
+  }]);
+
+  return JsonFeed;
+}();
+
+exports.default = JsonFeed;
+
+/***/ }),
+/* 717 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _colors = __webpack_require__(28);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -97384,12 +97508,20 @@ var Lombardi = function () {
               categories.push(type);
             }
 
-            node.x = Math.random();
-            node.y = Math.random();
+            node.x = node.x || Math.random();
+            node.y = node.y || Math.random();
             node.size = 1;
 
             node.metadata = { category: type };
             node.color = COLORS.types[type];
+
+            if (type == 'Year') {
+              node.mass = 1;
+              //node.x = parseInt(node.name.split('/').shift()) + parseInt(node.name.split('/').pop()) * 0.1;
+              //node.y = 1;
+            } else {
+              node.mass = 100;
+            }
 
             delete node.type;
           });
@@ -97408,7 +97540,7 @@ var Lombardi = function () {
         network.set('source_graph', json);
         network.set('colors', COLORS);
         network.set('categories', categories.map(function (category, index) {
-          return { name: category, color: COLORS.type[category] };
+          return { name: category, color: COLORS.types[category] };
         }));
 
         if (typeof callback != 'undefined') callback(network);
@@ -97422,7 +97554,7 @@ var Lombardi = function () {
 exports.default = Lombardi;
 
 /***/ }),
-/* 717 */
+/* 718 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97528,7 +97660,7 @@ var Tsne = function () {
 exports.default = Tsne;
 
 /***/ }),
-/* 718 */
+/* 719 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97557,19 +97689,19 @@ var _Divider = __webpack_require__(87);
 
 var _Divider2 = _interopRequireDefault(_Divider);
 
-var _SearchInput = __webpack_require__(721);
+var _SearchInput = __webpack_require__(722);
 
 var _SearchInput2 = _interopRequireDefault(_SearchInput);
 
-var _Filters = __webpack_require__(719);
+var _Filters = __webpack_require__(720);
 
 var _Filters2 = _interopRequireDefault(_Filters);
 
-var _SelectedNode = __webpack_require__(722);
+var _SelectedNode = __webpack_require__(723);
 
 var _SelectedNode2 = _interopRequireDefault(_SelectedNode);
 
-var _NeighborNodes = __webpack_require__(720);
+var _NeighborNodes = __webpack_require__(721);
 
 var _NeighborNodes2 = _interopRequireDefault(_NeighborNodes);
 
@@ -97616,7 +97748,7 @@ exports.default = RightDrawer;
 ;
 
 /***/ }),
-/* 719 */
+/* 720 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97651,8 +97783,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(732);
 __webpack_require__(733);
+__webpack_require__(734);
 
 var Slider = __webpack_require__(321);
 var createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -97764,7 +97896,7 @@ var Filters = (0, _mobxReact.observer)(_class = function (_Component) {
 exports.default = Filters;
 
 /***/ }),
-/* 720 */
+/* 721 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97861,7 +97993,7 @@ exports.default = NeighborNodes;
 ;
 
 /***/ }),
-/* 721 */
+/* 722 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98003,7 +98135,7 @@ var SearchInput = (0, _mobxReact.observer)(_class = function (_Component) {
 exports.default = SearchInput;
 
 /***/ }),
-/* 722 */
+/* 723 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98169,7 +98301,7 @@ exports.default = SelectedNode;
 ;
 
 /***/ }),
-/* 723 */
+/* 724 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98185,7 +98317,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(727);
+__webpack_require__(728);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -98244,7 +98376,7 @@ var Filter = function (_React$Component) {
 exports.default = Filter;
 
 /***/ }),
-/* 724 */
+/* 725 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98268,7 +98400,7 @@ var _mobx2 = _interopRequireDefault(_mobx);
 
 var _mobxReact = __webpack_require__(23);
 
-__webpack_require__(726);
+__webpack_require__(727);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -98461,7 +98593,7 @@ ForceLink.propTypes = {
 exports.default = ForceLink;
 
 /***/ }),
-/* 725 */
+/* 726 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98546,7 +98678,7 @@ var SigmaLoader = function (_React$PureComponent) {
 exports.default = SigmaLoader;
 
 /***/ }),
-/* 726 */
+/* 727 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100262,7 +100394,7 @@ var Sigma =
   /******/ });
 
 /***/ }),
-/* 727 */
+/* 728 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100835,7 +100967,7 @@ var Sigma =
   /******/ });
 
 /***/ }),
-/* 728 */
+/* 729 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100874,15 +101006,15 @@ var _lightBaseTheme = __webpack_require__(90);
 
 var _lightBaseTheme2 = _interopRequireDefault(_lightBaseTheme);
 
-var _Loader = __webpack_require__(725);
+var _Loader = __webpack_require__(726);
 
 var _Loader2 = _interopRequireDefault(_Loader);
 
-var _Filter = __webpack_require__(723);
+var _Filter = __webpack_require__(724);
 
 var _Filter2 = _interopRequireDefault(_Filter);
 
-var _ForceLink = __webpack_require__(724);
+var _ForceLink = __webpack_require__(725);
 
 var _ForceLink2 = _interopRequireDefault(_ForceLink);
 
@@ -100937,6 +101069,8 @@ var SigmaComponent = (0, _mobxReact.observer)(_class = function (_Component) {
 
       if (!network || !network.has('graph')) return null;
 
+      var graph = network.get('graph');
+
       var backgroundColor = _lightBaseTheme2.default.palette.canvasColor;
       if (appState.ui.muiTheme) {
 
@@ -100963,7 +101097,7 @@ var SigmaComponent = (0, _mobxReact.observer)(_class = function (_Component) {
 
       if (appState.ui.renderer == 'canvas') {
         sigmaPlugins.push(_react2.default.createElement(_reactSigma.NodeShapes, { key: 'sigma-nodeshapes' }));
-        sigmaPlugins.push(_react2.default.createElement(_reactSigma.EdgeShapes, { key: 'sigma-edgeshapes', 'default': 'curve' }));
+        sigmaPlugins.push(_react2.default.createElement(_reactSigma.EdgeShapes, { key: 'sigma-edgeshapes', 'default': appState.ui.edges.shape }));
       }
 
       var options = _mobx2.default.toJS(network.get('options'));
@@ -100971,17 +101105,18 @@ var SigmaComponent = (0, _mobxReact.observer)(_class = function (_Component) {
       if (appState.graph.isFiltered && appState.graph.selectedNodes.length > 0) {
         //nodesBy={this.filterNodes.bind(this, appState.ui.filters.nodeSize)}
         //edgesBy={this.filterEdges.bind(this, appState.ui.filters.edgeSize)}
+        var selectedNode = appState.graph.selectedNodes[appState.graph.selectedNodes.length - 1];
         sigmaPlugins.push(_react2.default.createElement(_Filter2.default, {
           key: 'sigma-filter',
           filtermode: appState.graph.filtermode,
-          neighborsOf: appState.graph.selectedNodes[appState.graph.selectedNodes.length - 1].id
+          neighborsOf: selectedNode.id
         }));
       } else {
-        var graph = network.get('graph');
-        graph.nodes.forEach(function (node) {
+        var _graph = network.get('graph');
+        _graph.nodes.forEach(function (node) {
           return node.hidden = false;
         });
-        graph.edges.forEach(function (edge) {
+        _graph.edges.forEach(function (edge) {
           return edge.hidden = false;
         });
       }
@@ -101024,7 +101159,7 @@ var SigmaComponent = (0, _mobxReact.observer)(_class = function (_Component) {
           },
           _react2.default.createElement(
             _Loader2.default,
-            { graph: network.get('graph') },
+            { graph: graph },
             sigmaPlugins
           )
         )
@@ -101039,7 +101174,7 @@ exports.default = SigmaComponent;
 ;
 
 /***/ }),
-/* 729 */
+/* 730 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(181)(undefined);
@@ -101053,7 +101188,7 @@ exports.push([module.i, ".rc-slider {\n  position: relative;\n  height: 14px;\n 
 
 
 /***/ }),
-/* 730 */
+/* 731 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(181)(undefined);
@@ -101067,7 +101202,7 @@ exports.push([module.i, ".rc-tooltip {\n  position: absolute;\n  z-index: 1070;\
 
 
 /***/ }),
-/* 731 */
+/* 732 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -101302,17 +101437,17 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 731;
+webpackContext.id = 732;
 
 
 /***/ }),
-/* 732 */
+/* 733 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(729);
+var content = __webpack_require__(730);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(355)(content, {});
@@ -101332,13 +101467,13 @@ if(false) {
 }
 
 /***/ }),
-/* 733 */
+/* 734 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(730);
+var content = __webpack_require__(731);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(355)(content, {});
@@ -101358,7 +101493,7 @@ if(false) {
 }
 
 /***/ }),
-/* 734 */
+/* 735 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(357);
