@@ -97103,7 +97103,7 @@ var ToggleIcon = function (_React$Component) {
         }
       };
 
-      var githubText = "5b86206\n" || 'github';
+      var githubText = "948b54d\n" || 'github';
       var githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
 
       return _react2.default.createElement(
@@ -97425,8 +97425,6 @@ var JsonFeed = function () {
               edge_index += 1;
             });
           });
-
-          debugger;
 
           network.set('graph', graph);
           network.set('source_graph', graph);

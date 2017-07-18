@@ -95,8 +95,6 @@ class JsonFeed {
           });
         });
 
-      debugger;
-
       network.set('graph', graph);
       network.set('source_graph', graph);
       network.set('colors', '#F00');
