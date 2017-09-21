@@ -11,6 +11,10 @@
       }
     }
   ],
+  "network_loader": {
+    "name": "Lombardi Networks",
+    "path": "./lombardi.json"
+  },
   "ui": {
     "muiTheme": "dark"
   }
