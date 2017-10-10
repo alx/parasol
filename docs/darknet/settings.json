@@ -29,7 +29,8 @@
           "name": "json"
         }
       }
-    }
+    },
+    {"url" : "./data/mdma.json", "name": "Ecstasy - MDMA", "options": {"layout": "forcelink", "loader": {"name": "json"}}}
   ],
   "network_loader": {
     "name": "Products",
