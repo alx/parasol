@@ -26,8 +26,8 @@ class AppState {
     filterMode: 'singlenode',
     minNodeSize: 5,
     maxNodeSize: 5,
-    minEdgeWeight: 0.2,
-    maxEdgeWeight: 0.5,
+    minEdgeWeight: 1,
+    maxEdgeWeight: 1,
     refresh: Math.random(),
     subnetworkLevels: 2,
   };
@@ -41,8 +41,8 @@ class AppState {
       enableEdgeHovering: true,
       minNodeSize: 5,
       maxNodeSize: 5,
-      minEdgeWeight: 0.2,
-      maxEdgeWeight: 0.5,
+      minEdgeWeight: 1,
+      maxEdgeWeight: 1,
       minArrowSize:4,
       hideOrphans: true,
       categories: [],
@@ -298,14 +298,14 @@ class AppState {
     });
 
     this.tmp_subnetwork = [];
-    this.colorSelectionNode();
+    //this.colorSelectionNode();
 
     this.graph.refresh = Math.random();
   }
 
   unselectGraphNode() {
     this.graph.selectedNodes.clear();
-    this.colorSelectionNode();
+    //this.colorSelectionNode();
   }
 
   colorSelectionNode() {
@@ -390,7 +390,7 @@ class AppState {
       this.graph.selectedNodes.splice(selectionIndex, 1);
     }
 
-    this.colorSelectionNode();
+    //this.colorSelectionNode();
     this.startLayout();
   }
 
@@ -537,7 +537,7 @@ class AppState {
     selectedNetwork.set('graph', graph);
 
     this.graph.refresh = Math.random();
-    this.colorSelectionNode();
+    //this.colorSelectionNode();
   }
 
   toggleGraphFilter() {
@@ -549,7 +549,7 @@ class AppState {
       this.ui.filters[key] = filters[key];
     });
     this.graph.isFiltered = true;
-    this.colorSelectionNode();
+    //this.colorSelectionNode();
     this.filterGraph();
   }
 

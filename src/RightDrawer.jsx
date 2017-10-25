@@ -4,11 +4,11 @@ import { observer } from 'mobx-react';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 
-import SearchInput from './RightDrawer/SearchInput';
-import Filters from './RightDrawer/Filters';
+import SearchInput from './Components/Filters/SearchInput';
+import Filters from './Components/Filters/Size';
 
-import SelectedNode from './RightDrawer/SelectedNode';
-import NeighborNodes from './RightDrawer/NeighborNodes';
+import SelectedNode from './Components/Networks/SelectedNode';
+import NeighborNodes from './Components/Networks/NeighborNodes';
 
 @observer
 export default class RightDrawer extends Component {

@@ -4,13 +4,15 @@ import { observer } from 'mobx-react';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 
-import ToggleIcon from './LeftDrawer/ToggleIcon';
-import ParasolAppBar from './LeftDrawer/ParasolAppBar';
-import NetworkInput from './LeftDrawer/NetworkInput';
-import NetworkList from './LeftDrawer/NetworkList';
-import FilterSettings from './LeftDrawer/FilterSettings';
-import Layout from './LeftDrawer/Layout';
-import Legend from './LeftDrawer/Legend';
+import ToggleIcon from './Components/ToggleIcon';
+import AppBar from './Components/AppBar';
+
+import NetworkInput from './Components/Networks/Input';
+import NetworkList from './Components/Networks/List';
+
+import Layout from './Components/Settings/ForceLinkSettings';
+
+import Legend from './Components/Filters/Legend';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -33,7 +35,7 @@ export default class LeftDrawer extends Component {
 
         <Drawer open={appState.ui.leftDrawer}>
 
-          <ParasolAppBar appState={appState} />
+          <AppBar appState={appState} />
 
           <NetworkInput appState={appState} />
           <NetworkList appState={appState} />
