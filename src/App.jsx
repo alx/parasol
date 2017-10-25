@@ -25,6 +25,9 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 @observer
 class App extends Component {
 
@@ -41,10 +44,13 @@ class App extends Component {
     const appState = this.props.appState;
     const drawer = appState.ui.drawers[side];
 
+
+
     return (<Drawer
       key={`drawer-${side}`}
       open={drawer.open}
       openSecondary={drawer.openSecondary}
+      docked={drawer.docked}
     >
       {drawer.components.map( component => {
         switch(component.name) {
