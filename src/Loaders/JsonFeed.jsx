@@ -61,6 +61,7 @@ class JsonFeed {
             size: item.tags.length,
             label: 'node',
             color: '#00F',
+            original_color: '#00F',
           });
           const source_node_index = node_index;
           node_index += 1;
@@ -77,6 +78,7 @@ class JsonFeed {
                 y: Math.random(),
                 label: tag,
                 color: '#0F0',
+                original_color: '#0F0',
                 size: 1,
               });
               tag_index = node_index;
