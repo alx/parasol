@@ -47,7 +47,6 @@ export default class Filters extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('receive filter props');
     const appState = nextProps.appState;
     this.setState({
       key: Math.random(),

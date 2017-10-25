@@ -33,8 +33,31 @@ class AppState {
   };
 
   @observable ui = {
-    leftDrawer: true,
-    rightDrawer: true,
+    drawers: {
+      left: {
+        open: true,
+        openSecondary: false,
+        components: [
+          {name: 'AppBar'},
+          {name: 'NetworkInput'}, {name: 'NetworkList'},
+          {name: 'Divider'},
+          {name: 'ForceLinkSettings'},
+          {name: 'Divider'},
+          {name: 'Legend'}
+        ]
+      },
+      right: {
+        open: true,
+        openSecondary: true,
+        components: [
+          {name: 'SearchInput'}, {name: 'FilterSize'},
+          {name: 'Divider'},
+          {name: 'SelectedNode'},
+          {name: 'Divider'},
+          {name: 'NeighborNodes'}
+        ]
+      },
+    },
     renderer: 'canvas',
     filters: {
       edgeLabelSize: 'proportional',
@@ -602,19 +625,19 @@ class AppState {
   */
 
   toggleLeftDrawer() {
-    this.ui.leftDrawer = !this.ui.leftDrawer;
+    this.ui.drawers.left.open = !this.ui.drawers.left.open;
   }
 
   toggleRightDrawer() {
-    this.ui.rightDrawer = !this.ui.rightDrawer;
+    this.ui.drawers.right.open = !this.ui.drawers.right.open;
   }
 
   showRightDrawer() {
-    this.ui.rightDrawer = true;
+    this.ui.drawers.right.open = true;
   }
 
   hideRightDrawer() {
-    this.ui.rightDrawer = false;
+    this.ui.drawers.right.open = false;
   }
 
   /*
