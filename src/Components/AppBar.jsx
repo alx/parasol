@@ -9,7 +9,7 @@ import Subheader from 'material-ui/Subheader';
 import { typography } from 'material-ui/styles';
 import { cyan500 } from 'material-ui/styles/colors';
 
-export default class ToggleIcon extends React.Component {
+export default class ParasolAppBar extends React.Component {
 
   constructor(props) {
     super(props)
@@ -62,15 +62,16 @@ export default class ToggleIcon extends React.Component {
     const githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
 
     return <AppBar
+      key='ParasolAppBar'
       titleStyle={styles.logoTitle}
       iconElementLeft={<IconButton
         onTouchTap={this.toggleDrawer}
         style={styles.drawerToggle}
-      >
-        <ChevronLeft
-          color={typography.textFullWhite}
-          style={styles.drawerToggleIcon}
-        />
+        >
+          <ChevronLeft
+            color={typography.textFullWhite}
+            style={styles.drawerToggleIcon}
+          />
       </IconButton>}
     >
       <h1 style={styles.title}>Parasol</h1>

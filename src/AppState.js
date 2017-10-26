@@ -33,8 +33,9 @@ class AppState {
   };
 
   @observable ui = {
-    drawers: {
-      left: {
+    drawers: [
+      {
+        id: 'left',
         open: true,
         openSecondary: false,
         components: [
@@ -46,7 +47,8 @@ class AppState {
           {name: 'Legend'}
         ]
       },
-      right: {
+      {
+        id: 'right',
         open: true,
         openSecondary: true,
         components: [
@@ -56,8 +58,8 @@ class AppState {
           {name: 'Divider'},
           {name: 'NeighborNodes'}
         ]
-      },
-    },
+      }
+    ],
     renderer: 'canvas',
     filters: {
       edgeLabelSize: 'proportional',
