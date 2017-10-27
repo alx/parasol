@@ -16,6 +16,16 @@ npm start
 open http://localhost:8095
 ```
 
+## Boilerplate quickstart
+
+1. Download and extract Parasol boilerplate</li>
+2. Serve it with your webserver <small>(issue with Fetch API, you can't use file:// url to load settings.json)</small>
+3. Open your web browser to display Parasol interface: [http://127.0.0.1](http:127.0.0.1)
+
+You can then modify the <i>data.json</i> file to modify the displayed network.
+
+[boilerplate_v1.zip](https://github.com/alx/parasol/archive/boilerplate_v1.zip)
+
 ## settings.json - global app config
 
 When opening the project webpage, it loads `settings.json` file that contains
