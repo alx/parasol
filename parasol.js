@@ -50068,7 +50068,7 @@ var SigmaComponent = (0, _mobxReact.observer)(_class = function (_Component) {
           sigmaPlugins.push(_react2.default.createElement(_reactSigma.ForceAtlas2, { key: 'sigma-forceatlas2', barnesHutOptimize: true, barnesHutTheta: 0.8, iterationsPerRender: 2 }));
           break;
         case 'forcelink':
-          sigmaPlugins.push(_react2.default.createElement(_ForceLink2.default, { key: 'sigma-forcelink', appState: appState, shouldStart: appState.layout.shouldStart, shouldStrop: appState.layout.shouldStop }));
+          sigmaPlugins.push(_react2.default.createElement(_ForceLink2.default, { key: 'sigma-forcelink', appState: appState, shouldStart: appState.layout.shouldStart, shouldStrop: appState.layout.shouldStop, worker: true }));
           break;
       }
 
@@ -98736,7 +98736,7 @@ var ParasolAppBar = function (_React$Component) {
 
       var githubText = 'github';
       if (true) {
-        githubText = "250bea1\n";
+        githubText = "84f4b3c\n";
       }
 
       var githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
@@ -98749,7 +98749,7 @@ var ParasolAppBar = function (_React$Component) {
           iconElementLeft: _react2.default.createElement(
             _IconButton2.default,
             {
-              onTouchTap: this.toggleDrawer,
+              onClick: this.toggleDrawer,
               style: styles.drawerToggle
             },
             _react2.default.createElement(_chevronLeft2.default, {
@@ -99690,13 +99690,13 @@ var NetworkList = (0, _mobxReact.observer)(_class2 = function (_React$Component)
         { style: styles.container },
         _react2.default.createElement(_refresh2.default, {
           style: styles.icon,
-          onTouchTap: this._refreshSelectedNetwork }),
+          onClick: this._refreshSelectedNetwork }),
         _react2.default.createElement(_save2.default, {
           style: styles.icon,
-          onTouchTap: this._saveSelectedNetwork }),
+          onClick: this._saveSelectedNetwork }),
         _react2.default.createElement(_fileDownload2.default, {
           style: styles.icon,
-          onTouchTap: this._downloadSelectedNetwork })
+          onClick: this._downloadSelectedNetwork })
       );
 
       return _react2.default.createElement(
@@ -99737,7 +99737,7 @@ var NetworkList = (0, _mobxReact.observer)(_class2 = function (_React$Component)
             primaryText: network.get('name'),
             secondaryText: secondaryText,
             rightIcon: selectedItem ? selectedNetworkIcons : _react2.default.createElement('div', null),
-            onTouchTap: _this3._selectNetwork.bind(_this3, index),
+            onClick: _this3._selectNetwork.bind(_this3, index),
             nestedItems: nested
           });
         })
@@ -100120,7 +100120,7 @@ var ForceLinkSettings = (0, _mobxReact.observer)(_class = function (_React$Compo
 
       if (typeof this.state.running == 'undefined') return null;
 
-      var titleIcon = _react2.default.createElement(_playCircleOutline2.default, { onTouchTap: this._startForceLink });
+      var titleIcon = _react2.default.createElement(_playCircleOutline2.default, { onClick: this._startForceLink });
       if (this.props.appState.layout.running) {
         var iconStyle = {
           position: 'absolute',
