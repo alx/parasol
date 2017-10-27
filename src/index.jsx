@@ -2,34 +2,65 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import AppState from './AppState';
-import App from './App';
 
-const appState = new AppState();
+import Fullscreen from './DisplayMode/Fullscreen';
+import Card from './DisplayMode/Card';
 
-const elements = [];
-
-const initParasol = (settingsUrl, element) => {
+const initParasolCard = (settingsUrl, element) => {
 
   fetch(settingsUrl).then( response => {
     return response.json();
   }).then( json => {
 
+    const appState = new AppState();
     appState.initSettings(json);
 
     render(
       <AppContainer>
-        <App appState={appState} />
+        <Card appState={appState} />
       </AppContainer>,
       element
     );
 
     if (module.hot) {
-      module.hot.accept('./App', () => {
-        const NextApp = require('./App').default;
+      module.hot.accept('./DisplayMode/Card', () => {
+        const NextCard = require('./DisplayMode/Card').default;
 
         render(
           <AppContainer>
-            <NextApp appState={appState} />
+            <NextCard appState={appState} />
+          </AppContainer>,
+          element
+        );
+      });
+    }
+
+  });
+}
+
+const initParasolFullscreen = (settingsUrl, element) => {
+
+  fetch(settingsUrl).then( response => {
+    return response.json();
+  }).then( json => {
+
+    const appState = new AppState();
+    appState.initSettings(json);
+
+    render(
+      <AppContainer>
+        <Fullscreen appState={appState} />
+      </AppContainer>,
+      element
+    );
+
+    if (module.hot) {
+      module.hot.accept('./DisplayMode/Fullscreen', () => {
+        const NextFullscreen = require('./DisplayMode/Fullscreen').default;
+
+        render(
+          <AppContainer>
+            <NextFullscreen appState={appState} />
           </AppContainer>,
           element
         );
@@ -40,16 +71,25 @@ const initParasol = (settingsUrl, element) => {
 
 }
 
-if(document.getElementById('root')) {
-  initParasol('settings.json', document.getElementById('root'));
-} else {
-  const elements = document.getElementsByClassName('parasol');
-  [].forEach.call(elements, element => {
-    let settingsUrl = 'settings.json';
-    if(element.dataset.settings) {
-      settingsUrl = element.dataset.settings
-    }
-    initParasol(settingsUrl, element);
-  });
-}
+const elements = document.getElementsByClassName('parasol');
+[].forEach.call(elements, element => {
+
+  let settingsUrl = 'settings.json';
+  if(element.dataset.settings)
+    settingsUrl = element.dataset.settings;
+
+  let display = 'fullscreen';
+  if(element.dataset.display)
+    display = element.dataset.display;
+
+  switch(display) {
+    case 'card':
+      initParasolCard(settingsUrl, element);
+      break;
+    case 'fullscreen':
+    default:
+      initParasolFullscreen(settingsUrl, element);
+      break;
+  }
+});
 

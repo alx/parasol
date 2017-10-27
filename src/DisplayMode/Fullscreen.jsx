@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
-import SigmaComponent from './SigmaComponent';
-import Drawer from './Components/Drawer';
+import SigmaComponent from '../Components/SigmaComponent';
+import Drawer from '../Components/Drawer';
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -10,11 +10,8 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
 @observer
-export default class App extends Component {
+export default class ParasolFullscreen extends Component {
 
   render() {
 
