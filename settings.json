@@ -1,17 +1,30 @@
 {
   "networks": [
     {
-      "url": "data/feed.json",
-      "name": "alxcast",
+      "url": "data.json",
+      "name": "boilerplate data",
       "options": {
         "layout": "forcelink",
         "loader": {
-          "name": "jsonfeed"
+          "name": "json"
         }
       }
     }
   ],
   "ui": {
-    "muiTheme": "light"
+    "muiTheme": "light",
+    "drawers": [
+      { "id": "left",
+        "open": true,
+        "components": [
+          {"name": "AppBar"},
+          {"name": "NetworkList"},
+          {"name": "Divider"},
+          {"name": "ForceLinkSettings"},
+          {"name": "Divider"},
+          {"name": "Legend"}
+        ]
+      }
+    ]
   }
 }
