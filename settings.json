@@ -1,17 +1,35 @@
 {
   "networks": [
     {
-      "url": "data/feed.json",
+      "url": "data.json",
       "name": "alxcast",
       "options": {
         "layout": "forcelink",
         "loader": {
-          "name": "jsonfeed"
+          "name": "json"
         }
       }
     }
   ],
   "ui": {
-    "muiTheme": "light"
+    "muiTheme": "light",
+    "drawers": [
+      { "id": "left",
+        "open": true,
+        "components": [
+          {"name": "AppBar"},
+          {"name": "NetworkList"},
+          {"name": "Divider"},
+          {"name": "ForceLinkSettings"}
+        ]
+      },
+      { "id": "right",
+        "open": false,
+        "openSecondary": true,
+        "components": [
+          {"name": "FilterSize"}
+        ]
+      }
+    ]
   }
 }

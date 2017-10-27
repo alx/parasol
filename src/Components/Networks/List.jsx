@@ -106,13 +106,13 @@ export default class NetworkList extends React.Component {
     const selectedNetworkIcons = (<div style={styles.container}>
       <IconRefresh
         style={styles.icon}
-        onTouchTap={this._refreshSelectedNetwork}/>
+        onClick={this._refreshSelectedNetwork}/>
       <IconSave
         style={styles.icon}
-        onTouchTap={this._saveSelectedNetwork}/>
+        onClick={this._saveSelectedNetwork}/>
       <IconDownload
         style={styles.icon}
-        onTouchTap={this._downloadSelectedNetwork}/>
+        onClick={this._downloadSelectedNetwork}/>
     </div>);
 
     return <SelectableList defaultValue={appState.selectedNetworkIndex}>
@@ -155,7 +155,7 @@ export default class NetworkList extends React.Component {
           primaryText={network.get('name')}
           secondaryText={secondaryText}
           rightIcon={ selectedItem ? selectedNetworkIcons : (<div/>)}
-          onTouchTap={this._selectNetwork.bind(this, index)}
+          onClick={this._selectNetwork.bind(this, index)}
           nestedItems={nested}
         />
         })

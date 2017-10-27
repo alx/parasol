@@ -65,7 +65,7 @@ export default class ParasolAppBar extends React.Component {
       key='ParasolAppBar'
       titleStyle={styles.logoTitle}
       iconElementLeft={<IconButton
-        onTouchTap={this.toggleDrawer}
+        onClick={this.toggleDrawer}
         style={styles.drawerToggle}
         >
           <ChevronLeft

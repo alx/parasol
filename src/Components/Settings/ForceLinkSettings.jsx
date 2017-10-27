@@ -64,7 +64,7 @@ export default class ForceLinkSettings extends React.Component {
 
     if (typeof(this.state.running) == 'undefined') return null;
 
-    let titleIcon = <AvPlayCircleOutline onTouchTap={this._startForceLink}/>;
+    let titleIcon = <AvPlayCircleOutline onClick={this._startForceLink}/>;
     if(this.props.appState.layout.running) {
       const iconStyle = {
         position: 'absolute',
