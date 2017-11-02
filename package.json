@@ -14,6 +14,7 @@
     "build:develop": "cross-env NODE_ENV=develop npm run webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "docs-parasol": "rm build/js/main*.js; yarn build; cp build/js/main*.js docs/assets/js/parasol.js",
     "docs-sass": "sass docs/assets/sass/material-kit.scss > docs/assets/css/material-kit.css"
   },
   "repository": {
