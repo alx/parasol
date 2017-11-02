@@ -314,8 +314,8 @@ class AppState {
 
     const neighborNodes = selectedGraph.nodes.filter(node => neighborNodeIds.indexOf(node.id) != -1);
 
-    this.tmp_subnetwork = [];
-    this.subnetworkIds(node_id, 0);
+    //this.tmp_subnetwork = [];
+    //this.subnetworkIds(node_id, 0);
 
     this.graph.selectedNodes.push({
       node: selectedNode,
@@ -323,10 +323,10 @@ class AppState {
       subNetwork: this.tmp_subnetwork
     });
 
-    this.tmp_subnetwork = [];
+    //this.tmp_subnetwork = [];
     //this.colorSelectionNode();
 
-    this.graph.refresh = Math.random();
+    //this.graph.refresh = Math.random();
   }
 
   unselectGraphNode() {
