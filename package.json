@@ -13,7 +13,8 @@
     "build:qa-manual": "cross-env NODE_ENV=qa-manual npm run webpack",
     "build:develop": "cross-env NODE_ENV=develop npm run webpack",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "docs-sass": "sass docs/assets/sass/material-kit.scss > docs/assets/css/material-kit.css"
   },
   "repository": {
     "type": "git",
