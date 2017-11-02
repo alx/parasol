@@ -176,6 +176,79 @@
           </div>
 
           <div class="title">
+            <h3>Display Modes</h3>
+          </div>
+
+          <div class="title">
+            <h4>Fullscreen mode</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3 col-xs-12">
+              <p><em>Fullscreen</em> mode allows you to properly load and explore data with various configurable React components.</p>
+            </div>
+            <div class="col-sm-9 col-xs-12">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/20171101_les-miserables.png"/>
+            </div>
+          </div>
+
+          <div class="title">
+            <h4>Card mode</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3 col-xs-12">
+              <p><em>Card</em> mode is and embeddable Parasol component that can be used in a webpage to present your graph before to jump in more complex exploration.</p>
+            </div>
+            <div class="col-sm-9 col-xs-12">
+              <div
+                class="parasol"
+                data-settings='{
+                  "networks": [
+                    {
+                      "url": "assets/data/les-miserables.json",
+                      "name": "Parasol Card",
+                      "options": {
+                        "layout": "forcelink",
+                        "loader": {
+                          "name": "json"
+                        }
+                      }
+                    }
+                  ],
+                  "ui": {
+                    "muiTheme": "dark",
+                    "mode":"card",
+                    "cardActions": [
+                      {"type": "link", "label": "Les Miserables on Gutenberg", "href": "https://www.gutenberg.org/files/135/135-h/135-h.htm"},
+                      {"type": "link", "label": "les-miserables.json", "href": "assets/data/les-miserables.json"}
+                    ]
+                  }
+                }'
+              ></div>
+              <pre><code class="language-js">
+              {...
+                  "ui": {
+                    "mode": "card",
+                    "cardActions": [
+                      {
+                        "type": "link",
+                        "label": "Les Miserables on Gutenberg",
+                        "href": "https://www.gutenberg.org/files/135/135-h/135-h.htm"
+                      },
+                      {
+                        "type":  "link",
+                        "label": "les-miserables.json",
+                        "href":  "assets/data/les-miserables.json"
+                      }
+                  }
+              ...}
+              </code></pre>
+            </div>
+          </div>
+          </div>
+
+          <div class="title">
             <h2>Demos</h2>
           </div>
 
@@ -206,7 +279,7 @@
                 </div>
                 <div class='content'>
                   <div class="card-image">
-                    <img src="screenshots/Parasol_screenshot_20170501_transparence-sante.png">
+                    <img src="assets/img/screenshots/Parasol_screenshot_20170501_transparence-sante.png">
                   </div>
                   <div>
                     <p><a href='https://www.transparence.sante.gouv.fr/flow/main' target='_blank'>Transparence Santé</a> is a public database containing informations declared by companies related to their relationships with healthcare actors in France.</p>
@@ -241,7 +314,7 @@
                 </div>
                 <div class='content'>
                   <div class="card-image">
-                    <img src="screenshots/Parasol_screenshot_20170331.png">
+                    <img src="assets/img/screenshots/Parasol_screenshot_20170331.png">
                   </div>
                   <div>
                     <p><a href='http://deepdetect.com' target='_blank'>Deep Detect</a> is an open source deep learning server.</p>
@@ -280,7 +353,7 @@
                 </div>
                 <div class='content'>
                   <div class="card-image">
-                    <img src="screenshots/Parasol_screenshot_20170513_hansa_general_drugs.png">
+                    <img src="assets/img/screenshots/Parasol_screenshot_20170513_hansa_general_drugs.png">
                   </div>
                   <div>
                     <p><a href="https://en.wikipedia.org/wiki/Hansa_(market)" target="_blank">Hansa</a> was an online darknet market, it's been closed after a multinational law enforcement operation "Operation Bayonet".</p>
@@ -316,7 +389,7 @@
                 </div>
                 <div class='content'>
                   <div class="card-image">
-                    <img src="screenshots/Parasol_screenshot_20170521_lombardi.png">
+                    <img src="assets/img/screenshots/Parasol_screenshot_20170521_lombardi.png">
                   </div>
                   <div>
                     <p>The <a href="http://www.pierogi2000.com/artists/mark-lombardi/" target="_blank">works</a> of <a href="https://en.wikipedia.org/wiki/Mark_Lombardi" target="_blank">Mark Lombardi</a> are famous for their elegant narration of various scandals in a globalized world. A profound body of research into the images has already been performed both concerning the stories and the aesthetics of his works.</p>
