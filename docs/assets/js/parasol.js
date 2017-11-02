@@ -99400,8 +99400,8 @@ var AppState = (_class = function () {
         return neighborNodeIds.indexOf(node.id) != -1;
       });
 
-      this.tmp_subnetwork = [];
-      this.subnetworkIds(node_id, 0);
+      //this.tmp_subnetwork = [];
+      //this.subnetworkIds(node_id, 0);
 
       this.graph.selectedNodes.push({
         node: selectedNode,
@@ -99409,10 +99409,10 @@ var AppState = (_class = function () {
         subNetwork: this.tmp_subnetwork
       });
 
-      this.tmp_subnetwork = [];
+      //this.tmp_subnetwork = [];
       //this.colorSelectionNode();
 
-      this.graph.refresh = Math.random();
+      //this.graph.refresh = Math.random();
     }
   }, {
     key: 'unselectGraphNode',
@@ -100023,7 +100023,7 @@ var ParasolAppBar = function (_React$Component) {
 
       var githubText = 'github';
       if (true) {
-        githubText = "dd9a53e\n";
+        githubText = "321a1c8\n";
       }
 
       var githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
@@ -104518,6 +104518,8 @@ var Json = function () {
             if (!node.x) node.x = Math.random();
 
             if (!node.y) node.y = Math.random();
+
+            if (!node.size) node.size = 1;
 
             if (node.metadata && !node.metadata.forceColor) {
               if (node.metadata.category) {
