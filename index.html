@@ -20,6 +20,10 @@
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <style type="text/css">
+      body{margin:0;}
+    </style>
+
   </head>
   <body>
     <div class="parasol"
@@ -37,7 +41,7 @@
           }
         ],
         "ui": {
-          "muiTheme": "light",
+          "muiTheme": "dark",
           "drawers": [
             { "id": "left",
               "open": true,
@@ -47,16 +51,15 @@
                 {"name": "Divider"},
                 {"name": "ForceLinkSettings"},
                 {"name": "Divider"},
-                {"name": "Legend"},
-                {"name": "Divider"},
-                {"name": "SelectedNode"}
+                {"name": "Legend"}
               ]
             },
             { "id": "right",
-              "open": false,
+              "open": true,
               "openSecondary": true,
               "components": [
-                {"name": "FilterSize"}
+                {"name": "SearchInput"},
+                {"name": "SelectedNode"}
               ]
             }
           ]
