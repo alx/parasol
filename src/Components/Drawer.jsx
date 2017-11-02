@@ -51,7 +51,7 @@ export default class ParasolDrawer extends Component {
           case 'SelectedNode':
             return <SelectedNode key={drawer.id + index} appState={appState} />;
           case 'SelectedNodes':
-            return <SelectedNode key={drawer.id + index} appState={appState} />;
+            return <SelectedNodes key={drawer.id + index} appState={appState} />;
           case 'NeighborNodes':
             return <NeighborNodes key={drawer.id + index} appState={appState} />;
           default:

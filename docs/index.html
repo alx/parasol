@@ -89,18 +89,64 @@
     <div class="main main-raised">
       <div class="section section-basic">
         <div class="container">
-          <div class="title">
-            <h2>Quick Start</h2>
-          </div>
 
           <div class="row">
-            <ol>
-              <li>Download and extract Parasol boilerplate</li>
-              <li>Serve its <em>index.html</em> with your favorite webserver, or: <code>python -m SimpleHTTPServer 8095</code></li>
-              <li>Open your web browser to display Parasol interface: <a href="http://127.0.0.1:8095" target="_blank">http://127.0.0.1:8095</a></li>
-            </ol>
-            <p>You can then modify the <i>data.json</i> file to modify the displayed network.</p>
-            <p><a href="https://github.com/alx/parasol/archive/boilerplate_v1.1.zip" class="btn btn-primary btn-lg">boilerplate_v1.1.zip</a></p>
+            <div class="col-sm-6 col-xs-12">
+
+              <div class="title">
+                <h2>Quick Start</h2>
+              </div>
+
+              <ol>
+                <li>Download and extract Parasol boilerplate</li>
+                <li>Serve its <em>index.html</em> with your favorite webserver, or:<br/><code>python -m SimpleHTTPServer 8095</code></li>
+                <li>Open your web browser to display Parasol interface:<br/><a href="http://127.0.0.1:8095" target="_blank">http://127.0.0.1:8095</a></li>
+              </ol>
+
+              <p>You can then modify the <i>data.json</i> file to modify the displayed network.</p>
+
+              <p><a href="https://github.com/alx/parasol/archive/boilerplate_v1.1.zip" class="btn btn-primary btn-lg">boilerplate_v1.1.zip</a></p>
+
+            </div>
+
+            <div class="col-sm-3 col-xs-12">
+
+              <div class="title">
+                <h3>Usage</h3>
+              </div>
+
+              <ul>
+                <li><a href='#usage-basics'>Basics</a></li>
+<!--
+                <li><a href='#usage-settings'>Settings.json</a></li>
+                <li><a href='#usage-networks'>Networks.json</a></li>
+              </ul>
+
+            </div>
+
+            <div class="col-sm-3 col-xs-12">
+
+              <div class="title">
+                <h3>Drawer Components</h3>
+              </div>
+
+              <ul>
+                <li><a href='#usage-component-appbar'>AppBar</a></li>
+                <li><a href='#usage-component-networkinput'>NetworkInput</a></li>
+                <li><a href='#usage-component-networklist'>NetworkList</a></li>
+                <li><a href='#usage-component-forcelinksettings'>ForceLinkSettings</a></li>
+                <li><a href='#usage-component-legend'>Legend</a></li>
+                <li><a href='#usage-component-searchinput'>SearchInput</a></li>
+                <li><a href='#usage-component-filtersize'>FilterSize</a></li>
+                <li><a href='#usage-component-selectednode'>SelectedNode</a></li>
+                <li><a href='#usage-component-selectednodes'>SelectedNodes</a></li>
+                <li><a href='#usage-component-neighbornodes'>NeighborNodes</a></li>
+                <li><a href='#usage-component-divider'>Divider</a></li>
+-->
+              </ul>
+
+            </div>
+
           </div>
 
           <div class="title">
@@ -136,11 +182,11 @@
                 }'
               ></div>
               <pre><code class="language-js">
-              {...
-                  "ui": {
-                    "muiTheme": "light"
-                  }
-              ...}
+{...
+  "ui": {
+    "muiTheme": "light"
+  }
+}
               </code></pre>
             </div>
             <div class="col-sm-6 col-xs-12">
@@ -166,11 +212,11 @@
                 }'
               ></div>
               <pre><code class="language-js">
-              {...
-                  "ui": {
-                    "muiTheme": "dark"
-                  }
-              ...}
+{...
+  "ui": {
+    "muiTheme": "dark"
+  }
+}
               </code></pre>
             </div>
           </div>
@@ -227,25 +273,144 @@
                 }'
               ></div>
               <pre><code class="language-js">
-              {...
-                  "ui": {
-                    "mode": "card",
-                    "cardActions": [
-                      {
-                        "type": "link",
-                        "label": "Les Miserables on Gutenberg",
-                        "href": "https://www.gutenberg.org/files/135/135-h/135-h.htm"
-                      },
-                      {
-                        "type":  "link",
-                        "label": "les-miserables.json",
-                        "href":  "assets/data/les-miserables.json"
-                      }
-                  }
-              ...}
+{...
+  "ui": {
+    "mode": "card",
+    "cardActions": [
+      {
+        "type": "link",
+        "label": "Les Miserables on Gutenberg",
+        "href": "https://www.gutenberg.org/files/135/135-h/135-h.htm"
+      },
+      {
+        "type":  "link",
+        "label": "les-miserables.json",
+        "href":  "assets/data/les-miserables.json"
+      }
+  }
+}
               </code></pre>
             </div>
           </div>
+
+          <div class="title">
+            <h3>Configurable Drawer Components</h3>
+          </div>
+
+          <div class="row">
+            <p>Drawers' components are configurable from the settings, you can customize your exploration app with the tools you need.</p>
+            <div class="col-sm-4 col-xs-12">
+              <pre><code class="language-js">
+{...
+  "ui": {
+    "drawers": [
+        { "id": "left",
+          "open": true,
+          "components": [
+            {"name": "Legend"},
+            {"name": "Divider"},
+            {"name": "SearchInput"},
+            {"name": "NetworkList"},
+            {"name": "Divider"},
+            {"name": "ForceLinkSettings"}
+          ]
+        },
+        { "id": "right",
+          "open": true,
+          "openSecondary": true,
+          "components": [
+            {"name": "AppBar"},
+            {"name": "Divider"},
+            {"name": "SelectedNode"}
+          ]
+        }
+      ]
+    }
+  }
+}
+              </code></pre>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/20171102_drawer_left_default.png"/>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/20171102_drawer_right_default.png"/>
+            </div>
+            <div class="col-sm-2 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/20171102_drawer_custom.png"/>
+            </div>
+          </div>
+
+          <a name="usage-basics"></a>
+          <div class="title">
+            <h2>Usage</h2>
+          </div>
+
+          <div class="title">
+            <h3>Basics</h3>
+          </div>
+
+          <div class="row">
+            <p>This is the minimum html code you'll need to launch Parasol:</p>
+
+            <pre><code class="language-markup"><xmp><html>
+  <body>
+    <div class="parasol"/>
+  </body>
+  <script src="parasol.js" type="text/javascript"></script>
+</html></xmp></code></pre>
+
+            <p>In this case, the settings will be loaded from the <em>settings.json</em> file located inside the same folder as your <em>index.html</em> file.</p>
+
+            <p>You can also specify the url of the location of the <em>settings.json</em> file:</p>
+
+            <pre><code class="language-markup"><xmp><html>
+  <body>
+    <div class="parasol" data-settings-url="settings.json"/>
+  </body>
+  <script src="parasol.js" type="text/javascript"></script>
+</html></xmp></code></pre>
+
+            <p>You can also specify the settings directly in a <em>data-settings</em> attribute inside the html tag:</p>
+
+            <pre><code class="language-markup"><xmp><html>
+  <body>
+    <div
+      class="parasol"
+      data-settings='{
+        "networks": [
+          {
+            "url": "data/les-miserables.json",
+            "name": "Les Misérables",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "json"
+              }
+            }
+          }
+        ],
+        "ui": {
+          "muiTheme": "dark"
+        }
+      }'
+    />
+  </body>
+  <script src="parasol.js" type="text/javascript"></script>
+</html></xmp></code></pre>
+
+          </div>
+
+          <!--
+          <a name="usage-components"></a>
+          <div class="title">
+            <h3>Drawer Components</h3>
+          </div>
+
+          <div class="row">
+          </div>
+          -->
+
 
           <div class="title">
             <h2>Demos</h2>
