@@ -20,8 +20,12 @@ export default class SearchInput extends Component {
       const category = node.metadata ? node.metadata.category : '';
 
       let icon = ''
-      if(category != '') {
-        icon = <Avatar backgroundColor={node.color.toString()} size={10} />
+      if(category != '' || node.color) {
+        icon = <Avatar
+          backgroundColor={node.color.toString()}
+          size={25}
+          style={{marginTop: 12}}
+        />;
       }
 
       let result_text = node.id;
@@ -91,7 +95,7 @@ export default class SearchInput extends Component {
     return (
       <div>
         <AutoComplete
-          hintText="Rechercher"
+          hintText={this.props.hintText ? this.props.hintText : "Search"}
           searchText={this.state.searchText}
           dataSource={datasource}
           filter={this.filter}
