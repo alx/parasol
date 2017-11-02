@@ -65,7 +65,7 @@ export default class Legend extends React.Component {
         let categoryToggle = (<RadioButtonChecked
           style={styles.toggle}
           color={category.color}
-          onTouchTap={this._filterCategory.bind(this, category.name)}
+          onClick={this._filterCategory.bind(this, category.name)}
         />);
 
         if(appState.ui.filters.categories.includes(category.name)) {
@@ -73,7 +73,7 @@ export default class Legend extends React.Component {
           categoryToggle = (<RadioButtonUnchecked
             style={styles.toggle}
             color={category.color}
-            onTouchTap={this._unfilterCategory.bind(this, category.name)}
+            onClick={this._unfilterCategory.bind(this, category.name)}
           />);
         }
 

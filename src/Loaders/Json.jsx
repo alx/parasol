@@ -68,7 +68,6 @@ class Json {
         json.edges.forEach(edge => {
           edge.color = COLORS.edge[this.muiTheme];
         });
-
       }
 
       network.set('graph', json);

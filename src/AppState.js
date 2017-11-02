@@ -64,17 +64,18 @@ class AppState {
     filters: {
       edgeLabelSize: 'proportional',
       enableEdgeHovering: true,
-      minNodeSize: 5,
-      maxNodeSize: 5,
-      minEdgeWeight: 1,
-      maxEdgeWeight: 1,
+      minNodeSize: -1,
+      maxNodeSize: -1,
+      minEdgeWeight: -1,
+      maxEdgeWeight: -1,
       minArrowSize:4,
-      hideOrphans: true,
+      hideOrphans: false,
       categories: [],
       attributes: [],
       nodes: [],
     },
     muiTheme: 'dark',
+    mode: 'fullscreen',
     labels: {
       labelThreshold: 1,
       labelSize: 'ratio',
@@ -238,12 +239,12 @@ class AppState {
 
     if (network.has('graph')) {
       const graph = network.get('graph');
-      this.graph.maxNodeSize = Math.ceil(Math.max.apply(Array, graph.nodes.map(node => node.size)));
-      this.graph.maxEdgeWeight = Math.ceil(Math.max.apply(Array, graph.edges.map(edge => edge.weight)));
+      //this.graph.maxNodeSize = Math.ceil(Math.max.apply(Array, graph.nodes.map(node => node.size)));
+      //this.graph.maxEdgeWeight = Math.ceil(Math.max.apply(Array, graph.edges.map(edge => edge.weight)));
     }
 
-    this.ui.filters.maxNodeSize = this.graph.maxNodeSize;
-    this.ui.filters.maxEdgeWeight = this.graph.maxEdgeWeight;
+    //this.ui.filters.maxNodeSize = this.graph.maxNodeSize;
+    //this.ui.filters.maxEdgeWeight = this.graph.maxEdgeWeight;
 
     network.set('selected', true);
     this.selectedNetworkIndex = this.networks.map(network => network.get('selected')).indexOf(true);
@@ -474,7 +475,7 @@ class AppState {
 
     graph.nodes.forEach(node => node.label = null);
 
-    if(this.graph.filterMode == 'singlenode') {
+    if(this.graph.filterMode == 'singlenode' && this.ui.filters.minNodeSize != -1) {
       graph.nodes = graph.nodes.filter( node => {
         if(node.size <= this.ui.filters.minNodeSize ||
            node.size >= this.ui.filters.maxNodeSize ||
@@ -627,19 +628,29 @@ class AppState {
   */
 
   toggleLeftDrawer() {
-    this.ui.drawers.left.open = !this.ui.drawers.left.open;
+    let drawer = this.ui.drawers.find(drawer => drawer.id == 'left');
+    drawer.open = !drawer.open;
   }
 
   toggleRightDrawer() {
-    this.ui.drawers.right.open = !this.ui.drawers.right.open;
+    let drawer = this.ui.drawers.find(drawer => drawer.id == 'right');
+    drawer.open = !drawer.open;
   }
 
   showRightDrawer() {
-    this.ui.drawers.right.open = true;
+    this.ui.drawers.find(drawer => drawer.id == 'right').open = true;
   }
 
   hideRightDrawer() {
-    this.ui.drawers.right.open = false;
+    this.ui.drawers.find(drawer => drawer.id == 'right').open = false;
+  }
+
+  showFullscreen() {
+    this.ui.mode = 'fullscreen';
+  }
+
+  showCard() {
+    this.ui.mode = 'card';
   }
 
   /*

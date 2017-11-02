@@ -2,10 +2,30 @@
   <head>
     <title>Parasol</title>
     <style type="text/css">
+      body{margin:0;}
       .rc-slider-tooltip{z-index:1400;}
     </style>
   </head>
   <body>
-    <div class="parasol"></div>
+    <div
+      class="parasol"
+      data-settings='{
+        "networks": [
+          {
+            "url": "data/erowid.json",
+            "name": "Erowid - mesaline",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "json"
+              }
+            }
+          }
+        ],
+        "ui": {
+          "muiTheme": "dark"
+        }
+      }'
+    />
   </body>
 </html>

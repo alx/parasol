@@ -2,43 +2,56 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 import SigmaComponent from '../Components/SigmaComponent';
-import Drawer from '../Components/Drawer';
 
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import RaisedButton from 'material-ui/RaisedButton';
+import ActionFullscreen from 'material-ui/svg-icons/navigation/fullscreen';
 
 @observer
 export default class ParasolCard extends Component {
 
+  constructor(props) {
+    super(props);
+    this.showFullscreen = this.showFullscreen.bind(this);
+  }
+
+  showFullscreen() {
+    this.props.appState.showFullscreen();
+  }
+
   render() {
 
     const appState = this.props.appState;
+    const network = appState.networks[appState.selectedNetworkIndex];
 
-    let muiTheme = lightBaseTheme;
+    if(!network)
+      return null;
 
-    if(appState.ui.muiTheme) {
-      switch(appState.ui.muiTheme) {
-        case 'light':
-          muiTheme = lightBaseTheme;
-          break;
-        case 'dark':
-          muiTheme = darkBaseTheme;
-          break;
-      }
+    let subtitle = '';
+    if(network.has('graph')) {
+      subtitle = "nodes: " + network.get('graph').nodes.length
+                      + " - " +
+                      "edges: " + network.get('graph').edges.length;
+    } else if(network.has('status') && network.get('status') != 'complete') {
+      subtitle = network.get('status');
     }
 
-    return (
-      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-        <div>
+    return (<div>
+      <Card>
+        <CardMedia
+          overlay={<CardTitle title={network.get('name')} subtitle={subtitle} />}
+        >
           <SigmaComponent appState={appState}/>
-          {appState.ui.drawers.map( (drawer, index) => {
-            return <Drawer key={'drawer' + index} drawer={drawer} appState={appState}/>;
-          })}
-        </div>
-      </MuiThemeProvider>
-    );
+        </CardMedia>
+        <CardActions>
+          <RaisedButton
+            label="Fullscreen"
+            icon={<ActionFullscreen />}
+            onClick={this.showFullscreen}
+          />
+        </CardActions>
+      </Card>
+    </div>);
   }
 }

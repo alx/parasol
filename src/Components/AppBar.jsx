@@ -14,10 +14,15 @@ export default class ParasolAppBar extends React.Component {
   constructor(props) {
     super(props)
     this.toggleDrawer = this.toggleDrawer.bind(this);
+    this.showCard = this.showCard.bind(this);
   }
 
   toggleDrawer() {
     this.props.appState.toggleLeftDrawer();
+  }
+
+  showCard() {
+    this.props.appState.showCard();
   }
 
   render() {

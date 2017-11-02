@@ -1,8 +1,8 @@
 {
   "networks": [
     {
-      "url": "data.json",
-      "name": "alxcast",
+      "url": "data/les-miserables.json",
+      "name": "Les Misérables",
       "options": {
         "layout": "forcelink",
         "loader": {
@@ -13,23 +13,5 @@
   ],
   "ui": {
     "muiTheme": "light",
-    "drawers": [
-      { "id": "left",
-        "open": true,
-        "components": [
-          {"name": "AppBar"},
-          {"name": "NetworkList"},
-          {"name": "Divider"},
-          {"name": "ForceLinkSettings"}
-        ]
-      },
-      { "id": "right",
-        "open": false,
-        "openSecondary": true,
-        "components": [
-          {"name": "FilterSize"}
-        ]
-      }
-    ]
   }
 }
