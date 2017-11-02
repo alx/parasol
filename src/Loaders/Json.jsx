@@ -60,6 +60,9 @@ class Json {
           if(!node.y)
             node.y = Math.random();
 
+          if(!node.size)
+            node.size = 1;
+
           if(node.metadata && !node.metadata.forceColor) {
             if (node.metadata.category) {
               node.color = COLORS.nodes[categories.indexOf(node.metadata.category)];
