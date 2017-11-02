@@ -53,6 +53,13 @@ class Json {
           .filter(category => typeof(category) != 'undefined' && category && category.length > 0);
 
         json.nodes.forEach(node => {
+
+          if(!node.x)
+            node.x = Math.random();
+
+          if(!node.y)
+            node.y = Math.random();
+
           if(node.metadata && !node.metadata.forceColor) {
             if (node.metadata.category) {
               node.color = COLORS.nodes[categories.indexOf(node.metadata.category)];

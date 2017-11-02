@@ -12,8 +12,8 @@
       data-settings='{
         "networks": [
           {
-            "url": "data/erowid.json",
-            "name": "Erowid - mesaline",
+            "url": "data/les-miserables.json",
+            "name": "Dark Theme",
             "options": {
               "layout": "forcelink",
               "loader": {
@@ -23,7 +23,12 @@
           }
         ],
         "ui": {
-          "muiTheme": "dark"
+          "muiTheme": "dark",
+          "mode": "card",
+          "cardActions": [
+            {"type": "fullscreen"},
+            {"type": "link", "label": "testLink", "href": "http://alexgirard.com"}
+          ]
         }
       }'
     />

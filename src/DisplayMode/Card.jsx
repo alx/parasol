@@ -37,20 +37,46 @@ export default class ParasolCard extends Component {
       subtitle = network.get('status');
     }
 
+    let cardActions = null;
+    if(appState.ui.cardActions &&
+      appState.ui.cardActions.length > 0) {
+      cardActions = (<CardActions>
+        {appState.ui.cardActions.map( (action, index) => {
+          switch(action.type) {
+            case 'fullscreen':
+              return (<RaisedButton
+                key={'action' + index}
+                label="Fullscreen"
+                icon={<ActionFullscreen />}
+                onClick={this.showFullscreen}
+              />);
+            case 'link':
+              return (<RaisedButton
+                key={'action' + index}
+                label={action.label}
+                href={action.href}
+              />);
+            default:
+              return null;
+          }
+        })}
+      </CardActions>);
+    }
+
     return (<div>
       <Card>
         <CardMedia
-          overlay={<CardTitle title={network.get('name')} subtitle={subtitle} />}
+          style={{height: 200}}
+          overlay={
+            <CardTitle
+              title={network.get('name')}
+              subtitle={subtitle}
+            />
+          }
         >
           <SigmaComponent appState={appState}/>
         </CardMedia>
-        <CardActions>
-          <RaisedButton
-            label="Fullscreen"
-            icon={<ActionFullscreen />}
-            onClick={this.showFullscreen}
-          />
-        </CardActions>
+        {cardActions}
       </Card>
     </div>);
   }
