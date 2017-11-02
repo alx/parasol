@@ -190,7 +190,7 @@ class AppState {
     const selectedNetwork = this.networks[this.selectedNetworkIndex];
     const blob = new Blob([JSON.stringify(selectedNetwork.get('graph'))],
                           {type: "text/json;charset=utf-8"});
-    FileSaver.saveAs(blob, `${selectedNetwork.get('name')}.json`);
+    FileSaver.saveAs(blob, `${selectedNetwork.get('name')}.json`, true);
   }
 
   loadNetwork(network, callback) {
