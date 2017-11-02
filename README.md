@@ -19,8 +19,8 @@ open http://localhost:8095
 ## Boilerplate quickstart
 
 1. Download and extract Parasol boilerplate</li>
-2. Serve it with your webserver <small>(issue with Fetch API, you can't use file:// url to load settings.json)</small>
-3. Open your web browser to display Parasol interface: [http://127.0.0.1](http://127.0.0.1)
+2. Serve its *index.html* with your favorite webserver, or: `python -m SimpleHTTPServer 8095`
+3. Open your web browser to display Parasol interface: [http://127.0.0.1:8095](http://127.0.0.1:8095)
 
 You can then modify the <i>data.json</i> file to modify the displayed network.
 
