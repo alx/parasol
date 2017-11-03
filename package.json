@@ -16,7 +16,7 @@
     "build-storybook": "build-storybook",
     "docs-parasol": "rm build/js/main*.js; yarn build; cp build/js/parasol.js docs/assets/js/",
     "docs-sass": "sass docs/assets/sass/material-kit.scss > docs/assets/css/material-kit.css",
-    "boilerplate-parasol": "git checkout boilerplate_release; cp build/js/parasol.js assets/js/parasol.js; git pull; git commit -m 'update parasol.js'; git push; git checkout master"
+    "boilerplate-parasol": "git checkout boilerplate_release; cp build/js/parasol.js assets/js/parasol.js; git pull; git commit -am 'update parasol.js'; git push; git checkout master"
   },
   "repository": {
     "type": "git",
