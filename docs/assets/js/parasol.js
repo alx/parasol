@@ -99325,7 +99325,6 @@ var AppState = (_class = function () {
 
       this.unselectGraphNode();
       this.filterGraphNode(false);
-      this.filterGraph();
     }
 
     /*
@@ -99350,6 +99349,7 @@ var AppState = (_class = function () {
           });
         }
       }
+      this.filterGraph();
     }
   }, {
     key: 'subnetworkIds',
@@ -99578,21 +99578,52 @@ var AppState = (_class = function () {
         return node.label = null;
       });
 
-      if (this.graph.filterMode == 'singlenode' && this.ui.filters.minNodeSize != -1) {
-        graph.nodes = graph.nodes.filter(function (node) {
-          if (node.size <= _this8.ui.filters.minNodeSize || node.size >= _this8.ui.filters.maxNodeSize || node.metadata && node.metadata.category && _this8.ui.filters.categories.includes(node.metadata.category)) {
-            graph.edges = graph.edges.filter(function (edge) {
-              return edge.source != node.id && edge.target != node.id;
-            });
-            return false;
-          } else {
-            return true;
-          }
-        });
+      if (this.graph.filterMode == 'singlenode') {
 
-        graph.edges = graph.edges.filter(function (edge) {
-          return edge.weight >= _this8.ui.filters.minEdgeWeight && edge.weight <= _this8.ui.filters.maxEdgeWeight;
-        });
+        var selectedNodes = this.graph.selectedNodes;
+
+        if (selectedNodes.length > 0) {
+
+          var selectedNode = selectedNodes[selectedNodes.length - 1].node;
+          var adjacentNodes = graph.edges.filter(function (edge) {
+            return edge.target == selectedNode.id || edge.source == selectedNode.id;
+          }).map(function (edge) {
+            return edge.target == selectedNode.id ? edge.source : edge.target;
+          });
+
+          graph.nodes = graph.nodes.filter(function (node) {
+
+            var currentNode = node.id == selectedNode.id;
+
+            if (currentNode || adjacentNodes.includes(node.id)) {
+              return true;
+            } else {
+              graph.edges = graph.edges.filter(function (edge) {
+                return edge.source != node.id && edge.target != node.id;
+              });
+              return false;
+            }
+          });
+        }
+
+        if (this.ui.filters.minNodeSize != -1) {
+          graph.nodes = graph.nodes.filter(function (node) {
+            if (node.size <= _this8.ui.filters.minNodeSize || node.size >= _this8.ui.filters.maxNodeSize || node.metadata && node.metadata.category && _this8.ui.filters.categories.includes(node.metadata.category)) {
+              graph.edges = graph.edges.filter(function (edge) {
+                return edge.source != node.id && edge.target != node.id;
+              });
+              return false;
+            } else {
+              return true;
+            }
+          });
+        }
+
+        if (this.ui.filters.minEdgeWeight != -1) {
+          graph.edges = graph.edges.filter(function (edge) {
+            return edge.weight >= _this8.ui.filters.minEdgeWeight && edge.weight <= _this8.ui.filters.maxEdgeWeight;
+          });
+        }
       }
 
       graph.nodes = graph.nodes.filter(function (node) {
@@ -100023,7 +100054,7 @@ var ParasolAppBar = function (_React$Component) {
 
       var githubText = 'github';
       if (true) {
-        githubText = "321a1c8\n";
+        githubText = "0043872\n";
       }
 
       var githubLink = githubText == 'github' ? 'https://github.com/alx/parasol' : 'https://github.com/alx/parasol/tree/' + githubText;
@@ -100187,7 +100218,7 @@ var ParasolDrawer = (0, _mobxReact.observer)(_class = function (_Component) {
             case 'SelectedNode':
               return _react2.default.createElement(_SelectedNode2.default, { key: drawer.id + index, appState: appState });
             case 'SelectedNodes':
-              return _react2.default.createElement(_SelectedNode2.default, { key: drawer.id + index, appState: appState });
+              return _react2.default.createElement(SelectedNodes, { key: drawer.id + index, appState: appState });
             case 'NeighborNodes':
               return _react2.default.createElement(_NeighborNodes2.default, { key: drawer.id + index, appState: appState });
             default:
@@ -100427,8 +100458,12 @@ var SearchInput = (0, _mobxReact.observer)(_class = function (_Component) {
         var category = node.metadata ? node.metadata.category : '';
 
         var icon = '';
-        if (category != '') {
-          icon = _react2.default.createElement(_Avatar2.default, { backgroundColor: node.color.toString(), size: 10 });
+        if (category != '' || node.color) {
+          icon = _react2.default.createElement(_Avatar2.default, {
+            backgroundColor: node.color.toString(),
+            size: 25,
+            style: { marginTop: 12 }
+          });
         }
 
         var result_text = node.id;
@@ -100489,7 +100524,7 @@ var SearchInput = (0, _mobxReact.observer)(_class = function (_Component) {
         'div',
         null,
         _react2.default.createElement(_AutoComplete2.default, {
-          hintText: 'Rechercher',
+          hintText: this.props.hintText ? this.props.hintText : "Search",
           searchText: this.state.searchText,
           dataSource: datasource,
           filter: this.filter,
