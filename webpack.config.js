@@ -67,7 +67,7 @@ module.exports = {
   entry: entries,
   output: {
     path: path.join(__dirname, 'build'),
-    filename: path.join('js', util.format('[name].%s.js', '[hash]')),
+    filename: path.join('js', 'parasol.js'),
     publicPath: '/'
   },
   plugins: plugins,
