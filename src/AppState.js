@@ -257,7 +257,6 @@ class AppState {
 
     this.unselectGraphNode();
     this.filterGraphNode(false);
-    this.filterGraph();
   }
 
   /*
@@ -276,6 +275,7 @@ class AppState {
         graph.edges.forEach( edge => edge.hidden = false);
       }
     }
+    this.filterGraph();
   }
 
   subnetworkIds(node_id, level) {
@@ -475,29 +475,61 @@ class AppState {
 
     graph.nodes.forEach(node => node.label = null);
 
-    if(this.graph.filterMode == 'singlenode' && this.ui.filters.minNodeSize != -1) {
-      graph.nodes = graph.nodes.filter( node => {
-        if(node.size <= this.ui.filters.minNodeSize ||
-           node.size >= this.ui.filters.maxNodeSize ||
-           (
-            node.metadata &&
-            node.metadata.category &&
-            this.ui.filters.categories.includes(node.metadata.category)
-           )
-          ) {
-          graph.edges = graph.edges.filter( edge => {
-            return edge.source != node.id && edge.target != node.id
-          });
-          return false;
-        } else {
-          return true;
-        }
-      });
+    if(this.graph.filterMode == 'singlenode') {
 
-      graph.edges = graph.edges.filter( edge => {
-        return edge.weight >= this.ui.filters.minEdgeWeight &&
-               edge.weight <= this.ui.filters.maxEdgeWeight;
-      });
+      const selectedNodes = this.graph.selectedNodes;
+
+      if(selectedNodes.length > 0) {
+
+        const selectedNode = selectedNodes[selectedNodes.length - 1].node;
+        const adjacentNodes = graph.edges.filter(edge => {
+          return edge.target == selectedNode.id || edge.source == selectedNode.id;
+        }).map( edge => {
+          return edge.target == selectedNode.id ? edge.source : edge.target;
+        });
+
+        graph.nodes = graph.nodes.filter( node => {
+
+          const currentNode = node.id == selectedNode.id;
+
+          if(currentNode || adjacentNodes.includes(node.id)) {
+            return true;
+          } else {
+            graph.edges = graph.edges.filter( edge => {
+              return edge.source != node.id && edge.target != node.id
+            });
+            return false;
+          }
+        });
+
+      }
+
+      if( this.ui.filters.minNodeSize != -1 ) {
+        graph.nodes = graph.nodes.filter( node => {
+          if(node.size <= this.ui.filters.minNodeSize ||
+             node.size >= this.ui.filters.maxNodeSize ||
+             (
+              node.metadata &&
+              node.metadata.category &&
+              this.ui.filters.categories.includes(node.metadata.category)
+             )
+            ) {
+            graph.edges = graph.edges.filter( edge => {
+              return edge.source != node.id && edge.target != node.id
+            });
+            return false;
+          } else {
+            return true;
+          }
+        });
+      }
+
+      if( this.ui.filters.minEdgeWeight != -1 ) {
+        graph.edges = graph.edges.filter( edge => {
+          return edge.weight >= this.ui.filters.minEdgeWeight &&
+                 edge.weight <= this.ui.filters.maxEdgeWeight;
+        });
+      }
     }
 
     graph.nodes = graph.nodes.filter( node => {
