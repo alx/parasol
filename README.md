@@ -1,12 +1,10 @@
+**Warning**: this documentation is mostly out of date, you should go to the official website to fetch latest information: http://parasol.alexgirard.com
+
 
 parasol
 =======
 
 A network graph exploration tool
-
-## Screenshots
-
- ![Screenshot](docs/screenshots/Parasol_screenshot_20170501_transparence-sante.png)
 
 ## Run
 
