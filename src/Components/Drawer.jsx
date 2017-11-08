@@ -7,7 +7,8 @@ import ForceLinkSettings from './Settings/ForceLinkSettings';
 
 import Legend from './Filters/Legend';
 import SearchInput from './Filters/SearchInput';
-import FilterSize from './Filters/Size';
+import EdgeWeight from './Filters/EdgeWeight';
+import HideOrphan from './Filters/HideOrphan';
 import TopicSelector from './Filters/TopicSelector';
 
 import NetworkInput from './Networks/Input';
@@ -47,11 +48,12 @@ export default class ParasolDrawer extends Component {
             return <Legend key={drawer.id + index} appState={appState} />;
           case 'TopicSelector':
             return <TopicSelector key={drawer.id + index} appState={appState} />;
-            //return null;
           case 'SearchInput':
             return <SearchInput key={drawer.id + index} appState={appState} />;
-          case 'FilterSize':
-            return <FilterSize key={drawer.id + index} appState={appState} />;
+          case 'EdgeWeight':
+            return <EdgeWeight key={drawer.id + index} appState={appState} />;
+          case 'HideOrphan':
+            return <HideOrphan key={drawer.id + index} appState={appState} />;
           case 'SelectedNode':
             return <SelectedNode key={drawer.id + index} appState={appState} />;
           case 'SelectedNodes':

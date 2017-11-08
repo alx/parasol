@@ -65,7 +65,7 @@ export default class LdaJson {
 
   network = null;
   options = null;
-  colorScheme = topicColors.scheme2;
+  colorScheme = topicColors.scheme1;
 
   constructor(network, muiTheme, options) {
     this.network = network;

@@ -1455,10 +1455,6 @@ change-emitter@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/change-emitter/-/change-emitter-0.1.2.tgz#6b88ca4d5d864e516f913421b11899a860aee8db"
 
-chart.js@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-1.1.1.tgz#a9b17054220bd45cbdb176fd6bcb8783ef871a7d"
-
 chokidar@^1.0.0, chokidar@^1.4.3, chokidar@^1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.6.1.tgz#2f4447ab5e96e50fb3d789fd90d4c72e0e4c70c2"
@@ -4777,6 +4773,10 @@ react-chartjs-2@^2.6.4:
   dependencies:
     lodash "^4.17.4"
     prop-types "^15.5.8"
+
+react-chartjs2@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-chartjs2/-/react-chartjs2-1.1.2.tgz#d8172cadacc99ebbfc6dcc6e0b8a637bcc8aca90"
 
 react-chartjs@^0.8.0:
   version "0.8.0"

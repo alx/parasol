@@ -57,7 +57,8 @@ class AppState {
         openSecondary: true,
         components: [
           {name: 'SearchInput'},
-          {name: 'FilterSize'},
+          {name: 'EdgeWeight'},
+          {name: 'HideOrphan'},
           {name: 'Divider'},
           {name: 'SelectedNode'},
           {name: 'Divider'},
