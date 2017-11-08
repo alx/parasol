@@ -4,6 +4,8 @@ import {debounce} from 'throttle-debounce';
 
 import Toggle from 'material-ui/Toggle';
 
+var BarChart = require("react-chartjs").Bar;
+
 require('rc-slider/assets/index.css');
 require('rc-tooltip/assets/bootstrap.css');
 
@@ -73,9 +75,34 @@ export default class Filters extends Component {
         onAfterChange={this.handleNodeFilterSlider}
       />
       */
+    var chartOptions = {
+      responsive: true,
+      showTooltip: false,
+      showScale: false,
+    };
+    var chartData = {
+      labels: new Array(10),
+      datasets: [
+        {
+          data: [
+            graph.edges.filter(e => e.weight < 0.1).length,
+            graph.edges.filter(e => e.weight >= 0.1 && e.weight < 0.2).length,
+            graph.edges.filter(e => e.weight >= 0.2 && e.weight < 0.3).length,
+            graph.edges.filter(e => e.weight >= 0.3 && e.weight < 0.4).length,
+            graph.edges.filter(e => e.weight >= 0.4 && e.weight < 0.5).length,
+            graph.edges.filter(e => e.weight >= 0.5 && e.weight < 0.6).length,
+            graph.edges.filter(e => e.weight >= 0.6 && e.weight < 0.7).length,
+            graph.edges.filter(e => e.weight >= 0.7 && e.weight < 0.8).length,
+            graph.edges.filter(e => e.weight >= 0.8 && e.weight < 0.9).length,
+            graph.edges.filter(e => e.weight >= 0.9).length
+          ]
+        }
+      ]
+    };
 
     return (<div key={'filterSliders'} style={{padding: 10}}>
       <p><span>Edge Weight</span></p>
+      <BarChart data={chartData} options={chartOptions}/>
       <Range
         key={'edgeWeight'}
         defaultValue={[0, 100]}
