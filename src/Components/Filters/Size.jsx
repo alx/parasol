@@ -29,16 +29,16 @@ export default class Filters extends Component {
   handleNodeFilterSlider = (range) => {
     this.setState({node: {min: range[0], max: range[1]}});
     this.props.appState.setFilter({
-      minNodeSize: range[0],
-      maxNodeSize: range[1],
+      minNodeSize: range[0] / 100,
+      maxNodeSize: range[1] / 100,
     });
   }
 
   handleEdgeFilterSlider = (range) => {
     this.setState({edge: {min: range[0], max: range[1]}});
     this.props.appState.setFilter({
-      minEdgeWeight: range[0],
-      maxEdgeWeight: range[1],
+      minEdgeWeight: range[0] / 100,
+      maxEdgeWeight: range[1] / 100,
     });
   }
 
@@ -58,8 +58,12 @@ export default class Filters extends Component {
   render() {
 
     const appState = this.props.appState;
+    const network = appState.selectedNetwork;
+    if(!network || !network.has('graph'))
+      return null;
 
-    return (<div key={'filterSliders'} style={{padding: 10}}>
+    const graph = network.get('graph');
+      /**
       <p><span>Node Size</span></p>
       <Range
         key={'nodeSize-' + appState.graph.maxNodeSize}
@@ -68,13 +72,18 @@ export default class Filters extends Component {
         max={appState.graph.maxNodeSize}
         onAfterChange={this.handleNodeFilterSlider}
       />
+      */
+
+    return (<div key={'filterSliders'} style={{padding: 10}}>
       <p><span>Edge Weight</span></p>
       <Range
-        key={'edgeWeight-' + appState.graph.maxEdgeWeight}
-        defaultValue={[0, appState.graph.maxEdgeWeight]}
+        key={'edgeWeight'}
+        defaultValue={[0, 100]}
         min={0}
-        max={appState.graph.maxEdgeWeight}
+        max={100}
+        step={10}
         onAfterChange={this.handleEdgeFilterSlider}
+        tipFormatter={value => value/100}
       />
       <Toggle
         label="Hide orphan nodes"

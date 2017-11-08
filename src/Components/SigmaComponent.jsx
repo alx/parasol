@@ -93,10 +93,6 @@ export default class SigmaComponent extends Component {
           neighborsOf={ selectedNode.id }
         />
       );
-    } else {
-      const graph = network.get('graph');
-      graph.nodes.forEach( node => node.hidden = false);
-      graph.edges.forEach( edge => edge.hidden = false);
     }
 
     if(options.relativeSize) {
@@ -123,11 +119,11 @@ export default class SigmaComponent extends Component {
           hideEdgesOnMove:false,
           animationsTime:3000,
           clone: false,
-          maxNodeSize: 5,
-          minNodeSize: appState.ui.filters.minNodeSize,
-          maxEdgeSize: appState.ui.filters.maxEdgeSize,
-          minEdgeSize: appState.ui.filters.minEdgeSize,
-          minArrowSize: appState.ui.filters.minArrowSize,
+          //maxNodeSize: 5,
+          //minNodeSize: appState.ui.filters.minNodeSize,
+          //maxEdgeSize: appState.ui.filters.maxEdgeWeight,
+          //minEdgeSize: appState.ui.filters.minEdgeWeight,
+          //minArrowSize: appState.ui.filters.minArrowSize,
           labelThreshold: appState.ui.labels.labelThreshold,
           labelSize: appState.ui.labels.labelSize,
           labelSizeRatio: appState.ui.labels.labelSizeRatio,

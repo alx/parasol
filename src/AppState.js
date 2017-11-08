@@ -3,6 +3,7 @@ import moment from 'moment';
 import color from 'tinycolor2';
 import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
+import LoaderLdaJson from './Loaders/LdaJson';
 import LoaderLombardi from './Loaders/Lombardi';
 import LoaderJsonFeed from './Loaders/JsonFeed';
 
@@ -13,6 +14,7 @@ const LOADERS = {
   json: LoaderJson,
   lombardi: LoaderLombardi,
   jsonfeed: LoaderJsonFeed,
+  ldajson: LoaderLdaJson,
 };
 
 class AppState {
@@ -26,8 +28,8 @@ class AppState {
     filterMode: 'singlenode',
     minNodeSize: 5,
     maxNodeSize: 5,
-    minEdgeWeight: 1,
-    maxEdgeWeight: 1,
+    //minEdgeWeight: 1,
+    //maxEdgeWeight: 1,
     refresh: Math.random(),
     subnetworkLevels: 2,
   };
@@ -40,11 +42,13 @@ class AppState {
         openSecondary: false,
         components: [
           {name: 'AppBar'},
-          {name: 'NetworkInput'}, {name: 'NetworkList'},
+          {name: 'NetworkInput'},
+          {name: 'NetworkList'},
           {name: 'Divider'},
           {name: 'ForceLinkSettings'},
           {name: 'Divider'},
-          {name: 'Legend'}
+          {name: 'Legend'},
+          {name: 'TopicSelector'},
         ]
       },
       {
@@ -52,7 +56,8 @@ class AppState {
         open: true,
         openSecondary: true,
         components: [
-          {name: 'SearchInput'}, {name: 'FilterSize'},
+          {name: 'SearchInput'},
+          {name: 'FilterSize'},
           {name: 'Divider'},
           {name: 'SelectedNode'},
           {name: 'Divider'},
@@ -64,15 +69,16 @@ class AppState {
     filters: {
       edgeLabelSize: 'proportional',
       enableEdgeHovering: true,
-      minNodeSize: -1,
-      maxNodeSize: -1,
-      minEdgeWeight: -1,
-      maxEdgeWeight: -1,
+      //minNodeSize: 0,
+      //maxNodeSize: 0,
+      minEdgeWeight: 0,
+      maxEdgeWeight: Infinity,
       minArrowSize:4,
       hideOrphans: false,
       categories: [],
       attributes: [],
       nodes: [],
+      topics: [],
     },
     muiTheme: 'dark',
     mode: 'fullscreen',
@@ -198,7 +204,11 @@ class AppState {
     const networkLoader = network.get('options').loader;
 
     try {
-      const loader = new LOADERS[networkLoader.name](network, this.ui.muiTheme);
+      const loader = new LOADERS[networkLoader.name](
+        network,
+        this.ui.muiTheme,
+        networkLoader.options
+      );
       loader.run(callback);
     } catch (e) {
       network.set('status', 'Error with network loader');
@@ -240,7 +250,7 @@ class AppState {
     if (network.has('graph')) {
       const graph = network.get('graph');
       //this.graph.maxNodeSize = Math.ceil(Math.max.apply(Array, graph.nodes.map(node => node.size)));
-      //this.graph.maxEdgeWeight = Math.ceil(Math.max.apply(Array, graph.edges.map(edge => edge.weight)));
+      this.graph.maxEdgeWeight = Math.ceil(Math.max.apply(Array, graph.edges.map(edge => edge.weight)));
     }
 
     //this.ui.filters.maxNodeSize = this.graph.maxNodeSize;
@@ -471,9 +481,24 @@ class AppState {
   filterGraph() {
     const selectedNetwork = this.networks[this.selectedNetworkIndex];
 
-    let graph = toJS(selectedNetwork.get('source_graph'));
+    let source_graph = selectedNetwork.get('source_graph');
+    let current_graph_nodes = selectedNetwork.get('graph').nodes;
 
-    graph.nodes.forEach(node => node.label = null);
+    // start from source_graph, but keep current graph x/y positions
+    let graph = toJS(source_graph);
+    graph.nodes.forEach(node => {
+      const current_node = current_graph_nodes.find(n => n.id == node.id);
+      if(current_node) {
+        node.x = current_node.x;
+        node.y = current_node.y;
+      }
+    });
+
+    graph.nodes.forEach( node => {
+      node.hidden = false;
+      node.label = null;
+    });
+    graph.edges.forEach( edge => edge.hidden = false);
 
     if(this.graph.filterMode == 'singlenode') {
 
@@ -488,69 +513,82 @@ class AppState {
           return edge.target == selectedNode.id ? edge.source : edge.target;
         });
 
-        graph.nodes = graph.nodes.filter( node => {
+        graph.nodes.forEach( node => {
 
           const currentNode = node.id == selectedNode.id;
 
-          if(currentNode || adjacentNodes.includes(node.id)) {
-            return true;
-          } else {
-            graph.edges = graph.edges.filter( edge => {
-              return edge.source != node.id && edge.target != node.id
-            });
-            return false;
-          }
+          node.hidden = !currentNode && !adjacentNodes.includes(node.id);
+
         });
 
       }
 
-      if( this.ui.filters.minNodeSize != -1 ) {
-        graph.nodes = graph.nodes.filter( node => {
-          if(node.size <= this.ui.filters.minNodeSize ||
-             node.size >= this.ui.filters.maxNodeSize ||
-             (
-              node.metadata &&
-              node.metadata.category &&
-              this.ui.filters.categories.includes(node.metadata.category)
-             )
-            ) {
-            graph.edges = graph.edges.filter( edge => {
-              return edge.source != node.id && edge.target != node.id
-            });
-            return false;
-          } else {
-            return true;
-          }
+      //if( this.ui.filters.minNodeSize != -1 ) {
+      //  graph.nodes = graph.nodes.filter( node => {
+      //    if(node.size <= this.ui.filters.minNodeSize ||
+      //       node.size >= this.ui.filters.maxNodeSize ||
+      //       (
+      //        node.metadata &&
+      //        node.metadata.category &&
+      //        this.ui.filters.categories.includes(node.metadata.category)
+      //       )
+      //      ) {
+      //      graph.edges = graph.edges.filter( edge => {
+      //        return edge.source != node.id && edge.target != node.id
+      //      });
+      //      return false;
+      //    } else {
+      //      return true;
+      //    }
+      //  });
+      //}
+
+      if( this.ui.filters.minEdgeWeight > 0 ) {
+        graph.edges.filter(e => !e.hidden).forEach( edge => {
+          edge.hidden = edge.weight < this.ui.filters.minEdgeWeight;
         });
       }
 
-      if( this.ui.filters.minEdgeWeight != -1 ) {
-        graph.edges = graph.edges.filter( edge => {
-          return edge.weight >= this.ui.filters.minEdgeWeight &&
-                 edge.weight <= this.ui.filters.maxEdgeWeight;
+      if( this.ui.filters.maxEdgeWeight < Infinity ) {
+        graph.edges.filter(e => !e.hidden).forEach( edge => {
+          edge.hidden = edge.weight > this.ui.filters.maxEdgeWeight;
         });
       }
     }
 
-    graph.nodes = graph.nodes.filter( node => {
+    graph.nodes.forEach( node => {
       if(
         node.metadata && node.metadata.category &&
         this.ui.filters.categories.includes(node.metadata.category)
       ) {
-        graph.edges = graph.edges.filter( edge => {
-          return edge.source != node.id && edge.target != node.id
-        });
-        return false;
-      } else {
-        return true;
+        node.hidden = true;
+
+        graph.edges.filter( e => {
+          !e.hidden && (e.source == node.id || e.target == node.id)
+        }).forEach( e => e.hidden = node.hidden );
+
       }
     });
 
     if(this.ui.filters.hideOrphans) {
-      const edgyNodes = [].concat.apply([], graph.edges.map( edge => {
+
+      // Get unique node ids that are connected to an edge
+      const edgyNodes = [...new Set([].concat.apply([], graph.edges
+                                                    .filter( e => !e.hidden)
+                                                    .map( edge => {
         return [edge.source, edge.target];
-      }));
-      graph.nodes = graph.nodes.filter( node => edgyNodes.indexOf(node.id) != -1 );
+      })))];
+
+      // Filter visible nodes, and hidden them if not connected to an edge
+      graph.nodes.filter(node => !node.hidden).forEach( node => {
+        if(!edgyNodes.includes(node.id)) {
+          node.hidden = true;
+
+          graph.edges.filter( e => {
+            !e.hidden && (e.source == node.id || e.target == node.id)
+          }).forEach( e => e.hidden = true );
+        }
+      });
     }
 
     if(this.ui.filters.attributes && this.ui.filters.attributes.length > 0) {
@@ -592,14 +630,32 @@ class AppState {
       }
     });
 
-    selectedNetwork.set('graph', graph);
+    // hidden nodes and edges are not compatible with force atlas layout
+    // they need to be removed
+    graph.nodes = graph.nodes.filter(n => !n.hidden);
+    const existingNodes = graph.nodes.map(n => n.id);
+    graph.edges = graph.edges.filter(e => {
+      return !e.hidden &&
+        existingNodes.includes(e.source) &&
+        existingNodes.includes(e.target);
+    });
+    graph.refresh = Math.random();
 
-    this.graph.refresh = Math.random();
+    selectedNetwork.set('graph', graph);
     //this.colorSelectionNode();
   }
 
   toggleGraphFilter() {
     this.graph.isFiltered = !this.graph.isFiltered;
+  }
+
+  toggleTopicFilter(index) {
+    if(this.ui.filters.topics.includes(index)) {
+      this.ui.filters.topics.remove(index);
+    } else {
+      this.ui.filters.topics.push(index);
+    }
+    console.log(this.ui.filters.topics.slice());
   }
 
   setFilter(filters, value) {
@@ -707,7 +763,11 @@ class AppState {
     this.layout.running = true;
   }
 
-  layoutStopped = () => {
+  layoutStopped = (nodes) => {
+    const selectedNetwork = this.networks[this.selectedNetworkIndex];
+    const graph = selectedNetwork.get('graph');
+    graph.nodes = nodes;
+    selectedNetwork.set('graph', graph);
     this.layout.shouldStart = false;
     this.layout.shouldStop = false;
     this.layout.running = false;

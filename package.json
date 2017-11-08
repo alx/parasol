@@ -60,6 +60,7 @@
   "dependencies": {
     "async": "^2.3.0",
     "axios": "^0.16.1",
+    "chart.js": "^2.7.1",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.0",
     "deepdetect-js": "^0.1.5",
@@ -77,6 +78,7 @@
     "rc-tooltip": "^3.4.3",
     "react": "^15.1.0",
     "react-addons-shallow-compare": "^15.5.2",
+    "react-chartjs-2": "^2.6.4",
     "react-dom": "^15.1.0",
     "react-sigma": "^1.2.17",
     "react-spinner-material": "^1.0.11",

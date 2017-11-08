@@ -126,7 +126,7 @@ class ForceLink extends React.Component {
   }
 
   _stopLayout() {
-    this.props.appState.layoutStopped();
+    this.props.appState.layoutStopped(this.props.sigma.graph.nodes());
     this.setState({ running: false, timer: undefined });
   }
 

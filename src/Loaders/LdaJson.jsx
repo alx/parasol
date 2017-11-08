@@ -30,10 +30,42 @@ const COLORS = {
   },
 };
 
-class Json {
+const topicColors = {
+  scheme1: [
+    "#8dd3c7",
+    "#ffffb3",
+    "#bebada",
+    "#fb8072",
+    "#80b1d3",
+    "#fdb462",
+    "#b3de69",
+    "#fccde5",
+    "#d9d9d9",
+    "#bc80bd",
+    "#ccebc5",
+    "#ffed6f",
+  ],
+  scheme2: [
+    "#a6cee3",
+    "#1f78b4",
+    "#b2df8a",
+    "#33a02c",
+    "#fb9a99",
+    "#e31a1c",
+    "#fdbf6f",
+    "#ff7f00",
+    "#cab2d6",
+    "#6a3d9a",
+    "#ffff99",
+    "#b15928",
+  ]
+};
+
+export default class LdaJson {
 
   network = null;
   options = null;
+  colorScheme = topicColors.scheme2;
 
   constructor(network, muiTheme, options) {
     this.network = network;
@@ -48,11 +80,13 @@ class Json {
 
     fetch(network.get('url')).then(response => response.json()).then((json) => {
 
-      if (json.nodes) {
+      if (json.topics) {
+        network.set('topics', json.topics.map( (topic, index) => {
+          return {terms: topic, color: this.colorScheme[index]};
+        }));
+      }
 
-        categories = json.nodes.map(node => node.metadata ? node.metadata.category : null)
-          .filter((category, index, self) => self.indexOf(category) === index)
-          .filter(category => typeof(category) != 'undefined' && category && category.length > 0);
+      if (json.nodes) {
 
         json.nodes.forEach(node => {
 
@@ -65,12 +99,10 @@ class Json {
           if(!node.size)
             node.size = 1;
 
-          if(node.metadata && !node.metadata.forceColor) {
-            if (node.metadata.category) {
-              node.color = COLORS.nodes[categories.indexOf(node.metadata.category)];
-            } else {
-              node.color = COLORS.nodes[COLORS.nodes.length - 1];
-            }
+          if(node.metadata && node.metadata.theta) {
+            const theta = node.metadata.theta
+            const indexOfMaxTheta = theta.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+            node.color = this.colorScheme[indexOfMaxTheta];
           }
         });
 
@@ -103,5 +135,3 @@ class Json {
   }
 
 }
-
-export default Json;
