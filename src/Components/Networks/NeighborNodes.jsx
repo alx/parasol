@@ -3,8 +3,6 @@ import { observer } from 'mobx-react';
 
 import Avatar from 'material-ui/Avatar';
 import { List, ListItem } from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-import ArrowForward from 'material-ui/svg-icons/navigation/arrow-forward';
 
 @observer
 export default class NeighborNodes extends Component {
@@ -14,7 +12,7 @@ export default class NeighborNodes extends Component {
   }
 
   render() {
-    
+
     const nodes = this.props.nodes;
 
     if(!nodes || nodes.length == 0)

@@ -1,5 +1,4 @@
 import React from 'react'
-import Multirangeslider from 'multirangeslider'
 
 class Slider extends React.Component {
 

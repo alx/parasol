@@ -4,7 +4,6 @@ import { observer } from 'mobx-react';
 import AutoComplete from 'material-ui/AutoComplete';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
-import RaisedButton from 'material-ui/RaisedButton';
 
 @observer
 export default class SearchInput extends Component {

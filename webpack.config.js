@@ -1,5 +1,4 @@
 var path = require('path');
-var util = require('util');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var AssetsPlugin = require('assets-webpack-plugin');

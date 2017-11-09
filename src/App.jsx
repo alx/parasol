@@ -19,16 +19,8 @@ export default class App extends Component {
 
     let muiTheme = lightBaseTheme;
 
-    if(appState.ui.muiTheme) {
-      switch(appState.ui.muiTheme) {
-        case 'light':
-          muiTheme = lightBaseTheme;
-          break;
-        case 'dark':
-          muiTheme = darkBaseTheme;
-          break;
-      }
-    }
+    if(appState.ui.muiTheme && appState.ui.muiTheme)
+      muitheme= darkBaseTheme;
 
     let elements = <Fullscreen appState={appState}/>
     switch(appState.ui.mode) {

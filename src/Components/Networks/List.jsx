@@ -2,15 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
 
 import {List, ListItem, makeSelectable} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
+
 import IconRefresh from 'material-ui/svg-icons/navigation/refresh';
 import IconDownload from 'material-ui/svg-icons/file/file-download';
 import IconSave from 'material-ui/svg-icons/content/save';
-
-let Slider = require('rc-slider');
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-Slider = createSliderWithTooltip(Slider);
 
 let SelectableList = makeSelectable(List);
 

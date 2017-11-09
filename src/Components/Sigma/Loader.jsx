@@ -29,8 +29,7 @@ export default class SigmaLoader extends React.PureComponent {
   }
 
   _load(graph) {
-    if( graph && typeof(graph) != 'undefined' &&
-        typeof(this.props.sigma) != 'undefined' ) {
+    if( graph && typeof(this.props.sigma) != 'undefined' ) {
       this.props.sigma.graph.clear();
       this.props.sigma.graph.read(graph);
       this.props.sigma.refresh();

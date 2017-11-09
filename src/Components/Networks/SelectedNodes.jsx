@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
-import Avatar from 'material-ui/Avatar';
 import { List, ListItem } from 'material-ui/List';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
@@ -30,12 +29,11 @@ export default class SelectedNodes extends Component {
 
   _removeNode = (node_id) => {
     this.props.appState.removeNodeFromGraph(node_id);
-    
+
     return true;
   }
 
   _removeSubnetwork = (node_id) => {
-    const self = this;
     let token = document.getElementsByName('csrf-token')[0].getAttribute('content');
     axios.defaults.headers.common['X-CSRF-Token'] = token;
     axios.defaults.headers.common['Accept'] = 'application/json';
@@ -49,28 +47,28 @@ export default class SelectedNodes extends Component {
   _removeSelection = (node_id) => {
     this.props.appState.removeNodeFromSelection(node_id);
     return true;
-  } 
-  
+  }
+
   _reorganizeSelection = () => {
     this.props.appState.reorganizeSelection();
     return true;
   }
-  
+
   _createMeta = () => {
     this.props.appState.createMeta();
     return true;
   }
-  
+
   _saveSelection = () => {
     this.props.appState.saveSelection();
     return true;
   }
-  
+
   nodeItem(selection, index) {
-    
+
     const node = selection.node;
     const neighborNodes = selection.neighborNodes;
-    
+
     const styles = {
       container: {
         top: 0,
@@ -84,7 +82,7 @@ export default class SelectedNodes extends Component {
         color: '#999',
       }
     }
-    
+
     const selectedNodeIcons = (<div style={styles.container}>
       <IconClear
         style={styles.icon}
@@ -96,7 +94,7 @@ export default class SelectedNodes extends Component {
         style={styles.icon}
         onTouchTap={this._removeSubnetwork.bind(this, node.id)}/>
     </div>);
-    
+
     return (<ListItem
       key={index}
       primaryText={node.label || node.id}
@@ -111,12 +109,12 @@ export default class SelectedNodes extends Component {
   render() {
 
     const appState = this.props.appState;
-    
+
     if(appState.graph.selectedNodes.length == 0)
       return null;
 
     const selectedNodes = appState.graph.selectedNodes;
-    
+
     let buttons = [];
     if(selectedNodes.length >= 2) {
       buttons.push(<FloatingActionButton
@@ -127,7 +125,7 @@ export default class SelectedNodes extends Component {
         <IconAdd />
       </FloatingActionButton>);
     }
-    
+
     if(selectedNodes.length >= 1) {
       buttons.push(<FloatingActionButton
         mini={true}
@@ -137,7 +135,7 @@ export default class SelectedNodes extends Component {
       >
         <IconRefresh />
       </FloatingActionButton>);
-      
+
       buttons.push(<FloatingActionButton
         mini={true}
         secondary={true}

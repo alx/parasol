@@ -4,8 +4,6 @@ import { observer } from 'mobx-react';
 import { List, ListItem } from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
-import Subheader from 'material-ui/Subheader';
-import FlatButton from 'material-ui/FlatButton';
 
 import AvPlayCircleOutline from 'material-ui/svg-icons/av/play-circle-outline';
 
