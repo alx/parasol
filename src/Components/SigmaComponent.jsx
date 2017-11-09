@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { observer, toJS } from 'mobx-react';
+import { observer } from 'mobx-react';
 import * as mobx from 'mobx';
-import moment from 'moment';
-import { Sigma, LoadJSON, Filter, ForceAtlas2, RelativeSize, NodeShapes, EdgeShapes } from 'react-sigma';
+import { Sigma, ForceAtlas2, RelativeSize, NodeShapes, EdgeShapes } from 'react-sigma';
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -50,17 +49,8 @@ export default class SigmaComponent extends Component {
     let graph = network.get('graph');
 
     let backgroundColor = lightBaseTheme.palette.canvasColor;
-    if(appState.ui.muiTheme) {
-
-      switch(appState.ui.muiTheme) {
-        case 'light':
-          backgroundColor = lightBaseTheme.palette.canvasColor;
-          break;
-        case 'dark':
-          backgroundColor = darkBaseTheme.palette.canvasColor;
-          break;
-      }
-
+    if(appState.ui.muiTheme && appState.ui.muiTheme == 'dark') {
+      backgroundColor = darkBaseTheme.palette.canvasColor;
     }
 
     const styles = {

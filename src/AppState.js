@@ -1,4 +1,4 @@
-import { computed, observable, autorun, toJS } from 'mobx';
+import { computed, observable, toJS } from 'mobx';
 import moment from 'moment';
 import color from 'tinycolor2';
 import LoaderTsne from './Loaders/Tsne';
@@ -303,7 +303,6 @@ class AppState {
         .map(edge => edge.source == node_id ? edge.target : edge.source);
 
       neighborNodeIds.forEach( nodeId => {
-        const node = selectedGraph.nodes.find(node => node.id == nodeId);
         if(this.tmp_subnetwork.indexOf(nodeId) == -1) {
           this.subnetworkIds(nodeId, level + 1);
         }
@@ -461,8 +460,6 @@ class AppState {
   }
 
   reorganizeSelection() {
-    const selectedNetwork = this.networks[this.selectedNetworkIndex];
-
     this.ui.filters.nodes = [];
     this.graph.selectedNodes.forEach(selection => {
       this.ui.filters.nodes = this.ui.filters.nodes.concat(
