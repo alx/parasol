@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import Avatar from 'material-ui/Avatar';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
-import Toggle from 'material-ui/Toggle';
+//import Toggle from 'material-ui/Toggle';
 
 @observer
 export default class SelectedNode extends Component {

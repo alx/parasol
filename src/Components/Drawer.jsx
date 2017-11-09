@@ -53,6 +53,8 @@ export default class ParasolDrawer extends Component {
             return <SearchInput key={drawer.id + index} appState={appState} />;
           case 'EdgeWeight':
             return <EdgeWeight key={drawer.id + index} appState={appState} />;
+          case 'NodeSize':
+            return <NodeSize key={drawer.id + index} appState={appState} />;
           case 'HideOrphan':
             return <HideOrphan key={drawer.id + index} appState={appState} />;
           case 'SelectedNode':
