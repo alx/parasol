@@ -1,19 +1,12 @@
 import React from 'react';
 
-import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Dialog from 'material-ui/Dialog';
-import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
-import Avatar from 'material-ui/Avatar';
-import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
-
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import Toggle from 'material-ui/Toggle';
 
 import IconAdd from 'material-ui/svg-icons/content/add';
 import IconSave from 'material-ui/svg-icons/content/save';
