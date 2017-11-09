@@ -7,9 +7,7 @@ import {
   cyan500,
   brown500,
   grey500,
-  grey50,
   blueGrey100,
-  blueGrey500,
   blueGrey800,
 } from 'material-ui/styles/colors';
 

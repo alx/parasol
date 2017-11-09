@@ -1,8 +1,6 @@
 import React from 'react';
-import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
 
-import Avatar from 'material-ui/Avatar';
 import {List, ListItem } from 'material-ui/List';
 
 import RadioButtonChecked from 'material-ui/svg-icons/toggle/radio-button-checked';
