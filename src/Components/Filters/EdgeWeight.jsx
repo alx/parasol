@@ -51,16 +51,10 @@ export default class EdgeWeight extends Component {
       return null;
 
     const graph = network.get('source_graph');
-      /**
-      <p><span>Node Size</span></p>
-      <Range
-        key={'nodeSize-' + appState.graph.maxNodeSize}
-        defaultValue={[0, appState.graph.maxNodeSize]}
-        min={0}
-        max={appState.graph.maxNodeSize}
-        onAfterChange={this.handleNodeFilterSlider}
-      />
-      */
+
+    if(graph.edges.length == 0 ||
+       graph.edges.filter(e => e.weight && e.weight > 0).length == 0)
+      return null;
 
     const chartOptions = {
       tooltips: {
@@ -126,7 +120,7 @@ export default class EdgeWeight extends Component {
       <p><span>Edge Weight</span></p>
       <Bar
         data={chartData}
-        height={'50px'}
+        height={50}
         options={chartOptions}
       />
       <Range

@@ -7,6 +7,7 @@ import ForceLinkSettings from './Settings/ForceLinkSettings';
 
 import Legend from './Filters/Legend';
 import SearchInput from './Filters/SearchInput';
+import NodeSize from './Filters/NodeSize';
 import EdgeWeight from './Filters/EdgeWeight';
 import HideOrphan from './Filters/HideOrphan';
 import TopicSelector from './Filters/TopicSelector';

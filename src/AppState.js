@@ -57,6 +57,7 @@ class AppState {
         openSecondary: true,
         components: [
           {name: 'SearchInput'},
+          {name: 'NodeSize'},
           {name: 'EdgeWeight'},
           {name: 'HideOrphan'},
           {name: 'Divider'},
@@ -557,6 +558,20 @@ class AppState {
       }
     }
 
+    if(this.ui.filters.topics.length > 0) {
+      graph.nodes.forEach(node => {
+
+        let theta = node.metadata.theta;
+        this.ui.filters.topics.forEach(index => theta[index] = undefined);
+
+        let indexOfMaxTheta = theta.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+
+        node.color = selectedNetwork.get('topics')[indexOfMaxTheta].color;
+        node.size = theta[indexOfMaxTheta] * 100;
+
+      });
+    }
+
     graph.nodes.forEach( node => {
       if(
         node.metadata && node.metadata.category &&
@@ -656,7 +671,7 @@ class AppState {
     } else {
       this.ui.filters.topics.push(index);
     }
-    console.log(this.ui.filters.topics.slice());
+    this.filterGraph();
   }
 
   setFilter(filters, value) {

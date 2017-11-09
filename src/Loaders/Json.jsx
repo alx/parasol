@@ -65,7 +65,13 @@ class Json {
           if(!node.size)
             node.size = 1;
 
-          if(node.metadata && !node.metadata.forceColor) {
+          if(!node.metadata)
+            node.metadata = {label: ''};
+
+          if(node.label)
+            node.metadata.label = node.label;
+
+          if(!node.metadata.forceColor) {
             if (node.metadata.category) {
               node.color = COLORS.nodes[categories.indexOf(node.metadata.category)];
             } else {
@@ -81,7 +87,7 @@ class Json {
           edge.color = COLORS.edge[this.muiTheme];
         });
 
-        if(this.options.minEdgeWeight) {
+        if(this.options && this.options.minEdgeWeight) {
           json.edges = json.edges.filter(edge => {
             return edge.weight > this.options.minEdgeWeight
           });

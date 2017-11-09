@@ -43,16 +43,17 @@ export default class SelectedNode extends Component {
       }
     }
 
+    //<Toggle
+    //   label="Only show this node"
+    //    style={styles.toggle}
+    //    toggled={appState.graph.isFiltered}
+    //    onToggle={this.pinNode}
+    //  />
+
     return (<div>
       <Subheader>
         Selected Node
       </Subheader>
-      <Toggle
-        label="Only show this node"
-        style={styles.toggle}
-        toggled={appState.graph.isFiltered}
-        onToggle={this.pinNode}
-      />
       <List>
         <ListItem
           key='selectednode'

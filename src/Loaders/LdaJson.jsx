@@ -47,13 +47,13 @@ const topicColors = {
   ],
   scheme2: [
     "#a6cee3",
-    "#1f78b4",
     "#b2df8a",
-    "#33a02c",
     "#fb9a99",
-    "#e31a1c",
     "#fdbf6f",
     "#ff7f00",
+    "#1f78b4",
+    "#33a02c",
+    "#e31a1c",
     "#cab2d6",
     "#6a3d9a",
     "#ffff99",
@@ -65,7 +65,7 @@ export default class LdaJson {
 
   network = null;
   options = null;
-  colorScheme = topicColors.scheme1;
+  colorScheme = topicColors.scheme2;
 
   constructor(network, muiTheme, options) {
     this.network = network;
@@ -99,10 +99,17 @@ export default class LdaJson {
           if(!node.size)
             node.size = 1;
 
-          if(node.metadata && node.metadata.theta) {
+          if(!node.metadata)
+            node.metadata = {label: ''};
+
+          if(node.label)
+            node.metadata.label = node.label;
+
+          if(node.metadata.theta) {
             const theta = node.metadata.theta
             const indexOfMaxTheta = theta.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
             node.color = this.colorScheme[indexOfMaxTheta];
+            node.size = theta[indexOfMaxTheta] * 100;
           }
         });
 
@@ -113,7 +120,7 @@ export default class LdaJson {
           edge.color = COLORS.edge[this.muiTheme];
         });
 
-        if(this.options.minEdgeWeight) {
+        if(this.options && this.options.minEdgeWeight) {
           json.edges = json.edges.filter(edge => {
             return edge.weight > this.options.minEdgeWeight
           });
