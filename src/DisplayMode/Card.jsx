@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 import SigmaComponent from '../Components/SigmaComponent';
 
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardMedia, CardTitle } from 'material-ui/Card';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import ActionFullscreen from 'material-ui/svg-icons/navigation/fullscreen';

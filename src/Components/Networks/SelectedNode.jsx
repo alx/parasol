@@ -95,8 +95,6 @@ export default class SelectedNode extends Component {
                       innerDivStyle={styles.nestedListItem}
                     />;
                 });
-
-                return <List key='nested-metadata'>{metadataItems}</List>;
               } else {
                 return <ListItem
                   key={'selectednode-' + index}
