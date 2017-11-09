@@ -285,7 +285,7 @@ export default class NetworkControls extends React.Component {
         <h3>Médecins</h3>
         <ul>
           {this.state.authors.map( (author, index) => {
-            return (<li>
+            return (<li key={`author-${index}`}>
               {author.user.email}
               <RaisedButton
                 label="Follow"
@@ -297,7 +297,7 @@ export default class NetworkControls extends React.Component {
         <h3>Patients et médecins qui me suivent</h3>
         <ul>
           {this.state.followers.map( (follower, index) => {
-            return (<li>
+            return (<li key={`follower-${index}`}>
               {follower.user.email}
               <RaisedButton
                 label="Follow"

@@ -396,7 +396,7 @@ class AppState {
         }
       })
 
-    } else if(selectedGraph) {
+    } else {
       selectedGraph.nodes.forEach( node => {
         node.color = node.original_color;
         if(this.ui.filters.categories.length == 3) {
