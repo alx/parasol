@@ -6,7 +6,7 @@
       "x": 0,
       "y": 0,
       "size": 3,
-      "metadata": { "category": "Orange" }
+      "metadata": { "label": "test", "category": "Orange" }
     },
     {
       "id": "n1",

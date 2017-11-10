@@ -120,7 +120,7 @@ export default class NodeSize extends Component {
       <p><span>Node Size</span></p>
       <Bar
         data={chartData}
-        height={'50px'}
+        height={50}
         options={chartOptions}
       />
       <Range

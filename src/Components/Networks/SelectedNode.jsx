@@ -6,6 +6,14 @@ import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 //import Toggle from 'material-ui/Toggle';
 
+import OpenIcon from 'material-ui/svg-icons/action/open-in-new';
+
+Object.resolve = function(path, obj) {
+  return path.split('.').reduce(function(prev, curr) {
+    return prev ? prev[curr] : undefined
+  }, obj || self)
+}
+
 @observer
 export default class SelectedNode extends Component {
 
@@ -15,6 +23,96 @@ export default class SelectedNode extends Component {
 
   pinNode = (event, isInputChecked) => {
     this.props.appState.filterGraphNode(isInputChecked);
+  }
+
+  nodeItem = (node, key, isMetadata = false) => {
+
+    const appState = this.props.appState;
+    const isFiltered = appState.ui.componentOptions &&
+      appState.ui.componentOptions.selectedNode;
+    const options = isFiltered ? appState.ui.componentOptions.selectedNode : null;
+
+    let primaryText = '';
+    let secondaryText = key;
+    let content = '';
+
+    if(!isMetadata) {
+      if(!node[key])
+        return null;
+      primaryText = node[key].toString();
+    } else {
+      if(!node.metadata[key])
+        return null;
+      primaryText = node.metadata[key].toString();
+    }
+
+    if(typeof(primaryText) == 'boolean') {
+      primaryText = primaryText ? 'true' : 'false';
+    }
+
+
+    if(isMetadata)
+      secondaryText = `metadata - ${key}`;
+
+    if(isFiltered) {
+
+      const fieldConfig = options.displayedFields.find(f => {
+        return isMetadata ? f.field.replace('metadata.', '') == key : f.field == key;
+      });
+
+      if(!fieldConfig)
+        return null;
+
+      secondaryText = fieldConfig.label ? fieldConfig.label : secondaryText;
+
+    }
+
+    return <ListItem
+      key={`selectednode-${node.id}-${key}`}
+      primaryText={primaryText}
+      secondaryText={secondaryText}
+      innerDivStyle={{margin: 0, padding: '10 8 8'}}
+    >{content}</ListItem>;
+
+  }
+
+  linkItem = (node, option) => {
+    let linkItem = null;
+    let url = null;
+
+    if(option.hrefKey) {
+      const href = Object.resolve(option.hrefKey, node);
+      url = option.hrefPrefix + href;
+    } else if(option.url) {
+      url = option.url;
+    }
+
+    switch(option.type) {
+      case 'image':
+        linkItem = <ListItem
+          key={option.key ? option.key : 'linkItem'}
+        >
+          <img
+            src={url}
+            style={{maxWidth: '100%', minWidth: '100%', width: '100%'}}
+          />
+        </ListItem>;
+        break;
+      case 'url':
+      default:
+        linkItem = <ListItem
+          key={option.key ? option.key : 'linkItem'}
+          primaryText={option.primaryText ? option.primaryText : url}
+          secondaryText={option.secondaryText ? option.secondaryText : 'Open link in new tab'}
+          rightIcon={<OpenIcon />}
+          onClick={() => {
+            const win = window.open(url, '_blank');
+            win.focus();
+          }}
+        />;
+    }
+
+    return linkItem;
   }
 
   render() {
@@ -27,20 +125,14 @@ export default class SelectedNode extends Component {
     const selectedNodes = appState.graph.selectedNodes;
     const node = selectedNodes[selectedNodes.length - 1].node;
 
+    const componentOptions = appState.ui.componentOptions.selectedNode;
+
     const styles = {
       nestedList: {
          margin: 0,
          fontSize: 14,
          lineHeight: 10,
       },
-      nestedListItem: {
-         margin: 0,
-         padding: '10 8 8',
-      },
-      nestedNestedListItem: {
-         margin: 0,
-         padding: '10 8 16',
-      }
     }
 
     //<Toggle
@@ -49,6 +141,39 @@ export default class SelectedNode extends Component {
     //    toggled={appState.graph.isFiltered}
     //    onToggle={this.pinNode}
     //  />
+
+    // Build nested items from node keys
+    let nestedItems = [].concat.apply([],
+      Object.keys(node).map( (key, index) => {
+        return key == 'metadata' ?
+          Object.keys(node.metadata)
+            .filter(nestedKey => nestedKey != 'transactions')
+            .map( (nestedKey, nestedIndex) => this.nodeItem(node, nestedKey, true) )
+          :
+          this.nodeItem(node, key);
+      })
+    )
+
+    const isConfigured = appState.ui.componentOptions &&
+      appState.ui.componentOptions.selectedNode;
+    const options = isConfigured ? appState.ui.componentOptions.selectedNode : null;
+
+    if(options.link) {
+      nestedItems.unshift(this.linkItem(node, options.link));
+    }
+
+    if(options.content && options.content.length > 0) {
+      options.content.forEach( (c, index) => {
+        let content = null;
+        c.content.key = `content-${index}`;
+        switch(c.type) {
+          case 'link':
+            content = this.linkItem(node, c.content);
+            break;
+        }
+        nestedItems.push(content);
+      });
+    }
 
     return (<div>
       <Subheader>
@@ -60,51 +185,9 @@ export default class SelectedNode extends Component {
           primaryText={node.label || node.id}
           leftAvatar={<Avatar backgroundColor={node.color.toString()} />}
           primaryTogglesNestedList={true}
-          initiallyOpen={true}
+          initiallyOpen={nestedItems.length > 0}
           nestedListStyle={styles.nestedList}
-          nestedItems= { [].concat.apply([], Object.keys(node).filter( key => {
-
-              return key.indexOf('cam0:') == -1;
-
-            }).map( (key, index) => {
-
-              if(!node[key])
-                return null;
-
-              let primaryText = node[key].toString();
-
-              if(typeof(primaryText) == 'boolean') {
-                primaryText = primaryText ? 'true' : 'false';
-              }
-
-              if(key == 'metadata') {
-
-                return Object.keys(node.metadata)
-                  .filter(nestedKey => nestedKey != 'transactions')
-                  .map( (nestedKey, nestedIndex) => {
-                    primaryText = node.metadata[nestedKey].toString();
-
-                    if(typeof(primaryText) == 'boolean') {
-                      primaryText = primaryText ? 'true' : 'false';
-                    }
-
-                    return <ListItem
-                      key={'selectednode-metadata-' + nestedIndex}
-                      primaryText={primaryText}
-                      secondaryText={'metadata - ' + nestedKey}
-                      innerDivStyle={styles.nestedListItem}
-                    />;
-                });
-              } else {
-                return <ListItem
-                  key={'selectednode-' + index}
-                  primaryText={primaryText}
-                  secondaryText={key}
-                  innerDivStyle={styles.nestedListItem}
-                />;
-              }
-            })
-          )}
+          nestedItems={nestedItems}
         />
       </List>
     </div>);
