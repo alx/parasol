@@ -257,6 +257,7 @@ class AppState {
       const nodeSizes = graph.nodes.map(node => node.size);
       graph.minNodeSize = Math.ceil(Math.min.apply(Array, nodeSizes));
       graph.maxNodeSize = Math.ceil(Math.max.apply(Array, nodeSizes));
+      graph.nodeSizeStep = (graph.maxNodeSize - graph.minNodeSize) / 100;
 
       const edgeWeights = graph.edges.map(edge => edge.weight);
 
@@ -557,6 +558,30 @@ class AppState {
       //    }
       //  });
       //}
+
+    if( this.ui.filters.minNodeSize > 0 ) {
+      graph.nodes.filter(n => !n.hidden).forEach( node => {
+        node.hidden = node.size < this.ui.filters.minNodeSize;
+
+        if(node.hidden) {
+          graph.edges.filter( e => {
+            !e.hidden && (e.source == node.id || e.target == node.id)
+          }).forEach( e => e.hidden = true );
+        }
+      });
+    }
+
+    if( this.ui.filters.maxNodeSize < Infinity ) {
+      graph.nodes.filter(n => !n.hidden).forEach( node => {
+        node.hidden = node.size > this.ui.filters.maxNodeSize;
+
+        if(node.hidden) {
+          graph.edges.filter( e => {
+            !e.hidden && (e.source == node.id || e.target == node.id)
+          }).forEach( e => e.hidden = true );
+        }
+      });
+    }
 
     if( this.ui.filters.minEdgeWeight > 0 ) {
       graph.edges.filter(e => !e.hidden).forEach( edge => {

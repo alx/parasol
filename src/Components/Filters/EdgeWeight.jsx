@@ -17,7 +17,6 @@ export default class EdgeWeight extends Component {
     super(props)
     this.state = {
       key: 0,
-      resolution: 100,
       step: 100,
       min: null,
       max: null
