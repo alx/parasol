@@ -18,27 +18,18 @@ export default class EdgeWeight extends Component {
     this.state = {
       key: 0,
       resolution: 100,
-      step: 1,
-      min: 0,
-      max: 100,
-      ratio: 100,
+      step: 100,
+      min: null,
+      max: null
     }
     this._handleSlider = this._handleSlider.bind(this);
   }
 
   _handleSlider = (range) => {
+    this.setState({min: range[0], max: range[1]});
     this.props.appState.setFilter({
-      minEdgeWeight: range[0] / this.state.ratio,
-      maxEdgeWeight: range[1] / this.state.ratio,
-    });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const appState = nextProps.appState;
-    this.setState({
-      key: Math.random(),
-      min: appState.ui.filters.minEdgeWeight,
-      max: appState.ui.filters.maxEdgeWeight
+      minEdgeWeight: range[0],
+      maxEdgeWeight: range[1],
     });
   }
 
@@ -92,30 +83,37 @@ export default class EdgeWeight extends Component {
       responsiveAnimationDuration: 0
     };
 
-    const chartData = {
-      labels: new Array(this.state.resolution),
+    let chartData = {
+      labels: [],
       datasets: [
-        {data: new Array(this.state.resolution), backgroundColor: '#00BCD4', borderWidth: 0}
+        {data: [], backgroundColor: '#00BCD4', borderWidth: 0}
       ]
     };
 
-    for(let i = 0; i < this.state.resolution; i++) {
+    let defaultValue = [0, 100];
+    let step = this.state.step;
 
-      //if(i / this.state.resolution < appState.ui.filters.minEdgeWeight ||
-      //  (i + 1) / this.state.resolution > appState.ui.filters.maxEdgeWeight) {
-      //  chartData.datasets[1].data[i] = graph.edges.filter(e => {
-      //    return e.weight >= (i / this.state.resolution) &&
-      //      e.weight < ((i + 1) / this.state.resolution)
-      //  }).length;
-      //} else {
-      chartData.datasets[0].data[i] = graph.edges.filter(e => {
-        return e.weight >= (i / this.state.resolution) &&
-          e.weight < ((i + 1) / this.state.resolution)
-      }).length;
+    if(graph.minEdgeWeight) {
+      defaultValue = [graph.minEdgeWeight, graph.maxEdgeWeight];
+      step = graph.edgeWeightStep;
+
+      const resolution = parseInt((graph.maxEdgeWeight - graph.minEdgeWeight) / graph.edgeWeightStep);
+      chartData.labels = new Array(resolution);
+      chartData.datasets[0].data = new Array(resolution).fill(0);
+
+      graph.edges.map(e => e.weight).forEach(weight => {
+        const dataPosition = parseInt((weight - graph.minEdgeWeight) / graph.edgeWeightStep);
+        chartData.datasets[0].data[dataPosition] += 1;
+      });
 
     }
 
-    return (<div key={'filterEdgeWeight'} style={{padding: 10}}>
+    if(this.state.min != null) {
+      defaultValue = [this.state.min, this.state.max];
+    }
+
+
+    return (<div key={'filterEdgeWeight-' + appState.graph.refresh} style={{padding: 10}}>
       <p><span>Edge Weight</span></p>
       <Bar
         data={chartData}
@@ -124,12 +122,12 @@ export default class EdgeWeight extends Component {
       />
       <Range
         key={'edgeWeight'}
-        defaultValue={[this.state.min, this.state.max]}
-        min={0}
-        max={100}
-        step={this.state.step}
+        defaultValue={defaultValue}
+        min={graph.minEdgeWeight}
+        max={graph.maxEdgeWeight}
+        step={step}
         onAfterChange={this._handleSlider}
-        tipFormatter={value => value/this.state.ratio}
+        tipFormatter={value => value.toFixed(2)}
       />
     </div>);
 

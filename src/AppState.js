@@ -251,24 +251,26 @@ class AppState {
     this.ui.filters.edgeWeight = 0;
     this.ui.filters.categories = [];
 
-    if (network.has('graph')) {
-      const graph = network.get('graph');
+    if (network.has('source_graph')) {
+      const graph = network.get('source_graph');
 
       const nodeSizes = graph.nodes.map(node => node.size);
-      this.graph.minNodeSize = Math.ceil(Math.min.apply(Array, nodeSizes));
-      this.graph.maxNodeSize = Math.ceil(Math.max.apply(Array, nodeSizes));
+      graph.minNodeSize = Math.ceil(Math.min.apply(Array, nodeSizes));
+      graph.maxNodeSize = Math.ceil(Math.max.apply(Array, nodeSizes));
 
       const edgeWeights = graph.edges.map(edge => edge.weight);
 
       const minEdgeWeight = Math.min.apply(Array, edgeWeights);
-      this.graph.minEdgeWeight = minEdgeWeight != Infinity ? minEdgeWeight : 0;
+      graph.minEdgeWeight = minEdgeWeight != Infinity ? minEdgeWeight : 0;
 
       const maxEdgeWeight = Math.max.apply(Array, edgeWeights);
-      this.graph.maxEdgeWeight = maxEdgeWeight != -Infinity ? maxEdgeWeight : 0;
-    }
+      graph.maxEdgeWeight = maxEdgeWeight != -Infinity ? maxEdgeWeight : 0;
 
-    //this.ui.filters.maxNodeSize = this.graph.maxNodeSize;
-    //this.ui.filters.maxEdgeWeight = this.graph.maxEdgeWeight;
+      graph.edgeWeightStep = (graph.maxEdgeWeight - graph.minEdgeWeight) / 100;
+
+      network.set('source_graph', graph);
+      this.graph.refresh = Math.random();
+    }
 
     network.set('selected', true);
     this.selectedNetworkIndex = this.networks.map(network => network.get('selected')).indexOf(true);

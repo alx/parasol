@@ -56,8 +56,6 @@ export default class TopicChart extends Component {
         }
       ]
     };
-    console.log(this.props.topics);
-    console.log(chartData);
 
     return <ListItem
       key={`selectednode-topicChart-${this.props.title}`}
