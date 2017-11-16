@@ -10,6 +10,7 @@ import SearchInput from './Filters/SearchInput';
 import NodeSize from './Filters/NodeSize';
 import EdgeWeight from './Filters/EdgeWeight';
 import HideOrphan from './Filters/HideOrphan';
+import ShowSelected from './Filters/ShowSelected';
 import TopicSelector from './Filters/TopicSelector';
 
 import NetworkInput from './Networks/Input';
@@ -57,6 +58,8 @@ export default class ParasolDrawer extends Component {
             return <NodeSize key={drawer.id + index} appState={appState} />;
           case 'HideOrphan':
             return <HideOrphan key={drawer.id + index} appState={appState} />;
+          case 'ShowSelected':
+            return <ShowSelected key={drawer.id + index} appState={appState} />;
           case 'SelectedNode':
             return <SelectedNode key={drawer.id + index} appState={appState} />;
           case 'SelectedNodes':

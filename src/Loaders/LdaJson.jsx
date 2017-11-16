@@ -123,6 +123,10 @@ export default class LdaJson {
             return edge.weight > this.options.minEdgeWeight
           });
         }
+
+        if(this.options && this.options.limitEdgeCount) {
+          json.edges = json.edges.sort((a, b) => b.weight - a.weight).slice(0, this.options.limitEdgeCount);
+        }
       }
 
       network.set('graph', json);

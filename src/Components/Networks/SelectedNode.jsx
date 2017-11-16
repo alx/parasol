@@ -8,6 +8,8 @@ import Subheader from 'material-ui/Subheader';
 
 import OpenIcon from 'material-ui/svg-icons/action/open-in-new';
 
+import NodeItem from './SelectedNode/NodeItem';
+
 Object.resolve = function(path, obj) {
   return path.split('.').reduce(function(prev, curr) {
     return prev ? prev[curr] : undefined
@@ -23,57 +25,6 @@ export default class SelectedNode extends Component {
 
   pinNode = (event, isInputChecked) => {
     this.props.appState.filterGraphNode(isInputChecked);
-  }
-
-  nodeItem = (node, key, isMetadata = false) => {
-
-    const appState = this.props.appState;
-    const isFiltered = appState.ui.componentOptions &&
-      appState.ui.componentOptions.selectedNode;
-    const options = isFiltered ? appState.ui.componentOptions.selectedNode : null;
-
-    let primaryText = '';
-    let secondaryText = key;
-    let content = '';
-
-    if(!isMetadata) {
-      if(!node[key])
-        return null;
-      primaryText = node[key].toString();
-    } else {
-      if(!node.metadata[key])
-        return null;
-      primaryText = node.metadata[key].toString();
-    }
-
-    if(typeof(primaryText) == 'boolean') {
-      primaryText = primaryText ? 'true' : 'false';
-    }
-
-
-    if(isMetadata)
-      secondaryText = `metadata - ${key}`;
-
-    if(isFiltered) {
-
-      const fieldConfig = options.displayedFields.find(f => {
-        return isMetadata ? f.field.replace('metadata.', '') == key : f.field == key;
-      });
-
-      if(!fieldConfig)
-        return null;
-
-      secondaryText = fieldConfig.label ? fieldConfig.label : secondaryText;
-
-    }
-
-    return <ListItem
-      key={`selectednode-${node.id}-${key}`}
-      primaryText={primaryText}
-      secondaryText={secondaryText}
-      innerDivStyle={{margin: 0, padding: '10 8 8'}}
-    >{content}</ListItem>;
-
   }
 
   linkItem = (node, option) => {
@@ -147,10 +98,19 @@ export default class SelectedNode extends Component {
       Object.keys(node).map( (key, index) => {
         return key == 'metadata' ?
           Object.keys(node.metadata)
-            .filter(nestedKey => nestedKey != 'transactions')
-            .map( (nestedKey, nestedIndex) => this.nodeItem(node, nestedKey, true) )
+            .map( (nestedKey, nestedIndex) => <NodeItem
+              appState={appState}
+              node={node}
+              nodeKey={nestedKey}
+              isMetadata={true}
+            /> )
           :
-          this.nodeItem(node, key);
+          <NodeItem
+            appState={appState}
+            node={node}
+            nodeKey={key}
+            isMetadata={false}
+          />
       })
     )
 

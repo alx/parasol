@@ -26,10 +26,10 @@ class AppState {
     selectedNodes: [],
     isFiltered: false,
     filterMode: 'singlenode',
-    minNodeSize: 5,
-    maxNodeSize: 5,
-    //minEdgeWeight: 1,
-    //maxEdgeWeight: 1,
+    minNodeSize: 0,
+    maxNodeSize: Infinity,
+    minEdgeWeight: 0,
+    maxEdgeWeight: Infinity,
     refresh: Math.random(),
     subnetworkLevels: 2,
   };
@@ -61,6 +61,7 @@ class AppState {
           {name: 'EdgeWeight'},
           {name: 'HideOrphan'},
           {name: 'Divider'},
+          {name: 'ShowSelected'},
           {name: 'SelectedNode'},
           {name: 'Divider'},
           {name: 'NeighborNodes'}
@@ -76,6 +77,7 @@ class AppState {
       minEdgeWeight: 0,
       maxEdgeWeight: Infinity,
       minArrowSize:4,
+      onlyShowSelected: false,
       hideOrphans: false,
       categories: [],
       attributes: [],
@@ -251,8 +253,18 @@ class AppState {
 
     if (network.has('graph')) {
       const graph = network.get('graph');
-      //this.graph.maxNodeSize = Math.ceil(Math.max.apply(Array, graph.nodes.map(node => node.size)));
-      this.graph.maxEdgeWeight = Math.ceil(Math.max.apply(Array, graph.edges.map(edge => edge.weight)));
+
+      const nodeSizes = graph.nodes.map(node => node.size);
+      this.graph.minNodeSize = Math.ceil(Math.min.apply(Array, nodeSizes));
+      this.graph.maxNodeSize = Math.ceil(Math.max.apply(Array, nodeSizes));
+
+      const edgeWeights = graph.edges.map(edge => edge.weight);
+
+      const minEdgeWeight = Math.min.apply(Array, edgeWeights);
+      this.graph.minEdgeWeight = minEdgeWeight != Infinity ? minEdgeWeight : 0;
+
+      const maxEdgeWeight = Math.max.apply(Array, edgeWeights);
+      this.graph.maxEdgeWeight = maxEdgeWeight != -Infinity ? maxEdgeWeight : 0;
     }
 
     //this.ui.filters.maxNodeSize = this.graph.maxNodeSize;
@@ -499,7 +511,8 @@ class AppState {
     });
     graph.edges.forEach( edge => edge.hidden = false);
 
-    if(this.graph.filterMode == 'singlenode') {
+    //if(this.graph.filterMode == 'singlenode') {
+    if(this.ui.filters.onlyShowSelected) {
 
       const selectedNodes = this.graph.selectedNodes;
 
@@ -521,6 +534,7 @@ class AppState {
         });
 
       }
+    }
 
       //if( this.ui.filters.minNodeSize != -1 ) {
       //  graph.nodes = graph.nodes.filter( node => {
@@ -542,17 +556,16 @@ class AppState {
       //  });
       //}
 
-      if( this.ui.filters.minEdgeWeight > 0 ) {
-        graph.edges.filter(e => !e.hidden).forEach( edge => {
-          edge.hidden = edge.weight < this.ui.filters.minEdgeWeight;
-        });
-      }
+    if( this.ui.filters.minEdgeWeight > 0 ) {
+      graph.edges.filter(e => !e.hidden).forEach( edge => {
+        edge.hidden = edge.weight < this.ui.filters.minEdgeWeight;
+      });
+    }
 
-      if( this.ui.filters.maxEdgeWeight < Infinity ) {
-        graph.edges.filter(e => !e.hidden).forEach( edge => {
-          edge.hidden = edge.weight > this.ui.filters.maxEdgeWeight;
-        });
-      }
+    if( this.ui.filters.maxEdgeWeight < Infinity ) {
+      graph.edges.filter(e => !e.hidden).forEach( edge => {
+        edge.hidden = edge.weight > this.ui.filters.maxEdgeWeight;
+      });
     }
 
     if(this.ui.filters.topics.length > 0) {

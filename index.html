@@ -12,12 +12,15 @@
       data-settings='{
         "networks": [
           {
-            "url": "data/sigmajs.json",
+            "url": "data/private/LSD.json",
             "name": "Simple data",
             "options": {
               "layout": "forcelink",
               "loader": {
-                "name": "json"
+                "name": "ldajson",
+                "options": {
+                  "limitEdgeCount": 500
+                }
               }
             }
           }
@@ -26,29 +29,6 @@
           "muiTheme": "dark",
           "componentOptions": {
             "selectedNode": {
-              "content": [
-                {
-                  "type": "link",
-                  "content": {
-                    "type": "image",
-                    "url": "http://cdn2-www.cattime.com/assets/uploads/gallery/25-funny-cat-memes/funny-forrest-gump-parody-cat-memes.jpg"
-                  }
-                },
-                {
-                  "type": "link",
-                  "content": {
-                    "type": "url",
-                    "url": "http://parasol.alexgirard.com",
-                    "primaryText": "parasol.alexgirard.com",
-                    "secondaryText": "Parasol homepage"
-                  }
-                }
-              ],
-              "link": {
-                "type": "url",
-                "hrefKey": "metadata.label",
-                "hrefPrefix": "/content/"
-              },
               "displayedFields": [
                 {"field": "size", "label": "Max theta"},
                 {"field": "metadata.label", "label": "Filename"},
