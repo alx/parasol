@@ -19,7 +19,7 @@ export default class NodeItem extends Component {
     const options = isFiltered ? appState.ui.componentOptions.selectedNode : null;
 
     let primaryText = '';
-    let secondaryText = this.props.key;
+    let secondaryText = this.props.nodeKey;
     if(!isMetadata) {
       if(!node[key])
         return null;

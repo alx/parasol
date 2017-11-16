@@ -76,7 +76,10 @@ export default class SelectedNode extends Component {
     const selectedNodes = appState.graph.selectedNodes;
     const node = selectedNodes[selectedNodes.length - 1].node;
 
-    const componentOptions = appState.ui.componentOptions.selectedNode;
+    let componentOptions = null;
+    if(appState.ui.componentOptions &&
+      appState.ui.componentOptions.selectedNode)
+      componentOptions = appState.ui.componentOptions.selectedNode;
 
     const styles = {
       nestedList: {
@@ -114,25 +117,23 @@ export default class SelectedNode extends Component {
       })
     )
 
-    const isConfigured = appState.ui.componentOptions &&
-      appState.ui.componentOptions.selectedNode;
-    const options = isConfigured ? appState.ui.componentOptions.selectedNode : null;
+    if(componentOptions) {
+      if(componentOptions.link) {
+        nestedItems.unshift(this.linkItem(node, componentOptions.link));
+      }
 
-    if(options.link) {
-      nestedItems.unshift(this.linkItem(node, options.link));
-    }
-
-    if(options.content && options.content.length > 0) {
-      options.content.forEach( (c, index) => {
-        let content = null;
-        c.content.key = `content-${index}`;
-        switch(c.type) {
-          case 'link':
-            content = this.linkItem(node, c.content);
-            break;
-        }
-        nestedItems.push(content);
-      });
+      if(componentOptions.content && componentOptions.content.length > 0) {
+        componentOptions.content.forEach( (c, index) => {
+          let content = null;
+          c.content.key = `content-${index}`;
+          switch(c.type) {
+            case 'link':
+              content = this.linkItem(node, c.content);
+              break;
+          }
+          nestedItems.push(content);
+        });
+      }
     }
 
     return (<div>

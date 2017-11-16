@@ -129,9 +129,14 @@
 
               <ul>
                 <li><a href='#usage-basics'>Basics</a></li>
-<!--
-                <li><a href='#usage-settings'>Settings.json</a></li>
-                <li><a href='#usage-networks'>Networks.json</a></li>
+                <li>
+                  <a href='#usage-settings'>Settings.json</a>
+                  <ul>
+                    <li><a href='#usage-settings-networks'>Networks</a></li>
+                    <li><a href='#usage-settings-loaders'>Loaders</a></li>
+                    <li><a href='#usage-settings-drawers'>Drawers</a></li>
+                  </ul>
+                </li>
               </ul>
 
             </div>
@@ -143,22 +148,32 @@
               </div>
 
               <ul>
-                <li><a href='#usage-component-appbar'>AppBar</a></li>
-                <li><a href='#usage-component-networkinput'>NetworkInput</a></li>
-                <li><a href='#usage-component-networklist'>NetworkList</a></li>
-                <li><a href='#usage-component-forcelinksettings'>ForceLinkSettings</a></li>
-                <li><a href='#usage-component-legend'>Legend</a></li>
-                <li><a href='#usage-component-searchinput'>SearchInput</a></li>
-                <li><a href='#usage-component-filtersize'>FilterSize</a></li>
-                <li><a href='#usage-component-selectednode'>SelectedNode</a></li>
-                <li><a href='#usage-component-selectednodes'>SelectedNodes</a></li>
-                <li><a href='#usage-component-neighbornodes'>NeighborNodes</a></li>
-                <li><a href='#usage-component-divider'>Divider</a></li>
--->
+                <li>General <ul>
+                  <li><a href='#usage-component-appbar'>AppBar</a></li>
+                  <li><a href='#usage-component-divider'>Divider</a></li>
+                </ul></li>
+                <li>Networks <ul>
+                  <li><a href='#usage-component-networkinput'>Input</a></li>
+                  <li><a href='#usage-component-networklist'>List</a></li>
+                  <li><a href='#usage-component-selectednode'>SelectedNode</a></li>
+                </ul></li>
+                <li>Filters <ul>
+                    <!--
+                  <li><a href='#usage-component-legend'>Legend</a></li>
+                -->
+                  <li><a href='#usage-component-topicselector'>TopicSelector</a></li>
+                  <li><a href='#usage-component-searchinput'>SearchInput</a></li>
+                  <li><a href='#usage-component-nodesize'>NodeSize</a></li>
+                  <li><a href='#usage-component-edgeweight'>EdgeWeight</a></li>
+                  <li><a href='#usage-component-hideorphan'>HideOrphan</a></li>
+                </ul></li>
+                    <!--
+                <li>Settings <ul>
+                </ul></li>
+                -->
               </ul>
 
             </div>
-
           </div>
 
           <div class="title">
@@ -413,13 +428,462 @@
 
           </div>
 
-          <!--
-          <a name="usage-components"></a>
+          <a name="usage-settings"></a>
           <div class="title">
-            <h3>Drawer Components</h3>
+            <h3>Settings.json</h3>
           </div>
 
           <div class="row">
+            <p>Your tool exploration settings need to be setup in the file <em>settings.json</em>. Please consult <a href='#usage-basics'>Basic Usage</a> to know where this file is located.</p>
+          </div>
+          <div class="title">
+            <h4>Minimum configuration</h4>
+          </div>
+          <div class="row">
+
+            <p>Here is an example of a minimum configuration, just loading a json graph file:</p>
+            <pre><code class="language-json">
+{
+  "networks": [
+    {
+      "url": "data/les-miserables.json",
+      "name": "Les Misérables",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+
+          </div>
+          <div class="title">
+            <a name="usage-settings-networks"></a>
+            <h4>Networks</h4>
+          </div>
+          <div class="row">
+
+            <p>You might want to load more than one network in your Parasol settings, there're various way to achieve this.</p>
+
+          </div>
+          <div class="title">
+            <h5>Visible networks at launch</h5>
+          </div>
+          <div class="row">
+
+            <p>Your settings <em>networks</em> array contains all the networks visible in the <em>Network List</em> UI component.<br/>
+              You can add more network there if you want to have these other networks available by a simple click.</p>
+
+            <p>Example:</p>
+
+            <pre><code class="language-json">
+{
+  "networks": [
+    {
+      "url": "data/les-miserables.json",
+      "name": "Les Misérables",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    },
+    {
+      "url": "data/le-petit-prince.json",
+      "name": "Le Petit Prince",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+
+            <h5>'Add Network' modal</h5>
+          </div>
+          <div class="row">
+
+            <p>You can configure your Parasol with and url containing more networks available that can be loaded in your app.<br/>
+              When you'll click on the <em>'Add Network'</em> UI button, a modal will open and let you choose which network you want to import inside your Parasol interface.</p>
+
+            <p>Example:</p>
+
+            <pre><code class="language-json">
+{
+  "networks_loader": {"path": "data/more_networks.json"},
+  "networks": [
+    {
+      "url": "data/les-miserables.json",
+      "name": "Les Misérables",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+
+            <p>Here is the possible content of <em>data/more_network.json</em> file:</p>
+
+            <pre><code class="language-json">
+[
+  {
+    "url": "data/le-petit-prince.json",
+    "name": "Le Petit Prince",
+    "options": {
+      "layout": "forcelink",
+      "loader": {
+        "name": "json"
+      }
+    }
+  },
+  {
+    "url": "data/dune.json",
+    "name": "Dune",
+    "options": {
+      "layout": "forcelink",
+      "loader": {
+        "name": "json"
+      }
+    }
+  }
+]
+</code></pre>
+
+          </div>
+          <div class="title">
+            <a name="usage-settings-loaders"></a>
+            <h4>Loaders</h4>
+          </div>
+          <div class="row">
+            <p>Various loaders are available to read your graph network data source.</p>
+
+            <p>The simplest loader you'll probably want to use is the <em>json</em> loader. It use the simple json format currently used in <a href="http://sigmajs.org">sigma.js</a> project.</p>
+
+            <p>If you have a data source you'd like to convert to a Parasol readable format, you can <a href="mailto:parasol@alexgirard.com">contact me</a> or open a <a href="https://github.com/alx/parasol/issues/new">Github issue</a> with the requirements you have.</p>
+
+            <p>Available loaders:</p>
+
+            <ul>
+              <li><a href="https://github.com/alx/parasol/blob/master/src/Loaders/Json.jsx">Json</a>: simple json format from <a href="http://sigmajs.org">sigma.js</a></li>
+              <li><a href="https://github.com/alx/parasol/blob/master/src/Loaders/LdaJson.jsx">LdaJson</a>: extended json format that includes a topic array based on latent Dirichlet allocation.</li>
+              <li><a href="https://github.com/alx/parasol/blob/master/src/Loaders/JsonFeed.jsx">JsonFeed</a>: specialized json format that follows the specification from <a href="https://jsonfeed.org/">JSON Feed</a> project.</li>
+              <li><a href="https://github.com/alx/parasol/blob/master/src/Loaders/Lombardi.jsx">Lombardi</a>: specialized json format that reads networks available on <a href="http://www.lombardinetworks.net/">Mark Lombardi Networks</a> project.</li>
+              <li><a href="https://github.com/alx/parasol/blob/master/src/Loaders/TSNE.jsx">TSNE</a>: proof of concept to load a csv file, send it to a <a href="https://deepdetect.com/">Deep Detect</a> server, and displayed the result of a TSNE transformation.</li>
+            </ul>
+
+          </div>
+          <div class="title">
+            <h5>Loader options</h5>
+          </div>
+          <div class="row">
+
+            <p>Some options might be available in some loaders, for example to reduce the number of loaded edges on some huge networks:</p>
+
+            <pre><code class="language-json">
+...
+  "loader": {
+    "name": "ldajson",
+    "options": {
+      "minEdgeWeight": 0.4,
+      "limitEdgeCount": 500
+    }
+  }
+...
+</code></pre>
+
+            <p>Until more documentation is available, you can check in the <a href="https://github.com/alx/parasol/tree/master/src/Loaders">Loaders source code</a> if the <em>options</em> object is used in the Loader you want to use.</p>
+
+            <p>You can also open a <a href="https://github.com/alx/parasol/issues/new">new Github issue</a> to request a new option on for your application.</p>
+
+          </div>
+          <div class="title">
+            <a name="usage-settings-drawers"></a>
+            <h4>Drawers</h4>
+          </div>
+
+          <div class="row">
+            <p>Left and right drawers are configurable, you can choose which one to display, and which components to load inside each of them.</p>
+
+            <p>Here you can see how to modify your default settings.json file with a custom configuration that will just display an AppBar UI Component inside the left drawer:</p>
+
+            <pre><code class="language-json">
+{
+  "networks_loader": {"path": "data/more_networks.json"},
+  "networks": [
+    {
+      "url": "data/les-miserables.json",
+      "name": "Les Misérables",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    }
+  ],
+  "drawers": [
+    {
+      "id": "left",
+      "open": true,
+      "components": [
+        {"name": "AppBar"}
+      ]
+    }
+  ]
+}
+</code></pre>
+
+            <p>By default, it uses the following configuration available in <a href="https://github.com/alx/parasol/blob/master/src/AppState.js#L38">AppState.jsx</a>:</p>
+
+            <pre><code class="language-json">
+...
+  drawers: [
+    {
+      id: 'left',
+      open: true,
+      openSecondary: false,
+      components: [
+        {name: 'AppBar'},
+        {name: 'NetworkInput'},
+        {name: 'NetworkList'},
+        {name: 'Divider'},
+        {name: 'ForceLinkSettings'},
+        {name: 'Divider'},
+        {name: 'Legend'},
+        {name: 'TopicSelector'},
+      ]
+    },
+    {
+      id: 'right',
+      open: true,
+      openSecondary: true,
+      components: [
+        {name: 'SearchInput'},
+        {name: 'NodeSize'},
+        {name: 'EdgeWeight'},
+        {name: 'HideOrphan'},
+        {name: 'Divider'},
+        {name: 'ShowSelected'},
+        {name: 'SelectedNode'},
+        {name: 'Divider'},
+        {name: 'NeighborNodes'}
+      ]
+    }
+  ],
+...
+</code></pre>
+
+            <p>Loadable components are visible in <a href="https://github.com/alx/parasol/blob/master/src/Components/Drawer.jsx">Components/Drawer.jsx</a> source file.
+              You'll find a list of <em>Networks</em> and <em>Filters</em> components you can use in your drawers.</p>
+
+          </div>
+
+          <a name="usage-components"></a>
+          <div class="title">
+            <h2>Drawer Components</h2>
+          </div>
+
+          <div class="title">
+            <h3>General</h3>
+          </div>
+
+          <a name='usage-component-appbar'></a>
+          <div class="title">
+            <h4>AppBar</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>AppBar</em> is a simple component to display general information about Parasol.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_appbar.png"/>
+            </div>
+          </div>
+
+          <a name='usage-component-appbar'></a>
+          <div class="title">
+            <h4>Divider</h4>
+          </div>
+
+          <div class="row">
+            <p><em>Divider</em> is a simple component to draw a separation line between components inside the drawers.</p>
+          </div>
+
+          <div class="title">
+            <h3>Networks</h3>
+          </div>
+
+          <a name='usage-component-input'></a>
+          <div class="title">
+            <h4>Input</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p>Network <em>Input</em> component allows you to select the networks available in the json file defined inside <em>settings.json networ_loader</em> object.</p>
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_add_network_modal.png"/>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_add_network_button.png"/>
+            </div>
+          </div>
+
+          <a name='usage-component-list'></a>
+          <div class="title">
+            <h4>List</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p>Network <em>List</em> component shows the network available inside Parasol app.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_network_list.png"/>
+            </div>
+          </div>
+
+          <a name='usage-component-selectednode'></a>
+          <div class="title">
+            <h4>SelectedNode </h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>SelectedNode</em> is a component that shows the attributes of the selected node.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_selected_node.png"/>
+            </div>
+          </div>
+
+
+          <div class="title">
+            <h3>Filters</h3>
+          </div>
+
+          <!--
+          <a name='usage-component-legend'></a>
+          <div class="title">
+            <h4>Legend</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>Legend</em> filter shows the node categories displayed on the graph, and allow you to select/unselect the categories to be displayed.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_legend.png"/>
+            </div>
+          </div>
+          -->
+
+          <a name='usage-component-topicselector'></a>
+          <div class="title">
+            <h4>TopicSelector</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>TopicSelector</em> filter is used with <em>LdaJson</em> loader, it shows the topics available on the current networks, and allow you to select/unselect the topics to be displayed.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_topic_selector.png"/>
+            </div>
+          </div>
+
+          <a name='usage-component-searchinput'></a>
+          <div class="title">
+            <h4>SearchInput</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>SearchInput</em> allows to search and select specific nodes. An autocomplete is avaialble, it's using the node label.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_search_input.png"/>
+            </div>
+          </div>
+
+          <a name='usage-component-nodesize'></a>
+          <div class="title">
+            <h4>NodeSize</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>NodeSize</em> component filters the displayed nodes depending on their respective size. Use the slider to set min/max values of the size of the displayed nodes.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_node_size.png"/>
+            </div>
+          </div>
+
+          <a name='usage-component-edgeweight'></a>
+          <div class="title">
+            <h4>EdgeWeight</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>EdgeWeight</em> component filters the displayed edges depending on their respective weight. Use the slider to set min/max values of the weight of the displayed edges.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_edge_weight.png"/>
+            </div>
+          </div>
+
+          <a name='usage-component-hideorphan'></a>
+          <div class="title">
+            <h4>HideOrphan</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>HideOrphan</em> component add a toggle to show or hide non-connected nodes.</p>
+              <div class="row">
+                <div class="col-sm-6 col-xs-6">
+                  <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_hide_orphan_off.png"/>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                  <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_hide_orphan_on.png"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_hide_orphan.png"/>
+            </div>
+          </div>
+
+          <!--
+          <div class="title">
+            <h3>Settings</h3>
+          </div>
+
+          <a name='usage-component-forcelinksettings'></a>
+          <div class="title">
+            <h4>ForceLinkSettings</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-9 col-xs-8">
+              <p><em>ForceLinkSettings</em> component allows you to modify the parameters used to run the ForceLink layout.</p>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/component_forcelink_settings.png"/>
+            </div>
           </div>
           -->
 

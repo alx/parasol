@@ -21,6 +21,7 @@ class AppState {
 
   @observable networks = [];
   @observable selectedNetworkIndex = 0;
+  @observable refreshNetwork = Math.random();
 
   @observable graph = {
     selectedNodes: [],
@@ -146,13 +147,17 @@ class AppState {
     if (settings.networks) {
       const self = this;
       settings.networks.forEach((network, index) => {
+        console.log(network);
         if (index == (settings.networks.length - 1)) {
           // select first imported network when done
           this.initNetwork(network, () => {
             self.selectNetwork(0);
+            self.refreshNetwork = Math.random();
           });
         } else {
-          this.initNetwork(network, () => {});
+          this.initNetwork(network, () => {
+            self.refreshNetwork = Math.random();
+          });
         }
       });
     }

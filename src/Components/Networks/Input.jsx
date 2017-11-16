@@ -95,11 +95,11 @@ export default class NetworkControls extends React.Component {
 
     return (<div>
       <FlatButton
-        label={loader.name}
+        label={loader.name ? loader.name : 'Add Network'}
         primary={true}
         icon={<AddIcon />}
         fullWidth={true}
-        onTouchTap={this._openInputDialog}
+        onClick={this._openInputDialog}
       />
       <Dialog
         title={loader.name}
@@ -138,7 +138,7 @@ export default class NetworkControls extends React.Component {
           })}
           </TableBody>
         </Table>
-        <FloatingActionButton onTouchTap={this._addSelectedNetworks}>
+        <FloatingActionButton onClick={this._addSelectedNetworks}>
           <AddIcon />
         </FloatingActionButton>
       </Dialog>
