@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { ListItem } from 'material-ui/List';
 
-import TopicChart from './TopicChart';
-
 @observer
 export default class NodeItem extends Component {
 
@@ -39,25 +37,14 @@ export default class NodeItem extends Component {
 
     if(isFiltered) {
 
-      const fieldConfig = options.displayedFields.find(f => {
+      const fieldConfig = options.content.find(f => {
         return isMetadata ? f.field.replace('metadata.', '') == key : f.field == key;
       });
 
       if(!fieldConfig)
         return null;
 
-      switch(fieldConfig.type) {
-        case 'topicChart':
-          return <TopicChart
-            key={`topicChart-${node.id}-${key}`}
-            title={fieldConfig.field}
-            topics={appState.selectedNetwork.get('topics')}
-            data={this.props.isMetadata ? node.metadata[key] : node[key]}
-          />
-          break;
-        default:
-          secondaryText = fieldConfig.label ? fieldConfig.label : secondaryText;
-      }
+      secondaryText = fieldConfig.label ? fieldConfig.label : secondaryText;
 
     }
 

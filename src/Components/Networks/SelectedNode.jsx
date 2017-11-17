@@ -9,12 +9,8 @@ import Subheader from 'material-ui/Subheader';
 import OpenIcon from 'material-ui/svg-icons/action/open-in-new';
 
 import NodeItem from './SelectedNode/NodeItem';
-
-Object.resolve = function(path, obj) {
-  return path.split('.').reduce(function(prev, curr) {
-    return prev ? prev[curr] : undefined
-  }, obj || self)
-}
+import LinkItem from './SelectedNode/LinkItem';
+import TopicChart from './SelectedNode/TopicChart';
 
 @observer
 export default class SelectedNode extends Component {
@@ -25,45 +21,6 @@ export default class SelectedNode extends Component {
 
   pinNode = (event, isInputChecked) => {
     this.props.appState.filterGraphNode(isInputChecked);
-  }
-
-  linkItem = (node, option) => {
-    let linkItem = null;
-    let url = null;
-
-    if(option.hrefKey) {
-      const href = Object.resolve(option.hrefKey, node);
-      url = option.hrefPrefix + href;
-    } else if(option.url) {
-      url = option.url;
-    }
-
-    switch(option.type) {
-      case 'image':
-        linkItem = <ListItem
-          key={option.key ? option.key : 'linkItem'}
-        >
-          <img
-            src={url}
-            style={{maxWidth: '100%', minWidth: '100%', width: '100%'}}
-          />
-        </ListItem>;
-        break;
-      case 'url':
-      default:
-        linkItem = <ListItem
-          key={option.key ? option.key : 'linkItem'}
-          primaryText={option.primaryText ? option.primaryText : url}
-          secondaryText={option.secondaryText ? option.secondaryText : 'Open link in new tab'}
-          rightIcon={<OpenIcon />}
-          onClick={() => {
-            const win = window.open(url, '_blank');
-            win.focus();
-          }}
-        />;
-    }
-
-    return linkItem;
   }
 
   render() {
@@ -96,44 +53,59 @@ export default class SelectedNode extends Component {
     //    onToggle={this.pinNode}
     //  />
 
-    // Build nested items from node keys
-    let nestedItems = [].concat.apply([],
-      Object.keys(node).map( (key, index) => {
-        return key == 'metadata' ?
-          Object.keys(node.metadata)
-            .map( (nestedKey, nestedIndex) => <NodeItem
-              appState={appState}
-              node={node}
-              nodeKey={nestedKey}
-              isMetadata={true}
-            /> )
-          :
-          <NodeItem
-            appState={appState}
-            node={node}
-            nodeKey={key}
-            isMetadata={false}
-          />
-      })
-    )
+    let nestedItems = [];
 
     if(componentOptions) {
-      if(componentOptions.link) {
-        nestedItems.unshift(this.linkItem(node, componentOptions.link));
-      }
 
       if(componentOptions.content && componentOptions.content.length > 0) {
-        componentOptions.content.forEach( (c, index) => {
-          let content = null;
-          c.content.key = `content-${index}`;
-          switch(c.type) {
+        nestedItems = componentOptions.content.map( (content, index) => {
+          const isMetadata = content.field.includes('metadata.');
+          switch(content.type) {
+            case 'topicChart':
+              return <TopicChart
+                key={`topicChart-${index}`}
+                title={fieldConfig.title}
+                topics={appState.selectedNetwork.get('topics')}
+                data={isMetadata}
+              />
             case 'link':
-              content = this.linkItem(node, c.content);
+              content.key = `content-${index}`
+              return <LinkItem
+                node={node}
+                option={content}
+              />
               break;
+            default:
+              const nodeKey = isMetadata ? content.field.replace('metadata.', '') : content.field;
+              return <NodeItem
+                appState={appState}
+                node={node}
+                nodeKey={nodeKey}
+                isMetadata={isMetadata}
+              />
           }
-          nestedItems.push(content);
         });
       }
+    } else {
+      nestedItems = [].concat.apply([],
+        Object.keys(node).map( (key, index) => {
+          return key == 'metadata' ?
+            Object.keys(node.metadata)
+              .map( (nestedKey, nestedIndex) => <NodeItem
+                appState={appState}
+                node={node}
+                nodeKey={nestedKey}
+                isMetadata={true}
+              /> )
+            :
+            <NodeItem
+              appState={appState}
+              node={node}
+              nodeKey={key}
+              isMetadata={false}
+            />
+        })
+      )
     }
 
     return (<div>

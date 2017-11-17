@@ -98,7 +98,10 @@ export default class SigmaComponent extends Component {
         break;
     }
 
-    return (<div key={appState.graph.refresh}>
+    return (<div
+      key={appState.graph.refresh}
+      style={{backgroundColor: backgroundColor}}
+    >
       <Sigma
         renderer={ appState.ui.renderer }
         onClickNode={ this.selectNode }
