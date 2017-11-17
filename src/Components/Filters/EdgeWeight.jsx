@@ -105,6 +105,15 @@ export default class EdgeWeight extends Component {
         chartData.datasets[0].data[dataPosition] += 1;
       });
 
+      if(appState.ui.componentOptions &&
+         appState.ui.componentOptions.edgeWeight &&
+         appState.ui.componentOptions.edgeWeight.yScale &&
+         appState.ui.componentOptions.edgeWeight.yScale == 'log') {
+        chartData.datasets[0].data.forEach((val, index) => {
+          chartData.datasets[0].data[index] = Math.log(val);
+        });
+      }
+
     }
 
     if(this.state.min != null) {
