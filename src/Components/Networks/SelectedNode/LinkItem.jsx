@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ListItem } from 'material-ui/List';
 
+import OpenIcon from 'material-ui/svg-icons/action/open-in-new';
+
 Object.resolve = function(path, obj) {
   return path.split('.').reduce(function(prev, curr) {
     return prev ? prev[curr] : undefined
@@ -22,7 +24,7 @@ export default class LinkItem extends Component {
       url = option.url;
     }
 
-    switch(option.type) {
+    switch(option.linkType) {
       case 'image':
         linkItem = <ListItem
           key={option.key ? option.key : 'linkItem'}

@@ -147,7 +147,6 @@ class AppState {
     if (settings.networks) {
       const self = this;
       settings.networks.forEach((network, index) => {
-        console.log(network);
         if (index == (settings.networks.length - 1)) {
           // select first imported network when done
           this.initNetwork(network, () => {

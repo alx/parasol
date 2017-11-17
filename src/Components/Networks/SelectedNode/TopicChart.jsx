@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
 import { ListItem } from 'material-ui/List';
-
 import {Bar} from 'react-chartjs-2';
 
-@observer
 export default class TopicChart extends Component {
+
   render() {
 
     const chartOptions = {

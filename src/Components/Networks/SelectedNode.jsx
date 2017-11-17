@@ -4,9 +4,6 @@ import { observer } from 'mobx-react';
 import Avatar from 'material-ui/Avatar';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
-//import Toggle from 'material-ui/Toggle';
-
-import OpenIcon from 'material-ui/svg-icons/action/open-in-new';
 
 import NodeItem from './SelectedNode/NodeItem';
 import LinkItem from './SelectedNode/LinkItem';
@@ -17,10 +14,6 @@ export default class SelectedNode extends Component {
 
   constructor(props) {
     super(props)
-  }
-
-  pinNode = (event, isInputChecked) => {
-    this.props.appState.filterGraphNode(isInputChecked);
   }
 
   render() {
@@ -46,27 +39,24 @@ export default class SelectedNode extends Component {
       },
     }
 
-    //<Toggle
-    //   label="Only show this node"
-    //    style={styles.toggle}
-    //    toggled={appState.graph.isFiltered}
-    //    onToggle={this.pinNode}
-    //  />
-
     let nestedItems = [];
 
     if(componentOptions) {
 
       if(componentOptions.content && componentOptions.content.length > 0) {
         nestedItems = componentOptions.content.map( (content, index) => {
-          const isMetadata = content.field.includes('metadata.');
+          const isMetadata = content.field && content.field.includes('metadata.');
+          let nodeKey = '';
+          if(content.field) {
+              nodeKey = isMetadata ? content.field.replace('metadata.', '') : content.field;
+          }
           switch(content.type) {
             case 'topicChart':
               return <TopicChart
                 key={`topicChart-${index}`}
-                title={fieldConfig.title}
+                title={content.title ? content.title : content.field.replace('metadata.', '')}
                 topics={appState.selectedNetwork.get('topics')}
-                data={isMetadata}
+                data={isMetadata ? node.metadata[nodeKey] : node[nodeKey]}
               />
             case 'link':
               content.key = `content-${index}`
@@ -76,7 +66,6 @@ export default class SelectedNode extends Component {
               />
               break;
             default:
-              const nodeKey = isMetadata ? content.field.replace('metadata.', '') : content.field;
               return <NodeItem
                 appState={appState}
                 node={node}

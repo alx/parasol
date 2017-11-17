@@ -98,7 +98,7 @@ export default class LdaJson {
             node.size = 1;
 
           if(!node.metadata)
-            node.metadata = {label: ''};
+            node.metadata = {label: '', 'document_length': node.size};
 
           if(node.label)
             node.metadata.label = node.label;

@@ -69,7 +69,7 @@ class Json {
           if(node.label)
             node.metadata.label = node.label;
 
-          if(!node.metadata.forceColor) {
+          if(!node.color || node.metadata.forceColor) {
             if (node.metadata.category) {
               node.color = COLORS.nodes[categories.indexOf(node.metadata.category)];
             } else {
