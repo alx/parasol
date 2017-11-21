@@ -58,6 +58,9 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "aframe": "^0.7.1",
+    "aframe-meshline-component": "^0.2.0",
+    "aframe-react": "^4.3.0",
     "async": "^2.3.0",
     "axios": "^0.16.1",
     "chart.js": "^2.7.1",

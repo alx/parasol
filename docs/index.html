@@ -133,7 +133,12 @@
 
               <ul>
                 <li><a href='#features-Themes'>Themes</a></li>
-                <li><a href='#features-display'>Display: Fullscreen & Card</a></li>
+                <li><a href='#features-display'>Display
+                  <ul>
+                    <li><a href='#features-display-fullscreen'>Fullscreen</a></li>
+                    <li><a href='#features-display-card'>Card</a></li>
+                    <li><a href='#features-display-webvr'>WebVR</a></li>
+                  </ul>
                 <li><a href='#features-drawers'>Configurable Drawer Components</a></li>
               </ul>
 
@@ -280,6 +285,7 @@
             <h3>Display</h3>
           </div>
 
+          <a name="features-display-fullscreen"></a>
           <div class="title">
             <h4>Fullscreen</h4>
           </div>
@@ -293,6 +299,7 @@
             </div>
           </div>
 
+          <a name="features-display-card"></a>
           <div class="title">
             <h4>Card</h4>
           </div>
@@ -345,6 +352,28 @@
   }
 }
               </code></pre>
+            </div>
+          </div>
+
+          <a name="features-display-webvr"></a>
+          <div class="title">
+            <h4>WebVR</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3 col-xs-12">
+              <p><em>WebVR</em> display allows you to load your Parasol in virtual reality, it supports most VR headsets.</p>
+              <pre><code class="language-js">
+{...
+  "ui": {
+    "mode": "webvr"
+  }
+}
+              </code></pre>
+              <p><a href="webvr/" class="btn btn-primary">Demo</a></p>
+            </div>
+            <div class="col-sm-9 col-xs-12">
+              <img style='width:100%' class='img-raised' src="assets/img/screenshots/vr_ui_mode.png"/>
             </div>
           </div>
 

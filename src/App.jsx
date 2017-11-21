@@ -9,6 +9,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import Fullscreen from './DisplayMode/Fullscreen';
 import Card from './DisplayMode/Card';
+import VRScene from './DisplayMode/VR/VRScene';
 
 @observer
 export default class App extends Component {
@@ -22,10 +23,16 @@ export default class App extends Component {
     if(appState.ui.muiTheme && appState.ui.muiTheme == 'dark')
       muiTheme = darkBaseTheme;
 
-    let elements = <Fullscreen appState={appState}/>
+    let elements = null;
     switch(appState.ui.mode) {
       case 'card':
         elements = <Card appState={appState}/>
+        break;
+      case 'webvr':
+        return <VRScene appState={appState}/>
+      case 'fullscreen':
+      default:
+        elements = <Fullscreen appState={appState}/>;
         break;
     }
 

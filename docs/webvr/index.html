@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Parasol</title>
+    <style type="text/css">
+      body{margin:0;}
+      .rc-slider-tooltip{z-index:1400;}
+    </style>
+  </head>
+  <body>
+    <div
+      class="parasol"
+      data-settings='{
+        "networks": [
+          {
+            "url": "data/les-miserables.json",
+            "name": "Les Miserables",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "json",
+                "options": {
+                  "limitEdgeCount": 500
+                }
+              }
+            }
+          }
+        ],
+        "ui": {
+          "mode": "webvr"
+        }
+      }'
+    />
+    <script type="text/javascript" src="/assets/js/parasol.js"></script></body>
+  </body>
+</html>
