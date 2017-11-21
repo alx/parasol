@@ -305,10 +305,28 @@
           </div>
 
           <div class="row">
-            <div class="col-sm-3 col-xs-12">
+            <div class="col-sm-4 col-xs-12">
               <p><em>Card</em> display is and embeddable Parasol component that can be used in a webpage to present your graph before to jump in more complex exploration.</p>
+              <pre><code class="language-js">
+{...
+  "ui": {
+    "mode": "card",
+    "cardActions": [
+      {
+        "type": "link",
+        "label": "Les Miserables on Gutenberg",
+        "href": "https://www.gutenberg.org/files/135/135-h/135-h.htm"
+      },
+      {
+        "type":  "link",
+        "label": "les-miserables.json",
+        "href":  "assets/data/les-miserables.json"
+      }
+  }
+}
+              </code></pre>
             </div>
-            <div class="col-sm-9 col-xs-12">
+            <div class="col-sm-8 col-xs-12">
               <div
                 class="parasol"
                 data-settings='{
@@ -334,24 +352,6 @@
                   }
                 }'
               ></div>
-              <pre><code class="language-js">
-{...
-  "ui": {
-    "mode": "card",
-    "cardActions": [
-      {
-        "type": "link",
-        "label": "Les Miserables on Gutenberg",
-        "href": "https://www.gutenberg.org/files/135/135-h/135-h.htm"
-      },
-      {
-        "type":  "link",
-        "label": "les-miserables.json",
-        "href":  "assets/data/les-miserables.json"
-      }
-  }
-}
-              </code></pre>
             </div>
           </div>
 
