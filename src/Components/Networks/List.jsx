@@ -110,8 +110,6 @@ export default class NetworkList extends React.Component {
         onClick={this._downloadSelectedNetwork}/>
     </div>);
 
-    console.log(appState.networks.length);
-
     return <SelectableList key={`networklist-${appState.refreshNetwork}`} defaultValue={appState.selectedNetworkIndex}>
       { appState.networks.map( (network, index) => {
         const selectedItem = index == appState.selectedNetworkIndex;

@@ -6,6 +6,7 @@ import LoaderJson from './Loaders/Json';
 import LoaderLdaJson from './Loaders/LdaJson';
 import LoaderLombardi from './Loaders/Lombardi';
 import LoaderJsonFeed from './Loaders/JsonFeed';
+import LoaderWeb3 from './Loaders/Web3';
 
 import FileSaver from 'file-saver';
 
@@ -15,6 +16,7 @@ const LOADERS = {
   lombardi: LoaderLombardi,
   jsonfeed: LoaderJsonFeed,
   ldajson: LoaderLdaJson,
+  web3: LoaderWeb3,
 };
 
 class AppState {

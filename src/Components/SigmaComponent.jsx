@@ -99,7 +99,7 @@ export default class SigmaComponent extends Component {
     }
 
     return (<div
-      key={appState.graph.refresh}
+      key={graph.refresh}
       style={{backgroundColor: backgroundColor}}
     >
       <Sigma

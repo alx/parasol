@@ -13,38 +13,17 @@
         "networks": [
           {
             "url": "data/les-miserables.json",
-            "name": "Les Miserables",
+            "name": "Ethereum",
             "options": {
               "layout": "forcelink",
               "loader": {
-                "name": "json",
-                "options": {
-                  "limitEdgeCount": 500
-                }
+                "name": "web3",
               }
             }
           }
         ],
         "ui": {
-          "mode": "webvr",
-          "muiTheme": "dark",
-          "componentOptions": {
-            "nodeSize": {
-              "yScale": "log"
-            },
-            "edgeWeight": {
-              "yScale": "log"
-            },
-            "selectedNode": {
-              "content": [
-                {"field": "id", "label": "identifiant"},
-                {"field": "size", "label": "montant"},
-                {"field": "metadata.category", "label": "Catégorie"},
-                {"field": "metadata.sub_category", "label": "Sous-catégorie"},
-                {"field": "metadata.label", "label": "Désignation"}
-              ]
-            }
-          }
+          "muiTheme": "dark"
         }
       }'
     />
