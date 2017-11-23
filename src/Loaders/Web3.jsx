@@ -32,43 +32,43 @@ export default class Web3 {
   network = null;
   options = null;
 
+  eth = new Eth(window.web3.currentProvider);
+  blockTracker = new BlockTracker({
+    provider: window.web3.currentProvider
+  });
+
   constructor(network, muiTheme, options) {
-    this.eth = new Eth(window.web3.currentProvider);
-    const provider = window.web3.currentProvider;
-    this.blockTracker = new BlockTracker({ provider });
     this.network = network;
-    this.muiTheme = muiTheme;
     this.options = options;
-    this._sizeOrCreateNode = this._sizeOrCreateNode.bind(this);
   }
 
-  sizeOrCreateAddressNode(graph, node_id) {
-    let node = graph.nodes.find(n => n.id == node_id);
-    this.eth.getBalance(node_id, function(error, result) {
-      if(node) {
-          node.size = result.toNumber();
-      } else {
-        graph.nodes.push({
-          id: node_id,
-          size: result.toNumber(),
-          x: Math.random(),
-          y: Math.random(),
-          color: COLORS.nodes['address'],
-          metadata: {
-            category: category
-          }
-        });
-      }
-    });
+  _initGraph() {
+    let graph = this.network.get('graph');
+    if(!graph) {
+      graph = {nodes: [], edges: []};
+    }
+    this.network.set('source_graph', graph);
+    this.network.set('graph', graph);
   }
 
-  _sizeOrCreateNode(graph, node_id, category, increment = 1) {
-    ////console.log('add node ' + category + '-' + increment);
-    //console.log(node_id);
+  _refreshGraph() {
+    let graph = this.network.get('graph');
+    graph.refresh = Math.random();
+    this.network.set('source_graph', graph);
+    this.network.set('graph', graph);
+  }
+
+  _sizeOrCreateNode(node_id, category, increment = 1) {
+
+    if(!node_id || node_id.length == 0)
+      return null;
+
+    let graph = this.network.get('graph');
     let node = graph.nodes.find(n => n.id == node_id);
     if(node) {
-      node.size +=increment;
+      node.size += increment;
     } else {
+      console.log(node_id + '-' + category);
       graph.nodes.push({
         id: node_id,
         size: 1,
@@ -80,127 +80,65 @@ export default class Web3 {
         }
       });
     }
+    this.network.set('source_graph', graph);
+    this.network.set('graph', graph);
+  }
+
+  _createEdge(content) {
+    let graph = this.network.get('graph');
+    if(graph.nodes.find(n => n.id == content.source) &&
+       graph.nodes.find(n => n.id == content.target)) {
+      graph.edges.push(Object.assign({},
+        {id: `e${graph.edges.length + 1}`},
+        content));
+    }
+    this.network.set('source_graph', graph);
+    this.network.set('graph', graph);
+  }
+
+
+  onBlock(block) {
+
+    this._sizeOrCreateNode(block.hash, 'block');
+    this._sizeOrCreateNode(block.parentHash, 'block');
+
+    this._createEdge({
+      source: block.hash,
+      target: block.parentHash,
+      type: 'block'
+    });
+
+    block.transactions.forEach(transaction => {
+
+      this._sizeOrCreateNode(transaction.hash, 'transaction');
+      this._createEdge({
+          source: block.hash,
+          target: transaction.hash,
+          type: 'transaction'
+      });
+
+      this._sizeOrCreateNode(transaction.from, 'address');
+      this._sizeOrCreateNode(transaction.to, 'address');
+      this._createEdge({
+        source: transaction.from,
+        target: transaction.hash,
+        type: 'transaction'
+      });
+      this._createEdge({
+        source: transaction.hash,
+        target: transaction.to,
+        type: 'transaction'
+      });
+    });
+
+    this._refreshGraph();
   }
 
   run(callback) {
-
-    const self = this;
-    const network = this.network;
-    let categories = [];
-    console.log('load');
-
-    let nodesToCreate = [];
-    let edgesToCreate = [];
-
-    this.blockTracker.on('block', (block) => {
-      let graph = self.network.get('graph');
-      if(!graph) {
-        graph = {nodes: [], edges: []};
-      }
-      let edgeCount = graph.edges.length;
-
-      self._sizeOrCreateNode(graph, block.hash, 'block');
-      self._sizeOrCreateNode(graph, block.parentHash, 'block');
-
-      graph.edges.push({
-        id: `e${edgeCount += 1}`,
-        source: block.hash,
-        target: block.parentHash,
-        type: 'block'
-      });
-      console.log(graph.nodes.length);
-      graph.refresh = Math.random();
-      self.network.set('source_graph', graph);
-      self.network.set('graph', graph);
-    });
+    console.log('run web3 loader');
+    this._initGraph();
+    this.blockTracker.on('block', this.onBlock.bind(this));
     this.blockTracker.start()
-
-    //const filter = new this.filters.Filter({ delay: 300 })
-    //.new({ toBlock: 500 })
-    //.then((result) => {
-    //  debugger;
-    //  // result <BigNumber ...> filterId
-    //})
-    //.catch((error) => {
-    //  debugger;
-    //  // result null
-    //});
-    //filter.watch((result) => {
-    //  console.log(result);
-    //  // result [{...}, ...] (fires multiple times)
-    //});
-    ////filter.uninstall(cb);
-
-
-    //this.eth.getBlock('latest', function(error, result) {
-    //  if(!error) {
-    //    let graph = network.get('graph');
-
-    //    if(!graph) {
-    //      graph = {nodes: [], edges: []};
-    //    }
-
-    //    let edgeCount = graph.edges.length;
-
-    //    self._sizeOrCreateNode(graph, result.hash, 'block');
-    //    self._sizeOrCreateNode(graph, result.parentHash, 'block');
-
-    //    graph.edges.push({
-    //      id: `e${edgeCount += 1}`,
-    //      source: result.hash,
-    //      target: result.parentHash,
-    //      type: 'block'
-    //    });
-
-    //    result.transactions.forEach(tHash => {
-
-    //      self._sizeOrCreateNode(graph, tHash, 'transaction');
-
-    //      graph.edges.push({
-    //        id: `e${edgeCount += 1}`,
-    //        source: result.hash,
-    //        target: result.tHash,
-    //        type: 'transaction'
-    //      });
-    //      //console.log(graph);
-
-    //      self.eth.getTransaction(tHash, function(error, result){
-    //        if(!error) {
-    //          self._sizeOrCreateNode(graph, tHash, 'transaction', result.value);
-    //          if(result.from) {
-    //            self._sizeOrCreateNode(graph, result.from, 'address');
-    //            graph.edges.push({
-    //              id: `e${edgeCount += 1}`,
-    //              source: tHash,
-    //              target: result.from,
-    //              type: 'transaction_from'
-    //            });
-    //          }
-    //          if(result.to) {
-    //            self._sizeOrCreateNode(graph, result.to, 'address');
-
-    //            graph.edges.push({
-    //              id: `e${edgeCount += 1}`,
-    //              source: tHash,
-    //              target: result.to,
-    //              type: 'transaction_to'
-    //            });
-    //          }
-
-    //          //console.log(graph);
-    //          network.set('graph', graph);
-
-    //        } else {
-    //          console.error('getTransaction error', error);
-    //        }
-    //      });
-    //    });
-
-    //  } else {
-    //    console.error('getBlock latest error', error);
-    //  }
-    //})
-
   }
 
 }
