@@ -17,9 +17,14 @@
             "options": {
               "layout": "forcelink",
               "loader": {
-                "name": "json",
+                "name": "neo4j",
                 "options": {
-                  "limitEdgeCount": 500
+                  "neo4j": {
+                    "db": "http://username:password@localhost:7474",
+                    "request": MATCH (m:Movie)<-[:ACTED_IN]-(a:Person)
+                    RETURN m.title AS movie, collect(a.name) AS cast",
+                    "limit": 100
+                  }
                 }
               }
             }

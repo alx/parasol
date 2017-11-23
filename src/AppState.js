@@ -1,11 +1,13 @@
 import { computed, observable, toJS } from 'mobx';
 import moment from 'moment';
 import color from 'tinycolor2';
+
 import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
 import LoaderLdaJson from './Loaders/LdaJson';
 import LoaderLombardi from './Loaders/Lombardi';
 import LoaderJsonFeed from './Loaders/JsonFeed';
+import LoaderNeo4j from './Loaders/Neo4j';
 
 import FileSaver from 'file-saver';
 
@@ -15,6 +17,7 @@ const LOADERS = {
   lombardi: LoaderLombardi,
   jsonfeed: LoaderJsonFeed,
   ldajson: LoaderLdaJson,
+  neo4j: LoaderNeo4j,
 };
 
 class AppState {
