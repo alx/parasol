@@ -263,7 +263,7 @@ class AppState {
       const nodeSizes = graph.nodes.map(node => node.size);
       graph.minNodeSize = Math.ceil(Math.min.apply(Array, nodeSizes));
       graph.maxNodeSize = Math.ceil(Math.max.apply(Array, nodeSizes));
-      graph.nodeSizeStep = (graph.maxNodeSize - graph.minNodeSize) / 100;
+      graph.nodeSizeStep = (graph.maxNodeSize - graph.minNodeSize) / 100.0;
 
       const edgeWeights = graph.edges.map(edge => edge.weight);
 
@@ -273,7 +273,7 @@ class AppState {
       const maxEdgeWeight = Math.max.apply(Array, edgeWeights);
       graph.maxEdgeWeight = maxEdgeWeight != -Infinity ? maxEdgeWeight : 0;
 
-      graph.edgeWeightStep = (graph.maxEdgeWeight - graph.minEdgeWeight) / 100;
+      graph.edgeWeightStep = (graph.maxEdgeWeight - graph.minEdgeWeight) / 100.0;
 
       network.set('source_graph', graph);
       this.graph.refresh = Math.random();

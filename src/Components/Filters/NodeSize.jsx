@@ -43,7 +43,13 @@ export default class NodeSize extends Component {
     const graph = network.get('source_graph');
 
     if(graph.nodes.length == 0 ||
-      graph.nodes.filter(n => n.size && n.size > 0).length == 0)
+       graph.nodes.filter(n => n.size && n.size > 0).length == 0 ||
+       graph.minNodeSize == Infinity ||
+       graph.maxNodeSize == -Infinity ||
+       graph.minNodeSize == graph.maxNodeSize ||
+       graph.nodeSizeStep == -Infinity ||
+       graph.nodeSizeStep == 0
+      )
       return null;
 
     const chartOptions = {
@@ -129,7 +135,7 @@ export default class NodeSize extends Component {
         options={chartOptions}
       />
       <Range
-        key={'nodeSize'}
+        key={'nodeSize-' + appState.graph.refresh }
         defaultValue={defaultValue}
         min={graph.minNodeSize}
         max={graph.maxNodeSize}

@@ -2,6 +2,8 @@ import async from 'async';
 import Eth from 'ethjs';
 import BlockTracker from 'eth-block-tracker';
 
+const BN = require('bn.js');
+
 import {
   green500,
   deepOrange500,
@@ -37,39 +39,71 @@ export default class Web3 {
     provider: window.web3.currentProvider
   });
 
+  graph = {
+    nodes: [],
+    edges: [],
+    refresh: Math.random()
+  }
+
   constructor(network, muiTheme, options) {
     this.network = network;
     this.options = options;
   }
 
   _initGraph() {
-    let graph = this.network.get('graph');
-    if(!graph) {
-      graph = {nodes: [], edges: []};
-    }
-    this.network.set('source_graph', graph);
-    this.network.set('graph', graph);
+    this.network.set('source_graph', this.graph);
+    this.network.set('graph', this.graph);
+    this.network.set('colors', [amber500, green500]);
+    this.network.set('categories', [
+      {name: 'transaction', color: amber500},
+      {name: 'address', color: green500},
+    ]);
   }
 
   _refreshGraph() {
-    let graph = this.network.get('graph');
-    graph.refresh = Math.random();
-    this.network.set('source_graph', graph);
-    this.network.set('graph', graph);
+    this.graph.refresh = Math.random();
+
+    if(this.options.nodeLimit && this.graph.nodes.length > this.options.nodeLimit) {
+      this.graph.nodes = this.graph.nodes
+        .sort((a, b) => b.size - a.size)
+        .slice(0, this.options.nodeLimit);
+      this.graph.edges = this.graph.edges
+        .filter(e => {
+          return this.graph.nodes.includes(e.source) &&
+            this.graph.nodes.includes(e.target);
+        });
+    }
+
+    if(this.graph.nodes.length > 0) {
+      const nodeSizes = this.graph.nodes.map(node => node.size);
+      this.graph.minNodeSize = Math.ceil(Math.min.apply(Array, nodeSizes));
+      this.graph.maxNodeSize = Math.ceil(Math.max.apply(Array, nodeSizes));
+      this.graph.nodeSizeStep = (this.graph.maxNodeSize - this.graph.minNodeSize) / 100.0;
+    }
+
+    if(this.graph.edges.length > 0) {
+      const edgeWeights = this.graph.edges.map(edge => edge.weight);
+      const minEdgeWeight = Math.min.apply(Array, edgeWeights);
+      this.graph.minEdgeWeight = minEdgeWeight != Infinity ? minEdgeWeight : 0;
+      const maxEdgeWeight = Math.max.apply(Array, edgeWeights);
+      this.graph.maxEdgeWeight = maxEdgeWeight != -Infinity ? maxEdgeWeight : 0;
+      this.graph.edgeWeightStep = (this.graph.maxEdgeWeight - this.graph.minEdgeWeight) / 100.0;
+    }
+
+    this.network.set('source_graph', this.graph);
+    this.network.set('graph', this.graph);
   }
 
-  _sizeOrCreateNode(node_id, category, increment = 1) {
+  _createNode(node_id, category, increment = 1) {
 
     if(!node_id || node_id.length == 0)
       return null;
 
-    let graph = this.network.get('graph');
-    let node = graph.nodes.find(n => n.id == node_id);
+    let node = this.graph.nodes.find(n => n.id == node_id);
     if(node) {
       node.size += increment;
     } else {
-      console.log(node_id + '-' + category);
-      graph.nodes.push({
+      this.graph.nodes.push({
         id: node_id,
         size: 1,
         x: Math.random(),
@@ -80,45 +114,40 @@ export default class Web3 {
         }
       });
     }
-    this.network.set('source_graph', graph);
-    this.network.set('graph', graph);
   }
 
   _createEdge(content) {
-    let graph = this.network.get('graph');
-    if(graph.nodes.find(n => n.id == content.source) &&
-       graph.nodes.find(n => n.id == content.target)) {
-      graph.edges.push(Object.assign({},
-        {id: `e${graph.edges.length + 1}`},
+    if(this.graph.nodes.find(n => n.id == content.source) &&
+       this.graph.nodes.find(n => n.id == content.target)) {
+      this.graph.edges.push(Object.assign({},
+        {id: `e${this.graph.edges.length + 1}`},
         content));
     }
-    this.network.set('source_graph', graph);
-    this.network.set('graph', graph);
   }
 
 
   onBlock(block) {
 
-    this._sizeOrCreateNode(block.hash, 'block');
-    this._sizeOrCreateNode(block.parentHash, 'block');
+    //this._createNode(block.hash, 'block');
+    //this._createNode(block.parentHash, 'block');
 
-    this._createEdge({
-      source: block.hash,
-      target: block.parentHash,
-      type: 'block'
-    });
+    //this._createEdge({
+    //  source: block.hash,
+    //  target: block.parentHash,
+    //  type: 'block',
+    //  hidden: true
+    //});
 
     block.transactions.forEach(transaction => {
+      this._createNode(transaction.hash, 'transaction');
+      this._createNode(transaction.from, 'address');
+      this._createNode(transaction.to, 'address');
 
-      this._sizeOrCreateNode(transaction.hash, 'transaction');
-      this._createEdge({
-          source: block.hash,
-          target: transaction.hash,
-          type: 'transaction'
-      });
-
-      this._sizeOrCreateNode(transaction.from, 'address');
-      this._sizeOrCreateNode(transaction.to, 'address');
+      //this._createEdge({
+      //    source: block.hash,
+      //    target: transaction.hash,
+      //    type: 'transaction'
+      //});
       this._createEdge({
         source: transaction.from,
         target: transaction.hash,
@@ -135,10 +164,11 @@ export default class Web3 {
   }
 
   run(callback) {
-    console.log('run web3 loader');
     this._initGraph();
     this.blockTracker.on('block', this.onBlock.bind(this));
     this.blockTracker.start()
+    if(typeof(callback) != 'undefined')
+      callback(this.network);
   }
 
 }

@@ -12,19 +12,18 @@
       data-settings='{
         "networks": [
           {
-            "url": "data/les-miserables.json",
             "name": "Ethereum",
             "options": {
               "layout": "forcelink",
               "loader": {
                 "name": "web3",
+                "options": {
+                  "nodeLimit": 10000
+                }
               }
             }
           }
-        ],
-        "ui": {
-          "muiTheme": "dark"
-        }
+        ]
       }'
     />
   </body>
