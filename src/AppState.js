@@ -22,6 +22,7 @@ const LOADERS = {
 class AppState {
 
   @observable networks = [];
+  @observable currentLoader = null;
   @observable selectedNetworkIndex = 0;
   @observable refreshNetwork = Math.random();
 
@@ -66,6 +67,7 @@ class AppState {
           {name: 'Divider'},
           {name: 'ShowSelected'},
           {name: 'SelectedNode'},
+          {name: 'SelectedNodes'},
           {name: 'Divider'},
           {name: 'NeighborNodes'}
         ]
@@ -214,12 +216,12 @@ class AppState {
     const networkLoader = network.get('options').loader;
 
     try {
-      const loader = new LOADERS[networkLoader.name](
+      this.currentLoader = new LOADERS[networkLoader.name](
         network,
         this.ui.muiTheme,
         networkLoader.options
       );
-      loader.run(callback);
+      this.currentLoader.run(callback);
     } catch (e) {
       network.set('status', 'Error with network loader');
     }
@@ -237,7 +239,9 @@ class AppState {
       status: 'initializing...',
     });
 
-    if (typeof(this.networks.find(n => n.get('url') == network.get('url'))) != 'undefined') {
+    if (typeof(_network.url) != 'undefined' &&
+        typeof(this.networks.find(n => n.get('url') == network.get('url'))) != 'undefined')
+    {
       return false;
     }
 
@@ -248,6 +252,7 @@ class AppState {
   }
 
   selectNetwork(network_index) {
+    console.log('select network');
 
     this.clearSelectedNetwork();
 
@@ -256,6 +261,8 @@ class AppState {
     this.ui.filters.nodeSize = 0;
     this.ui.filters.edgeWeight = 0;
     this.ui.filters.categories = [];
+
+    this.ui = Object.assign({}, this.ui, network.get('options').ui);
 
     if (network.has('source_graph')) {
       const graph = network.get('source_graph');
@@ -437,6 +444,33 @@ class AppState {
         node.label = node.metadata.label;
       }
     });
+  }
+
+  saveSelection() {
+
+    let network = toJS(this.networks[0]);
+
+    network.name = this.graph.selectedNodes
+      .map(selection => '#' + selection.node.metadata.number)
+      .join(' - ');
+
+    network.options.ui = {
+      componentOptions: {
+        selectedNodes: {disable: true},
+        selectedNode: {},
+      }
+    };
+
+    network.options.loader.options.blocks = this.graph.selectedNodes
+      .map(selection => selection.node.metadata.number);
+
+    this.currentLoader.stop();
+
+    this.initNetwork(network, () => {
+      this.selectNetwork(this.networks.length - 1);
+      this.refreshNetwork = Math.random();
+    });
+
   }
 
   removeNodeFromSelection(node_id) {

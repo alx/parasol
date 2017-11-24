@@ -28,8 +28,12 @@ export default class SelectedNode extends Component {
 
     let componentOptions = null;
     if(appState.ui.componentOptions &&
-      appState.ui.componentOptions.selectedNode)
+      appState.ui.componentOptions.selectedNode) {
       componentOptions = appState.ui.componentOptions.selectedNode;
+
+      if(componentOptions.disable)
+        return null;
+    }
 
     const styles = {
       nestedList: {

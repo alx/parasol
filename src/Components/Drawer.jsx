@@ -16,6 +16,7 @@ import TopicSelector from './Filters/TopicSelector';
 import NetworkInput from './Networks/Input';
 import NetworkList from './Networks/List';
 import SelectedNode from './Networks/SelectedNode';
+import SelectedNodes from './Networks/SelectedNodes';
 import NeighborNodes from './Networks/NeighborNodes';
 
 import Drawer from 'material-ui/Drawer';

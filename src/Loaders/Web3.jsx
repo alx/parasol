@@ -1,4 +1,3 @@
-import async from 'async';
 import Eth from 'ethjs';
 import BlockTracker from 'eth-block-tracker';
 
@@ -53,14 +52,19 @@ export default class Web3 {
   _initGraph() {
     this.network.set('source_graph', this.graph);
     this.network.set('graph', this.graph);
-    this.network.set('colors', [amber500, green500]);
-    this.network.set('categories', [
-      {name: 'transaction', color: amber500},
-      {name: 'address', color: green500},
-    ]);
   }
 
   _refreshGraph() {
+
+    const current_nodes = this.network.get('graph').nodes;
+    this.graph.nodes.forEach(node => {
+      const current_node = current_nodes.find(n => n.id == node.id);
+      if(current_node) {
+        node.x = current_node.x;
+        node.y = current_node.y;
+      }
+    });
+
     this.graph.refresh = Math.random();
 
     if(this.options.nodeLimit && this.graph.nodes.length > this.options.nodeLimit) {
@@ -94,7 +98,7 @@ export default class Web3 {
     this.network.set('graph', this.graph);
   }
 
-  _createNode(node_id, category, increment = 1) {
+  _createNode(node_id, metadata, increment = 1) {
 
     if(!node_id || node_id.length == 0)
       return null;
@@ -105,13 +109,11 @@ export default class Web3 {
     } else {
       this.graph.nodes.push({
         id: node_id,
-        size: 1,
+        size: increment,
         x: Math.random(),
         y: Math.random(),
-        color: COLORS.nodes[category],
-        metadata: {
-          category: category
-        }
+        color: COLORS.nodes[metadata.category],
+        metadata: metadata,
       });
     }
   }
@@ -127,9 +129,19 @@ export default class Web3 {
 
 
   onBlock(block) {
+    const block_number = parseInt(new BN(block.number.replace('0x', ''), 16).toString(10))
+    this._createNode(block.hash, {category: 'block', number: block_number}, block.transactions.length);
+    this._createNode(block.parentHash, {category: 'block'});
+    this._createEdge({
+      source: block.parentHash,
+      target: block.hash,
+      type: 'block'
+    });
+    this._refreshGraph();
+  }
 
-    //this._createNode(block.hash, 'block');
-    //this._createNode(block.parentHash, 'block');
+    //this._createNode(block.hash, {category: 'block'});
+    //this._createNode(block.parentHash, {category: 'block'});
 
     //this._createEdge({
     //  source: block.hash,
@@ -138,10 +150,12 @@ export default class Web3 {
     //  hidden: true
     //});
 
+  graphBlockTransaction(block) {
+
     block.transactions.forEach(transaction => {
-      this._createNode(transaction.hash, 'transaction');
-      this._createNode(transaction.from, 'address');
-      this._createNode(transaction.to, 'address');
+      this._createNode(transaction.hash, {category: 'transaction'});
+      this._createNode(transaction.from, {category: 'address'});
+      this._createNode(transaction.to, {category: 'address'});
 
       //this._createEdge({
       //    source: block.hash,
@@ -164,11 +178,31 @@ export default class Web3 {
   }
 
   run(callback) {
+
     this._initGraph();
-    this.blockTracker.on('block', this.onBlock.bind(this));
-    this.blockTracker.start()
+
+    if(this.options.blocks && this.options.blocks.length > 0) {
+      this.network.set('categories', [
+        {name: 'transaction', color: amber500},
+        {name: 'address', color: green500},
+      ]);
+      this.options.blocks.forEach( blockNumber => {
+        this.eth.getBlockByNumber(blockNumber, true)
+          .then(this.graphBlockTransaction.bind(this));
+      });
+    } else {
+      this.network.set('categories', [
+        {name: 'block', color: cyan500},
+      ]);
+      this.blockTracker.on('block', this.onBlock.bind(this));
+      this.blockTracker.start()
+    }
     if(typeof(callback) != 'undefined')
       callback(this.network);
+  }
+
+  stop() {
+    this.blockTracker.stop()
   }
 
 }

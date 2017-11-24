@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 
 import { List, ListItem } from 'material-ui/List';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import IconAdd from 'material-ui/svg-icons/content/add';
 import IconClear from 'material-ui/svg-icons/content/clear';
@@ -10,9 +11,16 @@ import IconDeleteSweep from 'material-ui/svg-icons/content/delete-sweep';
 import IconDelete from 'material-ui/svg-icons/action/delete';
 import IconRefresh from 'material-ui/svg-icons/navigation/refresh';
 import IconSave from 'material-ui/svg-icons/content/save';
+import IconOpen from 'material-ui/svg-icons/action/open-in-new';
 
 import NeighborNodes from './NeighborNodes';
 import axios from 'axios';
+
+Object.resolve = function(path, obj) {
+  return path.split('.').reduce(function(prev, curr) {
+    return prev ? prev[curr] : undefined
+  }, obj || self)
+}
 
 @observer
 export default class SelectedNodes extends Component {
@@ -20,10 +28,7 @@ export default class SelectedNodes extends Component {
   constructor(props) {
     super(props);
     this._removeNode = this._removeNode.bind(this);
-    this._removeSubnetwork = this._removeSubnetwork.bind(this);
     this._removeSelection = this._removeSelection.bind(this);
-    this._reorganizeSelection = this._reorganizeSelection.bind(this);
-    this._createMeta = this._createMeta.bind(this);
     this._saveSelection = this._saveSelection.bind(this);
   }
 
@@ -33,29 +38,8 @@ export default class SelectedNodes extends Component {
     return true;
   }
 
-  _removeSubnetwork = (node_id) => {
-    let token = document.getElementsByName('csrf-token')[0].getAttribute('content');
-    axios.defaults.headers.common['X-CSRF-Token'] = token;
-    axios.defaults.headers.common['Accept'] = 'application/json';
-    axios.delete('/toolings/'+node_id).then(response => {
-    console.log ("subnetwork deleted")
-    });
-    this.props.appState.removeSubnetworkFromGraph(node_id);
-    return true;
-  }
-
   _removeSelection = (node_id) => {
     this.props.appState.removeNodeFromSelection(node_id);
-    return true;
-  }
-
-  _reorganizeSelection = () => {
-    this.props.appState.reorganizeSelection();
-    return true;
-  }
-
-  _createMeta = () => {
-    this.props.appState.createMeta();
     return true;
   }
 
@@ -64,10 +48,14 @@ export default class SelectedNodes extends Component {
     return true;
   }
 
-  nodeItem(selection, index) {
+  nodeItem(selection, index, options = {}) {
 
     const node = selection.node;
-    const neighborNodes = selection.neighborNodes;
+
+    let nestedItems = [];
+    if(options.showNeighbor) {
+      nestedItems.push(<NeighborNodes nodes={selection.neighborNodes}/>);
+    }
 
     const styles = {
       container: {
@@ -83,26 +71,75 @@ export default class SelectedNodes extends Component {
       }
     }
 
-    const selectedNodeIcons = (<div style={styles.container}>
+    let icons = [
       <IconClear
+        key={`removeSelection`}
         style={styles.icon}
-        onTouchTap={this._removeSelection.bind(this, node.id)}/>
+        onClick={this._removeSelection.bind(this, node.id)}/>,
+          /**
       <IconDelete
         style={styles.icon}
-        onTouchTap={this._removeNode.bind(this, node.id)}/>
-      <IconDeleteSweep
+        onClick={this._removeNode.bind(this, node.id)}/>
+      */
+    ]
+
+    if(options.iconUrl) {
+      const href = Object.resolve(options.iconUrl.hrefKey, node);
+      const url = options.iconUrl.hrefPrefix + href;
+      icons.unshift(<IconOpen
+        key={`openItem`}
         style={styles.icon}
-        onTouchTap={this._removeSubnetwork.bind(this, node.id)}/>
+        onClick={() => {
+          const win = window.open(url, '_blank');
+          win.focus();
+        }}/>);
+    }
+
+    const selectedNodeIcons = (<div style={styles.container}>
+      {icons}
     </div>);
+
+    let primaryText = node.label || node.id;
+    if(options.itemPrimary) {
+      switch(options.itemPrimary.type) {
+        case 'text':
+          primaryText = options.itemPrimary.value;
+          break;
+        case 'attr':
+          primaryText = Object.resolve(options.itemPrimary.key, node);
+          break;
+      }
+      if(options.itemPrimary.prependText)
+        primaryText = options.itemPrimary.prependText + primaryText;
+      if(options.itemPrimary.appendText)
+        primaryText += options.itemPrimary.appendText;
+    }
+
+    let secondaryText = node.size;
+    if(options.itemSecondary) {
+      switch(options.itemSecondary.type) {
+        case 'text':
+          secondaryText = options.itemSecondary.value;
+          break;
+        case 'attr':
+          secondaryText = Object.resolve(options.itemSecondary.key, node);
+          break;
+      }
+      if(options.itemSecondary.prependText)
+        secondaryText = options.itemSecondary.prependText + primaryText;
+      if(options.itemSecondary.appendText)
+        secondaryText += options.itemSecondary.appendText;
+    }
+
 
     return (<ListItem
       key={index}
-      primaryText={node.label || node.id}
-      secondaryText={node.author}
+      primaryText={primaryText}
+      secondaryText={secondaryText}
       rightIcon={selectedNodeIcons}
       primaryTogglesNestedList={true}
       initiallyOpen={false}
-      nestedItems={[<NeighborNodes nodes={neighborNodes}/>]}
+      nestedItems={nestedItems}
     />);
   }
 
@@ -113,44 +150,34 @@ export default class SelectedNodes extends Component {
     if(appState.graph.selectedNodes.length == 0)
       return null;
 
+    let componentOptions = null;
+    if(appState.ui.componentOptions &&
+      appState.ui.componentOptions.selectedNodes) {
+      componentOptions = appState.ui.componentOptions.selectedNodes;
+
+      if(componentOptions.disable)
+        return null;
+    }
+
     const selectedNodes = appState.graph.selectedNodes;
 
     let buttons = [];
     if(selectedNodes.length >= 2) {
-      buttons.push(<FloatingActionButton
-        mini={true}
-        onTouchTap={this._createMeta}
-        style={{marginRight: 10}}
-      >
-        <IconAdd />
-      </FloatingActionButton>);
-    }
-
-    if(selectedNodes.length >= 1) {
-      buttons.push(<FloatingActionButton
-        mini={true}
+      buttons.push(<RaisedButton
+        key={`createNetwork`}
+        label="Network"
         secondary={true}
-        onTouchTap={this._reorganizeSelection}
+        onClick={this._saveSelection}
         style={{marginRight: 10}}
-      >
-        <IconRefresh />
-      </FloatingActionButton>);
-
-      buttons.push(<FloatingActionButton
-        mini={true}
-        secondary={true}
-        onTouchTap={this._reorganizeSelection}
-        style={{marginRight: 10}}
-      >
-        <IconSave />
-      </FloatingActionButton>);
+        icon={<IconAdd />}
+      />);
     }
 
     return (<List>
       <ListItem disabled={true}>{buttons}</ListItem>
       {
         selectedNodes.map((selection, index) => {
-          return this.nodeItem(selection, index)
+          return this.nodeItem(selection, index, componentOptions)
         })
       }
     </List>);
