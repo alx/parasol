@@ -223,6 +223,7 @@ class AppState {
       );
       this.currentLoader.run(callback);
     } catch (e) {
+      console.log(e);
       network.set('status', 'Error with network loader');
     }
 

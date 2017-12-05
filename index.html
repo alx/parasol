@@ -12,6 +12,26 @@
       data-settings='{
         "networks": [
           {
+            "name": "Alx Wallet",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "web3",
+                "options": {
+                  "nodeLimit": 10000,
+                  "wallets": ["0x3891e1ACE804676b835f1CC24fa88993B0465561"]
+                }
+              },
+              "ui": {
+                "componentOptions": {
+                  "selectedNodes": {"disable":true},
+                  "selectedNode": {
+                  }
+                }
+              }
+            }
+          },
+          {
             "name": "Ethereum Blockchain",
             "options": {
               "layout": "forcelink",

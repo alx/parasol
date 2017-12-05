@@ -1,5 +1,7 @@
 import Eth from 'ethjs';
+import EthQuery from 'ethjs-query';
 import BlockTracker from 'eth-block-tracker';
+import EthFilter from 'ethjs-filter';
 
 const BN = require('bn.js');
 
@@ -37,6 +39,8 @@ export default class Web3 {
   blockTracker = new BlockTracker({
     provider: window.web3.currentProvider
   });
+  ethQuery = new EthQuery(window.web3.currentProvider);
+  filters = new EthFilter(this.ethQuery);
 
   graph = {
     nodes: [],
@@ -177,26 +181,57 @@ export default class Web3 {
     this._refreshGraph();
   }
 
+  graphWalletTransaction(transaction) {
+    console.log(transaction);
+    this._refreshGraph();
+  }
+
   run(callback) {
 
     this._initGraph();
 
-    if(this.options.blocks && this.options.blocks.length > 0) {
-      this.network.set('categories', [
-        {name: 'transaction', color: amber500},
-        {name: 'address', color: green500},
-      ]);
-      this.options.blocks.forEach( blockNumber => {
-        this.eth.getBlockByNumber(blockNumber, true)
-          .then(this.graphBlockTransaction.bind(this));
-      });
-    } else {
-      this.network.set('categories', [
-        {name: 'block', color: cyan500},
-      ]);
-      this.blockTracker.on('block', this.onBlock.bind(this));
-      this.blockTracker.start()
+    let mode = "blockstream";
+
+    if(this.options.blocks && this.options.blocks.length > 0)
+      mode = "transactionMerge";
+
+    if(this.options.wallets && this.options.wallets.length > 0)
+      mode = "walletMerge";
+
+    switch(mode) {
+      case "walletMerge":
+        console.log('walletmerge');
+        const filter = new this.filters.Filter({ delay: 300 })
+        //.new({ address: "0xe812a332eee4f70268062bb28e19ccdf5a649b4a" })
+          .new({ toBlock: 500 })
+          .then((result) => {
+            console.log('filter ', result)
+          })
+          .catch((error) => {
+            console.log('error ', error);
+          });
+          filter.watch(this.graphWalletTransaction.bind(this));
+        break;
+      case "transactionMerge":
+        this.network.set('categories', [
+          {name: 'transaction', color: amber500},
+          {name: 'address', color: green500},
+        ]);
+        this.options.blocks.forEach( blockNumber => {
+          this.eth.getBlockByNumber(blockNumber, true)
+            .then(this.graphBlockTransaction.bind(this));
+        });
+        break;
+      case "blockstream":
+      default:
+        this.network.set('categories', [
+          {name: 'block', color: cyan500},
+        ]);
+        this.blockTracker.on('block', this.onBlock.bind(this));
+        this.blockTracker.start()
+        break;
     }
+
     if(typeof(callback) != 'undefined')
       callback(this.network);
   }
