@@ -12,44 +12,12 @@
       data-settings='{
         "networks": [
           {
-            "name": "Ethereum Blockchain",
+            "url": "data/dotfile.dot",
+            "name": "Dotfile",
             "options": {
               "layout": "forcelink",
               "loader": {
-                "name": "web3",
-                "options": {
-                  "nodeLimit": 10000
-                }
-              },
-              "ui": {
-                "componentOptions": {
-                  "selectedNode": {"disable":true},
-                  "selectedNodes": {
-                    "itemPrimary": {"type": "attr", "key": "metadata.number", "prependText": "Block #"},
-                    "itemSecondary": {"type": "attr", "key": "size", "appendText" : " transactions"},
-                    "iconUrl": {"hrefKey": "metadata.number", "hrefPrefix": "https://etherscan.io/block/"}
-                  }
-                }
-              }
-            }
-          },
-          {
-            "name": "#4613993 - #4613994",
-            "options": {
-              "layout": "forcelink",
-              "loader": {
-                "name": "web3",
-                "options": {
-                  "nodeLimit": 10000,
-                  "blocks": [4613993,4613994]
-                }
-              },
-              "ui": {
-                "componentOptions": {
-                  "selectedNodes": {"disable":true},
-                  "selectedNode": {
-                  }
-                }
+                "name": "dotfile"
               }
             }
           }

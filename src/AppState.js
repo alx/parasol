@@ -1,12 +1,14 @@
 import { computed, observable, toJS } from 'mobx';
 import moment from 'moment';
 import color from 'tinycolor2';
+
 import LoaderTsne from './Loaders/Tsne';
 import LoaderJson from './Loaders/Json';
 import LoaderLdaJson from './Loaders/LdaJson';
 import LoaderLombardi from './Loaders/Lombardi';
 import LoaderJsonFeed from './Loaders/JsonFeed';
 import LoaderWeb3 from './Loaders/Web3';
+import LoaderDotfile from './Loaders/Dotfile';
 
 import FileSaver from 'file-saver';
 
@@ -17,6 +19,7 @@ const LOADERS = {
   jsonfeed: LoaderJsonFeed,
   ldajson: LoaderLdaJson,
   web3: LoaderWeb3,
+  dotfile: LoaderDotfile,
 };
 
 class AppState {

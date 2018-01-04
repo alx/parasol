@@ -101,6 +101,11 @@ export default class SelectedNode extends Component {
       )
     }
 
+    let leftAvatar = null;
+    if(node.color) {
+      leftAvatar = <Avatar backgroundColor={node.color.toString()} />;
+    }
+
     return (<div>
       <Subheader>
         Selected Node
@@ -109,7 +114,7 @@ export default class SelectedNode extends Component {
         <ListItem
           key='selectednode'
           primaryText={node.label || node.id}
-          leftAvatar={<Avatar backgroundColor={node.color.toString()} />}
+          leftAvatar={leftAvatar}
           primaryTogglesNestedList={true}
           initiallyOpen={nestedItems.length > 0}
           nestedListStyle={styles.nestedList}
