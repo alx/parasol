@@ -382,7 +382,7 @@ class AppState {
     (this.graph.selectedNodes.length > 0 && this.ui.filters.categories.length == 3)) {
       selectedGraph.nodes.forEach( node => {
         if(node.color == node.original_color && node.metadata && node.metadata.label) {
-          node.label = node.metadata.label;
+          node.label = node.metadata.label || node.label;
         }
       });
     }
@@ -431,7 +431,7 @@ class AppState {
             node.label = node.metadata.label;
           }
         } else {
-          node.label = null;
+          //node.label = null;
         }
       });
       selectedGraph.edges.forEach( edge => edge.color = edge.original_color );
@@ -550,7 +550,7 @@ class AppState {
 
     graph.nodes.forEach( node => {
       node.hidden = false;
-      node.label = null;
+      //node.label = null;
     });
     graph.edges.forEach( edge => edge.hidden = false);
 
