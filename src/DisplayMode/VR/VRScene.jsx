@@ -21,7 +21,7 @@ export default class VRScene extends React.Component {
     let graph = network.get('graph');
 
     return (
-      <Scene>
+      <Scene fog="type: exponential; color: #282828">
         {graph.nodes.filter(n => !n.hidden).map((n, index) => {
           return <NodeEntity
             key={`node-entity-${index}`}
@@ -34,7 +34,8 @@ export default class VRScene extends React.Component {
             key={`edge-entity-${index}`}
             edge={e}/>;
         })}
-        <Entity primitive='a-sky' color='#303030'/>
+        <Entity id="target" camera look-controls wasd-controls="acceleration: 700"/>
+        <Entity primitive='a-sky' color='#000'/>
       </Scene>
     );
   }
