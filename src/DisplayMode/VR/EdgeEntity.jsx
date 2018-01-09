@@ -25,9 +25,11 @@ export default class edgeEntity extends React.Component {
     const sourceZ = seed(edge.source.x + edge.source.y) * 100 - 150;
     const targetZ = seed(edge.target.x + edge.target.y) * 100 - 150;
 
-    const source = `${edge.source.x} ${edge.source.y} -150`;
-    const target = `${edge.target.x} ${edge.target.y} -150`;
-    
+    //const source = `${edge.source.x} ${edge.source.y} -150`;
+    //const target = `${edge.target.x} ${edge.target.y} -150`;
+    const source = `${edge.source.x} ${edge.source.y} ${sourceZ}`;
+    const target = `${edge.target.x} ${edge.target.y} ${targetZ}`;
+
     return (<Entity>
       <Entity
       meshline={{
@@ -38,8 +40,8 @@ export default class edgeEntity extends React.Component {
         <Entity
           key={`edge-anim-${edge.id}`}
           geometry={{
-            primitive: 'plane', 
-            width: 5, 
+            primitive: 'plane',
+            width: 5,
             height: 5
           }}
           material={{
@@ -52,15 +54,15 @@ export default class edgeEntity extends React.Component {
           }}
           look-at={{src: '#target'}}
           position={{
-            x: (edge.source.x + edge.target.x) / 2, 
-            y: (edge.source.y + edge.target.y) / 2, 
+            x: (edge.source.x + edge.target.x) / 2,
+            y: (edge.source.y + edge.target.y) / 2,
             z: -150
           }}>
-            <a-animation 
+            <a-animation
               easing='linear'
-              dur={time / edge.size} 
+              dur={time / edge.size}
               attribute='position'
-              from={source} to={target} 
+              from={source} to={target}
               repeat='indefinite'/>
         </Entity>
       </Entity>

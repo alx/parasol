@@ -24,9 +24,9 @@ export default class NodeEntity extends React.Component {
     return (<Entity
       key={`node-${node.id}`}
       geometry={{
-        primitive: 'plane', 
-        width: node.size / 1.5, 
-        height: node.size / 1.5 
+        primitive: 'plane',
+        width: node.size / 1.5,
+        height: node.size / 1.5
       }}
       material={{
         shader: 'smooth-circle',
@@ -35,12 +35,12 @@ export default class NodeEntity extends React.Component {
         color: node.color || 'red'
       }}
       look-at={{src: '#target'}}
-      position={{x: node.x, y: node.y, z: -150 + 0.5}} // (seed(node.x + node.y) * 100) - 150.0
+      position={{x: node.x, y: node.y, z: (seed(node.x + node.y) * 100) - 150.0}}
     >
       <Entity
         look-at={{src: '#target'}}
         position={{x: 40, y: 10, z: 0}}
-        text={{align: 'left', width: 100, value: node.label }} 
+        text={{align: 'left', width: 100, value: node.label }}
         wrap-count="10"/>
       </Entity>
     );
