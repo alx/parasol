@@ -34,7 +34,7 @@ export default class ParasolDrawer extends Component {
       key={drawer.id}
       open={drawer.open}
       openSecondary={drawer.openSecondary}
-      classname={`drawer-${drawer.id}`}
+      className={`drawer-${drawer.id}`}
     >
       {drawer.components.map( (component, index) => {
         switch(component.name) {
