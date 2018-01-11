@@ -37,7 +37,8 @@
     {
       "id": "e0",
       "source": "n0",
-      "target": "n1"
+      "target": "n1",
+      "color": "#FF0000"
     },
     {
       "id": "e1",

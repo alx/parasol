@@ -83,8 +83,11 @@ class Json {
       }
 
       if (json.edges) {
+
         json.edges.forEach(edge => {
-          edge.color = COLORS.edge[this.muiTheme];
+          if(!edge.color) {
+            edge.color = COLORS.edge[this.muiTheme];
+          }
         });
 
         if(this.options && this.options.minEdgeWeight) {
