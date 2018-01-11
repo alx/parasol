@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "aframe": "^0.7.1",
-    "aframe-meshline-component": "^0.2.0",
+    "aframe-meshline-component": "https://github.com/alx/aframe-meshline-component.git#unicode-fix",
     "aframe-react": "^4.3.0",
     "async": "^2.6.0",
     "axios": "^0.16.1",

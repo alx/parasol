@@ -160,6 +160,10 @@ aframe-meshline-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/aframe-meshline-component/-/aframe-meshline-component-0.2.0.tgz#9742d2631e579382f16da76f1279d55544b2314b"
 
+"aframe-meshline-component@https://github.com/alx/aframe-meshline-component.git#unicode-fix":
+  version "0.2.0"
+  resolved "https://github.com/alx/aframe-meshline-component.git#0adcd78682924ac2e18eac7a7a35ffbc8585d554"
+
 aframe-react@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/aframe-react/-/aframe-react-4.3.0.tgz#43eba68be4a1e88830aac404e90ac033945fbf54"
