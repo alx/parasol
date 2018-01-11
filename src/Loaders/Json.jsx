@@ -75,6 +75,8 @@ class Json {
             } else {
               node.color = COLORS.nodes[COLORS.nodes.length - 1];
             }
+          } else if(node.color && node.metadata.category) {
+            COLORS.nodes[categories.indexOf(node.metadata.category)] = node.color;
           }
         });
 
