@@ -101,8 +101,10 @@ export default class SigmaComponent extends Component {
     return (<div
       key={graph.refresh}
       style={{backgroundColor: backgroundColor}}
+      className='component-sigma'
     >
       <Sigma
+        className='component-sigma-renderer'
         renderer={ appState.ui.renderer }
         onClickNode={ this.selectNode }
         onClickStage={ this.selectStage }
