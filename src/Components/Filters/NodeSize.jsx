@@ -41,6 +41,7 @@ export default class NodeSize extends Component {
       return null;
 
     const graph = network.get('source_graph');
+    console.log(network.get('graph').refresh);
 
     if(graph.nodes.length == 0 ||
        graph.nodes.filter(n => n.size && n.size > 0).length == 0 ||
@@ -127,7 +128,7 @@ export default class NodeSize extends Component {
       defaultValue = [this.state.min, this.state.max];
     }
 
-    return (<div key={'filterNodeSize-' + appState.graph.refresh} style={{padding: 10}}>
+    return (<div key={'filterNodeSize-' + network.get("graph").refresh} style={{padding: 10}}>
       <p><span>Node Size</span></p>
       <Bar
         data={chartData}

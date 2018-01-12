@@ -252,8 +252,6 @@ class AppState {
   }
 
   selectNetwork(network_index) {
-    console.log('select network');
-
     this.clearSelectedNetwork();
 
     const network = this.networks[network_index];
