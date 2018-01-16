@@ -29,34 +29,6 @@ export default class edgeEntity extends React.Component {
     //const target = `${edge.target.x} ${edge.target.y} -150`;
     const source = `${edge.source.x} ${edge.source.y} ${sourceZ}`;
     const target = `${edge.target.x} ${edge.target.y} ${targetZ}`;
-    //        <Entity
-    //          key={`edge-anim-${edge.id}`}
-    //          geometry={{
-    //            primitive: 'plane',
-    //            width: 5,
-    //            height: 5
-    //          }}
-    //          material={{
-    //            shader: 'smooth-circle',
-    //            transparent: 'true',
-    //            depthTest: 'false',
-    //            color: 'white',
-    //            alpha: 0.2,
-    //            blur: 0.2
-    //          }}
-    //          look-at={{src: '#target'}}
-    //          position={{
-    //            x: (edge.source.x + edge.target.x) / 2,
-    //            y: (edge.source.y + edge.target.y) / 2,
-    //            z: -150
-    //          }}>
-    //            <a-animation
-    //              easing='linear'
-    //              dur={time / edge.size}
-    //              attribute='position'
-    //              from={source} to={target}
-    //              repeat='indefinite'/>
-    //        </Entity>
 
     return (<Entity>
       <Entity
@@ -65,6 +37,34 @@ export default class edgeEntity extends React.Component {
         path: [source, target].join(','),
         color: '#777'
       }}/>
+        <Entity
+          key={`edge-anim-${edge.id}`}
+          geometry={{
+            primitive: 'plane',
+            width: 5,
+            height: 5
+          }}
+          material={{
+            shader: 'smooth-circle',
+            transparent: 'true',
+            depthTest: 'false',
+            color: 'white',
+            alpha: 0.2,
+            blur: 0.2
+          }}
+          look-at={{src: '#target'}}
+          position={{
+            x: (edge.source.x + edge.target.x) / 2,
+            y: (edge.source.y + edge.target.y) / 2,
+            z: -150
+          }}>
+            <a-animation
+              easing='linear'
+              dur={time / edge.size}
+              attribute='position'
+              from={source} to={target}
+              repeat='indefinite'/>
+        </Entity>
       </Entity>
     );
   }
