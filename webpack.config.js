@@ -32,7 +32,7 @@ const plugins = [
     hash: '[hash]',
     debug: 'true',
     env: process.env.NODE_ENV,
-    template: path.join(__dirname, 'index.html'),
+    template: path.join(__dirname, 'docs/example.html'),
     filename: 'index.html',
   }),
   new AssetsPlugin({

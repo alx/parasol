@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "A network graph exploration tool",
   "scripts": {
-    "start": "cross-env NODE_ENV=local node server.js",
+    "start": "cross-env NODE_ENV=local node docs/server.js",
     "lint": "eslint src",
     "webpack": "webpack --colors --progress --bail",
     "build": "cross-env NODE_ENV=production npm run webpack",
