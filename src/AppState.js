@@ -92,7 +92,7 @@ class AppState {
     muiTheme: 'dark',
     mode: 'fullscreen',
     labels: {
-      labelThreshold: 1,
+      //labelThreshold: 10,
       labelSize: 'ratio',
       labelSizeRatio: 2,
       fontStyle: '500',
