@@ -108,6 +108,7 @@ export default class SigmaComponent extends Component {
         renderer={ appState.ui.renderer }
         onClickNode={ this.selectNode }
         onClickStage={ this.selectStage }
+        onOverNode={ this.selectNode }
         style={styles.sigma}
         settings={{
           drawEdges: true,
