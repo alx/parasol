@@ -270,15 +270,19 @@ class AppState {
       graph.maxNodeSize = Math.ceil(Math.max.apply(Array, nodeSizes));
       graph.nodeSizeStep = (graph.maxNodeSize - graph.minNodeSize) / 100.0;
 
-      const edgeWeights = graph.edges.map(edge => edge.weight);
+      const edgeWeights = graph.edges
+        .filter(e => e.weight != undefined )
+        .map(e => e.weight);
 
-      const minEdgeWeight = Math.min.apply(Array, edgeWeights);
-      graph.minEdgeWeight = minEdgeWeight != Infinity ? minEdgeWeight : 0;
+      if(edgeWeights.length > 0) {
+        const minEdgeWeight = Math.min.apply(Array, edgeWeights);
+        graph.minEdgeWeight = minEdgeWeight != Infinity ? minEdgeWeight : 0;
 
-      const maxEdgeWeight = Math.max.apply(Array, edgeWeights);
-      graph.maxEdgeWeight = maxEdgeWeight != -Infinity ? maxEdgeWeight : 0;
+        const maxEdgeWeight = Math.max.apply(Array, edgeWeights);
+        graph.maxEdgeWeight = maxEdgeWeight != -Infinity ? maxEdgeWeight : 0;
 
-      graph.edgeWeightStep = (graph.maxEdgeWeight - graph.minEdgeWeight) / 100.0;
+        graph.edgeWeightStep = (graph.maxEdgeWeight - graph.minEdgeWeight) / 100.0;
+      }
 
       network.set('source_graph', graph);
       this.graph.refresh = Math.random();
