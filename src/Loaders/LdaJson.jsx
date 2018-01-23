@@ -75,66 +75,116 @@ export default class LdaJson {
 
     const network = this.network;
     let categories = [];
+    let graph = {
+      nodes: [],
+      edges: []
+    };
+
+    let limitTokenCount = false;
+    if(this.options && this.options.limitTokenCount) {
+      limitTokenCount = this.options.limitTokenCount;
+    }
 
     fetch(network.get('url')).then(response => response.json()).then((json) => {
 
-      if (json.topics) {
-        network.set('topics', json.topics.map( (topic, index) => {
-          return {terms: topic, color: this.colorScheme[index]};
-        }));
-      }
+      if (json.mdsDat && json.mdsDat.topics && json.mdsDat.topics) {
+        json.mdsDat.topics.forEach( (topic, index) => {
+          let node = {
+            id: `n${index}`,
+            label: topic,
+            x: json.mdsDat.x[index],
+            y: json.mdsDat.y[index],
+            size: json.mdsDat.Freq[index],
+            metadata: {
+              cluster: json.mdsDat.cluster[index],
+              tokens: []
+            }
+          };
 
-      if (json.nodes) {
+          json["token.table"].Topic.forEach( (topic_index, token_index) => {
 
-        json.nodes.forEach(node => {
+            if(topic_index == index + 1) {
 
-          if(!node.x)
-            node.x = Math.random();
+              let token = {
+                term: json["token.table"].Term[token_index],
+                freq: json["token.table"].Freq[token_index]
+              };
 
-          if(!node.y)
-            node.y = Math.random();
+              node.metadata.tokens.push(token);
 
-          if(!node.size)
-            node.size = 1;
+            }
 
-          if(!node.metadata)
-            node.metadata = {label: '', 'document_length': node.size};
-
-          if(node.label)
-            node.metadata.label = node.label;
-
-          if(node.metadata.theta) {
-            const theta = node.metadata.theta
-            const indexOfMaxTheta = theta.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
-            node.color = this.colorScheme[indexOfMaxTheta];
-            node.size = theta[indexOfMaxTheta] * 100;
-          }
-        });
-
-      }
-
-      if (json.edges) {
-        json.edges.forEach(edge => {
-          edge.color = COLORS.edge[this.muiTheme];
-        });
-
-        if(this.options && this.options.minEdgeWeight) {
-          json.edges = json.edges.filter(edge => {
-            return edge.weight > this.options.minEdgeWeight
           });
-        }
 
-        if(this.options && this.options.limitEdgeCount) {
-          json.edges = json.edges.sort((a, b) => b.weight - a.weight).slice(0, this.options.limitEdgeCount);
-        }
+          node.metadata.tokens.sort((a, b) => b.freq - a.freq);
+
+          if(limitTokenCount) {
+            node.metadata.tokens.splice(limitTokenCount);
+          }
+
+          graph.nodes.push(node);
+        });
+      } else {
+        console.log("LdaJson loader issue: undefined or empty mdsDat topics");
       }
 
-      network.set('graph', json);
-      network.set('source_graph', json);
-      network.set('colors', COLORS);
-      network.set('categories', categories.map((category, index) => {
-        return {name: category, color: COLORS.nodes[index]};
-      }));
+      //if (json.topics) {
+      //  network.set('topics', json.topics.map( (topic, index) => {
+      //    return {terms: topic, color: this.colorScheme[index]};
+      //  }));
+      //}
+
+      //if (json.nodes) {
+
+      //  json.nodes.forEach(node => {
+
+      //    if(!node.x)
+      //      node.x = Math.random();
+
+      //    if(!node.y)
+      //      node.y = Math.random();
+
+      //    if(!node.size)
+      //      node.size = 1;
+
+      //    if(!node.metadata)
+      //      node.metadata = {label: '', 'document_length': node.size};
+
+      //    if(node.label)
+      //      node.metadata.label = node.label;
+
+      //    if(node.metadata.theta) {
+      //      const theta = node.metadata.theta
+      //      const indexOfMaxTheta = theta.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+      //      node.color = this.colorScheme[indexOfMaxTheta];
+      //      node.size = theta[indexOfMaxTheta] * 100;
+      //    }
+      //  });
+
+      //}
+
+      //if (json.edges) {
+      //  json.edges.forEach(edge => {
+      //    edge.color = COLORS.edge[this.muiTheme];
+      //  });
+
+      //  if(this.options && this.options.minEdgeWeight) {
+      //    json.edges = json.edges.filter(edge => {
+      //      return edge.weight > this.options.minEdgeWeight
+      //    });
+      //  }
+
+      //  if(this.options && this.options.limitEdgeCount) {
+      //    json.edges = json.edges.sort((a, b) => b.weight - a.weight).slice(0, this.options.limitEdgeCount);
+      //  }
+      //}
+
+      network.set('graph', graph);
+      network.set('source_graph', graph);
+      //network.set('colors', COLORS);
+      //network.set('categories', categories.map((category, index) => {
+      //  return {name: category, color: COLORS.nodes[index]};
+      //}));
 
       if(typeof(callback) != 'undefined')
         callback(network);

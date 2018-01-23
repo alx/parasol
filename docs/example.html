@@ -12,89 +12,23 @@
       data-settings='{
         "networks": [
           {
-            "name": "Alx Wallet",
+            "url": "/docs/assets/data/lda.json",
+            "name": "LDA for movie reviews",
             "options": {
               "layout": "forcelink",
               "loader": {
-                "name": "web3",
+                "name": "ldajson",
                 "options": {
-                  "nodeLimit": 10000,
-                  "wallets": ["0x3891e1ACE804676b835f1CC24fa88993B0465561"]
-                }
-              },
-              "ui": {
-                "componentOptions": {
-                  "selectedNodes": {"disable":true},
-                  "selectedNode": {
-                  }
-                }
-              }
-            }
-          },
-          {
-            "name": "Ethereum Blockchain",
-            "options": {
-              "layout": "forcelink",
-              "loader": {
-                "name": "web3",
-                "options": {
-                  "nodeLimit": 10000
-                }
-              },
-              "ui": {
-                "componentOptions": {
-                  "selectedNode": {"disable":true},
-                  "selectedNodes": {
-                    "itemPrimary": {"type": "attr", "key": "metadata.number", "prependText": "Block #"},
-                    "itemSecondary": {"type": "attr", "key": "size", "appendText" : " transactions"},
-                    "iconUrl": {"hrefKey": "metadata.number", "hrefPrefix": "https://etherscan.io/block/"}
-                  }
-                }
-              }
-            }
-          },
-          {
-            "name": "#4613993 - #4613994",
-            "options": {
-              "layout": "forcelink",
-              "loader": {
-                "name": "web3",
-                "options": {
-                  "nodeLimit": 10000,
-                  "blocks": [4613993,4613994]
-                }
-              },
-              "ui": {
-                "componentOptions": {
-                  "selectedNodes": {"disable":true},
-                  "selectedNode": {
-                  }
-                }
-              }
-            }
-          },
-          {
-            "name": "#4924028 - #4924030",
-            "options": {
-              "layout": "forcelink",
-              "loader": {
-                "name": "web3",
-                "options": {
-                  "nodeLimit": 10000,
-                  "blocks": [4924028,4924029,4924030]
-                }
-              },
-              "ui": {
-                "componentOptions": {
-                  "selectedNodes": {"disable":true},
-                  "selectedNode": {
-                  }
+                "limitEdgeCount": 500
                 }
               }
             }
           }
-        ]
+        ],
+        "ui": {
+        }
       }'
     />
+    <script type="text/javascript" src="/assets/js/parasol.js"></script></body>
   </body>
 </html>
