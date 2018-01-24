@@ -47,6 +47,7 @@ class AppState {
         components: [
           {name: 'AppBar'},
           {name: 'NetworkInput'},
+          {name: 'NetworkUrlSuffixInput'},
           {name: 'NetworkList'},
           {name: 'Divider'},
           {name: 'ForceLinkSettings'},
@@ -239,6 +240,7 @@ class AppState {
       status: 'initializing...',
     });
 
+    // Do not allow multiple networks with the same url
     if (typeof(_network.url) != 'undefined' &&
         typeof(this.networks.find(n => n.get('url') == network.get('url'))) != 'undefined')
     {

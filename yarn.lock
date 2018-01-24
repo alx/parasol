@@ -156,10 +156,6 @@ add-dom-event-listener@1.x:
   dependencies:
     object-assign "4.x"
 
-aframe-meshline-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/aframe-meshline-component/-/aframe-meshline-component-0.2.0.tgz#9742d2631e579382f16da76f1279d55544b2314b"
-
 "aframe-meshline-component@https://github.com/alx/aframe-meshline-component.git#unicode-fix":
   version "0.2.0"
   resolved "https://github.com/alx/aframe-meshline-component.git#0adcd78682924ac2e18eac7a7a35ffbc8585d554"
@@ -4329,6 +4325,10 @@ mobx-react@^4.1.0:
   resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-4.1.0.tgz#0b4927a8c4457dbb296c512693acdf9073d9afc7"
   dependencies:
     hoist-non-react-statics "^1.2.0"
+
+mobx-utils@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/mobx-utils/-/mobx-utils-3.2.2.tgz#1979fe85a27df496d4f17af288813ac4fd356fd5"
 
 mobx@^2.3.4:
   version "2.7.0"
