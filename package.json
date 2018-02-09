@@ -6,17 +6,11 @@
     "start": "cross-env NODE_ENV=local node docs/server.js",
     "lint": "eslint src",
     "webpack": "webpack --colors --progress --bail",
-    "build": "cross-env NODE_ENV=production npm run webpack",
-    "build:stage": "cross-env NODE_ENV=stage npm run webpack",
-    "build:test": "cross-env NODE_ENV=test npm run webpack",
-    "build:qa": "cross-env NODE_ENV=testing npm run webpack",
-    "build:qa-manual": "cross-env NODE_ENV=qa-manual npm run webpack",
-    "build:develop": "cross-env NODE_ENV=develop npm run webpack",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "docs-parasol": "rm build/js/main*.js; yarn build; cp build/js/parasol.js docs/assets/js/; git pull; git commit -am 'update parasol.js'; git push",
+    "git-update": "git pull; git commit -am 'update parasol.js'; git push",
+    "build": "rm build/js/main*.js; cross-env NODE_ENV=production npm run webpack",
     "docs-sass": "sass docs/assets/sass/material-kit.scss > docs/assets/css/material-kit.css",
-    "boilerplate-parasol": "git checkout boilerplate_release; cp build/js/parasol.js assets/js/parasol.js; git pull; git commit -am 'update parasol.js'; git push; git checkout master"
+    "docs": "yarn docs-sass; yarn build; cp build/js/parasol.js docs/assets/js/; yarn git-update",
+    "boilerplate": "yarn build; git checkout boilerplate_release; cp build/js/parasol.js assets/js/parasol.js; yarn git-update; git checkout master"
   },
   "repository": {
     "type": "git",
@@ -53,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^1.2.0",
     "eslint-plugin-react": "^5.1.1",
     "html-webpack-plugin": "^2.28.0",
+    "jest": "^22.2.1",
     "react-hot-loader": "^3.0.0-beta.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
