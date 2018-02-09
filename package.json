@@ -9,20 +9,22 @@
     "webpack": "webpack --colors --progress --bail",
     "precommit": "pretty-quick --staged",
     "git-update": "git pull; git commit -am 'update parasol.js'; git push",
-    "build":
-      "rm build/js/main*.js; cross-env NODE_ENV=production npm run webpack",
-    "docs-sass":
-      "sass docs/assets/sass/material-kit.scss > docs/assets/css/material-kit.css",
-    "docs":
-      "yarn docs-sass; yarn build; cp build/js/parasol.js docs/assets/js/; yarn git-update",
-    "boilerplate":
-      "yarn build; git checkout boilerplate_release; cp build/js/parasol.js assets/js/parasol.js; yarn git-update; git checkout master"
+    "build": "rm build/js/main*.js; cross-env NODE_ENV=production npm run webpack",
+    "docs-sass": "sass docs/assets/sass/material-kit.scss > docs/assets/css/material-kit.css",
+    "docs": "yarn docs-sass; yarn build; cp build/js/parasol.js docs/assets/js/; yarn git-update",
+    "boilerplate": "yarn build; git checkout boilerplate_release; cp build/js/parasol.js assets/js/parasol.js; yarn git-update; git checkout master"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/alx/parasol.git"
   },
-  "keywords": ["react", "reactjs", "boilerplate", "mobx", "starter-kit"],
+  "keywords": [
+    "react",
+    "reactjs",
+    "boilerplate",
+    "mobx",
+    "starter-kit"
+  ],
   "author": "Alexandre Girard <git@alexgirard.com> (http://github.com/alx)",
   "license": "MIT",
   "bugs": {
@@ -54,16 +56,15 @@
     "prettier": "1.10.2",
     "pretty-quick": "^1.3.0",
     "react-hot-loader": "^3.0.0-beta.2",
-    "webpack": "^2.2.1",
+    "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
     "aframe": "^0.7.1",
-    "aframe-meshline-component":
-      "https://github.com/alx/aframe-meshline-component.git#unicode-fix",
+    "aframe-meshline-component": "git+https://github.com/alx/aframe-meshline-component.git#unicode-fix",
     "aframe-react": "^4.3.0",
     "async": "^2.6.0",
-    "axios": "^0.16.1",
+    "axios": "^0.16.2",
     "bn.js": "^4.11.8",
     "chart.js": "^2.7.1",
     "cross-env": "^5.0.0",
@@ -71,31 +72,34 @@
     "deepdetect-js": "^0.1.5",
     "eslint-loader": "^1.7.1",
     "eslint-watch": "^3.1.0",
-    "eth-block-tracker": "^2.2.2",
-    "ethjs": "^0.3.0",
+    "eth-block-tracker": "^2.3.0",
+    "ethjs": "^0.3.3",
     "ethjs-filter": "^0.1.5",
     "ethjs-provider-http": "^0.1.6",
+    "ethjs-query": "^0.3.3",
     "file-saver": "^1.3.3",
     "jss": "^6.3.0",
     "material-ui": "^0.20.0",
     "material-ui-upload": "^1.0.0",
-    "mobx": "^3.1.0",
-    "mobx-react": "^4.1.0",
+    "mobx": "^3.5.1",
+    "mobx-react": "^4.4.1",
     "mobx-react-form": "^1.20.2",
     "mobx-utils": "^3.2.2",
-    "moment": "^2.17.1",
-    "rc-slider": "^7.0.2",
-    "rc-tooltip": "^3.4.3",
-    "react": "^15.1.0",
+    "moment": "^2.20.1",
+    "next": "^5.0.0",
+    "rc-slider": "^7.0.8",
+    "rc-tooltip": "^3.7.0",
+    "react": "^16.2.0",
     "react-addons-shallow-compare": "^15.5.2",
     "react-chartjs": "^0.8.0",
-    "react-chartjs-2": "^2.6.4",
+    "react-chartjs-2": "^2.7.0",
     "react-chartjs2": "^1.1.2",
-    "react-dom": "^15.1.0",
-    "react-sigma": "^1.2.17",
-    "react-spinner-material": "^1.0.11",
+    "react-dom": "^16.2.0",
+    "react-sigma": "^1.2.30",
+    "react-spinner-material": "^1.0.16",
     "react-tap-event-plugin": "^2.0.1",
     "three": "^0.89.0",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "^1.0.1",
+    "tinycolor2": "^1.4.1"
   }
 }

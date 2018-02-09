@@ -1,6 +1,7 @@
 /* eslint indent: "off", no-mixed-spaces-and-tabs: "off"*/
 
 import React from "react";
+import PropTypes from 'prop-types';
 import * as mobx from "mobx";
 import { observer } from "mobx-react";
 import "./layout.forceLink";
@@ -143,28 +144,28 @@ ForceLink.defaultProps = {
   strongGravityMode: true
 };
 ForceLink.propTypes = {
-  barnesHutOptimize: require("react").PropTypes.bool,
-  barnesHutTheta: require("react").PropTypes.number,
-  adjustSizes: require("react").PropTypes.bool,
-  iterationsPerRender: require("react").PropTypes.number,
-  linLogMode: require("react").PropTypes.bool.isRequired,
-  outboundAttractionDistribution: require("react").PropTypes.bool,
-  edgeWeightInfluence: require("react").PropTypes.number,
-  scalingRatio: require("react").PropTypes.number,
-  strongGravityMode: require("react").PropTypes.bool,
-  slowDown: require("react").PropTypes.number,
-  gravity: require("react").PropTypes.number,
-  alignNodeSiblings: require("react").PropTypes.bool,
-  nodeSiblingsScale: require("react").PropTypes.number,
-  nodeSiblingsAngleMin: require("react").PropTypes.number,
-  worker: require("react").PropTypes.bool.isRequired,
-  background: require("react").PropTypes.bool,
-  easing: require("react").PropTypes.any,
-  randomize: require("react").PropTypes.oneOf(["globally", "locally", "no"]),
-  timeout: require("react").PropTypes.number,
-  sigma: require("react").PropTypes.any,
-  appState: require("react").PropTypes.any,
-  shouldStart: require("react").PropTypes.bool,
-  shouldStop: require("react").PropTypes.bool
+  barnesHutOptimize: PropTypes.bool,
+  barnesHutTheta: PropTypes.number,
+  adjustSizes: PropTypes.bool,
+  iterationsPerRender: PropTypes.number,
+  linLogMode: PropTypes.bool.isRequired,
+  outboundAttractionDistribution: PropTypes.bool,
+  edgeWeightInfluence: PropTypes.number,
+  scalingRatio: PropTypes.number,
+  strongGravityMode: PropTypes.bool,
+  slowDown: PropTypes.number,
+  gravity: PropTypes.number,
+  alignNodeSiblings: PropTypes.bool,
+  nodeSiblingsScale: PropTypes.number,
+  nodeSiblingsAngleMin: PropTypes.number,
+  worker: PropTypes.bool.isRequired,
+  background: PropTypes.bool,
+  easing: PropTypes.any,
+  randomize: PropTypes.oneOf(["globally", "locally", "no"]),
+  timeout: PropTypes.number,
+  sigma: PropTypes.any,
+  appState: PropTypes.any,
+  shouldStart: PropTypes.bool,
+  shouldStop: PropTypes.bool
 };
 export default ForceLink;

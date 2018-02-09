@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { observer } from "mobx-react";
 
 import { List, ListItem } from "material-ui/List";
@@ -104,5 +105,5 @@ export default class ForceLinkSettings extends React.Component {
 }
 
 ForceLinkSettings.propTypes = {
-  appState: require("react").PropTypes.any.isRequired
+  appState: PropTypes.any.isRequired
 };

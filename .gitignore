@@ -3,5 +3,6 @@ npm-debug.log
 .DS_Store
 build/
 .idea/
+.next/
 .sass-cache
 docs/assets/data/private/

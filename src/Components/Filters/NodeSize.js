@@ -4,8 +4,8 @@ import { observer } from "mobx-react";
 import { Line } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
 
-require("rc-slider/assets/index.css");
-require("rc-tooltip/assets/bootstrap.css");
+//require("rc-slider/assets/index.css");
+//require("rc-tooltip/assets/bootstrap.css");
 
 const Slider = require("rc-slider");
 const createSliderWithTooltip = Slider.createSliderWithTooltip;

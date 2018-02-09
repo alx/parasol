@@ -60,9 +60,10 @@ export default class SigmaComponent extends Component {
 
     const styles = {
       sigma: {
-        minHeight: "100%",
-        height: "100%",
+        position: "absolute",
+        top: 0,
         width: "100%",
+        height: "100vh",
         background: backgroundColor
       }
     };
