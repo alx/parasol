@@ -1,28 +1,27 @@
-import React, {Component} from 'react';
-import { toJS } from 'mobx';
-import { observer } from 'mobx-react';
+import React, { Component } from "react";
+import { toJS } from "mobx";
+import { observer } from "mobx-react";
 
-import TextField from 'material-ui/TextField';
+import TextField from "material-ui/TextField";
 
 @observer
 export default class UrlSuffixInput extends Component {
-
-  handleKeyPress = (event) => {
-
-    if (event.key === 'Enter') {
-
+  handleKeyPress = event => {
+    if (event.key === "Enter") {
       const appState = this.props.appState;
       let network = Object.assign({}, toJS(appState.selectedNetwork));
 
-      if(appState.ui.componentOptions && appState.ui.componentOptions.UrlSuffixInput) {
-
+      if (
+        appState.ui.componentOptions &&
+        appState.ui.componentOptions.UrlSuffixInput
+      ) {
         const options = appState.ui.componentOptions.UrlSuffixInput;
 
-        if(options.urlPrefix) {
+        if (options.urlPrefix) {
           network.url = options.urlPrefix;
         }
 
-        if(options.paramsPrefix) {
+        if (options.paramsPrefix) {
           network.url += options.paramsPrefix;
         }
       }
@@ -33,18 +32,14 @@ export default class UrlSuffixInput extends Component {
         appState.selectNetwork(appState.networks.length - 1);
         appState.refreshNetwork = Math.random();
       });
-
     }
-
   };
 
   render() {
-
-    const appState = this.props.appState
+    const appState = this.props.appState;
     const network = appState.selectedNetwork;
 
-    if(!network || !network.has('graph'))
-      return null;
+    if (!network || !network.has("graph")) return null;
 
     return (
       <TextField

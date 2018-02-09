@@ -8,8 +8,8 @@ import {
   brown500,
   grey500,
   blueGrey100,
-  blueGrey800,
-} from 'material-ui/styles/colors';
+  blueGrey800
+} from "material-ui/styles/colors";
 
 const COLORS = {
   nodes: [
@@ -20,12 +20,12 @@ const COLORS = {
     pink500,
     deepPurple500,
     green500,
-    brown500,
+    brown500
   ],
   edge: {
     dark: blueGrey800,
-    light: blueGrey100,
-  },
+    light: blueGrey100
+  }
 };
 
 const topicColors = {
@@ -41,7 +41,7 @@ const topicColors = {
     "#d9d9d9",
     "#bc80bd",
     "#ccebc5",
-    "#ffed6f",
+    "#ffed6f"
   ],
   scheme2: [
     "#a6cee3",
@@ -55,12 +55,11 @@ const topicColors = {
     "#cab2d6",
     "#6a3d9a",
     "#ffff99",
-    "#b15928",
+    "#b15928"
   ]
 };
 
 export default class LdaJson {
-
   network = null;
   options = null;
   colorScheme = topicColors.scheme2;
@@ -72,7 +71,6 @@ export default class LdaJson {
   }
 
   run(callback) {
-
     const network = this.network;
     let categories = [];
     let graph = {
@@ -81,116 +79,109 @@ export default class LdaJson {
     };
 
     let limitTokenCount = false;
-    if(this.options && this.options.limitTokenCount) {
+    if (this.options && this.options.limitTokenCount) {
       limitTokenCount = this.options.limitTokenCount;
     }
 
-    fetch(network.get('url')).then(response => response.json()).then((json) => {
+    fetch(network.get("url"))
+      .then(response => response.json())
+      .then(json => {
+        if (json.mdsDat && json.mdsDat.topics && json.mdsDat.topics) {
+          json.mdsDat.topics.forEach((topic, index) => {
+            let node = {
+              id: `n${index}`,
+              label: topic,
+              x: json.mdsDat.x[index],
+              y: json.mdsDat.y[index],
+              size: json.mdsDat.Freq[index],
+              metadata: {
+                cluster: json.mdsDat.cluster[index],
+                tokens: []
+              }
+            };
 
-      if (json.mdsDat && json.mdsDat.topics && json.mdsDat.topics) {
-        json.mdsDat.topics.forEach( (topic, index) => {
-          let node = {
-            id: `n${index}`,
-            label: topic,
-            x: json.mdsDat.x[index],
-            y: json.mdsDat.y[index],
-            size: json.mdsDat.Freq[index],
-            metadata: {
-              cluster: json.mdsDat.cluster[index],
-              tokens: []
+            json["token.table"].Topic.forEach((topic_index, token_index) => {
+              if (topic_index == index + 1) {
+                let token = {
+                  term: json["token.table"].Term[token_index],
+                  freq: json["token.table"].Freq[token_index]
+                };
+
+                node.metadata.tokens.push(token);
+              }
+            });
+
+            node.metadata.tokens.sort((a, b) => b.freq - a.freq);
+
+            if (limitTokenCount) {
+              node.metadata.tokens.splice(limitTokenCount);
             }
-          };
 
-          json["token.table"].Topic.forEach( (topic_index, token_index) => {
-
-            if(topic_index == index + 1) {
-
-              let token = {
-                term: json["token.table"].Term[token_index],
-                freq: json["token.table"].Freq[token_index]
-              };
-
-              node.metadata.tokens.push(token);
-
-            }
-
+            graph.nodes.push(node);
           });
+        } else {
+          console.log("LdaJson loader issue: undefined or empty mdsDat topics");
+        }
 
-          node.metadata.tokens.sort((a, b) => b.freq - a.freq);
+        //if (json.topics) {
+        //  network.set('topics', json.topics.map( (topic, index) => {
+        //    return {terms: topic, color: this.colorScheme[index]};
+        //  }));
+        //}
 
-          if(limitTokenCount) {
-            node.metadata.tokens.splice(limitTokenCount);
-          }
+        //if (json.nodes) {
 
-          graph.nodes.push(node);
-        });
-      } else {
-        console.log("LdaJson loader issue: undefined or empty mdsDat topics");
-      }
+        //  json.nodes.forEach(node => {
 
-      //if (json.topics) {
-      //  network.set('topics', json.topics.map( (topic, index) => {
-      //    return {terms: topic, color: this.colorScheme[index]};
-      //  }));
-      //}
+        //    if(!node.x)
+        //      node.x = Math.random();
 
-      //if (json.nodes) {
+        //    if(!node.y)
+        //      node.y = Math.random();
 
-      //  json.nodes.forEach(node => {
+        //    if(!node.size)
+        //      node.size = 1;
 
-      //    if(!node.x)
-      //      node.x = Math.random();
+        //    if(!node.metadata)
+        //      node.metadata = {label: '', 'document_length': node.size};
 
-      //    if(!node.y)
-      //      node.y = Math.random();
+        //    if(node.label)
+        //      node.metadata.label = node.label;
 
-      //    if(!node.size)
-      //      node.size = 1;
+        //    if(node.metadata.theta) {
+        //      const theta = node.metadata.theta
+        //      const indexOfMaxTheta = theta.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+        //      node.color = this.colorScheme[indexOfMaxTheta];
+        //      node.size = theta[indexOfMaxTheta] * 100;
+        //    }
+        //  });
 
-      //    if(!node.metadata)
-      //      node.metadata = {label: '', 'document_length': node.size};
+        //}
 
-      //    if(node.label)
-      //      node.metadata.label = node.label;
+        //if (json.edges) {
+        //  json.edges.forEach(edge => {
+        //    edge.color = COLORS.edge[this.muiTheme];
+        //  });
 
-      //    if(node.metadata.theta) {
-      //      const theta = node.metadata.theta
-      //      const indexOfMaxTheta = theta.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
-      //      node.color = this.colorScheme[indexOfMaxTheta];
-      //      node.size = theta[indexOfMaxTheta] * 100;
-      //    }
-      //  });
+        //  if(this.options && this.options.minEdgeWeight) {
+        //    json.edges = json.edges.filter(edge => {
+        //      return edge.weight > this.options.minEdgeWeight
+        //    });
+        //  }
 
-      //}
+        //  if(this.options && this.options.limitEdgeCount) {
+        //    json.edges = json.edges.sort((a, b) => b.weight - a.weight).slice(0, this.options.limitEdgeCount);
+        //  }
+        //}
 
-      //if (json.edges) {
-      //  json.edges.forEach(edge => {
-      //    edge.color = COLORS.edge[this.muiTheme];
-      //  });
+        network.set("graph", graph);
+        network.set("source_graph", graph);
+        //network.set('colors', COLORS);
+        //network.set('categories', categories.map((category, index) => {
+        //  return {name: category, color: COLORS.nodes[index]};
+        //}));
 
-      //  if(this.options && this.options.minEdgeWeight) {
-      //    json.edges = json.edges.filter(edge => {
-      //      return edge.weight > this.options.minEdgeWeight
-      //    });
-      //  }
-
-      //  if(this.options && this.options.limitEdgeCount) {
-      //    json.edges = json.edges.sort((a, b) => b.weight - a.weight).slice(0, this.options.limitEdgeCount);
-      //  }
-      //}
-
-      network.set('graph', graph);
-      network.set('source_graph', graph);
-      //network.set('colors', COLORS);
-      //network.set('categories', categories.map((category, index) => {
-      //  return {name: category, color: COLORS.nodes[index]};
-      //}));
-
-      if(typeof(callback) != 'undefined')
-        callback(network);
-
-    });
-
+        if (typeof callback != "undefined") callback(network);
+      });
   }
-
 }

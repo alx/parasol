@@ -1,9 +1,9 @@
 /* eslint indent: "off", no-mixed-spaces-and-tabs: "off"*/
 
-import React from 'react';
-import * as mobx from 'mobx';
-import { observer } from 'mobx-react';
-import './layout.forceLink';
+import React from "react";
+import * as mobx from "mobx";
+import { observer } from "mobx-react";
+import "./layout.forceLink";
 
 /**
 
@@ -53,7 +53,6 @@ import ForceLink from 'react-sigma/lib/ForceLink'
 
 @observer
 class ForceLink extends React.Component {
-
   static _propsChanged(prev, next) {
     for (const key in prev) if (prev[key] !== next[key]) return true;
     return false;
@@ -87,7 +86,10 @@ class ForceLink extends React.Component {
     } else if (prevState.running && !this.state.running && s) {
       this._stopForceLink();
       s.refresh();
-    } else if (ForceLink._propsChanged(prevProps, this.props) && this.props.shouldStart) {
+    } else if (
+      ForceLink._propsChanged(prevProps, this.props) &&
+      this.props.shouldStart
+    ) {
       this._stopForceLink();
       this._refreshGraph();
     }
@@ -102,17 +104,17 @@ class ForceLink extends React.Component {
   _stopForceLink() {
     sigma.layouts.stopForceLink();
     if (this.state.timer) clearTimeout(this.state.timer);
-    if (this.props.sigma && this.props.sigma.settings) this.props.sigma.settings({ drawEdges: this.state.drawEdges });
+    if (this.props.sigma && this.props.sigma.settings)
+      this.props.sigma.settings({ drawEdges: this.state.drawEdges });
   }
 
   _refreshGraph() {
-
     const appState = this.props.appState;
 
     const s = this.props.sigma;
     if (!sigma || !s || !appState) return;
 
-    const drawEdges = s.settings('drawEdges');
+    const drawEdges = s.settings("drawEdges");
     if (s.graph.edges().length > 1000) s.settings({ drawEdges: false });
 
     sigma.layouts.configForceLink(s, mobx.toJS(appState.layout.params));
@@ -129,41 +131,40 @@ class ForceLink extends React.Component {
     this.props.appState.layoutStopped(this.props.sigma.graph.nodes());
     this.setState({ running: false, timer: undefined });
   }
-
 }
 
 ForceLink.defaultProps = {
   linLogMode: true,
   barnesHutTheta: 1,
-  gravity:0.5,
+  gravity: 0.5,
   barnesHutOptimize: true,
   linLogMode: true,
   startingIterations: 1,
   strongGravityMode: true
 };
 ForceLink.propTypes = {
-  barnesHutOptimize: require('react').PropTypes.bool,
-  barnesHutTheta: require('react').PropTypes.number,
-  adjustSizes: require('react').PropTypes.bool,
-  iterationsPerRender: require('react').PropTypes.number,
-  linLogMode: require('react').PropTypes.bool.isRequired,
-  outboundAttractionDistribution: require('react').PropTypes.bool,
-  edgeWeightInfluence: require('react').PropTypes.number,
-  scalingRatio: require('react').PropTypes.number,
-  strongGravityMode: require('react').PropTypes.bool,
-  slowDown: require('react').PropTypes.number,
-  gravity: require('react').PropTypes.number,
-  alignNodeSiblings: require('react').PropTypes.bool,
-  nodeSiblingsScale: require('react').PropTypes.number,
-  nodeSiblingsAngleMin: require('react').PropTypes.number,
-  worker: require('react').PropTypes.bool.isRequired,
-  background: require('react').PropTypes.bool,
-  easing: require('react').PropTypes.any,
-  randomize: require('react').PropTypes.oneOf(['globally', 'locally', 'no']),
-  timeout: require('react').PropTypes.number,
-  sigma: require('react').PropTypes.any,
-  appState: require('react').PropTypes.any,
-  shouldStart: require('react').PropTypes.bool,
-  shouldStop: require('react').PropTypes.bool
+  barnesHutOptimize: require("react").PropTypes.bool,
+  barnesHutTheta: require("react").PropTypes.number,
+  adjustSizes: require("react").PropTypes.bool,
+  iterationsPerRender: require("react").PropTypes.number,
+  linLogMode: require("react").PropTypes.bool.isRequired,
+  outboundAttractionDistribution: require("react").PropTypes.bool,
+  edgeWeightInfluence: require("react").PropTypes.number,
+  scalingRatio: require("react").PropTypes.number,
+  strongGravityMode: require("react").PropTypes.bool,
+  slowDown: require("react").PropTypes.number,
+  gravity: require("react").PropTypes.number,
+  alignNodeSiblings: require("react").PropTypes.bool,
+  nodeSiblingsScale: require("react").PropTypes.number,
+  nodeSiblingsAngleMin: require("react").PropTypes.number,
+  worker: require("react").PropTypes.bool.isRequired,
+  background: require("react").PropTypes.bool,
+  easing: require("react").PropTypes.any,
+  randomize: require("react").PropTypes.oneOf(["globally", "locally", "no"]),
+  timeout: require("react").PropTypes.number,
+  sigma: require("react").PropTypes.any,
+  appState: require("react").PropTypes.any,
+  shouldStart: require("react").PropTypes.bool,
+  shouldStop: require("react").PropTypes.bool
 };
 export default ForceLink;

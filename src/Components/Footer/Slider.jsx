@@ -1,27 +1,27 @@
-import React from 'react'
+import React from "react";
 
 class Slider extends React.Component {
+  shouldComponentUpdate() {
+    return false;
+  }
 
-    shouldComponentUpdate() {
-        return false;
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.dates[0] != this.props.dates[0] ||
+      nextProps.dates[nextProps.dates.length - 1] !=
+        this.props.dates[this.props.dates.length - 1]
+    ) {
+      this.forceUpdate();
     }
+  }
 
-    componentWillReceiveProps(nextProps) {
-        if ((nextProps.dates[0] != this.props.dates[0]) || (nextProps.dates[nextProps.dates.length - 1] != this.props.dates[this.props.dates.length - 1])) {
-            this.forceUpdate();
-        }
-    }
+  handleSliderChange(e) {
+    console.log("ok");
+  }
 
-    handleSliderChange(e) {
-        console.log("ok");
-    }
-
-    render() {
-
-        return (
-            <div />
-        )
-    }
+  render() {
+    return <div />;
+  }
 }
 
-export default Slider
+export default Slider;
