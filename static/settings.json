@@ -1,0 +1,14 @@
+{
+  "networks": [
+    {
+      "url": "/static/lesmiserables.json",
+      "name": "Transparence Santé",
+      "options": {
+        "layout": "forcelink",
+        "loader": {
+          "name": "json"
+        }
+      }
+    }
+  ]
+}
