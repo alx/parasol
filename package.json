@@ -9,22 +9,20 @@
     "webpack": "webpack --colors --progress --bail",
     "precommit": "pretty-quick --staged",
     "git-update": "git pull; git commit -am 'update parasol.js'; git push",
-    "build": "rm build/js/main*.js; cross-env NODE_ENV=production npm run webpack",
-    "docs-sass": "sass docs/assets/sass/material-kit.scss > docs/assets/css/material-kit.css",
-    "docs": "yarn docs-sass; yarn build; cp build/js/parasol.js docs/assets/js/; yarn git-update",
-    "boilerplate": "yarn build; git checkout boilerplate_release; cp build/js/parasol.js assets/js/parasol.js; yarn git-update; git checkout master"
+    "build":
+      "rm build/js/main*.js; cross-env NODE_ENV=production npm run webpack",
+    "docs-sass":
+      "sass docs/assets/sass/material-kit.scss > docs/assets/css/material-kit.css",
+    "docs":
+      "yarn docs-sass; yarn build; cp build/js/parasol.js docs/assets/js/; yarn git-update",
+    "boilerplate":
+      "yarn build; git checkout boilerplate_release; cp build/js/parasol.js assets/js/parasol.js; yarn git-update; git checkout master"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/alx/parasol.git"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "boilerplate",
-    "mobx",
-    "starter-kit"
-  ],
+  "keywords": ["react", "reactjs", "boilerplate", "mobx", "starter-kit"],
   "author": "Alexandre Girard <git@alexgirard.com> (http://github.com/alx)",
   "license": "MIT",
   "bugs": {
@@ -36,7 +34,7 @@
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "@kadira/storybook-addons": "^1.3.0",
     "assets-webpack-plugin": "^3.5.1",
-    "babel-core": "^6.9.1",
+    "babel-core": "^6.26.0",
     "babel-eslint": "^6.1.0",
     "babel-jest": "^22.2.0",
     "babel-loader": "^6.2.4",
@@ -61,10 +59,12 @@
   },
   "dependencies": {
     "aframe": "^0.7.1",
-    "aframe-meshline-component": "git+https://github.com/alx/aframe-meshline-component.git#unicode-fix",
+    "aframe-meshline-component":
+      "git+https://github.com/alx/aframe-meshline-component.git#unicode-fix",
     "aframe-react": "^4.3.0",
     "async": "^2.6.0",
     "axios": "^0.16.2",
+    "babel-preset-next": "^1.1.1",
     "bn.js": "^4.11.8",
     "chart.js": "^2.7.1",
     "cross-env": "^5.1.3",
