@@ -15,6 +15,11 @@
     @include shadow-16dp();
 }
 
+.demo-link {
+  color: #fff;
+  background-color: #9c27b0;
+}
+
 .title{
     font-weight: $font-weight-bold;
     color: $black-color;

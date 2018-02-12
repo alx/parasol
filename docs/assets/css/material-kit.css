@@ -2871,6 +2871,10 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   border-radius: 6px;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
 
+.demo-link {
+  color: #fff;
+  background-color: #9c27b0; }
+
 .title {
   font-weight: 500;
   color: #3C4858; }
