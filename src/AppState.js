@@ -237,6 +237,7 @@ class AppState {
   initNetwork(_network, callback) {
     const network = observable.map({
       url: _network.url,
+      fetchOptions: _network.fetchOptions,
       name: _network.name || _network.url.split("/").pop(),
       timestamp: moment(),
       selected: true,

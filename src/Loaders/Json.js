@@ -42,11 +42,11 @@ class Json {
     const network = this.network;
     let categories = [];
 
-    fetch(
-      network.get("url"),
-      //network.get("fetchOptions") ? network.get("fetchOptions") : {}
-      { credentials: "include" }
-    )
+    const fetchOptions = network.get("fetchOptions")
+      ? network.get("fetchOptions")
+      : {};
+
+    fetch(network.get("url"), fetchOptions)
       .then(response => response.json())
       .then(json => {
         if (json.nodes) {
