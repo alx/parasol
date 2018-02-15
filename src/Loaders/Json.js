@@ -44,7 +44,8 @@ class Json {
 
     fetch(
       network.get("url"),
-      network.get("fetchOptions") ? network.get("fetchOptions") : {}
+      //network.get("fetchOptions") ? network.get("fetchOptions") : {}
+      { credentials: "include" }
     )
       .then(response => response.json())
       .then(json => {
