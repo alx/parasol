@@ -38,7 +38,6 @@ export default class NodeSize extends Component {
     if (!network || !network.has("source_graph")) return null;
 
     const graph = network.get("source_graph");
-    console.log(network.get("graph").refresh);
 
     if (
       graph.nodes.length == 0 ||

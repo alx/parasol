@@ -45,54 +45,42 @@ class AppState {
         id: "left",
         open: true,
         openSecondary: false,
-        components: [{ name: "SelectedNode" }]
+        components: [
+          { name: "AppBar" },
+          { name: "NetworkInput" },
+          { name: "NetworkUrlSuffixInput" },
+          { name: "NetworkList" },
+          { name: "Divider" },
+          { name: "ForceLinkSettings" },
+          { name: "Divider" },
+          { name: "Legend" },
+          { name: "TopicSelector" }
+        ]
       },
       {
         id: "right",
-        open: false,
+        open: true,
         openSecondary: true,
-        components: []
+        components: [
+          { name: "SearchInput" },
+          { name: "NodeSize" },
+          { name: "EdgeWeight" },
+          { name: "HideOrphan" },
+          { name: "Divider" },
+          { name: "ShowSelected" },
+          { name: "SelectedNode" },
+          //{ name: "SelectedNodes" },
+          { name: "Divider" },
+          { name: "NeighborNodes" }
+        ]
       }
-      //{
-      //  id: "left",
-      //  open: true,
-      //  openSecondary: false,
-      //  components: [
-      //    { name: "AppBar" },
-      //    { name: "NetworkInput" },
-      //    { name: "NetworkUrlSuffixInput" },
-      //    { name: "NetworkList" },
-      //    { name: "Divider" },
-      //    { name: "ForceLinkSettings" },
-      //    { name: "Divider" },
-      //    { name: "Legend" },
-      //    { name: "TopicSelector" }
-      //  ]
-      //},
-      //{
-      //  id: "right",
-      //  open: true,
-      //  openSecondary: true,
-      //  components: [
-      //    { name: "SearchInput" },
-      //    { name: "NodeSize" },
-      //    { name: "EdgeWeight" },
-      //    { name: "HideOrphan" },
-      //    { name: "Divider" },
-      //    { name: "ShowSelected" },
-      //    { name: "SelectedNode" },
-      //    //{ name: "SelectedNodes" },
-      //    { name: "Divider" },
-      //    { name: "NeighborNodes" }
-      //  ]
-      //}
     ],
     renderer: "canvas",
     filters: {
       edgeLabelSize: "proportional",
       enableEdgeHovering: true,
       //minNodeSize: 0,
-      maxNodeSize: 8,
+      //maxNodeSize: 8,
       minEdgeWeight: 0,
       maxEdgeWeight: Infinity,
       minArrowSize: 4,
