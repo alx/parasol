@@ -45,42 +45,54 @@ class AppState {
         id: "left",
         open: true,
         openSecondary: false,
-        components: [
-          { name: "AppBar" },
-          { name: "NetworkInput" },
-          { name: "NetworkUrlSuffixInput" },
-          { name: "NetworkList" },
-          { name: "Divider" },
-          { name: "ForceLinkSettings" },
-          { name: "Divider" },
-          { name: "Legend" },
-          { name: "TopicSelector" }
-        ]
+        components: [{ name: "SelectedNode" }]
       },
       {
         id: "right",
-        open: true,
+        open: false,
         openSecondary: true,
-        components: [
-          { name: "SearchInput" },
-          { name: "NodeSize" },
-          { name: "EdgeWeight" },
-          { name: "HideOrphan" },
-          { name: "Divider" },
-          { name: "ShowSelected" },
-          { name: "SelectedNode" },
-          { name: "SelectedNodes" },
-          { name: "Divider" },
-          { name: "NeighborNodes" }
-        ]
+        components: []
       }
+      //{
+      //  id: "left",
+      //  open: true,
+      //  openSecondary: false,
+      //  components: [
+      //    { name: "AppBar" },
+      //    { name: "NetworkInput" },
+      //    { name: "NetworkUrlSuffixInput" },
+      //    { name: "NetworkList" },
+      //    { name: "Divider" },
+      //    { name: "ForceLinkSettings" },
+      //    { name: "Divider" },
+      //    { name: "Legend" },
+      //    { name: "TopicSelector" }
+      //  ]
+      //},
+      //{
+      //  id: "right",
+      //  open: true,
+      //  openSecondary: true,
+      //  components: [
+      //    { name: "SearchInput" },
+      //    { name: "NodeSize" },
+      //    { name: "EdgeWeight" },
+      //    { name: "HideOrphan" },
+      //    { name: "Divider" },
+      //    { name: "ShowSelected" },
+      //    { name: "SelectedNode" },
+      //    //{ name: "SelectedNodes" },
+      //    { name: "Divider" },
+      //    { name: "NeighborNodes" }
+      //  ]
+      //}
     ],
     renderer: "canvas",
     filters: {
       edgeLabelSize: "proportional",
       enableEdgeHovering: true,
       //minNodeSize: 0,
-      //maxNodeSize: 0,
+      maxNodeSize: 8,
       minEdgeWeight: 0,
       maxEdgeWeight: Infinity,
       minArrowSize: 4,
@@ -655,7 +667,7 @@ class AppState {
       });
     }
 
-    if (this.ui.filters.topics.length > 0) {
+    if (this.ui.filters.topics && this.ui.filters.topics.length > 0) {
       graph.nodes.forEach(node => {
         let theta = node.metadata.theta;
         this.ui.filters.topics.forEach(index => (theta[index] = undefined));

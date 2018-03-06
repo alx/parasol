@@ -19,8 +19,7 @@ const COLORS = {
     deepOrange500,
     pink500,
     deepPurple500,
-    green500,
-    brown500
+    green500
   ],
   edge: {
     dark: blueGrey800,

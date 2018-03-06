@@ -70,7 +70,9 @@ export default class SelectedNode extends Component {
               );
             case "link":
               content.key = `content-${index}`;
-              return <LinkItem node={node} option={content} />;
+              return (
+                <LinkItem ley={content.key} node={node} content={content} />
+              );
               break;
             default:
               return (

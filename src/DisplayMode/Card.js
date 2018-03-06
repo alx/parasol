@@ -72,7 +72,7 @@ export default class ParasolCard extends Component {
       <div>
         <Card>
           <CardMedia
-            style={{ height: 200 }}
+            style={{ height: 200, maxHeight: 200 }}
             overlay={
               <CardTitle title={network.get("name")} subtitle={subtitle} />
             }

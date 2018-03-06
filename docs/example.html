@@ -15,9 +15,9 @@
       data-settings='{
         "networks": [
           {
-            "url": "/docs/assets/data/les-miserables.json",
+            "url": "/docs/assets/data/deepchain.json",
             "fetchOptions": {"credentials": "include"},
-            "name": "LDA for movie reviews",
+            "name": "DeepChain",
             "options": {
               "layout": "forcelink",
               "loader": {
@@ -30,9 +30,31 @@
           }
         ],
         "ui": {
+          "filters": {
+            "maxNodeSize": 1
+          }
         }
       }'
     />
-    <script type="text/javascript" src="/assets/js/parasol.js"></script></body>
+    <script type="text/javascript" src="/assets/js/parasol.js"></script>
+  <script>
+        //"ui": {
+        //  "filters": {
+        //    "maxNodeSize": 1
+        //  },
+        //  "componentOptions": {
+        //    "selectedNode": {
+        //    "content": [
+        //      {
+        //        "type": "link",
+        //        "linkType": "image",
+        //        "hrefKey": "metadata.filename",
+        //        "hrefPrefix": "http://10.10.10.32:5000/data/neuralnet_tsne/"
+        //      }
+        //    ]
+        //    }
+        //  }
+        //}
+  </script>
   </body>
 </html>

@@ -51,7 +51,7 @@ export default class SelectedNodes extends Component {
     const node = selection.node;
 
     let nestedItems = [];
-    if (options.showNeighbor) {
+    if (options && options.showNeighbor) {
       nestedItems.push(<NeighborNodes nodes={selection.neighborNodes} />);
     }
 
@@ -82,7 +82,7 @@ export default class SelectedNodes extends Component {
       */
     ];
 
-    if (options.iconUrl) {
+    if (options && options.iconUrl) {
       const href = Object.resolve(options.iconUrl.hrefKey, node);
       const url = options.iconUrl.hrefPrefix + href;
       icons.unshift(
@@ -100,7 +100,7 @@ export default class SelectedNodes extends Component {
     const selectedNodeIcons = <div style={styles.container}>{icons}</div>;
 
     let primaryText = node.label || node.id;
-    if (options.itemPrimary) {
+    if (options && options.itemPrimary) {
       switch (options.itemPrimary.type) {
         case "text":
           primaryText = options.itemPrimary.value;
@@ -116,7 +116,7 @@ export default class SelectedNodes extends Component {
     }
 
     let secondaryText = node.size;
-    if (options.itemSecondary) {
+    if (options && options.itemSecondary) {
       switch (options.itemSecondary.type) {
         case "text":
           secondaryText = options.itemSecondary.value;

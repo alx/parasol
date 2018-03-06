@@ -68,6 +68,11 @@ export default class SigmaComponent extends Component {
       }
     };
 
+    if (appState.ui.mode === "card") {
+      styles.sigma.height = "100%";
+      styles.sigma.minHeight = "100%";
+    }
+
     let sigmaPlugins = [];
 
     if (appState.ui.renderer == "canvas") {
@@ -141,7 +146,7 @@ export default class SigmaComponent extends Component {
             hideEdgesOnMove: false,
             animationsTime: 3000,
             clone: false,
-            //maxNodeSize: 5,
+            maxNodeSize: appState.ui.filters.maxNodeSize,
             //minNodeSize: appState.ui.filters.minNodeSize,
             //maxEdgeSize: appState.ui.filters.maxEdgeWeight,
             //minEdgeSize: appState.ui.filters.minEdgeWeight,

@@ -11,23 +11,26 @@ Object.resolve = function(path, obj) {
 export default class LinkItem extends Component {
   render() {
     const node = this.props.node;
-    const option = this.props.option;
+    const content = this.props.content;
 
     let linkItem = null;
     let url = null;
 
-    if (option.hrefKey) {
-      const href = Object.resolve(option.hrefKey, node);
-      url = option.hrefPrefix + href;
-    } else if (option.url) {
-      url = option.url;
+    if (content.hrefKey) {
+      const href = Object.resolve(content.hrefKey, node);
+      url = content.hrefPrefix + href;
+    } else if (content.url) {
+      url = content.url;
     }
 
-    switch (option.linkType) {
+    console.log(content.linkType);
+
+    switch (content.linkType) {
       case "image":
         linkItem = (
-          <ListItem key={option.key ? option.key : "linkItem"}>
+          <ListItem key={content.key ? content.key : "linkItem"}>
             <img
+              key="node-item-img"
               src={url}
               style={{ maxWidth: "100%", minWidth: "100%", width: "100%" }}
             />
@@ -38,11 +41,11 @@ export default class LinkItem extends Component {
       default:
         linkItem = (
           <ListItem
-            key={option.key ? option.key : "linkItem"}
-            primaryText={option.primaryText ? option.primaryText : url}
+            key={content.key ? content.key : "linkItem"}
+            primaryText={content.primaryText ? content.primaryText : url}
             secondaryText={
-              option.secondaryText
-                ? option.secondaryText
+              content.secondaryText
+                ? content.secondaryText
                 : "Open link in new tab"
             }
             rightIcon={<OpenIcon />}
