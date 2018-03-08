@@ -168,9 +168,9 @@ class AppState {
       });
     }
 
-    // if (settings.layout) {
-    //   this.layout = Object.assign(this.layout, settings.layout);
-    // }
+    if (settings.layout) {
+      this.layout = Object.assign(this.layout, settings.layout);
+    }
 
     if (settings.network_loader) {
       this.network_loader = Object.assign(
