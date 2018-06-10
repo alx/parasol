@@ -27,6 +27,20 @@
                 }
               }
             }
+          },
+          {
+            "url": "assets/data/paypal/companies_data.json",
+            "fetchOptions": {"credentials": "include"},
+            "name": "Which data for which company?",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "json",
+                "options": {
+                "limitEdgeCount": 500
+                }
+              }
+            }
           }
         ]
       }'

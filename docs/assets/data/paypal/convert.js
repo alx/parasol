@@ -115,10 +115,17 @@ Convert.prototype._addChildrenNodes = function (children) {
       node.size += 1;
     }
     nodeIds.push(node.id);
+
     const companies = this._addCompaniesNodes(child.name)
     this._addEdges(node, companies);
     const datas = this._addDataNodes(child.Data)
     this._addEdges(node, datas);
+
+    companies.forEach( companyId => {
+      const companyNode = this.graph.nodes.find(n => n.id === companyId);
+      this._addEdges(companyNode, datas);
+    });
+
   })
 
   return nodeIds;
