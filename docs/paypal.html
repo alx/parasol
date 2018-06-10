@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Parasol</title>
+    <style type="text/css">
+      body{
+        margin:0;
+        overflow: hidden;
+      }
+      .rc-slider-tooltip{z-index:1400;}
+    </style>
+  </head>
+  <body>
+    <div
+      class="parasol"
+      data-settings='{
+        "networks": [
+          {
+            "url": "assets/data/paypal/convert.json",
+            "fetchOptions": {"credentials": "include"},
+            "name": "Paypal",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "json",
+                "options": {
+                "limitEdgeCount": 500
+                }
+              }
+            }
+          }
+        ]
+      }'
+    />
+    <script type="text/javascript" src="/assets/js/parasol.js"></script>
+  <script>
+        //"ui": {
+        //  "filters": {
+        //    "maxNodeSize": 1
+        //  },
+        //  "componentOptions": {
+        //    "selectedNode": {
+        //    "content": [
+        //      {
+        //        "type": "link",
+        //        "linkType": "image",
+        //        "hrefKey": "metadata.filename",
+        //        "hrefPrefix": "http://10.10.10.32:5000/data/neuralnet_tsne/"
+        //      }
+        //    ]
+        //    }
+        //  }
+        //}
+  </script>
+  </body>
+</html>
