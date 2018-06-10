@@ -41,6 +41,20 @@
                 }
               }
             }
+          },
+          {
+            "url": "assets/data/paypal/country_companies.json",
+            "fetchOptions": {"credentials": "include"},
+            "name": "Which companies for which country?",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "json",
+                "options": {
+                "limitEdgeCount": 500
+                }
+              }
+            }
           }
         ]
       }'
