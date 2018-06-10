@@ -1,0 +1,1946 @@
+[{
+    "name": "PayPal data",
+    "parent": "null",
+    "children":
+  [{
+     "name": "Audit",
+     "parent": "PayPal",
+     "children": [
+       {
+         "name": "PricewaterhouseCoopers Sàrl (Luxembourg)",
+         "Purpose": "To test PayPal’s Anti Money Laundering (AML) and Know Your Customer (KYC) controls and to carry out professional auditing services for PayPal Inc. and its subsidiaries.",
+         "Data": "For a sample of individual customer accounts:\nname, PayPal account number (Customer ID), total amount received on the PayPal account, total amount sent from the PayPal account, type of PayPal account, and, as the case may be, any other relevant account information."
+       }
+    ]},
+
+   {
+     "name": "Customer Service Outsourcing",
+     "parent": "PayPal",
+     "children": [
+       {
+          "name": "Sutherland Global Services Inc. (USA and Philippines), BFS finance Münster GmbH (Germany), Sitel GmbH (Germany), Transcom Worldwide SAS (France, Tunisia), Transcom Worldwide France SAS (France), Transcom Worldwide SpA (Italy), Competence Call Center Leipzig GmbH (Germany), Convergys Customer Management Group Inc. (USA), Arvato Direct Services GmbH (Germany) and Concentrix Europe Limited (UK)",
+          "parent": "Customer Service Outsourcing",
+          "Purpose": "To allow telephone and email customer support and marketing services.",
+          "Data": "Name, address, telephone number, email addresses, truncated and limited or full funding source information (case dependent), funding source expiration dates, type of PayPal account, proof of identity, account balance and transaction information, customer statements and reports, account correspondence, shipping information, and promotional information."
+        },
+        {
+          "name": "Nuance Communications Inc. (USA)",
+          "parent": "Customer Service Outsourcing",
+          "Purpose": "To calibrate and optimise speech recognition performance for telephone customer support services.",
+          "Data": "Recordings of a sample of customer support telephone calls, which may include any or all account information transmitted during the call."
+        },
+        {
+          "name": "ICT Group Inc. (USA)",
+          "parent": "Customer Service Outsourcing",
+          "Purpose": "To perform and facilitate telephone customer support.",
+          "Data": "Name, address, telephone number, and PayPal account number."
+        },
+        {
+          "name": "Lithium Technologies Inc. (USA)",
+          "parent": "Customer Service Outsourcing",
+          "Purpose": "To provide customer services arising from customer contacts to PayPal on social media channels.",
+          "Data": "Information provided by the customer via social media channels which may include name, address, telephone number, email addresses, social media user names, truncated and limited or full funding source information (case dependent), funding source expiration dates, type of PayPal account, proof of identity, account balance and transaction information, customer statements and reports, account correspondence, shipping information and promotional information."
+        },
+        {
+          "name": "Attensity Europe GmbH",
+          "parent": "Customer Service Outsourcing",
+          "Purpose": "To provide customer services arising from customer contacts to PayPal on social media channels.",
+          "Data": "Information provided by the customer via social media channels which may include name, address, telephone number, email addresses, social media user names, truncated and limited or full funding source information (case dependent), funding source expiration dates, type of PayPal account, proof of identity, account balance and transaction information, customer statements and reports, account correspondence, shipping information, and promotional information."
+        },
+        {
+         "name": "ILinc Communications, Inc. (USA)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To provide webinars (online seminars) to merchants on ILinc’s platform.",
+         "Data": "Name, email address of merchants."
+       },
+       {
+         "name": "ePerformax Contact Centers & BPO (USA), Genpact International Inc. (USA), LatentView Analytics Pte. Ltd",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To provide customer services regarding payments globally.",
+         "Data": "Name, address, telephone number, email addresses, truncated and limited or full funding source information (case dependent), funding source expiration dates, type of PayPal account, proof of identity, account balance and transaction information, customer statements and reports, account correspondence, shipping information, and promotional information."
+       },
+       {
+         "name": "Authentify Inc.",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "Telephony based authentication service. To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products.",
+         "Data": "Name, address, phone number, email address"
+       },
+       {
+         "name": "CallPoint New Europe AD dba TELUS International Europe (Bulgaria)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To operate refunded returns service.",
+         "Data": "Name, email address, PayPal transaction ID, return information (returned item category, reason for return, amount of return, currency, country of return, type of return) and shipping documentation evidence."
+       },
+       {
+         "name": "Key Performance Group SAS, France",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "Administration of PayPal member referral program.",
+         "Data": "First name, last name, email, customer ID, transaction information related to referral rewards."
+       },
+       {
+         "name": "New Relic, Inc. (USA)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To provide analytics allowing us to troubleshoot errors in the service globally.",
+         "Data": "Log Data and Aggregated data on the service performance."
+       },
+       {
+         "name": "PagerDuty, Inc. (USA)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To alert on-call technicians that an email has arrived globally.",
+         "Data": "Subject of the Email at issue."
+       },
+       {
+         "name": "Sumologic, Inc. (USA)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To provide analytics allowing us to troubleshoot errors in the service globally.",
+         "Data": "Log Data and Aggregated data on the service performance."
+       },
+       {
+         "name": "IPSA International",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To support investigation of suspicious activities related to money laundering, terrorist financing, and/or violation of Global Sanctions and corresponding reporting to regulatory agencies.",
+         "Data": "Name, aliases, address, e-mail address, telephone numbers, time zone location, passport ID, nationality, date of birth, place of birth, gender, marital status, driver’s license ID, social security number or other government ID, transactional and account activity data, funding instrument (bank account, credit card number)."
+       },
+       {
+         "name": "CCC Leipzig (Germany)\nCCC GmbH (Germany)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "Global Ops Customer service outsourcing for the German market.",
+         "Data": "Full Name, Date of Birth, Email address, Physical address, Telephone number, Financials-bank, debit, and credit, Transaction history, Business details including URLs, SSN/TIN/EIN, IP Address\nCounterparty details."
+       },
+       {
+         "name": "Telus international Europe",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "Customer service contact centre to check reasons for inactivity and investigate any technical issues or problems",
+         "Data": "Name, telephone number, user type (based on number of transactions), email address, user technical historical data."
+       },
+       {
+         "name": "24/7 (Phillippines)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "Live chat and lead generation",
+         "Data": "Information provided by the customer which may include name, address, telephone number, email addresses, previous chat histories."
+       },
+       {
+         "name": "Teleperformance (SE)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To service our customers questions through phone, chat and email",
+         "Data": "all account details"
+       },
+       {
+         "name": "Kundo (SE)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To enable customer service through email",
+         "Data": "name, e-mail address, ip-numbers and email content"
+       },
+       {
+         "name": "Servit (SE)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "To enable customer service through email",
+         "Data": "name, e-mail address, ip-numbers and email content"
+       },
+       {
+         "name": "Livechat (PL)",
+         "parent": "Customer Service Outsourcing",
+         "Purpose": "Live chat and lead generation",
+         "Data": "Information provided by the customer which may include name, address, telephone number, email addresses, previous chat histories."
+       }
+     ]
+   },
+
+   {
+     "name": "Credit Reference and Fraud Agencies",
+     "parent": "PayPal",
+     "children": [
+       {
+         "name": "Telefonica UK Ltd (UK), Telefonica Digital Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address and telephone number."
+       },
+       {
+         "name": "Socure, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, telephone number, email address, date of birth and IP address"
+       },
+       {
+         "name": "Pipl, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, telephone number, email address and date of birth"
+       },
+       {
+         "name": "White Pages, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, telephone number, email address and IP address"
+       },
+       {
+         "name": "Full Contact, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Email address"
+       },
+       {
+         "name": "CRIF S.p.A (Italy), Cerved B.I (Italy), Synectics Solutions Limited (UK), MCL Hunter (UK), GB Group plc (UK), Graydon (UK), Capita Plc (UK),UK Data Limited (UK), ICC Information Limited (UK), Payment Trust Limited (UK), 192.com (UK), 192.com Limited (UK), i-CD Publishing (UK) Limited (UK), Experian Netherlands BV (Netherlands), Experian Bureau de Credito SA (Spain), Informa D&B SA (Spain), and CRIBIS D&B S.r.l. (Italy). y), Ellisphere (France)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity, verify linkage between a customer and its bank account or credit/debit card, assist in making decisions concerning a customer’s credit worthiness (including without limitation, in relation to credit products offered by PayPal), carry out checks for the prevention and detection of crime including fraud and/or money laundering, assist in debt recovery, manage PayPal accounts and undertake statistical analysis, undertake research and testing as to appropriateness of new products and services and system checking.\n\nPlease note that Data to these agencies may be retained by the applicable credit reference and fraud agency for audit and fraud prevention purposes.",
+         "Data": "Name, address, telephone number, email address, date of birth, length of time at address, proof of identity, legal form, length of time in business, place of birth, company registration number, VAT number, unique business identifier reference, funding instrument including bank account and credit /debit card details (if appropriate) and relevant transaction information (if appropriate) and tax ID or national identity number (if appropriate)."
+       },
+       {
+         "name": "Callcredit plc. (UK) including the SHARE database administered by Callcredit, Experian Limited (UK) including databases administered by Experian used for consumer and commercial referencing including CAPS credit searches and CAIS credit account performance data, Equifax Ltd (UK) including the Insight database administered by Equifax, Dun & Bradstreet Limited (UK), Equifax Ibérica S.L. (Spain)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity, verify linkage between a customer and its bank account or credit/debit card, make decisions concerning a customer’s credit worthiness (including without limitation, in relation to credit products offered by PayPal), carry out checks for the prevention and detection of crime including fraud and/or money laundering, assist in debt recovery, manage PayPal accounts and undertake statistical analysis, undertake research and testing as to appropriateness of new products and services and system checking.\n\nFor users of the UK products “Website Payments Pro”, “Virtual Terminal” and “PayPal Here” and UK merchants only:\nto report defaults and supply monthly account performance information, where the account shows an amount owing to us (reflected as a negative balance) for three or more consecutive months, to the databases of these third parties; and for the purposes set out in section 8 of this Privacy Policy.Please note that Data to these agencies and databases may be:\nretained by the applicable credit reference agency or database for audit and fraud prevention purposes; disclosed to other financial institutions for the purpose of gauging creditworthiness; and transferred outside of the EU and on a global basis.",
+         "Data": "Name, address, telephone number, name of authorised user, email address, national identity number (if appropriate), date of birth, length of time at address, proof of identity, legal form, length of time in business, company registration number, VAT number, funding instrument including bank account and credit /debit card details (if appropriate), relevant transaction information (if appropriate), account balance, all information supplied and used for your application for the UK products “Website Payments Pro”, “Virtual Terminal” and “PayPal Here” and the financial instrument used to pay for your PayPal Here- enabled device."
+       },
+       {
+         "name": "CIFAS (UK) and the CIFAS database",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "For users with UK PayPal accounts only: to prevent and detect fraud (which may include checking details on job applicants and employees and on proposals and claims for all types of insurance).\n\nPlease note that Data to this database may be:\nretained by the database for audit and fraud prevention purposes; disclosed to other financial institutions for the purpose of fraud prevention and detection (including to prevent money laundering) for example, when checking details on applications for credit and other facilities, managing credit and credit related accounts or facilities, recovering debt, checking details on claims for insurance and checking details of job applicants or employees; used to determine your risk profile and for cooperation with the relevant authorities in compliance with the requirements of the Luxembourg Law of 5 April 1993 on the financial sector and laws relating to the prevention of money laundering, terrorism and fraud (excluding the treatment of personal data in relation to solvency of the persons referred to in article 14(1)(d) of the Luxembourg Law of 5 April 1993 on the financial sector); and transferred outside of the EU and on a global basis.",
+         "Data": "All account details and circumstances of the conduct of the account."
+       },
+       {
+         "name": "DueDil Limited (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To receive business information for risk assessment, and compliance with anti-money laundering requirements, such as establishing the corporate structure and beneficial ownership.",
+         "Data": "Company registration number, name and address of business, name, address, date of birth of directors."
+       },
+       {
+         "name": "Deltavista GmbH (Germany)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "Establish risk associated with address, identity; assist in making decisions concerning a customer’s credit worthiness; carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products and services.",
+         "Data": "Name, address, date of birth, email address and telephone number."
+       },
+       {
+         "name": "Accumio Finance Services GmbH (Germany), CEG Creditreform Boniversum GmbH (Germany), Bürgel Wirtschaftsinformationen GmbH & Co. KG (Germany), Infoscore Consumer Data GmbH (Germany), Informa Solutions GmbH (Germany)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity, address and telephone number and retrieve contact telephone numbers and addresses, establish risk associated with address, identity; research and testing as to appropriateness of new products and services.\n\nTo assist in making decisions concerning the credit worthiness of consumers (if they have a German PayPal account and have specifically consented to such check) and merchants, including without limitation, in relation to credit products offered by PayPal and offering direct debit payments as payment method.\n\nThe creditworthiness scores that we request from these agencies that include scores that are calculated according to mathematical-statistical procedures.\n\nPlease note the fact that PayPal requested such information, and any negative account performance Data to these databases in relation to customers who have a German PayPal account may potentially be:\nretained by the database for audit purposes and for scoring of such customer’s creditworthiness; any such score may be disclosed to other third parties for the purpose of gauging creditworthiness. and transferred outside of the EU and on a global basis.",
+         "Data": "Name, address, date of birth, telephone number, email address, account status, account balance, and in case the transfer of such information is legally justified, also certain information on negative account performance of a customer with a German PayPal account, for which PayPal has requested a creditworthiness check from the respective database, web address, umsatzsteuerid/VAT ID and data vendor reference number (if relevant)."
+       },
+       {
+         "name": "SCHUFA Holding AG (Germany), Infoscore Consumer Data GmbH (Germany)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify a customer's identity and address, carry out checks for the prevention and detection of failing direct debit payments, and of crime including fraud and/or money laundering, including checks on the linkage of the customer and its bank account, to help determine creditworthiness of consumers (if they have a German PayPal account and have specifically consented to such check) and of merchants, and for research and testing as to appropriateness of products and services.\n\nThe creditworthiness scores that we request from these agencies include scores that are calculated according to mathematical-statistical procedures.\nPlease note the fact that PayPal requested such information, and any negative account performance Data to these databases in relation to customers who have a German PayPal account may potentially be:\nretained by the database for audit purposes and for scoring of such customer’s creditworthiness; any such score may be disclosed to other third parties for the purpose of gauging creditworthiness and transferred outside of the EU and on a global basis.Further, in relation to customers who have a German PayPal account, the information on a failed direct debit payment may be:\nretained by the Infoscore database for audit purposes; and (without linkage to the customer’s identity) disclosed to other third parties for the purpose of preventing failed direct debit payments.",
+         "Data": "Name, address, email address, date of birth, gender, bank account details, information on failed direct debit payments from a bank account (without linkage to the identity of the customer), and in case the transfer of such information is legally justified, also certain information on negative account performance of a customer with a German PayPal account."
+       },
+       {
+         "name": "Creditreform Berlin Wolfram KG (Germany), Verband der Vereine Creditreform e.V. (Germany), Axesor (Spain), Ignios (Portugal). UC AB (Sweden), Dynamic Business Information Limited (UK), Trillium (USA),",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To determine creditworthiness of merchants. To carry out checks for the prevention and detection of crime including fraud and/or money laundering and for the evaluation of verification process improvements. For the research and testing as to appropriateness of new products and services.",
+         "Data": "Name, (including trading as names), address, email address, telephone number, unique business identifier reference."
+       },
+       {
+         "name": "World-Check (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity.",
+         "Data": "All account information."
+       },
+       {
+         "name": "Global Data Corporation (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity, carry out checks for the prevention and detection of crime including fraud, research and testing as to appropriateness of new products and services.",
+         "Data": "Name, address, date of birth, telephone number, email address."
+       },
+       {
+         "name": "RSA Security Inc. (USA) and RSA Security Ireland Limited (Ireland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity.",
+         "Data": "All account information."
+       },
+       {
+         "name": "ID Checker.nl BV (Netherlands) (Ireland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity; automatic data extraction from images of documents, and document validation / forgery detection. Research and testing as to appropriateness of new products and services; training of document recognition",
+         "Data": "Name, address, email address, date of birth, legal form, company registration number, VAT number, proof of identity, address, ownership of a funding instrument or other documents requested by PayPal and the data contained therein for Risk / Compliance/ Credit purposes."
+       },
+       {
+         "name": "Aristotle International, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Acxiom Ltd (UK), Acxiom Deutschland GmbH (Germany) and Acxiom France SAS (France)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity.",
+         "Data": "Name, address, telephone number, email address and date of birth."
+       },
+       {
+         "name": "Creditinfo Decision (Czech Republic) and DecisionMetrics Limited (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To assist with PayPal’s assessment of merchant risk.",
+         "Data": "All merchant account information."
+       },
+       {
+         "name": "ThreatMetrix Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To retrieve risk information regarding the IP and device from which customers are accessing PayPal, research and testing as to appropriateness of new products and services.",
+         "Data": "IP and hardware information about the device (device ID, User IP address and cookies). Email address and other information collected during sign up."
+       },
+       {
+         "name": "TeleSign Corporation (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To validate telephone numbers, verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering. Research and testing as to appropriateness of new products and services.",
+         "Data": "Name, address, phone number, email address,"
+       },
+       {
+         "name": "AddressDoctor GmbH (Germany),",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To re-structure address data into normalized format.",
+         "Data": "Name, address, email address."
+       },
+       {
+         "name": "Deutsche Post Direkt GmbH (Germany), AZ Direct GmbH (Germany), Deutsche Post Adress GmbH & Co. KG (Germany)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To validate and re-structure address data into normalized format and to verify name and address.",
+         "Data": "Name, address, email address."
+       },
+       {
+         "name": "Mitek Systems Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To validate images of identity documents and research and testing as to appropriateness of new products and services; research and testing as to appropriateness of new products; training of document recognition.",
+         "Data": "Name, address, email address, date of birth, legal form, company registration number, VAT number, shipping information, documents proving identity and address, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk / Compliance/ Credit purposes."
+       },
+       {
+         "name": "Jumio Inc (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To capture and validate proofs of identity and address.",
+         "Data": "All data recorded on the customer’s identity and address documents."
+       },
+       {
+         "name": "Au10tix Limited (Cyprus), AuthenticID LLC",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity; automatic data extraction from images of documents,and document validation / forgery detection. Research and testing as to appropriateness of new products and services; training of document recognition",
+         "Data": "Name, address, email address, date of birth, legal form, company registration number, VAT number, shipping information, documents proving identity and address, proof of address images, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk / Compliance/ Credit purposes."
+       },
+       {
+         "name": "Telovia SA (Luxembourg)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "Identity validation and Know Your Customer (KYC) controls conducted for anti money laundering purposes.",
+         "Data": "Name, address, date of birth, proof of ID and address."
+       },
+       {
+         "name": "Syniverse Technologies, LLC (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "Validate and apply data quality checks to telephone numbers. To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, email address, telephone number."
+       },
+       {
+         "name": "Signicat AS (Norway)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify and authenticate identity.",
+         "Data": "Name, address, date of birth and e-id reference number."
+       },
+       {
+         "name": "BankersAccuity Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "Research and testing as to appropriateness of new products and services in relation to the validation of the account data provided to us by the user and conversion of national account data information into IBAN.",
+         "Data": "Customer’s bank account number and sort code and / or IBAN."
+       },
+       {
+         "name": "ArkOwl LLC (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify email address.",
+         "Data": "Email address."
+       },
+       {
+         "name": "Fraudscreen Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To evaluate level of fraud risk. Research and testing as to appropriateness of new products and services.",
+         "Data": "Name and address, Customer ID, Date of Birth, Address, Postcode, E-mail address, Telephone numbers, all account details and circumstances of the conduct of the account, relevant transaction information, decisioning information and all information supplied and used for your application for UK products."
+       },
+       {
+         "name": "Trustev Ltd (Ireland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To establish identity through customer’s social media data, connections and credentials.",
+         "Data": "Name, address, date of birth, email address and account number."
+       },
+       {
+         "name": "Tracesmart Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To identify customers and assist with fraud detection, prevention, and or remediation of fraud, or other illegal actions or to detect, prevent or remediate violations of policies or the applicable user agreements. . For the evaluation of verification process improvements and for the research and testing as to appropriateness of new products and services.",
+         "Data": "Title, name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Zoot Enterprises, Inc. (USA), Zoot Deutschland GmbH (Germany), Zoot Enterprises Limited (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To process technical applications and to provide a data and document gateway for account review, testing and vetting purposes, and to exchange user information and images of documents proving identity, address and ownership of funding instrument with contracted fraud and credit reference agencies. To also aggregate data from internal and external data sources and provide statistical analysis in order to assess the risk of fraud.",
+         "Data": "All account information and documents supplied by customers, to include information used to provide identity and address, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk / Compliance / Credit purposes. This information may also include IP addresses."
+       },
+       {
+         "name": "First Data Corporation (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To process merchant-initiated and customer-authorized transactions and to provide account/card processing services, to store transaction, payment and other customer data related to those transactions.",
+         "Data": "All account information and documents supplied by customers, to include information used to provide identity and address."
+       },
+       {
+         "name": "La Banque de France (France), GB Group plc (UK), SysperTec Communication (France)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "Research and testing as to appropriateness of new products and services used to establish risk associated with address, identity, and associated with a customer’s credit worthiness.",
+         "Data": "Name, address, date of birth, telephone number, email address."
+       },
+       {
+         "name": "MaxMind, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To detect fraud.\nPlease note that Data to this service provider may be:\nretained by it for audit and fraud prevention purposes; used by it for the purpose of optimising its fraud detection services provided to PayPal and other third parties; and transferred outside of the EU and on a global basis.",
+         "Data": "All account information and IP address, credit card information."
+       },
+       {
+         "name": "Future Route Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To carry out accounting data analysis of our commercial users for real time credit-risk evaluation.",
+         "Data": "Name, address, email address and date of birth."
+       },
+       {
+         "name": "Kount, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To facilitate fraud checking for payment processing globally.",
+         "Data": "Name, address, device fingerprint data, details of payment instruments, and details of payment transactions."
+       },
+       {
+         "name": "Artefacts Solutions LLC (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To detect fraud and mitigate risk related to transaction processing.",
+         "Data": "Truncated card number, amount of transaction, chargeback ratio, credit ratio, and decline ratio."
+       },
+       {
+         "name": "Experian Information Solutions, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity, assist in making decisions concerning a customer’s credit worthiness, carry out checks for the prevention and detection of crime including fraud and/or money laundering.\n\nPlease note that Data to these agencies may be retained by the applicable credit reference and fraud agency for audit and fraud prevention purposes.",
+         "Data": "Name, address, social security number, date of birth, business name, legal name of business, tax ID, business telephone number."
+       },
+       {
+         "name": "Trulioo Information Services, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity, carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products\nPlease note that Data to these agencies may be retained by the applicable credit reference and fraud agency for audit and fraud prevention purposes.",
+         "Data": "Name, date of birth, address, telephone number, tax ID, national identity number, place of birth, identity document information and any other identity information requested by PayPal for Risk / Compliance/ Credit purposes."
+       },
+       {
+         "name": "Soda Software Labs Limited (UK), Aire Labs Limited (UK), Biz Equity LLC (USA), Bizequity Limited (UK), DueDil Limited (UK), Creditsafe (UK), Creditsafe Business Solutions Limited (UK)< Creditsafe USA Inc. (USA), Creditsafe Deutschland GMBH (Germany), Solvabilite Enterprise (France), Creditsafe I Sverige AB (Sweden), Creditsafe Ireland Limited (Ireland), Creditsafe (SE) Safe Information Group NV (Netherlands), MiiCard Limited (UK),Yodlee Inc. (USA), Imagini Europe Limited (trading as VisualDNA) (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+          "Purpose": "To verify identity, verify linkage between a customer and its bank account or credit/debit card, to make decisions concerning a customer’s credit worthiness (including without limitation, in relation to credit products offered by PayPal). To carry out risk assessment on the customer (individual or legal entity). To carry out checks for the prevention and detection of crime including fraud and/or money laundering and in compliance with anti-money laundering requirements such as establishing the corporate structure and beneficial ownership. To assist in debt recovery, manage PayPal accounts and undertake statistical analysis, undertake research and testing as to appropriateness of new products and services and system checking. For the evaluation of verification process improvements.",
+         "Data": "Name, address, telephone number, email address, date of birth, place of birth, tax ID, passport ID, or other government issued identification number. Length of time at address, proof of identity, legal form, length of time in business, company name including “doing business as” or “trading as” names, company address, company tax or other government ID such as company registration number, company owners, controlling managers and beneficial owners. Name, address, date of birth of directors. Funding instrument including bank account and credit /debit card details (if appropriate) and relevant transaction information (if appropriate). All information supplied when applying for a product or account functionality (including information obtained from social media accounts or online reputation data)."
+       },
+       {
+         "name": "National Credit Bureau (Russia)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To receive business information for risk assessment, and compliance with anti-money laundering requirements, such as establishing the corporate structure and beneficial ownership. To assist in making decisions concerning a customer’s credit worthiness (including without limitation, in relation to credit products offered by PayPal), carry out checks for the prevention and detection of crime including fraud and/or money laundering, assist in debt recovery, manage PayPal accounts and undertake statistical analysis, undertake research and testing as to appropriateness of new products and services and system checking.",
+         "Data": "Company registration number, name, and address of business, name, address, date of birth of directors, any 'trading as' names, list of companies that directors are involved in, date company established/registered."
+       },
+       {
+         "name": "Intuit Inc. (USA), Intuit Limited (UK), The Sage Group plc (UK), Xero (UK) Limited, Xero Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To receive information for risk assessment and assist in making decisions concerning a customer’s credit worthiness (including without limitation, in relation to credit products offered by PayPal), carry out checks for the prevention and detection of crime including fraud and/or money laundering, assist in debt recovery, manage PayPal accounts and undertake statistical analysis, undertake research and testing as to appropriateness of new products and services and system checking.",
+         "Data": "Name, address, telephone number, email address, date of birth, length of time at address, proof of identity, legal form, length of time in business, company registration number, VAT number, funding instrument including bank account and credit /debit card details (if appropriate) and relevant transaction information (if appropriate)."
+       },
+       {
+         "name": "Yodlee Inc. (USA), Intuit Inc. (USA), Intuit Limited (UK), The Sage Group plc (UK), Xero (UK) Limited, Xero Inc. (USA) Ethoca Limited (Canada)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To receive information for risk assessment and assist in making decisions concerning a customer’s credit worthiness (including without limitation, in relation to credit products offered by PayPal), carry out checks for the prevention and detection of crime including fraud and/or money laundering, assist in debt recovery, manage PayPal accounts and undertake statistical analysis, undertake research and testing as to appropriateness of new products and services and system checking.",
+         "Data": "Name, address, telephone number, email address, date of birth, length of time at address, proof of identity, legal form, length of time in business, company registration number, VAT number, funding instrument including bank account and credit /debit card details (if appropriate) and relevant transaction information"
+       },
+       {
+         "name": "Focum Solutions B.V. (Netherlands)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products.",
+         "Data": "Name, address, date of birth, identity document number, identity document type and telephone number."
+       },
+       {
+         "name": "ID Scan Biometrics Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity; automatic data extraction from images of documents, and document validation / forgery detection. research and testing as to appropriateness of new products and services; training of document recognition",
+         "Data": "Name, address, email address, date of birth, legal form, company registration number, VAT number, shipping information, documents proving identity and address, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk / Compliance/ Credit purposes."
+       },
+       {
+         "name": "Paycasso Verify Limited (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products and services; training of document recognition.",
+         "Data": "Photo of customer and document images supplied by customer including all information they contain. Information from document’s embedded RF chip (when applicable)."
+       },
+       {
+         "name": "LexisNexis, LexisNexis Risk Solutions UK Limited (UK), LexisNexis Risk Solutions (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; to assist with customer authentication. Research and testing as to appropriateness of new products and services; training of document recognition and for the evaluation of verification process improvements.",
+         "Data": "Name, address and date of birth and telephone number. Photo of customer and document images supplied by customer including all information they contain. Tax ID, national identity number, place of birth, identity document information and any other identity information requested by PayPal for Risk / Compliance/ Credit purposes"
+       },
+       {
+         "name": "QGen Limited (Malta)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering.",
+         "Data": "Photo of customer and document images supplied by customer including all information they contain."
+       },
+       {
+         "name": "SmartKYC Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering.",
+         "Data": "Name, address and date of birth."
+       },
+       {
+         "name": "Dun & Bradstreet Limited (UK), Dun & Bradstreet, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Global Data Consortium, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number. Tax ID, national identity number, place of birth, identity document information and any other identity information requested by PayPal for Risk / Compliance/ Credit purposes"
+       },
+       {
+         "name": "CRIF GmbH (Austria)\nCRIF Ltd (Switzerland),\nCRIF AG (Switzerland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering. research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "UPC BVK (Belgium)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Regulatory Data Corporation (USA), Livingston International (Canada), LSSI Europe Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; to screen for watch lists and adverse media; research and testing as to appropriateness of new products",
+         "Data": "Corporate name or individual name, address, telephone number"
+       },
+       {
+         "name": "Soliditet AB (Sweden)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Publicis Groupe (France)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering.",
+         "Data": "Name, address and date of birth."
+       },
+       {
+         "name": "Blue Shape SRL (Italy)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth, telephone number, , tax ID, place of birth, identity document information and any other identity information requested by PayPal for Risk / Compliance/ Credit purposes."
+       },
+       {
+         "name": "PostNL (Netherlands)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Compta S.A. (Portugal)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Deyde Calidad de Datos S.L. (Spain)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Kyckr, (Australia)\nGlobal Business Register Limited, T/A Kyckr (Ireland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and provide ongoing due diligence of customer data. Research and testing as to appropriateness of new products and services.\n\nProvision of business register data and information for the onboarding of new customers.\nProvision of third party data for the screening and validation of new and existing customers.\nTo carry out risk assessment on the customer. To carry out checks for the prevention and detection of crime including fraud and/or money laundering and in compliance with anti-money laundering requirements such as establishing the corporate structure and beneficial ownership.\nTo undertake research and testing as to appropriateness of new products and services. For system checking and for the evaluation of verification process improvements.",
+         "Data": "Name, address, email address, date of birth, legal form, company registration number, VAT number, tax ID or other government issued identification number, proof of identity, address legal status, company name, known aliases, trading as name, telephone number, company owners, controlling managers and beneficial owners. Name, address, date of birth of directors.\n."
+       },
+       {
+         "name": "Simunix Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Royal Mail Group Ltd (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To validate and re-structure address data into normalized format and to verify name and address. Research and testing as to appropriateness of new products and services.",
+         "Data": "Name, address, email address, telephone numbers"
+       },
+       {
+         "name": "Credit Kudos Limited (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To evaluate level of fraud risk and credit risk, verification of income and expenditure. Research and testing as to appropriateness of new products and services.",
+         "Data": "Name and address, Customer ID, Date of Birth, Address, Postcode, E-mail address, Telephone numbers, all account details and circumstances of the conduct of the account, relevant transaction information, decisioning information and all information supplied and used for your application for UK products."
+       },
+       {
+         "name": "Acton International Ltd (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number. Tax ID, national identity number, place of birth, identity document information and any other identity information requested by PayPal for Risk / Compliance/ Credit purposes"
+       },
+       {
+         "name": "Bisnode Norge AS (Norway)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth, telephone number."
+       },
+       {
+         "name": "Bisnode Belgium NV/SA (Belgium)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Bisnode Danmark A/S (Denmark)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth, telephone number and civil registration number."
+       },
+       {
+         "name": "Bisnode Sverige AB (Sweden)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth, telephone number and Swedish identification number."
+       },
+       {
+         "name": "Bisnode Deutschland GmbH (Germany)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Deltavista International AG (Switzerland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "KAPITOL S.A. / NV (Belgium)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address and telephone number."
+       },
+       {
+         "name": "Orange Espagne S.A.U",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "SDS (Holland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Dataxcel Ltd.(Ireland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth. Tax ID and national identity number (if appropriate)"
+       },
+       {
+         "name": "Telefónica SA (Spain)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "‘CDDN’ - Communicatie Data Diensten Nederland (Holland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "FrescoData LLC (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Precision Marketing Information Ltd. (Ireland)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name and address."
+       },
+       {
+         "name": "Opplysningen 1881 AS (Norway)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and telephone number."
+       },
+       {
+         "name": "Liteshell Holdings Ltd (Russia)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, date of birth and national identity number."
+       },
+       {
+         "name": "Infocore, Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address and date of birth."
+       },
+       {
+         "name": "LexisNexis Risk Solutions FL Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "Support ID and Credit Verification of Customers and potential Customers.",
+         "Data": "Name, address, date of birth, national identity number, telephone number, images of government issued ID documents: passports, national identity documents and driver licenses."
+       },
+       {
+         "name": "Neustar Inc. (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, Address, Telephone Number, Email Address, IP Address"
+       },
+       {
+         "name": "Tradle Inc (USA)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To receive customer information for risk assessment, and compliance with anti-money laundering requirements, such as establishing the corporate structure and beneficial ownership. To verify identity; automatic data extraction from images of documents,and document validation / forgery detection. Research and testing as to appropriateness of new products and services.",
+         "Data": "Name, address, telephone number, email address, date of birth, length of time at address, proof of identity, legal form, length of time in business, company registration number, VAT number, unique business identifier reference, funding instrument including bank account and credit /debit card details (if appropriate) and relevant transaction information (if appropriate) and tax code (if appropriate). Documents proving identity and address, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk / Compliance/ Credit purposes."
+       },
+       {
+         "name": "BankID (SE)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To enable verification of identity",
+         "Data": "Social security number"
+       },
+       {
+         "name": "Synnex-Concentrix Limited (UK)",
+         "parent": "Credit Reference and Fraud Agencies",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, email address, date of birth, legal form, company registration number, VAT number, documents proving identity and address, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk and Compliance Purposes."
+       }
+     ]},
+
+   {
+     "name": "Financial Products",
+     "parent": "PayPal",
+     "children": [
+       {
+         "name": "Argus Information and Advisory Services (USA)",
+         "parent": "Financial Products",
+         "Purpose": "Providing financial analysis, scoring solutions and advisory services.",
+         "Data": "Merchant Information, Customer Information and Transaction data including encrypted PayPal ID"
+       },
+       {
+         "name": "La Poste (France)",
+         "parent": "Financial Products",
+         "Purpose": "To resolve technical issues and user claims (when PayPal is being offered by the merchant through La Poste’s payment solution).",
+         "Data": "Any Account information necessary to resolve the issue or claim."
+       },
+       {
+         "name": "Santander UK Cards Limited (UK)",
+         "parent": "Financial Products",
+         "Purpose": "To conduct joint marketing campaigns for PayPal Credit, and PayPal MasterCard, risk modelling, enforce terms and conditions for PayPal Credit and PayPal MasterCard.",
+         "Data": "Name, address, email address and account information (including, without limitation, account status)."
+       },
+       {
+         "name": "PrePay Technologies Limited (trading as PrePay Solutions) (UK)",
+         "parent": "Financial Products",
+         "Purpose": "To conduct joint marketing campaigns for PayPal pre-paid card and risk and fraud modelling and to enforce terms and conditions for PayPal prepaid card.",
+         "Data": "Name, address, email address, date of birth and account information."
+       },
+       {
+         "name": "Société Générale (France), La Banque Postale (France), BNP Paribas (France) and Crédit Mutuel (France)",
+         "parent": "Financial Products",
+         "Purpose": "Billing purposes.",
+         "Data": "Only for merchants using PayPal through the partner’s payment solution: merchant ID, number of PayPal transactions, transaction volume with PayPal and, as the case may be, termination of the PayPal account."
+       },
+       {
+         "name": "Findomestic Banca (Italy), Cetelem S.A., Cofidis (France) and Cofinoga S.A. (France)",
+         "parent": "Financial Products",
+         "Purpose": "Registration of the credit card issued by the credit company on the user’s PayPal account and the processing of funding requests made by the same user.",
+         "Data": "Name, email address, date of birth (as the case may be), credit card number, expiry date, three digit Card Security Code (as the case may be) and amount of the funding request and any account information necessary for fraud or dispute resolution."
+       },
+       {
+         "name": "Cofidis (France)",
+         "parent": "Financial Products",
+         "Purpose": "To allow payment processing, fraud checking and dispute handling for transactions done with Cofidis",
+         "Data": "Name, email address, delivery and billing address, telephone number, date of sign-up, the number of payments received from verified PayPal users, whether the customer has been verified to have a bank account, details of transactions and details of unsuccessful payments"
+       },
+       {
+         "name": "Total System Services, Inc. (USA)",
+         "parent": "Financial Products",
+         "Purpose": "To process merchant initiated and customer authorised payments (including customer direct debit information) to provide account/card processing services, to store transaction, payment and other customer data related to those transactions. To provide call centre services, card printing, and statement printing services.",
+         "Data": "Name, address, email address, date of birth (where required), all account information and documents supplied by customers, to include information required to prove identity and address."
+       },
+       {
+         "name": "United Kapital Limited (UK) and United Kapital Limited, LLC (USA)",
+         "parent": "Financial Products",
+         "Purpose": "To enable you (or the merchant with which you transact) to use products issued by United Kapital with PayPal.",
+         "Data": "Only for PayPal merchants applying for and using products issued by United Kapital Limited: Name, business name, address, date of birth, copies of identification documents, PayPal identification (merchant ID), email address, telephone number, transaction information (including, without limitation, number of PayPal transactions and transaction volume with PayPal), length of time as a PayPal user and, as the case may be, termination of the PayPal account.\n\nFor customers of those merchants: transaction information, name, email address, telephone number, address and PayPal identification number."
+       },
+       {
+         "name": "Deloitte Consulting Inc. (USA)",
+         "parent": "Financial Products",
+         "Purpose": "Financial consulting support services.",
+         "Data": "Customer name or business name, customer or business address, tax payer identification number, email address, telephone number, account number, account balance, account create date, type of legal entity, citizenship status."
+       },
+       {
+         "name": "Paga más Tarde (Spain)",
+         "parent": "Financial Products",
+         "Purpose": "To allow payment processing, fraud checking and dispute handling for transactions done with Paga más Tarde.",
+         "Data": "(Same information disclosed with a merchant)\nFull Name\nDate of Birth\nAge Range\nEmail address\nStreet Address\nCity\nState\nCountry\nZip Code\nAccount Status (verified)\nAccount Type\nAccount Creation Date\nTime Zone\nLocale\nLanguage"
+       }
+     ]},
+
+   {
+     "name": "Commercial Partnerships",
+     "parent": "PayPal",
+     "children": [
+       {
+         "name": "Royal Mail Group Plc. (UK) and Pitney Bowes Inc. (USA)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "To provide automated label printing for sellers using PayPal and eBay to facilitate postal and delivery services, payment reconciliation services and to assess risk, or to help detect, prevent and/or remediate fraud, or other potentially illegal acts and violations of policies",
+         "Data": "Name, address, telephone number, email address, postage transaction amount, account details, IP address, information on shipping label printing, sales history and purchase history"
+       },
+       {
+         "name": "Trustwave (USA)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "To provide customised services and assistance to Merchants using PayPal, and to facilitate the process of becoming PCI DSS compliant.",
+         "Data": "Name, email address and PayPal account number."
+       },
+       {
+         "name": "Stubhub Services S.à.r.l. (Luxembourg)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "For the purposes of its AML and KYC requirements.",
+         "Data": "First and last name, date of birth, residential address, nationality, national ID/passport number."
+       },
+       {
+         "name": "Harrow Council (UK)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "Pay out funds to benefit recipients using PayPal.",
+         "Data": "All Account Information."
+       },
+       {
+         "name": "Vodafone sales & Services Limited (UK)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "Processing of Payments and Marketing for Vodafone Wallet.",
+         "Data": "First, Last Name, e-mail Address, Mobile Number, Billing Address (Street Name, House Number, City, State, Postal Code, Country), Billing Agreement ID, Payer ID, Given Payment Method, CMID / Client Metadata ID."
+       },
+       {
+         "name": "Cloud IQ (United Kingdom)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "Providing assistance with PayPal services to business customers.",
+         "Data": "Customer name, business name, telephone numbers, contact email addresses, website, business industry, number of PayPal transactions, transaction volume with PayPal, domestic / international transaction volume split, shipping details, card details for the payment."
+       },
+       {
+         "name": "Borderlinx (UK)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "To provide customised services and assistance to business customers using PayPal.",
+         "Data": "Customer name, business name, telephone numbers, contact email addresses, website, business industry, number of PayPal transactions, transaction volume with PayPal, domestic / international transaction volume split, shipping details, card details for the payment."
+       },
+       {
+         "name": "WebInterpret (France)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "Providing assistance with PayPal services to business customers.",
+         "Data": "Customer name, business name, telephone numbers, contact email addresses, website, business industry, number of PayPal transactions, transaction volume with PayPal, domestic / international transaction volume split, shipping details, card details for the payment."
+       },
+       {
+         "name": "Apple Inc. (USA)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "To verify identity and carry out checks for the management of risk, prevention and detection of crime including fraud.",
+         "Data": "First Name, Last Name, Email, Whether email is verified, Telephone number, Address, Account Status Account Type, When account was opened, Whether customer purchased anything using PayPal within the last 30 days (Yes or No), Whether billing information changed within the last thirty days (Yes or No),"
+       },
+       {
+         "name": "Schenker (SE)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "To facilitate shipping and make it easier to ship sold / bought items on the site",
+         "Data": "Name, address, e-mail address, phone number"
+       },
+       {
+         "name": "DHL (SE)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "To facilitate shipping and make it easier to ship sold / bought items on the site",
+         "Data": "Name, address, e-mail address, phone number"
+       },
+       {
+         "name": "Sello (SE)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "To service larger sellers, enable shop items, enable bulk listing and order management",
+         "Data": "Name, address, e-mail address, phone number, alias"
+       },
+       {
+         "name": "Twilio (SE)",
+         "parent": "Commercial Partnerships",
+         "Purpose": "To enable SMS to customers in order to verify identities",
+         "Data": "First name, phone number"
+       }
+     ]},
+
+   {
+     "name": "Marketing and Public Relations",
+     "parent": "PayPal",
+     "children": [
+       {
+         "name": "Northstar Research Partners (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service surveys.",
+         "Data": "Name, email address, type of account, type and nature of the PayPal services offered or used, and relevant transaction information."
+       },
+       {
+
+         "name": "Ipsos Mori UK Limited (UK), Ipsos GmbH (Germany), Ipsos SAS (France) and FactWorks GmbH (Germany), TNS Deutschland GmbH (Germany), The Tryst Market Research Limited (UK), The Modellers LLC (USA), Hall and Partners Europe Ltd. (UK), Hall and Partners LLC (USA), Factworks LLC (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+
+         "name": "Lieberman Research Worldwide LLC (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+
+         "name": "Forrester Research, Inc. (USA), Forrester Switzerland GmbH/Forrester Research BV (CH)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country/city of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+
+         "name": "Opinion Labs Inc. (USA), Sky Cconsulting (FR), Acuity ETS Ltd. (UK),I + E Research (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country/city of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+
+         "name": "Adwise (France) and Axance (France)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct marketing surveys.",
+         "Data": "Name, email address, telephone number, type of account, type and nature of the PayPal services offered or used, and relevant transaction information."
+       },
+       {
+
+         "name": "BD Network Limited (UK), Tullo Marshall Warren Limited (UK), and MyCash (France)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To develop and execute customer promotions.",
+         "Data": "Name, address and email address."
+       },
+       {
+         "name": "Salesforce.com, inc. (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To store merchant contact information as well as other supporting information about the business relationship.",
+         "Data": "Name, address, telephone number and email address, business name, URL PayPal Account ID and other supporting information about the business relationship, such as (without limitation) name of contact person and contact information at merchant and/or partner through which merchant has been onboarded, description of products sold through PayPal, communication notes and onboarding information, internal decisions about the merchant, revenue calculations and other information on the merchant’s business as made available by the merchant, and information relevant for special integrations of merchants, name and address of bank."
+       },
+       {
+         "name": "Clue PR (Poland), Daniel J Edelman Ltd (UK), Edelman.ergo GmbH (Germany, Austria, Switzerland), Edelman Spain, S.A. (Spain), Edelman S.A. (France), Edelman S.r.l. (Italy), Edelman Public Relations Worldwide B.V. (Netherlands), Southpaw Productions, s.r.o. (Czech Republic), Clue PR (Hungary), Georgia-Niki Christoula, Public Relations Consultant (Greece) Comit Communications & Marketing Limited (Ireland), F.I.K Social Industries AB (Sweden, Norway, Denmark)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To answer media enquiries regarding customer queries and assist PayPal in social media activities.",
+         "Data": "Name, address, and all customer account information relevant to customer queries."
+       },
+       {
+         "name": "Alchemy Worx Ltd (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To allow management reporting of marketing campaigns.",
+         "Data": "Name, email address and details of customer campaign interaction."
+       },
+       {
+         "name": "Carrenza Limited (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To hose a marketing database",
+         "Data": "Name, address, email address, business name, domain name, account status, account preferences, type and nature of the PayPal services offered or used, and relevant transaction information."
+       },
+       {
+
+         "name": "Dataprovider B.V (Netherlands)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To obtain marketing and business information for sales and Marketing purposes by acquiring and enriching business information and data profiles of new and existing customers",
+         "Data": "Merchant name, customer id, email address, account number, postal address, telephone number, URL."
+       },
+       {
+         "name": "1000Mercis SA (France) and 1000Mercis Ltd (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To store user data to conduct marketing campaigns on behalf of PayPal.",
+         "Data": "Name, email address, telephone number, type of account, type and nature of the PayPal services offered or used, and relevant transaction information."
+       },
+       {
+         "name": "A McLay & Company Limited (UK), TNT Post Italia (Italy)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To assist in the execution of offline direct mail and marketing campaigns.",
+         "Data": "Name, address, email address, business name, domain name, account status, account preferences, type and nature of the PayPal services offered or used, and relevant transaction information."
+       },
+       {
+         "name": "Datacolor Dialog-Medien GmbH (Germany), MEILLERGHP GmbH (Germany) and W & J Linney Ltd (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To assist in the execution of offline direct mail and marketing campaigns.",
+         "Data": "Name, email address, address, business name, domain name, account status, account preferences, type and nature of PayPal services offered or used."
+       },
+       {
+         "name": "Medallia, Inc. (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service surveys.",
+         "Data": "Name, email address, type of account, type and nature of the PayPal services offered or used, and relevant transaction information."
+       },
+       {
+         "name": "Endlichsommer- werbung in bester gesellschaft mbh (Germany) and Crossover Communication GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To assist in the execution of offline direct mail and marketing campaigns.",
+         "Data": "Name, address, business name, type and nature of PayPal services offered or used."
+       },
+       {
+         "name": "optivo GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To send emails; email marketing.",
+         "Data": "Name of the merchant, name of the contact person, email address, address, status, client ID and shop system."
+       },
+       {
+         "name": "Acxiom France SAS (France), Acxiom Ltd (UK) and Acxiom GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To collect additional user information and better target marketing campaigns.",
+         "Data": "Name, address, email address, date of birth and telephone number."
+       },
+       {
+         "name": "Rapp (France), Rapp (UK), Antics (USA), Partner Path",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To develop, measure and execute marketing campaigns.",
+         "Data": "Name, business name, address and registration number of merchant/partner, name, job, title, email address, telephone number of merchant’s contact person, merchant website URL, PayPAl account number, third party applications used by the merchant, behaviour on PayPal Serviceswebsite."
+       },
+       {
+         "name": "Rapp (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To develop, measure and execute marketing campaigns.",
+         "Data": "First name, Last name, Address, Email address, Telephone number, Gender, Date of Birth, Date of PP account opening, Business name, Domain name, Account status, Account preferences, Type and nature of the PayPal services offered or used, Relevant transaction information.\n,"
+       },
+       {
+         "name": "DemandGen AG (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute e-mail marketing campaigns.",
+         "Data": "Name, email address, telephone number, type of account, type, and nature of PayPal Services offered or used and relevant transaction information."
+       },
+       {
+         "name": "Business support services - b2s, SAS (France), Foule Access SAS (France)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To store merchants' contact information for marketing communications to those merchants.",
+         "Data": "Name of the merchant, name of the contact person, address, email address, telephone number, merchant website URL."
+       },
+       {
+         "name": "Consultix (France and Spain) and Quadro Srl (Italy)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To host information provided by merchants and display part of this information on the pages of the PayPal website listing websites accepting PayPal and proposing special offers to PayPal users.",
+         "Data": "All information provided by merchants in connection with their use of these pages of the PayPal website (including in particular name of the merchant, name of the contact, email address, logo and information relating to the promotion(s) offered to PayPal users)."
+       },
+       {
+         "name": "Appnexus, Inc. (USA), BlueKai, Inc. (USA), Adobe Systems Incorporated (USA), Mediamath Inc. (USA), Criteo SA (France), TubeMogul Inc (USA), AdaptTV",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages, ads and emails delivered to users. Encrypted e-mail address associated with PayPal users (without indicating account relationship)."
+       },
+       {
+         "name": "Google Inc., Google Ireland, Ltd. (Ireland), Google (SE), DoubleClick Europe Ltd (UK), DoubleClick, a division of Google, Inc, Google Asia Pacific Pte. Ltd. (SG)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Help identify behaviour on PayPal websites and the mobile app in order to guide decision about targeted marketing; to help efficiently handling and optimising desktop and mobile campaigns and elsewhere in the web and execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages, ads and emails delivered to users. Advertising ID and Device ID, encrypted e-mail address, Customer ID, Merchant ID, Transaction Value, Transaction ID, loan approval amount."
+       },
+       {
+         "name": "Conversant Inc. (USA), Commission Junction (USA), Conversant GmbH (Germany), Conversant International Ltd. (Ireland)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to identify visitors and redirect them though personalised advertising campaigns.",
+         "Data": "Hashed PayPal Account ID (as appropriate) as well as ,device ID used by a specific person, content of advertisements to be delivered, and segmentation in a user group for advertisement purposes."
+       },
+       {
+         "name": "Criteo (FR), (SE)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages and emails delivered to users."
+       },
+       {
+         "name": "LinkedIn Ireland Unlimited Company (Ireland), LinkedIn Corporation (US), LinkedIn Singapore Pte. Ltd. (SG)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Business Name, Encrypted e-mail address associated with PayPal users (without indicating account relationship)"
+       },
+       {
+         "name": "Conversant Inc. (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to identify visitors and redirect them though personalised advertising campaigns.",
+         "Data": "PayPal Account ID (as appropriate) as well as device ID used by a specific person, content of advertisements to be delivered and segmentation in a user group for advertisement purposes."
+       },
+       {
+         "name": "StrikeAd UK Ltd. (UK), Criteo Ltd. (UK), Criteo Singapore Pte. Ltd (SP), Tapjoy Inc (USA)., Supersonic Ltd., StrikeAd Inc. (USA), Exponential Interactive Inc (USA), InMobi (USA), MoPub Inc. (USA), AdMob Inc (USA), Millenial Media Inc (USA), Tapad Inc, Drawbridge Inc, Mobkoi, (UK) Fiksu, Inc. (USA), Nanigans, Inc. (USA), Eloqua, a division of Oracle Inc.,Criteo SA (France), Rocket Fuel, StrikeAd Inc. (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to segment users for marketing campaigns.",
+         "Data": "Anonymous cookie ID, Advertising ID, and/or device ID to segment user groups for marketing purposes."
+       },
+       {
+         "name": "Fiksu, Inc. (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to segment users for marketing campaigns involving PayPal mobile applications.",
+         "Data": "Device ID used for Apple’s iOS operating system when a user installs an application, signs up for the PayPal Services, logs in, checks in, or sets a profile picture."
+       },
+       {
+         "name": "Nanigans, Inc. (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Advertising ID associated with Apple iOS devices when a user installs an application, relaunches an application, signs up for the PayPal Services, logs in, checks in, checks their balance, saves an offer, successfully completes a transaction, sets a profile picture, or makes other account changes in or related to the use of the application."
+       },
+       {
+         "name": "Heaven SAS (France)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute marketing campaigns for merchants.",
+         "Data": "Name of merchant, merchant website URL, description of item purchased and price of item."
+       },
+       {
+         "name": "Wire Stone LLC (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To select, notify winners and prize fulfillment for winners of survey sweepstakes.",
+         "Data": "Name, email address, encrypted ID and country."
+       },
+       {
+         "name": "Sotiaf Telematiques Associes SAS (France)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To store user data for marketing campaigns and to execute direct marketing campaigns.",
+         "Data": "Name, email address, and telephone number."
+       },
+       {
+         "name": "2engage (Germany) and Quo Vadis (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct market surveys.",
+         "Data": "Name, company name, address, telephone number, domain name, e-mail address, type and nature of use of PayPal services, market segment and generalised categorisation of company size and information on participation in earlier surveys."
+       },
+       {
+         "name": "Facebook, Inc (US), Facebook Ireland Limited (Ireland), Twitter, Inc. (US),(Ireland) AdRoll, Yahoo, Facebook Business Manager (SE).",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Advertising ID and device ID to segment user groups based on app behaviour, encrypted e-mail address associated with PayPal users (without indicating account relationship), IP Address, Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages, ads and emails delivered to users. Mobile advertiser ID, IP Address and other metadata via Facebook SDK in mobile apps."
+       },
+       {
+         "name": "SurveyMonkey Spain, Sucursal em Portugal (Portugal) and SurveyMonkey.com, LLC (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To assist in carrying out user surveys.",
+         "Data": "Name, email address and details of customer campaign interaction."
+       },
+       {
+         "name": "Marketing and Planning Systems, LLC. USA (USA), Dynamic Logic, Inc. (USA), GfK Custom Research LLC (USA), GfK Polonia Sp. z o.o. (Poland), Millward Brown, Inc. (USA) and Radius Global Market Research, LLC (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country/city of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+         "name": "Oracle America Inc. (USA),\nOracle Corporation UK Ltd",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To develop, measure and execute marketing campaigns.",
+         "Data": "Name, business name, address and registration number of merchant, name, job title, email address, telephone number of merchant’s contact person, merchant website URL, PayPal account number, third party applications used by the merchant, behaviour on PayPal website."
+       },
+       {
+         "name": "Nanigans, Inc. (USA), Fiksu, Inc. (USA), Ad- X Limited (UK); Criteo Ltd. (UK), Criteo Singapore Pte. Ltd",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Help identify behaviour in the mobile app in order to guide decision about targeted marketing; to help efficiently handling and optimising mobile campaigns on social networks and elsewhere in the web.",
+         "Data": "Anonymous cookie ID, Advertising ID, and Device ID used by a specific person, events in the mobile app about the use of the mobile app by a specific user (including, without limitation, login, successful completion of the transaction), but no payment and financial information details.\n\nContent of advertisements to be delivered to specific users and, as appropriate, segmentation group to which such person belongs to for advertisement purposes."
+       },
+       {
+         "name": "Zeuner S.p.A. (Italy), Accueil Srl (Italy) and CallCenterNet Italy s.r.l. (Italy)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To store merchants' contact information for marketing communications to those merchants.",
+         "Data": "Name of the merchant, name of the contact person, address, email address, telephone number, merchant website URL."
+       },
+       {
+         "name": "Purepromoter Ltd t/a Pure360",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To send service related and (depending on opt-in settings) promotional SMS messages to PayPal users.",
+         "Data": "Mobile Number, name, address, email address, business name, business contact details, domain name, account status, account type, account preferences, type and nature of the PayPal services offered or used and relevant transaction and account information."
+       },
+       {
+         "name": "Iris (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To develop, measure and execute marketing campaigns.",
+         "Data": "Name, business name, address and registration number of merchant/partner, name, job title, email address, telephone number of merchant’s contact person, merchant website URL, PayPal account number, third party applications used by the merchant, behaviour on PayPal website."
+       },
+       {
+         "name": "OC&C Strategy Consultants Limited (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct market research and develop insight.",
+         "Data": "Anonymized account and transaction information."
+       },
+       {
+         "name": "PaketPLUS Marketing GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Managing marketing campaigns, distributing flyers to merchants and follow up of the campaigns.",
+         "Data": "Consumer name, Location, Nature and scale of fraud on the account, Business name."
+       },
+       {
+         "name": "Eye square GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "To conduct customer service and marketing surveys."
+       },
+       {
+         "name": "Alliance Data FHC, Inc., trading as Epsilon International and/or Epsilon Communication Solutions, S.L",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute outbound communication campaigns including, but not limited to, email and push notifications.",
+         "Data": "Contact information inluding, but not limited to, name, email, telephone number. Anonymous cookie ID, Advertising ID. Content of communications to be delivered to specific users and, as appropriate, segmentation group to which such person belongs to for communication purposes."
+       },
+       {
+         "name": "Adjust GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Help identify behaviour in the mobile app in order to guide decision about targeted marketing; to help efficiently handling and optimising mobile campaigns on social networks and elsewhere in the web.",
+         "Data": "Anonymous cookie ID, Advertising ID, and Device ID used by a specific person, events in the mobile app about the use of the mobile app by a specific user (including, without limitation, login, successful completion of the transaction), but no payment and financial information details.\n\nContent of advertisements to be delivered to specific users and, as appropriate, segmentation group to which such person belongs to for advertisement purposes."
+       },
+       {
+         "name": "Visual IQ, Inc (USA), Visual IQ (Canada)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Cross Device / Channel Measurement.",
+         "Data": "Advertising ID and device ID to segment user groups based on app behaviour, encrypted e-mail address associated with PayPal users (without indicating account relationship). Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages,ads and emails delivered to users."
+       },
+       {
+         "name": "aklamio GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "aklamio implements referral marketing and cashback program to acquire new active PayPal consumers.",
+         "Data": "encrypted consumer ID, the time, when the sign-up and first transaction was made."
+       },
+       {
+         "name": "Rakuten (Global)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages and emails delivered to users."
+       },
+       {
+         "name": "Realzeit GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to segment users for marketing campaigns, deliver personalized advertising.",
+         "Data": "Anonymous cookie ID, Advertising ID, and/or device ID."
+       },
+       {
+         "name": "Trademob GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to segment users for marketing campaigns, deliver personalized advertising.",
+         "Data": "Anonymous cookie ID, Advertising ID, and/or device ID."
+       },
+       {
+         "name": "Maple Team Limited (Israel), Unique Digital Marketing Limited (UK), Havas Media (France), Havas Media Limited, Webguerillas GmbH (Germany), Blue 449 GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Online media agencies to buy digital media to advertise PayPal services and products.",
+         "Data": "These agencies often process anonymous cookie, device ID’s, targeting lists, hashed email lists to reach our consumers via media networks."
+       },
+       {
+         "name": "Affiperf Conversion Tag (Havas Trading Desk) – EMEA",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages and emails delivered to users."
+       },
+       {
+         "name": "Pandora",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages and emails delivered to users."
+       },
+       {
+         "name": "Affilio",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages and emails delivered to users."
+       },
+       {
+         "name": "Resultados Digitais",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages and emails delivered to users."
+       },
+       {
+         "name": "Netfluential Ltd. (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country/city of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+         "name": "Greenberg Inc. (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, type of account, type and nature of the PayPal services offered or used and relevant transaction information."
+       },
+       {
+         "name": "LatentView Analytics Corporation (US, UK, India)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country/city of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+         "name": "Hall & Partners Europe Ltd. (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, type of account, type and nature of the PayPal services offered or used and relevant transaction information."
+       },
+       {
+         "name": "Firefish Ltd. (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country/city of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+         "name": "FocusVision Worldwide Inc. (USA), Focus Vision Inc (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country/city of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys."
+       },
+       {
+         "name": "Clear Score Technology Ltd. (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute targeted campaigns in order to deliver personalised advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages, ads and emails delivered to users."
+       },
+       {
+         "name": "VivaKi GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To collect anonymous user information to efficiently optimize marketing campaigns. Help identify behaviour on PayPal websites in order to guide decision about targeted marketing and personalized advertising.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages, ads, apps and emails delivered to users. Information about device, browser, visited PayPal websites."
+       },
+       {
+         "name": "Adjust GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Help identify behaviour in the mobile app in order to guide decision about targeted marketing; to help efficiently handling and optimising mobile campaigns on social networks and elsewhere in the web.",
+         "Data": "Anonymous cookie ID, Advertising ID, encrypted customer ID, and Device ID used by a specific person, events in the mobile app about the use of the mobile app by a specific user (including, without limitation, login, successful completion of the transaction), but no payment and financial information details.\n\nContent of advertisements to be delivered to specific users and, as appropriate, segmentation group to which such person belongs to for advertisement purposes."
+       },
+       {
+         "name": "Quiller Consultants (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Support UK Government Relations work.",
+         "Data": "PayPal marketing materials and product overviews. Occasional merchant case study. All other data shared will be public record e.g. consultation response. No customer or merchant specific data will be shared."
+       },
+       {
+         "name": "iProspect",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Search engine optimization to support PayPal marketing teams and provide feedback on web-design and site issues.",
+         "Data": "Cookie ID, Customer ID, Country, account type, IP address."
+       },
+       {
+         "name": "Mozoo UK LTD, LoopMe Ltd., 4th Screen Advertising Ltd",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns, to segment users for marketing campaigns, to deliver personalized advertising.",
+         "Data": "Anonymous cookie IDs, Advertising ID’s, Aggregated data on installs, signups, and conversions"
+       },
+       {
+         "name": "Crispin Porter Bogusky CP+B (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure advertising campaigns",
+         "Data": "Transaction Value (Donate only), Merchant ID"
+       },
+       {
+         "name": "Altares D&B (EMEA), Informa (EMEA), Cerved (EMEA), Cribis D&B (EMEA),Coface (EMEA), Dun & Bradstreet (EMEA).",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Marketing and business information for sales purposes, acquire and enrich business info of new and existing clients.",
+         "Data": "External leads (prospect business information)."
+       },
+       {
+         "name": "Fiksu Inc (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to segment users for marketing campaigns involving PayPal mobile applications.",
+         "Data": "Device ID used for Apple’s iOS operating system when a user installs an application, signs up for the PayPal services, logs in, checks in, or sets a profile picture."
+       },
+       {
+
+         "name": "Market Bridge (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To segment customers to enable improved servicing",
+         "Data": "Account ID, address, post code, account history, growth data including product utilisation and all transaction data."
+       },
+       {
+         "name": "Select Media Ltd (UK), AdCompass Ltd (UK), Cheetah Mobile Inc. (China), Fyber GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to segment users for marketing campaigns.",
+         "Data": "Anonymous cookie ID, advertising ID, and/or device ID to segment user groups for marketing purposes."
+       },
+       {
+         "name": "Debby and Ron digital LTD (IL)\nLLC Havas Digital (Havas Russia)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Online media agency to buy digital media to advertise PayPal services and products.",
+         "Data": "These agencies often process anonymous cookie, device ID’s, targeting lists, hashed email lists to reach our consumers via media networks."
+       },
+       {
+         "name": "Ogury Ltd (UK), Adara, Inc (USA), RadiumOne, Inc (USA),\nMicrosoft Online Inc, Commission Junction (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure retargeting campaigns in order to segment users for marketing campaigns, deliver personalized advertising.",
+         "Data": "Anonymous cookie ID generated by cookies, pixel tags or similar technologies embedded in webpages and emails delivered to users, Advertising ID, and/or device ID."
+       },
+       {
+         "name": "Integral Ad Science, Inc. (USA), Moat, Inc (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Third party ad verification services",
+         "Data": "Non-PII Behavioral signals with regards to online advertising activity"
+       },
+       {
+         "name": "Hypothesis Inc.",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To conduct customer service and marketing surveys.",
+         "Data": "Name, email address, telephone number, country of residence/business, encrypted ID, transaction frequency, recency and volume, type of account, exposure to marketing materials, exposure to product flows, type and nature of the PayPal products/services offered or used, customer service contact, merchant/consumer classification, number of merchant transactions, number of months active, other relevant account/transaction information, and all information obtained from surveys"
+       },
+       {
+         "name": "Borek media GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To assist in the execution of offline direct mail and marketing campaigns.",
+         "Data": "Name, customer ID, email address, postal address, business name, domain name, account status, account preferences, type and nature of PayPal services offered or used."
+       },
+       {
+
+         "name": "LookBookHQ (Canada)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To deliver services related to LookbookHQ content experience products",
+         "Data": "Customer and prospect IP address, customer email address"
+       },
+       {
+
+         "name": "Purestone TFM Limited (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To perform customer and prospect interviews and research as input to the creation of marketing communication assets like testimonials and success stories",
+         "Data": "Customer business name, contact name, contact telephone number"
+       },
+       {
+
+         "name": "Snap Inc. (USA)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Advertising ID and device ID used by a specific person, install and in-app data based on those IDs"
+       },
+       {
+
+         "name": "Mobext (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Advertising ID and device ID used by a specific person"
+       },
+       {
+         "name": "Teads SA (France)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Advertising ID and device ID used by a specific person, install and in-app data based on those IDs"
+       },
+       {
+         "name": "Spotify AB (Sweden)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Advertising ID and device ID used by a specific person, install and in-app data based on those IDs"
+       },
+       {
+         "name": "Apple Search Ads (USA) (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To set up, execute and measure advertising campaigns on Apple Search Ads platform. Apple will deliver advertising content to users of Apple software applications and Apple devices.",
+         "Data": "Advertising ID and device ID used by a specific person, install and in-app data based on those IDs"
+       },
+       {
+
+         "name": "Batch Media GmbH (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "For ad verification and viewability measurement",
+         "Data": "Campaign based data (time, campaign information, location, geo information, browser information) as well as javascript readable creative data and IP address."
+       },
+       {
+
+         "name": "Qualtrics (U.S.)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Collect user’s feedback on paypal.com website to get their satisfaction scores and specific site improvement recommendations, report site issues directly from the site visitors",
+         "Data": "IP Address; User Agent; Browser; Device Type; Screen Resolution; Browser Size, Page URL; Page Referrer; Site Referrer; Page count; Time spent on site; time focused on site, date; day; time, Survey status (rendered, started, completed) and content filled if completed, Encrypted Cust_ID, Page name"
+       },
+       {
+
+         "name": "RadiumOne (US)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute and measure user behaviors (signups and transactions) and retargeting campaigns in order to identify visitors and redirect them through personalised advertising campaigns.",
+         "Data": "Anonymous ID generated by cookies, pixel tags or similar technologies embedded in webpages, ads and emails delivered to users. Advertising ID and Device ID, encrypted e-mail address, Customer ID, Merchant ID, Transaction Value, Transaction ID, loan approval amount."
+       },
+       {
+
+         "name": "XING AG (Germany)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To execute retargeting campaigns in order to deliver personalised advertising.",
+         "Data": "Company names of existing merchants for matching them with the platform’s user base"
+       },
+       {
+
+         "name": "Cosine (UK)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "Marketing of PayPal Here",
+         "Data": "Name, surname, business name, TPV, number of transactions, address, email address"
+       },
+       {
+
+         "name": "Blueshift (US)",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To enable marketing automation and personalization",
+         "Data": "Name, surname, e-mail, phone number, gender, birth date, member ID, city, country, page visited and purchase history"
+       },
+       {
+
+         "name": "Smartly",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To enable advertising on specific segments and find new potential customers",
+         "Data": "E-mail address"
+       },
+       {
+
+         "name": "Precis digital",
+         "parent": "Marketing and Public Relations",
+         "Purpose": "To enable personalized advertising through AdWords",
+         "Data": "Email address"
+       }
+      ]},
+
+   {
+     "name": "Operational Services",
+     "parent": "PayPal",
+     "children": [
+      {
+         "name": "Rackspace US, Inc. (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To provide hosting and storage services to assist and/or enable PayPal to provide services to customers.",
+         "Data": "Name, address, and email address."
+       },
+       {
+         "name": "arvato Financial Solutions LTD (UK), arvato Benelux B.V. (NL), arvato service France S.A.R.L. (France), arvato Financial Solutions LTD (Ireland), Kanzlei Dr. Seegers, Dr. Frankenheim & Partner Lawyers (Germany, Austria, Switzerland), Akinika Debt Recovery Limited (UK), Cabot Credit Management LTD (UK), Capita Plc (UK), Compagnie Francaise du Recouvrement (France), Clarity Credit Management Solutions Limited (UK), EOS Solution Deutschland GmbH (Germany), EOS Aremas Belgium SA/ NV (Belgium), EOS Nederland B.V. (Net herlands), Arvato Infoscore GmbH (Germany), infoscore Forderungsmanagement GmbH (Germany), infoscore austria GmbH (Austria), Infoscore Iberia (Spain), infoscore Inkasso AG (Switzerland), infoscore Nederland B.V. (Netherlands),SAS (France), Transcom WorldWide S.p.A. (Italy), Transcom Worldwide SAS (Tunisia), Transcom Worldwide (UK) Ltd (UK), Intrum Justitia S.p.A. (Italy), Wescot Credit Services Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To collect debt.",
+         "Data": "Name, address, telephone number, account number, date of birth, email address, account type, account status, last four digits of financial instruments account, sort code, account balance, details of account transactions and liabilities, name of funding source provider and copies of all correspondence in each case relating to amounts you owe (or another person owes) to us."
+       },
+       {
+         "name": "KSP Kanzlei Dr. Seegers (Germany), BFS Risk & Collection GmbH (Germany), HFG Hanseatische Inkasso- und Factoring-Gesellschaft (Germany), infoscore Forderungsmanagement GmbH (Germany), Team 4 Collect (Spain), Arvato Polska (Poland), BCW Collections Ireland Ltd (Ireland), S.C. Fire Credit S.R.L. (Romania), Gothia Financial Group AB (Sweden), Gothia AS (Norway), Gothia A/S (Denmark), Gothia Oy (Finland), Credit Solutions Ltd (United Kingdom).",
+         "parent": "Operational Services",
+         "Purpose": "To assist with debt collection processes, including sending of correspondence ; and reporting to credit reference agencies about defaulting customers.",
+         "Data": "Name, address, telephone number, account number, date of birth, email address, account type, account status, last four digits of financial instruments account, sort code, account balance, details of account transactions and liabilities, name of funding source provider, applicable details of account behaviour and copies of all correspondence (including without limitation, all correspondence relevant for reporting to credit reference agencies) in each case relating to amounts you owe (or another person owes) to us."
+       },
+       {
+         "name": "Begbies Traynor Group plc (UK), Moore Stephens LLP (UK), Moore Stephens Ltd (UK), Moore Stephens International Ltd (UK), Moorhead James LLP (UK), Comas Srl (Italy), RBS RoeverBroennerSusat GmbH & Co. KG (Germany), LLC Elitaudit (Russia), National Recovery Service (Russia), TDX Group Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To investigate (including, without limitation, to carry out asset and/or site inspections and/or business evaluations) and/or collect (and/or assist with the collection of) debt from potentially and actually insolvent customers.",
+         "Data": "Name, address, telephone number, account number, date of birth, email address, account type, account status, last four digits of financial instruments account, sort code, account balance, details of account transactions and liabilities, name of funding source provider and copies of all correspondence, in each case relating to amounts you owe (or another person owes) to us."
+       },
+       {
+         "name": "Webbank (USA)",
+         "parent": "Operational Services",
+         "Purpose": "Only for customers who are also customers of Bill Me Later, Inc.: to help with accounting and recovery services.",
+         "Data": "Name, address, telephone number, account number, date of birth, email address, account type, account status, last four digits of financial instruments account, sort code, account balance, details of account transactions and liabilities, and name of funding source provider."
+       },
+       {
+         "name": "Research in Motion Limited (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To enable you to access and use PayPal via a mobile device (for example mobile telephone or PDA).",
+         "Data": "Applicable details of your account information which are transmitted as part of your use of PayPal via a mobile device."
+       },
+       {
+         "name": "Digital River Inc. (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To enable you to access and use PayPal when using French PLCs, Amex international, Maestro, Cielo, Redecard, Bancomer.",
+         "Data": "Access to the authorisation and settlement data."
+       },
+       {
+         "name": "mediafinanz AG (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "To collect debt, to request and proceed information from and to Schufa, Buergel and other credit reference and fraud agencies for PayPal.",
+         "Data": "Name, address, telephone number, account number, date of birth, business name, email address, account type, account status, last four digits of financial instruments account, account balance, details of account transactions and liabilities, name of funding source provider, credit score received from agency, account performance data."
+       },
+       {
+         "name": "Zyklop Inkasso Deutschland GmbH (Germany), PNO inkasso AG (Germany), Hanseatische Inkasso-Treuhand GmbH (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "To collect and manage debt, to support collections teams in case of insolvent customers.",
+         "Data": "Name, address, telephone number, account number, email address, account type, account status, last four digits of financial instruments account, sort code and name of funding source provider, account balance, date and amount of last payment, results of creditworthiness checks."
+       },
+       {
+         "name": "Informa Solutions GmbH (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "To request and proceed information from and to Schufa, Buergel and other credit reference and fraud agencies in and from and to ID Checker.",
+         "Data": "Name, date of birth business name, legal form, address, email address, company registration number and VAT number.\nFor the purpose of verification of identity also: other information contained in documents requested by PayPal for Risk / Compliance purposes.\nFor customers with a German PayPal account also: telephone number, length of time at address, length of time in business, length of time with PayPal, funding instrument including bank account and credit /debit card details and relevant transaction information, credit score received on behalf of PayPal from a credit reference agency, account number, account type, account status, account balance, details of account transactions and liabilities, negative account performance data."
+       },
+       {
+         "name": "P K Consultancy Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To assess risk and help detect and prevent potentially illegal acts and violations of policies.",
+         "Data": "Name, address, telephone number, account number, email address, account type, last four digits of financial instruments account, account balance, details of account transactions and liabilities, account status and account performance information as required for the Purpose."
+       },
+       {
+         "name": "Robertson Taylor Insurance Brokers Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "Consultation with respect to risk assessment of specific merchants and merchant transactions.",
+         "Data": "Name, address, telephone number, account number, business contact details, domain name, email address, account type, account balance, details of account transactions and liabilities, account status and account performance information as required for the Purpose."
+       },
+       {
+         "name": "Accenture (UK)",
+         "parent": "Operational Services",
+         "Purpose": "Consultation and data review / analysis with respect to Global Operational Customer Service KPI data and spend incorporating customer feedback and complaints, Teammate performance as it relates to such metrics as CSAT, Transfer Rate, Repeat Contacts.",
+         "Data": "Name, address, telephone number, email address, account number, contact details, account type, account balance, details of account transactions and liabilities, account status and account performance information as required for the Purpose."
+       },
+       {
+         "name": "Yesmail Inc. (USA), Responsys (USA), Silverpop Systems Inc. (USA) and e-Dialog, Inc. (USA), Salesforce.com, Inc. (USA), Oracle America Inc. (USA), Adobe Systems Incorporated (USA), Teradata Corporation",
+         "parent": "Operational Services",
+         "Purpose": "To fulfil email operations in respect of the PayPal services (including, but not limited to, operations, customer services, collections, marketing programmes and promotions).",
+         "Data": "Name, address, email address, business name, business contact details, domain name, account status, account type, account preferences, type and nature of the PayPal services offered or used and relevant transaction and account information."
+       },
+       {
+         "name": "Blue Media S.A. (Poland)",
+         "parent": "Operational Services",
+         "Purpose": "To verify identity and ensure that a user is a PayPal account holder. To process instant funding requests made by a user through the Blue Media services.",
+         "Data": "Name and email address."
+       },
+       {
+         "name": "Consultix GmbH (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "To assist in the creation of PayPal Business Accounts for merchants on-boarding through their bank's or other contract partner payment or service gateway.",
+         "Data": "All information provided by the merchant (directly or via his/her bank or other contract partner) for the purpose of creating his/her PayPal business account (including without limitation email address, address, business name, business contact details and bank account details)."
+       },
+       {
+         "name": "Akamai Technologies Inc. (USA)",
+         "parent": "Operational Services",
+         "Purpose": "Content delivery network – to deliver PayPal page content from local servers to users. To also retrieve risk information regarding the IP and device from which customers are accessing PayPal, research and testing as to appropriateness of new products and services.",
+         "Data": "IP and hardware information about the device (device ID, User IP address cookies). Circumstances of the conduct of IP."
+       },
+       {
+         "name": "azionare GmbH (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "To distribute prizes in prize promotions on Facebook.",
+         "Data": "Name, email address."
+       },
+       {
+         "name": "ITELLIUM mobile Solutions GmbH (Germany); CartaSi S.p.A - Gruppo ICBPI (Italy)",
+         "parent": "Operational Services",
+         "Purpose": "To assist in the production of innovative payment methods (e.g. applications) and processing of payments through such innovative payment methods.",
+         "Data": "All account information."
+       },
+       {
+         "name": "Trustwave Holdings Inc. (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To provide PCI compliance validation services for merchant accounts and merchant integrations.",
+         "Data": "Business name, address, account number, merchant type, compliance program used, PCI Level, PCI Status, PCI Expiry, name, email address, telephone number of merchant’s contact person"
+       },
+       {
+         "name": "Zoot Enterprises, Inc. (USA), Zoot Deutschland GmbH (Germany), Zoot Enterprises Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To process technical applications and to provide a data and document gateway for account review, testing and vetting purposes, and to exchange user information and images of documents proving identity, address and ownership of funding instrument with contracted fraud and credit reference agencies.",
+         "Data": "All account information and documents supplied by customers such as proofs of identity and address, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk / Compliance Credit purposes."
+       },
+       {
+         "name": "RR Donnelley and Sons Company (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To provide printing services such as statements and other printed materials.",
+         "Data": "Name, address, email address, and account information."
+       },
+       {
+         "name": "Scorex (UK) Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To provide a technology solution to allow PayPal to process, send and receive credit information of users via its contracted credit reference agencies.",
+         "Data": "Name, address, email address, date of birth, length of time at address, telephone number, legal form, length of time in business, company registration number, VAT number (if appropriate)."
+       },
+       {
+         "name": "OXID eSales AG (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "Services in connection with the development and operation of a payment system for stationary trade (point of sale).",
+         "Data": "All account information and transaction information (as appropriate)."
+       },
+       {
+         "name": "Ordermotion, Inc. (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To collect data and create/deliver (direct to customer) orders for the PayPal Here product (including, without limitation, the PayPal Here-enabled device).",
+         "Data": "Name, address, email, telephone number, credit card information and PayPal Payer ID."
+       },
+       {
+         "name": "Ingram Micro, Inc. (USA) and Ingram Micro (UK) Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To act as PayPal's fulfilment distributor for the PayPal Here product (including, without limitation, the PayPal Here-enabled device).",
+         "Data": "Name and address."
+       },
+       {
+         "name": "Interxion Datacenters B.V.",
+         "parent": "Operational Services",
+         "Purpose": "To provide data centre operations support for the Bill Safe credit product.",
+         "Data": "All relevant account information and transaction information (as appropriate)."
+       },
+       {
+         "name": "Lattice Engines, Inc. (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To develop and optimize predictive models.",
+         "Data": "Name of the merchant, name of the contact person, address, email address, merchant website URL."
+       },
+       {
+         "name": "Interact CC Ltd (UK)",
+         "parent": "Operational Services",
+         "Purpose": "Providing assistance with PayPal service to customers.",
+         "Data": "Customer name, business name, telephone numbers, contact email, website, business industry, shipping details, card details for the payment."
+       },
+       {
+         "name": "D+S communication center management GmbH (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "Providing assistance with PayPal services to business customers.",
+         "Data": "Customer name, business name, telephone numbers, contact email addresses, website, business industry, number of PayPal transactions, transaction volume with PayPal, domestic / international transaction volume split, shipping details, card details for the payment."
+       },
+       {
+         "name": "The unbelievable Machine Company GmbH",
+         "parent": "Operational Services",
+         "Purpose": "Hosting BillSafe application on its servers.",
+         "Data": "All Account information."
+       },
+       {
+         "name": "eBay Enterprise (GSI Commerce) (USA)",
+         "parent": "Operational Services",
+         "Purpose": "Processing of PayPal payments and provision of customer support on merchants behalf.",
+         "Data": "Name, address, telephone number, email addresses, truncated and limited, funding source expiration dates, type of PayPal account, account status, last four digits of financial instruments account, sort code, account balance, details of account transactions."
+       },
+       {
+         "name": "Globalcollect (NL)",
+         "parent": "Operational Services",
+         "Purpose": "Process PayPal transactions; facilitate settlement of funds outside of the PayPal system and reporting.",
+         "Data": "Name, address, telephone number, email addresses, truncated and limited or full funding source information, funding source expiration dates, type of PayPal account, account status, last four digits of financial instruments account, sort code, account balance, details of account transactions."
+       },
+       {
+         "name": "Zevas Communications Ltd (Ireland)",
+         "parent": "Operational Services",
+         "Purpose": "Providing assistance with PayPal services to business customers.",
+         "Data": "Customer name, business name, telephone numbers, contact email addresses, website, business industry, number of PayPal transactions, transaction volume with PayPal, domestic / international transaction volume split, shipping details, card details for the payment."
+       },
+       {
+         "name": "VoiceSage UK (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To allow SMS contact support services.",
+         "Data": "Name, telephone number."
+       },
+       {
+         "name": "Trustly Group AB",
+         "parent": "Operational Services",
+         "Purpose": "To allow customers to instantly transfer money from their bank account to their PayPal account.",
+         "Data": "Name, e-mail and IP-address."
+       },
+       {
+         "name": "Mediamedics BV",
+         "parent": "Operational Services",
+         "Purpose": "To allow customers to instantly transfer money from their bank account to their PayPal account.",
+         "Data": "Name, e-mail and IP-address."
+       },
+       {
+         "name": "Giropay GMBH",
+         "parent": "Operational Services",
+         "Purpose": "To allow customers to instantly transfer money from their bank account to their PayPal account.",
+         "Data": "Name, e-mail and IP-address."
+       },
+       {
+         "name": "Trustly Group AB (Sweden)",
+         "parent": "Operational Services",
+         "Purpose": "To verify identity and ensure that a user is a PayPal account holder. To process instant funding requests made by a user via the instant top up service provided by the partner.",
+         "Data": "Name, KYC/KYB status, account activity information."
+       },
+       {
+         "name": "Applause App Quality, Inc. (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To provide ability to download PayPal apps for beta testing",
+         "Data": "Email address and country where located"
+       },
+       {
+         "name": "Google, Inc. (USA)\nAmazon Web Services (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To provide cloud-based hosting, storage and processing services to assist and/or enable PayPal to manage users’ Account Information as well as data generated through their use of Paypal Services and deliver, analyse and improve PayPal Services.",
+         "Data": "All Account Information, data generated through the use, and/or necessary for the provision of, Paypal Services and, more generally, all information referred to in the Privacy Policy (in each case referred to in this (section 8) in redacted or encrypted form)."
+       },
+       {
+         "name": "Accenture (Ireland)",
+         "parent": "Operational Services",
+         "Purpose": "Optimise Call Routing Technology and Processes.",
+         "Data": "Customer country, teams that have accessed the customer, unique customer identifier of end customer of PayPal."
+       },
+       {
+         "name": "Deloitte Tax LLP (US, UK, LUX)",
+         "parent": "Operational Services",
+         "Purpose": "Deloitte Tax LLP is PayPal’s third party compliance partner. Deloitte will review PayPal customer and merchant account information to determine if the account holder should be reported to the LUX authorities for FATCA purposes and facilitate the filing of the report with Lux authorities.",
+         "Data": "PayPal customer account and merchant, and bank information, name address, email address. Customer name or business name, customer or business address, tax payer identification number, customer account and tax documents (W-9, W8-BEN-E) email address, telephone number, account number, account balance, account create date, type of legal entity, citizenship status."
+       },
+       {
+         "name": "iManage LLC (United States)",
+         "parent": "Operational Services",
+         "Purpose": "Document storage for legal department",
+         "Data": "The documents stored on the system would also contain customer information such as might be included in a customer compliant, for example."
+       },
+       {
+         "name": "Syniverse ICX Corporation (United States)",
+         "parent": "Operational Services",
+         "Purpose": "To deliver text messages to customers",
+         "Data": "Customer’s mobile telephone numbers, international mobile subscriber identity (IMSI) and content of text messages"
+       },
+       {
+         "name": "McKinsey & Company, Inc. (United States)",
+         "parent": "Operational Services",
+         "Purpose": "Customer service monitoring, operations review",
+         "Data": "Name, address, email, telephone"
+       },
+       {
+         "name": "VXI Global Holdings BV (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To obtain information to be able to answer customer service inquiries",
+         "Data": "Full Name\nDate of Birth\nEmail address\nPhysical address\nTelephone number\nFinancials-bank, debit, and credit\nTransaction history\nBusiness details including URLs\nSSN/TIN/EIN\nIP Address\nCounterparty details"
+       },
+       {
+         "name": "Alorica Inc. (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To obtain information to be able to answer customer service inquiries",
+         "Data": "Full Name\nDate of Birth\nEmail address\nPhysical address\nTelephone number\nFinancials-bank, debit, and credit\nTransaction history\nBusiness details including URLs\nSSN/TIN/EIN\nIP Address, Counterparty details"
+       },
+       {
+         "name": "BeRuby (Spain)",
+         "parent": "Operational Services",
+         "Purpose": "To maintain and support an engagement platform",
+         "Data": "(Same information as disclosed with a merchant) Full Name Date of Birth, Age Range, Email address, Street Address, City, State Country Zip Code, Account Status, (verified), Account Type, Account Creation, Date, Time Zone, Locale, Language"
+       },
+       {
+         "name": "Gevekom GmbH (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "Providing assistance with PayPal services to business customers.",
+         "Data": "Company name, Name and surname, Email address, Shop URL, Shop system, Industry, Telephone number, Sign up date for PP PLUS, Eligibility to PUI, PP account ID"
+       },
+       {
+         "name": "US Direct E-Commerce Limited (Ireland)",
+         "parent": "Operational Services",
+         "Purpose": "Provides PayPal merchants the ability to purchase Shipping Labels to ship goods domestically as well as Cross Border. Provides PayPal merchants and their buyers the facility to track the shipments in real time.",
+         "Data": "Name, address, telephone number, email address, list of ready to be shipped transactions details, ready to be shipped transactions value, Item information,"
+       },
+       {
+         "name": "Genesys Telecommunications Laboratories Inc (USA), Performance Technology Partners LLC (USA)",
+         "parent": "Operational Services",
+         "Purpose": "To assist PayPal technical teams with resolving routing/telephony related issues.",
+         "Data": "Customer name, telephone number, account number"
+       },
+       {
+         "name": "BFS Finance Münster GmbH (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "To collect debt",
+         "Data": "Name, address, telephone number, account number, date of birth, email address, account type, account status, last four digits of financial instruments account, sort code, account balance, details of account transactions and liabilities, name of funding source provider and copies of all correspondence in each case relating to amounts you owe (or another person owes) to us."
+       },
+       {
+         "name": "Tesch mediafinanz GmbH (Germany), Fire Spa Consulting & Debt Management (IT)\nLowell Investment GmbH (DE)",
+         "parent": "Operational Services",
+         "Purpose": "To collect debt, to request and proceed information from and to Schufa, Buergel and other credit reference and fraud agencies for PayPal.",
+         "Data": "Name, address, telephone number, account number, date of birth, business name, email address, account type, account status, last four digits of financial instruments account, account balance, details of account transactions and liabilities, name of funding source provider, credit score received from agency, account performance data."
+       },
+       {
+         "name": "figo GmbH (Germany)",
+         "parent": "Operational Services",
+         "Purpose": "To verify identity, verify linkage between a customer and its bank account, make decisions concerning a customer’s credit worthiness, determine customer’s risk profile; carry out checks for the prevention and detection of crime including fraud and/or money laundering, manage PayPal accounts and undertake statistical analysis, undertake research and testing as to appropriateness of new products and services and system checking; to enable account information service and/or payment initiation service",
+         "Data": "Onlinebanking-Credentials"
+       },
+       {
+         "name": "BuiltWith Pty Ltd (Australia)\nAmazon.com Inc - Alexa Web Information Service (USA)",
+         "parent": "Operational Services",
+         "Purpose": "Assess seller website trustworthiness",
+         "Data": "Website address (URL"
+       },
+       {
+         "name": "Optima Legal Services Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To collect debt, to request and proceed information from and to Schufa, Buergel and other credit reference and fraud agencies for PayPal.",
+         "Data": "Name, address, telephone number, account number, date of birth, business name, email address, account type, account status, last four digits of financial instruments account, account balance, details of account transactions and liabilities, name of funding source provider, credit score received from agency, account performance data.."
+       },
+       {
+         "name": "Behaviometrics AB t/a BehavioSec (Sweden)",
+         "parent": "Operational Services",
+         "Purpose": "Assessment of fraud risk. Detection of fraudulent account takeover. Research and testing as to appropriateness of new products",
+         "Data": "Email address used for customer login, customer keyboard and cursor behavior when using PayPal website or App."
+       },
+       {
+         "name": "Onfido Ltd. (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To verify identity; automatic data extraction from images of documents, and document validation / forgery detection. Research and testing as to appropriateness of new products and services; training of document recognition",
+         "Data": "Name, address, email address, date of birth, legal form, company registration number, VAT number, documents proving identity and address, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk / Compliance/ Credit purposes."
+       },
+       {
+         "name": "Microsoft Inc. (US)",
+         "parent": "Operational Services",
+         "Purpose": "Facial image comparison for fraud prevention. Research and testing as to appropriateness of new products",
+         "Data": "Image of customer supplied as photo, video or via image of identity document."
+       },
+       {
+         "name": "WNS Global Services Limited (UK)",
+         "parent": "Operational Services",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, email address, date of birth, legal form, company registration number, VAT number, documents proving identity and address, ownership of a funding instrument, or other documents requested by PayPal and the data contained therein for Risk and Compliance Purposes."
+       },
+       {
+         "name": "Vaulto Technologies Ltd (Israel)",
+         "parent": "Operational Services",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, phone number, email address, customer’s spoken voice, customer keyboard and cursor behavior when using PayPal website or App."
+       },
+       {
+         "name": "Gigya, Inc. (US)",
+         "parent": "Operational Services",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, phone number, email address, customer’s spoken words, customer keyboard and cursor behavior when using PayPal website or App, Social media login’s or identity tokens (at customer discretion)."
+       },
+       {
+         "name": "Danal",
+         "parent": "Operational Services",
+         "Purpose": "To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, phone number, email address, customer’s spoken words, customer keyboard and cursor behavior when using PayPal website or App."
+       },
+       {
+         "name": "Early Warning Services LLC",
+         "parent": "Operational Services",
+         "Purpose": "Telephony based authentication service. To verify identity and carry out checks for the prevention and detection of crime including fraud and/or money laundering; research and testing as to appropriateness of new products",
+         "Data": "Name, address, phone number, email address, customer’s spoken words, customer keyboard and cursor behavior when using PayPal website or App."
+       },
+       {
+         "name": "Intrum (SE)",
+         "parent": "Operational Services",
+         "Purpose": "Debt collection of unpaid invoices",
+         "Data": "Name, address, social security number, invoice details"
+       },
+       {
+         "name": "Crashlytics (US)",
+         "parent": "Operational Services",
+         "Purpose": "To enable app analyzis, crash reports and statistics",
+         "Data": "Member id, alias, e-mail address"
+       },
+       {
+         "name": "LynkMobility (DE)",
+         "parent": "Operational Services",
+         "Purpose": "To deliver text messages to customers",
+         "Data": "Customer’s mobile telephone numbers"
+       }
+     ]},
+
+   {
+     "name": "Group Companies",
+     "parent": "PayPal",
+     "children": [
+       {
+         "name": "PayPal Inc. (USA)",
+         "parent": "Group Companies",
+         "Purpose": "Acting on behalf of PayPal for the purposes of storing and processing of Account information.",
+         "Data": "All Account information."
+       },
+       {
+         "name": "PayPal Europe Services Limited (Ireland), PayPal Malaysia Services Sdn Bhd (Kuala Lumpur), PayPal Israel Ltd (Israel), PayPal India Private Limited (India), PayPal (UK) Ltd (UK), PayPal France S.A.S. (France), PayPal Deutschland GmbH (Germany), PayPal Spain SL (Spain), PayPal Italia Srl (Italy), PayPal Nederland BV (Netherlands), PayPal European Marketing SA (Switzerland), PayPal Polska Sp Zoo (Poland), PayPal Bilisim Hizmetleri Limited Sirketi (Turkey), PayPal International S.à r.l.(Luxembourg), PayPal International Treasury Centre S.à r.l. PayPal SE (UK), Bill Me Later Inc. (Germany), PayPal Information Technologies (shanghai) Co., (China), PayPal Australia Pty Limited (Australia), PayPal Charitable Giving Fund (USA), PayPal Giving Fund UK (UK), Tradera AB (Sweden)",
+         "parent": "Group Companies",
+         "Purpose": "Acting on behalf of PayPal for the purpose of customer support, risk assessment, compliance and/or other back office.",
+         "Data": "All Account information."
+       },
+       {
+         "name": "PayPal Pte. Ltd. (Singapore)",
+         "parent": "Group Companies",
+         "Purpose": "Acting for the account of PayPal by entering into and performing non-customer contracts which involve customer data.",
+         "Data": "All Account information."
+       }
+
+  ]},
+
+  {
+    "name": "Commercial Partners",
+    "parent": "PayPal",
+    "children": [
+      {
+        "name": "eBay Inc. (USA), eBay Europe S.à r.l. (Luxembourg), eBay Services S. à r.l. (Luxembourg), eBay International AG (Switzerland), eBay Corporate Services GmbH (Germany), eBay France SAS (France), eBay (UK) Limited (UK), eBay CS Vancouver Inc. (Canada), eBay Partner Network Inc. (USA), eBay Internet Support (Shanghai) Co Ltd (China), eBay Enterprise Marketing Solutions (USA) (formerly GSI Commerce, Inc (USA), VendorNet Inc (USA), PepperJam Network (USA), GSI Media Inc. (USA), M3 Mobile Co., Ltd. (Korea), MBS (USA), ClearSaleing (USA), True Action Network (USA), True Action Studio (USA)), GumTree.com Limited (UK), Kijiji International Limited (Ireland), Kijiji US Inc. (USA), mobile.de & eBay Motors GmbH (Germany), Shopping.com Inc. (USA), Shopping Epinions International Limited (Ireland), Marktplaats B.V. (Netherlands), Private Sale GmbH (Germany), StubHub, Inc. (USA), Viva Group, Inc. (USA), StubHub Europe S.à r.l. (Luxembourg), StubHub Services S.à r.l. (Luxembourg), Viva Group, Inc. (USA), ProStores Inc. (USA), MicroPlace, Inc. (USA), Internet Auction Co., Ltd. (Korea), Via-Online GmbH (Germany), Zong Inc.(USA) and X.commerce, Inc. (USA). eBay Europe Services Limited (Ireland), eBay GmbH (Germany)",
+        "parent": "Commercial Partners",
+        "Purpose": "To provide joint customers content and services (including, but not limited to registration, transactions, failover for carrier billing accounts, and customer support), to assess risk, or to help detect, prevent and/or remediate fraud, or other potentially illegal acts and violations of policies, and to guide decisions about their products, services and communications, to enable eBay customer support to reach out to joint customers that have been identified as needing account support.",
+        "Data": "First Name, Last Name, Name of Business, E-mail address, All Account information, Transaction ID, eBay Claim ID, Date of transaction, Claim Type (INR, SNAD, Remorse, Etc), Amount of claim, Currency Type, Recovery Amount, Loss Amount"
+      }
+    ]},
+
+    {
+      "name": "Legal",
+      "parent": "PayPal",
+      "children": [
+        {
+          "name": "Altep, Inc. (USA); Altep Europe Ltd. (UK); Consilio, Inc. (USA, UK, Netherlands, Belgium, Ireland, Germany, Luxembourg, Switzerland, India, China, Japan); eTERA Consulting, LLC (USA, UK, Belgium, France, Switzerland, Italy, Ireland, Hungary, Luxembourg); Avansic, Inc. (USA); Deloitte Touche Tohmatsu Limited (USA, UK, Netherlands, Sweden, Germany, Belgium, Ireland, France, Switzerland, Luxembourg, India, China, Japan); Superior Review (US, UK); Morae Legal (USA)",
+          "parent": "Legal",
+          "Purpose": "Litigation Support to facilitate the preservation, collection, processing, analysis, review and production of electronically stored information to comply with requests from government agencies, third-parties, and adverse parties as required by law.",
+          "Data": "PayPal customer account and merchant, and bank information, name address, email address, social media user names, (truncated redacted or limited depending upon the case and requestor), internal employee communications, including email communications with merchants, customers, clients, and other third parties, spreadsheets, PowerPoint and other business documents related to PayPal and its affiliates."
+        }
+      ]},
+
+   {
+     "name": "Agencies",
+     "parent": "PayPal",
+     "children": [
+       {
+         "name": "CSSF (Luxembourg), Commission nationale pour la protection des données Luxembourg , Financial Ombudsman Service (UK), Altroconsumo (Italy), European Consumer Centre Network organisations (located in Austria, Belgium, Bulgaria Czech Republic, Cyprus, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, and the UK), Les Mediateurs du Net (France), Risolvi Online (Italy) and BaFin (Germany), Data Protection Agencies located in Austria, Belgium, Bulgaria Czech Republic, Cyprus, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, and the UK.",
+         "parent": "Agencies",
+         "Purpose": "To provide the Agencies listed with information within their authority (upon their request) and to respond to queries and/or investigations instigated by users or other stakeholders in the countries where they have jurisdiction.",
+         "Data": "All Account information."
+       }
+    ]}
+  ]
+}]
