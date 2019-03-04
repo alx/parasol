@@ -128,6 +128,8 @@ export default class SigmaComponent extends Component {
         break;
     }
 
+    console.log(graph.refresh);
+
     return (
       <div
         key={graph.refresh}

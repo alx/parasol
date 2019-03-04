@@ -18,6 +18,10 @@ new WebpackDevServer(webpack(config), {
   proxy: {
     '/api/*': {
       target: 'http://localhost/',
+    },
+    '/dd/*': {
+      target: 'http://localhost:8080/',
+      pathRewrite: {'^/dd' : ''}
     }
   },
 }).listen(8095, 'localhost', function (err, result) {

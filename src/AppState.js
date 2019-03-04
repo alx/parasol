@@ -1,22 +1,26 @@
 import { computed, observable, toJS } from "mobx";
 import moment from "moment";
 import color from "tinycolor2";
-import LoaderTsne from "./Loaders/Tsne";
+//import LoaderTsne from "./Loaders/Tsne";
 import LoaderJson from "./Loaders/Json";
 import LoaderLdaJson from "./Loaders/LdaJson";
 import LoaderLombardi from "./Loaders/Lombardi";
 import LoaderJsonFeed from "./Loaders/JsonFeed";
 import LoaderWeb3 from "./Loaders/Web3";
+import LoaderTextStream from "./Loaders/TextStream";
+import LoaderMastodon from "./Loaders/Mastodon";
 
 import FileSaver from "file-saver";
 
 const LOADERS = {
-  dd_tsne: LoaderTsne,
+  //dd_tsne: LoaderTsne,
   json: LoaderJson,
   lombardi: LoaderLombardi,
   jsonfeed: LoaderJsonFeed,
   ldajson: LoaderLdaJson,
-  web3: LoaderWeb3
+  web3: LoaderWeb3,
+  textstream: LoaderTextStream,
+  mastodon: LoaderMastodon
 };
 
 class AppState {
@@ -253,6 +257,7 @@ class AppState {
     ) {
       return false;
     }
+    console.log(network);
 
     this.networks.push(network);
     this.loadNetwork(network, callback);

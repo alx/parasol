@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Parasol</title>
+    <style type="text/css">
+      body{margin:0;}
+      .rc-slider-tooltip{z-index:1400;}
+    </style>
+  </head>
+  <body>
+    <div
+      class="parasol"
+      data-settings='{
+        "networks": [
+          {
+            "name": "mastodon.tetaneutral.net",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "mastodon",
+                "options": {
+                  "nodeLimit": 10000,
+                  "api_url": "https://botsin.space/api/v1/",
+                  "access_token": "28071b89781610fd6fe26cc67a7228c33b518448b4a53ac6d4bb87b8aadbf876"
+                }
+              },
+              "ui": {
+                "componentOptions": {
+                  "selectedNode": {"disable":true},
+                  "selectedNodes": {
+                    "itemPrimary": {"type": "attr", "key": "metadata.number", "prependText": "Block #"},
+                    "itemSecondary": {"type": "attr", "key": "size", "appendText" : " transactions"},
+                    "iconUrl": {"hrefKey": "metadata.number", "hrefPrefix": "https://etherscan.io/block/"}
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "mastodon.tetaneutral.net",
+            "options": {
+              "layout": "forcelink",
+              "loader": {
+                "name": "mastodon",
+                "options": {
+                  "nodeLimit": 10000,
+                  "network": "mastodon.tetaneutral.net"
+                }
+              },
+              "ui": {
+                "componentOptions": {
+                  "selectedNodes": {"disable":true},
+                  "selectedNode": {
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }'
+    />
+    <script type="text/javascript" src="/assets/js/parasol.js"></script></body>
+  </body>
+</html>
