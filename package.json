@@ -67,7 +67,6 @@
     "chart.js": "^2.7.1",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.0",
-    "deepdetect-js": "file:/home/alx/code/jolibrain/deepdetect-js",
     "eslint-loader": "^1.7.1",
     "eslint-watch": "^3.1.0",
     "eth-block-tracker": "^2.2.2",

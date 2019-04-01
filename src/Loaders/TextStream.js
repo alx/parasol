@@ -1,6 +1,6 @@
 import { computed, observable, toJS } from "mobx";
 require("babel-polyfill");
-import DD from "deepdetect-js";
+//import DD from "deepdetect-js";
 import {
   green500,
   deepOrange500,
@@ -59,7 +59,7 @@ export default class LoaderTextStream {
     this.network.set("colors", COLORS);
 
     try {
-      this.loadDD();
+      //this.loadDD();
 
       const urlStream = network.get("urlStream")
         ? network.get("urlStream")
@@ -73,7 +73,7 @@ export default class LoaderTextStream {
   }
 
   async loadDD() {
-    this.dd = new DD(this.options.ddServerParams);
+    //this.dd = new DD(this.options.ddServerParams);
 
     try {
       await this.dd.putService("sent_en", {
