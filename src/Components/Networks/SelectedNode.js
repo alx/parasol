@@ -71,7 +71,7 @@ export default class SelectedNode extends Component {
             case "link":
               content.key = `content-${index}`;
               return (
-                <LinkItem ley={content.key} node={node} content={content} />
+                <LinkItem key={content.key} node={node} content={content} />
               );
               break;
             default:
