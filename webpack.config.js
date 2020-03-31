@@ -19,6 +19,11 @@ const commitHash = require("child_process")
   .execSync("git rev-parse --short HEAD")
   .toString();
 
+const templatePath =
+  typeof process.env.TEMPLATE_PATH === "undefined"
+    ? path.join(__dirname, "docs/example.html")
+    : path.join(__dirname, process.env.TEMPLATE_PATH);
+
 const plugins = [
   new webpack.DefinePlugin({
     "process.env": {
@@ -32,7 +37,7 @@ const plugins = [
     hash: "[hash]",
     debug: "true",
     env: process.env.NODE_ENV,
-    template: path.join(__dirname, "docs/example.html"),
+    template: templatePath,
     filename: "index.html"
   }),
   new AssetsPlugin({
