@@ -68,7 +68,6 @@ export default class Legend extends React.Component {
       );
 
       if (appState.ui.filters.categories.includes(category.name)) {
-        console.log("use unchecked");
         categoryToggle = (
           <RadioButtonUnchecked
             style={styles.toggle}
