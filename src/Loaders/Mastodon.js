@@ -116,12 +116,19 @@ export default class Mastodon {
 
     this._createNode(
       source.id,
-      { category: source.category, number: source.id },
+      {
+        category: source.category,
+        timestamp: moment(),
+        number: source.id
+      },
       1
     );
 
     targets.forEach((target, index) => {
-      this._createNode(target.id, { category: target.category });
+      this._createNode(target.id, {
+        category: target.category,
+        timestamp: moment()
+      });
       this._createEdge({
         source: source.id,
         target: target.id,
