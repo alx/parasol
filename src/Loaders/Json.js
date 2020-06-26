@@ -109,6 +109,16 @@ class Json {
         );
 
         if (typeof callback != "undefined") callback(network);
+      })
+      .catch(error => {
+        const json = { nodes: [], edges: [] };
+        network.set("graph", json);
+        network.set("source_graph", json);
+        network.set("colors", COLORS);
+        network.set("categories", []);
+      })
+      .finally(() => {
+        if (typeof callback != "undefined") callback(network);
       });
   }
 }

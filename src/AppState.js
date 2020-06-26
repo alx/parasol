@@ -766,16 +766,21 @@ class AppState {
       this.ui.filters.nodes = [];
     }
 
-    graph.nodes.forEach(node => {
-      if (
-        this.ui.filters.categories.length == 3 &&
-        !toJS(selectedNetwork.get("graph")).selectedNodes
-      ) {
-        if (node.metadata && node.metadata.label) {
-          node.label = node.metadata.label;
-        }
-      }
-    });
+    // TODO: enable when fix ready
+    // 1. understand value of this method
+    // 2. bug when used on networks with more than 3 categories
+    // it'll freeze the browser when unselected categories from Legend component
+    //
+    // graph.nodes.forEach(node => {
+    //   if (
+    //     this.ui.filters.categories.length == 3 &&
+    //     !toJS(selectedNetwork.get("graph")).selectedNodes
+    //   ) {
+    //     if (node.metadata && node.metadata.label) {
+    //       node.label = node.metadata.label;
+    //     }
+    //   }
+    // });
 
     // hidden nodes and edges are not compatible with force atlas layout
     // they need to be removed

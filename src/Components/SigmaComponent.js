@@ -128,8 +128,6 @@ export default class SigmaComponent extends Component {
         break;
     }
 
-    console.log(graph.refresh);
-
     return (
       <div
         key={graph.refresh}
@@ -144,6 +142,7 @@ export default class SigmaComponent extends Component {
           onOverNode={this.selectNode}
           style={styles.sigma}
           settings={{
+            drawLabels: true,
             drawEdges: true,
             hideEdgesOnMove: false,
             animationsTime: 3000,
