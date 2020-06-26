@@ -42,6 +42,43 @@ class AppState {
     subnetworkLevels: 2
   };
 
+  // Drawers v0.3
+  //    drawers: [
+  //      {
+  //        id: "left",
+  //        open: true,
+  //        openSecondary: false,
+  //        components: [
+  //          { name: "AppBar" },
+  //          { name: "NetworkInput" },
+  //          { name: "NetworkUrlSuffixInput" },
+  //          { name: "NetworkList" },
+  //          { name: "Divider" },
+  //          { name: "ForceLinkSettings" },
+  //          { name: "Divider" },
+  //          { name: "Legend" },
+  //          { name: "TopicSelector" }
+  //        ]
+  //      },
+  //      {
+  //        id: "right",
+  //        open: true,
+  //        openSecondary: true,
+  //        components: [
+  //          { name: "SearchInput" },
+  //          { name: "NodeSize" },
+  //          { name: "EdgeWeight" },
+  //          { name: "HideOrphan" },
+  //          { name: "Divider" },
+  //          { name: "ShowSelected" },
+  //          { name: "SelectedNode" },
+  //          //{ name: "SelectedNodes" },
+  //          { name: "Divider" },
+  //          { name: "NeighborNodes" }
+  //        ]
+  //      }
+  //    ],
+
   @observable
   ui = {
     drawers: [
@@ -49,34 +86,13 @@ class AppState {
         id: "left",
         open: true,
         openSecondary: false,
-        components: [
-          { name: "AppBar" },
-          { name: "NetworkInput" },
-          { name: "NetworkUrlSuffixInput" },
-          { name: "NetworkList" },
-          { name: "Divider" },
-          { name: "ForceLinkSettings" },
-          { name: "Divider" },
-          { name: "Legend" },
-          { name: "TopicSelector" }
-        ]
+        components: [{ name: "Legend" }, { name: "NodeList" }]
       },
       {
         id: "right",
-        open: true,
+        open: false,
         openSecondary: true,
-        components: [
-          { name: "SearchInput" },
-          { name: "NodeSize" },
-          { name: "EdgeWeight" },
-          { name: "HideOrphan" },
-          { name: "Divider" },
-          { name: "ShowSelected" },
-          { name: "SelectedNode" },
-          //{ name: "SelectedNodes" },
-          { name: "Divider" },
-          { name: "NeighborNodes" }
-        ]
+        components: []
       }
     ],
     renderer: "canvas",
@@ -257,7 +273,7 @@ class AppState {
     ) {
       return false;
     }
-    console.log(network);
+    // console.log(network);
 
     this.networks.push(network);
     this.loadNetwork(network, callback);

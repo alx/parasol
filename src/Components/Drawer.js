@@ -17,6 +17,7 @@ import NetworkInput from "./Networks/Input";
 import NetworkList from "./Networks/List";
 import NetworkUrlSuffixInput from "./Networks/UrlSuffixInput";
 
+import NodeList from "./Networks/NodeList";
 import SelectedNode from "./Networks/SelectedNode";
 import SelectedNodes from "./Networks/SelectedNodes";
 import NeighborNodes from "./Networks/NeighborNodes";
@@ -49,6 +50,8 @@ export default class ParasolDrawer extends Component {
               return (
                 <NetworkList key={drawer.id + index} appState={appState} />
               );
+            case "NodeList":
+              return <NodeList key={drawer.id + index} appState={appState} />;
             case "NetworkUrlSuffixInput":
               return (
                 <NetworkUrlSuffixInput
