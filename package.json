@@ -64,7 +64,7 @@
     "axios": "^0.16.1",
     "babel-polyfill": "^6.26.0",
     "bn.js": "^4.11.8",
-    "chart.js": "^2.7.1",
+    "chart.js": "^2.9.4",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.0",
     "eslint-loader": "^1.7.1",
