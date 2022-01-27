@@ -97,7 +97,7 @@
     "react-sigma": "^1.2.17",
     "react-spinner-material": "^1.0.11",
     "react-tap-event-plugin": "^2.0.1",
-    "three": "^0.89.0",
+    "three": "^0.137.0",
     "throttle-debounce": "^1.0.1"
   }
 }
