@@ -60,7 +60,7 @@
     "aframe-meshline-component":
       "https://github.com/alx/aframe-meshline-component.git#unicode-fix",
     "aframe-react": "^4.3.0",
-    "async": "^2.6.2",
+    "async": "^2.6.4",
     "axios": "^0.16.1",
     "babel-polyfill": "^6.26.0",
     "bn.js": "^4.11.8",
