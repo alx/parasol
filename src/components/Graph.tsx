@@ -1,5 +1,5 @@
 import { useRef, useCallback, useEffect } from 'react'
-import { ForceGraph2D } from 'react-force-graph'
+import ForceGraph2D from 'react-force-graph-2d'
 import type { GraphNode, GraphLink } from '../types'
 
 interface Props {
